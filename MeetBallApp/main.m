@@ -1,0 +1,18 @@
+//
+//  main.m
+//  MeetBallApp
+//
+//  Created by Dominic Macanas on 8/27/13.
+//  Copyright (c) 2013 MeetBall. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#import "MBAppDelegate.h"
+
+int main(int argc, char *argv[])
+{
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MBAppDelegate class]));
+    }
+}
