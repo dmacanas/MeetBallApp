@@ -7,22 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2437C5A703FB45AC8DB19159 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161DEAD26C1043BC9F84DB02 /* libPods.a */; };
+		3446716C17CD225400469B39 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D8617CD152C001AE7D2 /* libTestFlight.a */; };
+		3446716E17CD22B900469B39 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3446716D17CD22B900469B39 /* libz.dylib */; };
+		3446717117CD24AC00469B39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3446717017CD24AC00469B39 /* Default-568h@2x.png */; };
+		3446717317CD24FD00469B39 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3446717217CD24FD00469B39 /* Default@2x.png */; };
+		3446717517CD254600469B39 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3446717417CD254600469B39 /* Default.png */; };
+		3446717917CD273600469B39 /* wsresources_prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3446717817CD273600469B39 /* wsresources_prod.plist */; };
+		3446717A17CD273600469B39 /* wsresources_prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3446717817CD273600469B39 /* wsresources_prod.plist */; };
+		3446717C17CD465D00469B39 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3446717B17CD465D00469B39 /* Security.framework */; };
+		3446717E17CD543400469B39 /* homeStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3446717D17CD543400469B39 /* homeStoryBoard.storyboard */; };
+		3446718117CD545B00469B39 /* MBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3446718017CD545B00469B39 /* MBHomeViewController.m */; };
+		3446718217CD545B00469B39 /* MBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3446718017CD545B00469B39 /* MBHomeViewController.m */; };
 		347BBD3617CCE92B00BE0E85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3517CCE92B00BE0E85 /* UIKit.framework */; };
 		347BBD3817CCE92B00BE0E85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3717CCE92B00BE0E85 /* Foundation.framework */; };
-		347BBD3A17CCE92B00BE0E85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3917CCE92B00BE0E85 /* CoreGraphics.framework */; };
 		347BBD4017CCE92B00BE0E85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD3E17CCE92B00BE0E85 /* InfoPlist.strings */; };
 		347BBD4217CCE92B00BE0E85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD4117CCE92B00BE0E85 /* main.m */; };
 		347BBD4617CCE92B00BE0E85 /* MBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD4517CCE92B00BE0E85 /* MBAppDelegate.m */; };
-		347BBD4817CCE92B00BE0E85 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD4717CCE92B00BE0E85 /* Default.png */; };
-		347BBD4A17CCE92B00BE0E85 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD4917CCE92B00BE0E85 /* Default@2x.png */; };
-		347BBD4C17CCE92B00BE0E85 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD4B17CCE92B00BE0E85 /* Default-568h@2x.png */; };
-		347BBD4F17CCE92B00BE0E85 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD4D17CCE92B00BE0E85 /* MainStoryboard.storyboard */; };
-		347BBD5217CCE92B00BE0E85 /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD5117CCE92B00BE0E85 /* MBViewController.m */; };
+		347BBD4F17CCE92B00BE0E85 /* loginFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD4D17CCE92B00BE0E85 /* loginFlow.storyboard */; };
+		347BBD5217CCE92B00BE0E85 /* MBLandingScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD5117CCE92B00BE0E85 /* MBLandingScreenViewController.m */; };
 		347BBD5A17CCE92B00BE0E85 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD5917CCE92B00BE0E85 /* SenTestingKit.framework */; };
 		347BBD5B17CCE92B00BE0E85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3517CCE92B00BE0E85 /* UIKit.framework */; };
 		347BBD5C17CCE92B00BE0E85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3717CCE92B00BE0E85 /* Foundation.framework */; };
-		347BBD6417CCE92B00BE0E85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD6217CCE92B00BE0E85 /* InfoPlist.strings */; };
-		347BBD6717CCE92B00BE0E85 /* MeetBallAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD6617CCE92B00BE0E85 /* MeetBallAppTests.m */; };
+		347BBD7317CCEFE500BE0E85 /* MBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7217CCEFE500BE0E85 /* MBLoginViewController.m */; };
+		347BBD7417CCEFE500BE0E85 /* MBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7217CCEFE500BE0E85 /* MBLoginViewController.m */; };
+		347BBD7717CCF1F300BE0E85 /* MBSuitUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7617CCF1F300BE0E85 /* MBSuitUpViewController.m */; };
+		347BBD7817CCF1F300BE0E85 /* MBSuitUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7617CCF1F300BE0E85 /* MBSuitUpViewController.m */; };
+		347BBD7D17CCF7CD00BE0E85 /* MBSuitUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7C17CCF7CD00BE0E85 /* MBSuitUpCell.m */; };
+		347BBD7F17CCF7E900BE0E85 /* MBSuitUpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD7E17CCF7E900BE0E85 /* MBSuitUpCell.xib */; };
+		3495815817CE43980050A47D /* MBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815717CE43980050A47D /* MBUser.m */; };
+		3495815917CE43980050A47D /* MBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815717CE43980050A47D /* MBUser.m */; };
+		3495815C17CE47400050A47D /* MeetBall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3495815A17CE47400050A47D /* MeetBall.xcdatamodeld */; };
+		3495815D17CE47400050A47D /* MeetBall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3495815A17CE47400050A47D /* MeetBall.xcdatamodeld */; };
+		3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815F17CE4AE10050A47D /* MBDataImporter.m */; };
+		3495816117CE4AE10050A47D /* MBDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815F17CE4AE10050A47D /* MBDataImporter.m */; };
+		3495816417CE4C230050A47D /* MBDataImporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495816317CE4C230050A47D /* MBDataImporterTests.m */; };
+		3495816717CE4CE80050A47D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3495816617CE4CE80050A47D /* libPods.a */; };
+		3495816817CE4D340050A47D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3917CCE92B00BE0E85 /* CoreGraphics.framework */; };
+		3495816B17CE502E0050A47D /* MBDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495816A17CE502E0050A47D /* MBDataCommunicator.m */; };
+		3495816C17CE502E0050A47D /* MBDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495816A17CE502E0050A47D /* MBDataCommunicator.m */; };
+		3495816E17CE5C230050A47D /* wsresource_dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3495816D17CE5C230050A47D /* wsresource_dev.plist */; };
+		3495816F17CE5C230050A47D /* wsresource_dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3495816D17CE5C230050A47D /* wsresource_dev.plist */; };
+		3495817217CE61BA0050A47D /* MBDataCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495817117CE61BA0050A47D /* MBDataCommunicatorTests.m */; };
+		3495817417CE62880050A47D /* MeetBallApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD3D17CCE92B00BE0E85 /* MeetBallApp-Info.plist */; };
+		3495817617CE64A80050A47D /* MeetBallApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD3D17CCE92B00BE0E85 /* MeetBallApp-Info.plist */; };
+		34C70D7717CD06B4001AE7D2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7517CD06A1001AE7D2 /* CoreLocation.framework */; };
+		34C70D7A17CD06CE001AE7D2 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7817CD06C5001AE7D2 /* AddressBook.framework */; };
+		34C70D7C17CD0747001AE7D2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7B17CD0747001AE7D2 /* CoreData.framework */; };
+		34C70D7E17CD0780001AE7D2 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7D17CD0780001AE7D2 /* Accounts.framework */; };
+		34C70D8017CD07B5001AE7D2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7F17CD07B5001AE7D2 /* Social.framework */; };
+		34C70D8217CD1410001AE7D2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34C70D8117CD1410001AE7D2 /* Icon.png */; };
+		34C70D8417CD144D001AE7D2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34C70D8317CD144D001AE7D2 /* Icon@2x.png */; };
+		34C70D8D17CD152C001AE7D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 34C70D8717CD152C001AE7D2 /* README.md */; };
+		34C70D8E17CD152C001AE7D2 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 34C70D8817CD152C001AE7D2 /* release_notes.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,28 +73,65 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		347BBD3217CCE92B00BE0E85 /* MeetBallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetBallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		161DEAD26C1043BC9F84DB02 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE6291DE139430690C1E728 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3446716D17CD22B900469B39 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3446717017CD24AC00469B39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		3446717217CD24FD00469B39 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3446717417CD254600469B39 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3446717817CD273600469B39 /* wsresources_prod.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wsresources_prod.plist; sourceTree = "<group>"; };
+		3446717B17CD465D00469B39 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3446717D17CD543400469B39 /* homeStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = homeStoryBoard.storyboard; sourceTree = "<group>"; };
+		3446717F17CD545B00469B39 /* MBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHomeViewController.h; sourceTree = "<group>"; };
+		3446718017CD545B00469B39 /* MBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHomeViewController.m; sourceTree = "<group>"; };
+		347BBD3217CCE92B00BE0E85 /* MeetBall Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MeetBall Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BBD3517CCE92B00BE0E85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		347BBD3717CCE92B00BE0E85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		347BBD3917CCE92B00BE0E85 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		347BBD3D17CCE92B00BE0E85 /* MeetBallApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeetBallApp-Info.plist"; sourceTree = "<group>"; };
+		347BBD3D17CCE92B00BE0E85 /* MeetBallApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MeetBallApp-Info.plist"; path = "/Users/dominicmacanas/Documents/MeetBallApp/MeetBallApp/MeetBallApp-Info.plist"; sourceTree = "<absolute>"; };
 		347BBD3F17CCE92B00BE0E85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		347BBD4117CCE92B00BE0E85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		347BBD4317CCE92B00BE0E85 /* MeetBallApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetBallApp-Prefix.pch"; sourceTree = "<group>"; };
 		347BBD4417CCE92B00BE0E85 /* MBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAppDelegate.h; sourceTree = "<group>"; };
 		347BBD4517CCE92B00BE0E85 /* MBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppDelegate.m; sourceTree = "<group>"; };
-		347BBD4717CCE92B00BE0E85 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		347BBD4917CCE92B00BE0E85 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		347BBD4B17CCE92B00BE0E85 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		347BBD4E17CCE92B00BE0E85 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		347BBD5017CCE92B00BE0E85 /* MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBViewController.h; sourceTree = "<group>"; };
-		347BBD5117CCE92B00BE0E85 /* MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBViewController.m; sourceTree = "<group>"; };
+		347BBD4E17CCE92B00BE0E85 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/loginFlow.storyboard; sourceTree = "<group>"; };
+		347BBD5017CCE92B00BE0E85 /* MBLandingScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBLandingScreenViewController.h; sourceTree = "<group>"; };
+		347BBD5117CCE92B00BE0E85 /* MBLandingScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLandingScreenViewController.m; sourceTree = "<group>"; };
 		347BBD5817CCE92B00BE0E85 /* MeetBallAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetBallAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BBD5917CCE92B00BE0E85 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		347BBD6117CCE92B00BE0E85 /* MeetBallAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeetBallAppTests-Info.plist"; sourceTree = "<group>"; };
-		347BBD6317CCE92B00BE0E85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		347BBD6517CCE92B00BE0E85 /* MeetBallAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetBallAppTests.h; sourceTree = "<group>"; };
-		347BBD6617CCE92B00BE0E85 /* MeetBallAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetBallAppTests.m; sourceTree = "<group>"; };
+		347BBD7117CCEFE500BE0E85 /* MBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLoginViewController.h; sourceTree = "<group>"; };
+		347BBD7217CCEFE500BE0E85 /* MBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLoginViewController.m; sourceTree = "<group>"; };
+		347BBD7517CCF1F300BE0E85 /* MBSuitUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSuitUpViewController.h; sourceTree = "<group>"; };
+		347BBD7617CCF1F300BE0E85 /* MBSuitUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSuitUpViewController.m; sourceTree = "<group>"; };
+		347BBD7B17CCF7CD00BE0E85 /* MBSuitUpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSuitUpCell.h; sourceTree = "<group>"; };
+		347BBD7C17CCF7CD00BE0E85 /* MBSuitUpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSuitUpCell.m; sourceTree = "<group>"; };
+		347BBD7E17CCF7E900BE0E85 /* MBSuitUpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBSuitUpCell.xib; sourceTree = "<group>"; };
+		3495815617CE43980050A47D /* MBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBUser.h; path = MeetBallApp/MBUser.h; sourceTree = "<group>"; };
+		3495815717CE43980050A47D /* MBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBUser.m; path = MeetBallApp/MBUser.m; sourceTree = "<group>"; };
+		3495815B17CE47400050A47D /* MeetBall.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeetBall.xcdatamodel; sourceTree = "<group>"; };
+		3495815E17CE4AE10050A47D /* MBDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataImporter.h; sourceTree = "<group>"; };
+		3495815F17CE4AE10050A47D /* MBDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataImporter.m; sourceTree = "<group>"; };
+		3495816217CE4C230050A47D /* MBDataImporterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBDataImporterTests.h; path = MeetBallApp/MBDataImporterTests.h; sourceTree = "<group>"; };
+		3495816317CE4C230050A47D /* MBDataImporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBDataImporterTests.m; path = MeetBallApp/MBDataImporterTests.m; sourceTree = "<group>"; };
+		3495816617CE4CE80050A47D /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		3495816917CE502E0050A47D /* MBDataCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataCommunicator.h; sourceTree = "<group>"; };
+		3495816A17CE502E0050A47D /* MBDataCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataCommunicator.m; sourceTree = "<group>"; };
+		3495816D17CE5C230050A47D /* wsresource_dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wsresource_dev.plist; sourceTree = "<group>"; };
+		3495817017CE61BA0050A47D /* MBDataCommunicatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataCommunicatorTests.h; sourceTree = "<group>"; };
+		3495817117CE61BA0050A47D /* MBDataCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataCommunicatorTests.m; sourceTree = "<group>"; };
+		34C70D7517CD06A1001AE7D2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		34C70D7817CD06C5001AE7D2 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		34C70D7B17CD0747001AE7D2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		34C70D7D17CD0780001AE7D2 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		34C70D7F17CD07B5001AE7D2 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		34C70D8117CD1410001AE7D2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		34C70D8317CD144D001AE7D2 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		34C70D8617CD152C001AE7D2 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		34C70D8717CD152C001AE7D2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		34C70D8817CD152C001AE7D2 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		34C70D8917CD152C001AE7D2 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		34C70D8A17CD152C001AE7D2 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		34C70D8B17CD152C001AE7D2 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +139,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3495816817CE4D340050A47D /* CoreGraphics.framework in Frameworks */,
+				3446717C17CD465D00469B39 /* Security.framework in Frameworks */,
+				3446716E17CD22B900469B39 /* libz.dylib in Frameworks */,
 				347BBD3617CCE92B00BE0E85 /* UIKit.framework in Frameworks */,
+				34C70D8017CD07B5001AE7D2 /* Social.framework in Frameworks */,
+				34C70D7E17CD0780001AE7D2 /* Accounts.framework in Frameworks */,
+				34C70D7C17CD0747001AE7D2 /* CoreData.framework in Frameworks */,
+				34C70D7A17CD06CE001AE7D2 /* AddressBook.framework in Frameworks */,
+				34C70D7717CD06B4001AE7D2 /* CoreLocation.framework in Frameworks */,
 				347BBD3817CCE92B00BE0E85 /* Foundation.framework in Frameworks */,
-				347BBD3A17CCE92B00BE0E85 /* CoreGraphics.framework in Frameworks */,
+				2437C5A703FB45AC8DB19159 /* libPods.a in Frameworks */,
+				3446716C17CD225400469B39 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3495816717CE4CE80050A47D /* libPods.a in Frameworks */,
 				347BBD5A17CCE92B00BE0E85 /* SenTestingKit.framework in Frameworks */,
 				347BBD5B17CCE92B00BE0E85 /* UIKit.framework in Frameworks */,
 				347BBD5C17CCE92B00BE0E85 /* Foundation.framework in Frameworks */,
@@ -84,20 +168,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3446716F17CD244D00469B39 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3446717617CD26FF00469B39 /* images */,
+				3446717817CD273600469B39 /* wsresources_prod.plist */,
+				3495816D17CE5C230050A47D /* wsresource_dev.plist */,
+				3495815617CE43980050A47D /* MBUser.h */,
+				3495815717CE43980050A47D /* MBUser.m */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3446717617CD26FF00469B39 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				34C70D8317CD144D001AE7D2 /* Icon@2x.png */,
+				34C70D8117CD1410001AE7D2 /* Icon.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		347BBD2917CCE92B00BE0E85 = {
 			isa = PBXGroup;
 			children = (
+				3495816517CE4C300050A47D /* Unit Tests */,
+				3446716F17CD244D00469B39 /* Resources */,
 				347BBD3B17CCE92B00BE0E85 /* MeetBallApp */,
-				347BBD5F17CCE92B00BE0E85 /* MeetBallAppTests */,
 				347BBD3417CCE92B00BE0E85 /* Frameworks */,
 				347BBD3317CCE92B00BE0E85 /* Products */,
+				2BE6291DE139430690C1E728 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		347BBD3317CCE92B00BE0E85 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				347BBD3217CCE92B00BE0E85 /* MeetBallApp.app */,
+				347BBD3217CCE92B00BE0E85 /* MeetBall Lite.app */,
 				347BBD5817CCE92B00BE0E85 /* MeetBallAppTests.octest */,
 			);
 			name = Products;
@@ -106,10 +213,19 @@
 		347BBD3417CCE92B00BE0E85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3446717B17CD465D00469B39 /* Security.framework */,
+				3446716D17CD22B900469B39 /* libz.dylib */,
+				34C70D8517CD152C001AE7D2 /* TestFlightSDK2.0.0 */,
+				34C70D7F17CD07B5001AE7D2 /* Social.framework */,
+				34C70D7D17CD0780001AE7D2 /* Accounts.framework */,
+				34C70D7B17CD0747001AE7D2 /* CoreData.framework */,
+				34C70D7817CD06C5001AE7D2 /* AddressBook.framework */,
+				34C70D7517CD06A1001AE7D2 /* CoreLocation.framework */,
 				347BBD3517CCE92B00BE0E85 /* UIKit.framework */,
 				347BBD3717CCE92B00BE0E85 /* Foundation.framework */,
 				347BBD3917CCE92B00BE0E85 /* CoreGraphics.framework */,
 				347BBD5917CCE92B00BE0E85 /* SenTestingKit.framework */,
+				161DEAD26C1043BC9F84DB02 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,11 +233,10 @@
 		347BBD3B17CCE92B00BE0E85 /* MeetBallApp */ = {
 			isa = PBXGroup;
 			children = (
+				347BBD7A17CCF49C00BE0E85 /* Main */,
 				347BBD4417CCE92B00BE0E85 /* MBAppDelegate.h */,
 				347BBD4517CCE92B00BE0E85 /* MBAppDelegate.m */,
-				347BBD4D17CCE92B00BE0E85 /* MainStoryboard.storyboard */,
-				347BBD5017CCE92B00BE0E85 /* MBViewController.h */,
-				347BBD5117CCE92B00BE0E85 /* MBViewController.m */,
+				347BBD7017CCEFBE00BE0E85 /* landing/login flow */,
 				347BBD3C17CCE92B00BE0E85 /* Supporting Files */,
 			);
 			path = MeetBallApp;
@@ -134,30 +249,68 @@
 				347BBD3E17CCE92B00BE0E85 /* InfoPlist.strings */,
 				347BBD4117CCE92B00BE0E85 /* main.m */,
 				347BBD4317CCE92B00BE0E85 /* MeetBallApp-Prefix.pch */,
-				347BBD4717CCE92B00BE0E85 /* Default.png */,
-				347BBD4917CCE92B00BE0E85 /* Default@2x.png */,
-				347BBD4B17CCE92B00BE0E85 /* Default-568h@2x.png */,
+				3446717417CD254600469B39 /* Default.png */,
+				3446717217CD24FD00469B39 /* Default@2x.png */,
+				3446717017CD24AC00469B39 /* Default-568h@2x.png */,
+				3495815A17CE47400050A47D /* MeetBall.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		347BBD5F17CCE92B00BE0E85 /* MeetBallAppTests */ = {
+		347BBD7017CCEFBE00BE0E85 /* landing/login flow */ = {
 			isa = PBXGroup;
 			children = (
-				347BBD6517CCE92B00BE0E85 /* MeetBallAppTests.h */,
-				347BBD6617CCE92B00BE0E85 /* MeetBallAppTests.m */,
-				347BBD6017CCE92B00BE0E85 /* Supporting Files */,
+				347BBD4D17CCE92B00BE0E85 /* loginFlow.storyboard */,
+				347BBD5017CCE92B00BE0E85 /* MBLandingScreenViewController.h */,
+				347BBD5117CCE92B00BE0E85 /* MBLandingScreenViewController.m */,
+				347BBD7117CCEFE500BE0E85 /* MBLoginViewController.h */,
+				347BBD7217CCEFE500BE0E85 /* MBLoginViewController.m */,
+				3495815E17CE4AE10050A47D /* MBDataImporter.h */,
+				3495815F17CE4AE10050A47D /* MBDataImporter.m */,
+				3495816917CE502E0050A47D /* MBDataCommunicator.h */,
+				3495816A17CE502E0050A47D /* MBDataCommunicator.m */,
+				347BBD7517CCF1F300BE0E85 /* MBSuitUpViewController.h */,
+				347BBD7617CCF1F300BE0E85 /* MBSuitUpViewController.m */,
+				347BBD7B17CCF7CD00BE0E85 /* MBSuitUpCell.h */,
+				347BBD7C17CCF7CD00BE0E85 /* MBSuitUpCell.m */,
+				347BBD7E17CCF7E900BE0E85 /* MBSuitUpCell.xib */,
 			);
-			path = MeetBallAppTests;
+			name = "landing/login flow";
 			sourceTree = "<group>";
 		};
-		347BBD6017CCE92B00BE0E85 /* Supporting Files */ = {
+		347BBD7A17CCF49C00BE0E85 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				347BBD6117CCE92B00BE0E85 /* MeetBallAppTests-Info.plist */,
-				347BBD6217CCE92B00BE0E85 /* InfoPlist.strings */,
+				3446717D17CD543400469B39 /* homeStoryBoard.storyboard */,
+				3446717F17CD545B00469B39 /* MBHomeViewController.h */,
+				3446718017CD545B00469B39 /* MBHomeViewController.m */,
 			);
-			name = "Supporting Files";
+			name = Main;
+			sourceTree = "<group>";
+		};
+		3495816517CE4C300050A47D /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3495816617CE4CE80050A47D /* libPods.a */,
+				3495816217CE4C230050A47D /* MBDataImporterTests.h */,
+				3495816317CE4C230050A47D /* MBDataImporterTests.m */,
+				3495817017CE61BA0050A47D /* MBDataCommunicatorTests.h */,
+				3495817117CE61BA0050A47D /* MBDataCommunicatorTests.m */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		34C70D8517CD152C001AE7D2 /* TestFlightSDK2.0.0 */ = {
+			isa = PBXGroup;
+			children = (
+				34C70D8617CD152C001AE7D2 /* libTestFlight.a */,
+				34C70D8717CD152C001AE7D2 /* README.md */,
+				34C70D8817CD152C001AE7D2 /* release_notes.md */,
+				34C70D8917CD152C001AE7D2 /* TestFlight+AsyncLogging.h */,
+				34C70D8A17CD152C001AE7D2 /* TestFlight+ManualSessions.h */,
+				34C70D8B17CD152C001AE7D2 /* TestFlight.h */,
+			);
+			path = TestFlightSDK2.0.0;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,9 +320,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 347BBD6A17CCE92B00BE0E85 /* Build configuration list for PBXNativeTarget "MeetBallApp" */;
 			buildPhases = (
+				5FEDFEE2593940309EC8E585 /* Check Pods Manifest.lock */,
 				347BBD2E17CCE92B00BE0E85 /* Sources */,
 				347BBD2F17CCE92B00BE0E85 /* Frameworks */,
 				347BBD3017CCE92B00BE0E85 /* Resources */,
+				ADD43F8F4CCB42398C67169D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,7 +332,7 @@
 			);
 			name = MeetBallApp;
 			productName = MeetBallApp;
-			productReference = 347BBD3217CCE92B00BE0E85 /* MeetBallApp.app */;
+			productReference = 347BBD3217CCE92B00BE0E85 /* MeetBall Lite.app */;
 			productType = "com.apple.product-type.application";
 		};
 		347BBD5717CCE92B00BE0E85 /* MeetBallAppTests */ = {
@@ -233,10 +388,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				347BBD4017CCE92B00BE0E85 /* InfoPlist.strings in Resources */,
-				347BBD4817CCE92B00BE0E85 /* Default.png in Resources */,
-				347BBD4A17CCE92B00BE0E85 /* Default@2x.png in Resources */,
-				347BBD4C17CCE92B00BE0E85 /* Default-568h@2x.png in Resources */,
-				347BBD4F17CCE92B00BE0E85 /* MainStoryboard.storyboard in Resources */,
+				347BBD4F17CCE92B00BE0E85 /* loginFlow.storyboard in Resources */,
+				347BBD7F17CCF7E900BE0E85 /* MBSuitUpCell.xib in Resources */,
+				34C70D8217CD1410001AE7D2 /* Icon.png in Resources */,
+				34C70D8417CD144D001AE7D2 /* Icon@2x.png in Resources */,
+				34C70D8D17CD152C001AE7D2 /* README.md in Resources */,
+				34C70D8E17CD152C001AE7D2 /* release_notes.md in Resources */,
+				3446717117CD24AC00469B39 /* Default-568h@2x.png in Resources */,
+				3446717317CD24FD00469B39 /* Default@2x.png in Resources */,
+				3446717517CD254600469B39 /* Default.png in Resources */,
+				3446717917CD273600469B39 /* wsresources_prod.plist in Resources */,
+				3446717E17CD543400469B39 /* homeStoryBoard.storyboard in Resources */,
+				3495816E17CE5C230050A47D /* wsresource_dev.plist in Resources */,
+				3495817417CE62880050A47D /* MeetBallApp-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +408,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				347BBD6417CCE92B00BE0E85 /* InfoPlist.strings in Resources */,
+				3495817617CE64A80050A47D /* MeetBallApp-Info.plist in Resources */,
+				3446717A17CD273600469B39 /* wsresources_prod.plist in Resources */,
+				3495816F17CE5C230050A47D /* wsresource_dev.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +430,36 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		5FEDFEE2593940309EC8E585 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ADD43F8F4CCB42398C67169D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -273,7 +469,15 @@
 			files = (
 				347BBD4217CCE92B00BE0E85 /* main.m in Sources */,
 				347BBD4617CCE92B00BE0E85 /* MBAppDelegate.m in Sources */,
-				347BBD5217CCE92B00BE0E85 /* MBViewController.m in Sources */,
+				347BBD5217CCE92B00BE0E85 /* MBLandingScreenViewController.m in Sources */,
+				347BBD7317CCEFE500BE0E85 /* MBLoginViewController.m in Sources */,
+				347BBD7717CCF1F300BE0E85 /* MBSuitUpViewController.m in Sources */,
+				347BBD7D17CCF7CD00BE0E85 /* MBSuitUpCell.m in Sources */,
+				3446718117CD545B00469B39 /* MBHomeViewController.m in Sources */,
+				3495815817CE43980050A47D /* MBUser.m in Sources */,
+				3495815C17CE47400050A47D /* MeetBall.xcdatamodeld in Sources */,
+				3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */,
+				3495816B17CE502E0050A47D /* MBDataCommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +485,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				347BBD6717CCE92B00BE0E85 /* MeetBallAppTests.m in Sources */,
+				347BBD7417CCEFE500BE0E85 /* MBLoginViewController.m in Sources */,
+				347BBD7817CCF1F300BE0E85 /* MBSuitUpViewController.m in Sources */,
+				3446718217CD545B00469B39 /* MBHomeViewController.m in Sources */,
+				3495815917CE43980050A47D /* MBUser.m in Sources */,
+				3495815D17CE47400050A47D /* MeetBall.xcdatamodeld in Sources */,
+				3495816117CE4AE10050A47D /* MBDataImporter.m in Sources */,
+				3495816417CE4C230050A47D /* MBDataImporterTests.m in Sources */,
+				3495816C17CE502E0050A47D /* MBDataCommunicator.m in Sources */,
+				3495817217CE61BA0050A47D /* MBDataCommunicatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,20 +516,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		347BBD4D17CCE92B00BE0E85 /* MainStoryboard.storyboard */ = {
+		347BBD4D17CCE92B00BE0E85 /* loginFlow.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				347BBD4E17CCE92B00BE0E85 /* en */,
 			);
-			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
-		347BBD6217CCE92B00BE0E85 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				347BBD6317CCE92B00BE0E85 /* en */,
-			);
-			name = InfoPlist.strings;
+			name = loginFlow.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -381,22 +585,38 @@
 		};
 		347BBD6B17CCE92B00BE0E85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BE6291DE139430690C1E728 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeetBallApp/MeetBallApp-Prefix.pch";
 				INFOPLIST_FILE = "MeetBallApp/MeetBallApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
+				);
+				PRODUCT_NAME = "MeetBall Lite";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		347BBD6C17CCE92B00BE0E85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BE6291DE139430690C1E728 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeetBallApp/MeetBallApp-Prefix.pch";
 				INFOPLIST_FILE = "MeetBallApp/MeetBallApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
+				);
+				PRODUCT_NAME = "MeetBall Lite";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -454,6 +674,7 @@
 				347BBD6C17CCE92B00BE0E85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		347BBD6D17CCE92B00BE0E85 /* Build configuration list for PBXNativeTarget "MeetBallAppTests" */ = {
 			isa = XCConfigurationList;
@@ -462,8 +683,22 @@
 				347BBD6F17CCE92B00BE0E85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3495815A17CE47400050A47D /* MeetBall.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3495815B17CE47400050A47D /* MeetBall.xcdatamodel */,
+			);
+			currentVersion = 3495815B17CE47400050A47D /* MeetBall.xcdatamodel */;
+			path = MeetBall.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 347BBD2A17CCE92B00BE0E85 /* Project object */;
 }

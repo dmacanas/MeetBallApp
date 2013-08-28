@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MBViewController : UIViewController
+@interface MBLandingScreenViewController : UIViewController
 
 @end

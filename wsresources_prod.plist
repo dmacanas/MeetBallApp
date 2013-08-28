@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MeetBallLogin</key>
+	<dict>
+		<key>path</key>
+		<string>/Session/Login</string>
+		<key>protocol</key>
+		<string>https</string>
+		<key>server</key>
+		<string>ws.meetball.com/2.0/service.svc/json</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>contentType</key>
+		<string>application/json</string>
+	</dict>
+</dict>
+</plist>

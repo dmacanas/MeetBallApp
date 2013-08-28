@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 MeetBall. All rights reserved.
 //
 
-#import "MBViewController.h"
+#import "MBLandingScreenViewController.h"
 
-@interface MBViewController ()
+@interface MBLandingScreenViewController ()
 
 @end
 
-@implementation MBViewController
+@implementation MBLandingScreenViewController
 
 - (void)viewDidLoad
 {
