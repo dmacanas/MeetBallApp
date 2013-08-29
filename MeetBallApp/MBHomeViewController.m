@@ -7,6 +7,7 @@
 //
 
 #import "MBHomeViewController.h"
+#import "MBUser.h"
 
 @interface MBHomeViewController ()
 
@@ -28,8 +29,8 @@
     [super viewDidLoad];
     
     if(self.userInfo){
-        self.fullNameLabel.text = [self.userInfo objectForKey:@"name"];
-        self.emailLabel.text = [self.userInfo objectForKey:@"email"];
+        self.fullNameLabel.text = self.userInfo.firstName;
+        self.emailLabel.text = self.userInfo.email;
     }
 	// Do any additional setup after loading the view.
 }
@@ -40,4 +41,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)testCancel:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 @end

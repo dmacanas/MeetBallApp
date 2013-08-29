@@ -17,15 +17,26 @@
 
 - (void)getUserWithCredtentials:(NSDictionary *)userInfo success:(void (^)(NSURLRequest *, NSHTTPURLResponse *, id))success failure:(void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id))failure{
     MBDataCommunicator *comm = [[MBDataCommunicator alloc] init];
-    
+//    NSManagedObjectContext *managedOC = [NSManagedObjectContext MR_contextForCurrentThread];
+//    [managedOC setPersistentStoreCoordinator:[NSPersistentStoreCoordinator defaultStoreCoordinator]];
+//    [managedOC setUndoManager:nil];
     __weak MBDataImporter *weakSelf = self;
     [comm executeRequestWithData:userInfo succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if(JSON) {
-            NSDictionary *d = (NSDictionary *)JSON;
-            if ([[[[d objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
-                NSDictionary *user = [[[d objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"Items"] objectAtIndex:0];
-                [weakSelf storeUser:user inContext:weakSelf.moc];
-            }
+//            NSDictionary *d = (NSDictionary *)JSON;
+//            if ([[[[d objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
+//                NSDictionary *user = [[[d objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"Items"] objectAtIndex:0];
+//                MBUser *mbuser = [MBUser createEntity];
+//                mbuser.firstName = user[@"FirstName"];
+//                mbuser.lastName = userInfo[@"LastName"];
+//                mbuser.meetBallHandle = user[@"Handle"];
+//                mbuser.meetBallID = @"601";
+//                mbuser.facebookID = user[@"FacebookId"];
+//                mbuser.email = user[@"Email"];
+//                mbuser.phoneNumber = @"1234567890";
+//                [managedOC saveToPersistentStoreAndWait];
+////                [weakSelf storeUser:user inContext:managedOC completion:nil];
+//            }
             
             if(success){
                 success(request, response, JSON);
@@ -38,7 +49,7 @@
     }];
 }
 
-- (void)storeUser:(NSDictionary *)userInfo inContext:(NSManagedObjectContext *)moc{
+- (void)storeUser:(NSDictionary *)userInfo inContext:(NSManagedObjectContext *)moc completion:(void(^)())completion{
     MBUser *user = [MBUser createEntity];
     user.firstName = userInfo[@"FirstName"];
     user.lastName = userInfo[@"LastName"];
@@ -47,7 +58,11 @@
     user.facebookID = userInfo[@"FacebookId"];
     user.email = userInfo[@"Email"];
     user.phoneNumber = @"1234567890";
-    [MagicalRecord saveWithBlock:nil];
+    [[NSManagedObjectContext MR_contextForCurrentThread] saveWithOptions:MRSaveSynchronously|MRSaveParentContexts completion:^(BOOL success, NSError *error) {
+        if(error){
+            NSLog(@"error %@",error);
+        }
+    }];
 }
 
 - (void)getPhoneNumbersForInfo:(NSDictionary *)userInfo {
@@ -62,7 +77,7 @@
         if(JSON){
             if ([[[JSON objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
                 NSDictionary *user = [[JSON objectForKey:@"Items"] objectAtIndex:0];
-                [weakSelf storeUser:user inContext:weakSelf.moc];
+                [weakSelf storeUser:user inContext:weakSelf.moc completion:nil];
             }
             
             if(success){

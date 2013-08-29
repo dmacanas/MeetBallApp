@@ -13,8 +13,11 @@
 
 - (void)testSessionID {
     MBDataCommunicator *comm = [[MBDataCommunicator alloc] init];
-    NSString *test = [comm getSessionID];
-    STAssertNotNil(test, @"session id is nill");
+    __block NSString *string;
+    [comm getSessionID:^(NSString *sid) {
+        string = sid;
+        STAssertNotNil(string, @"session id is nill");
+    }];
 }
 
 @end

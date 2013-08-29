@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBUser.h"
 
 @interface MBHomeViewController : UIViewController
-@property (strong, nonatomic) NSDictionary *userInfo;
+@property (strong, nonatomic) MBUser *userInfo;
 
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+- (IBAction)testCancel:(id)sender;
 
 @end
