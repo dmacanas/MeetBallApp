@@ -16,14 +16,21 @@
 #import "MBDataImporter.h"
 #import "MagicalRecordShorthand.h"
 #import "NSManagedObject+MagicalFinders.h"
+#import "MBCredentialManager.h"
 
 #import <FacebookSDK/FacebookSDK.h>
+
+static NSString * const kAuthentication = @"authenticated";
+static NSString * const kAppUserId = @"AppUserId";
 
 @interface MBLoginViewController () <FBLoginViewDelegate>
 
 @property (weak, nonatomic) FBLoginView *FBLogin;
 @property (strong, nonatomic) MBDataImporter *importer;
+@property (strong, nonatomic) MBDataCommunicator *commLink;
 @property (strong, nonatomic) NSManagedObjectContext *moc;
+@property (strong, nonatomic) NSString *email;
+@property (assign, nonatomic) BOOL needsPasswordUpdate;
 
 @end
 
@@ -43,23 +50,15 @@
     [super viewDidLoad];
     [self.passwordField setDelegate:self];
     [self.emailField setDelegate:self];
+    self.email = @"";
     self.emailField.text = @"dominic@meetball.com";
     self.passwordField.text = @"password1";
     self.importer = [[MBDataImporter alloc] init];
-    self.moc = [(MBAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contextDidSave:) name:NSManagedObjectContextDidSaveNotification object:nil];
 
     self.FacebookLogin.readPermissions = @[@"basic_info", @"email", @"user_mobile_phone"];
     self.FacebookLogin.delegate = self;
     
 	// Do any additional setup after loading the view.
-}
-
-- (void)contextDidSave:(NSNotification *)notification {
-    NSLog(@"notification %@ thread%@",notification, [NSManagedObjectContext MR_contextForCurrentThread]);
-    SEL selector = @selector(mergeChangesFromContextDidSaveNotification:);
-    [[NSManagedObjectContext MR_defaultContext] performSelectorOnMainThread:selector withObject:notification waitUntilDone:YES];
 }
 
 
@@ -84,8 +83,10 @@
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
-    NSLog(@"%@ thread%@",[MBUser MR_findAll], [NSManagedObjectContext MR_contextForCurrentThread]);
+    NSURLCredential *cred = [MBCredentialManager defaultCredential];
+    NSLog(@"%@ password %@",[MBCredentialManager defaultCredential], cred.password);
     [FBSession.activeSession closeAndClearTokenInformation];
+    [MBCredentialManager clearCredentials];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -94,17 +95,60 @@
 }
 
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
-    __weak MBLoginViewController *weakSelf = self;
-    if([FBSession.activeSession state] == FBSessionStateClosed){
+    [SVProgressHUD showWithStatus:@"Loading Account" maskType:SVProgressHUDMaskTypeClear];
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
+        __weak MBLoginViewController *weakSelf = self;
         [self.importer getUserWithFacebookID:(NSDictionary *)user success:^(NSDictionary *JSON) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"facebookID == %@",(NSDictionary *)user[@"id"]];
-            MBUser *user = [MBUser findFirstWithPredicate:predicate];
-            [weakSelf launchToHomeScreenWithUser:user];
-            NSLog(@"%@",JSON);
+            if(JSON){
+                if([JSON[@"MbResult"][@"Success"] boolValue]){
+                    [SVProgressHUD dismiss];
+                    weakSelf.email = [[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Email"];
+                    NSString *pwd = [[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Password"];
+                    [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Email"] forKey:kAppUserId];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    if(pwd == nil){
+                        weakSelf.needsPasswordUpdate = YES;
+                        [weakSelf showAlertViewToGetPassword];
+                    }
+                }
+            }
         } failure:^(NSError *error) {
             NSLog(@"ero %@",error);
         }];
     }
+}
+
+- (void)showAlertViewToGetPassword {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter a password" message:@"To use for your new MeetBall Account" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([alertView.title isEqualToString:@"Enter a password"]) {
+        if (buttonIndex == 1 && [[alertView textFieldAtIndex:0] text].length > 0) {
+            [MBCredentialManager clearCredentials];
+            NSURLCredential *cred = [[NSURLCredential alloc] initWithUser:self.email password:[alertView textFieldAtIndex:0].text persistence:NSURLCredentialPersistencePermanent];
+            [MBCredentialManager saveCredential:cred];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAuthentication];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self setFacebookAccount:@{@"AppUserId": [[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId], @"password":[alertView textFieldAtIndex:0].text}];
+        } else {
+            [FBSession.activeSession closeAndClearTokenInformation];
+        }
+    }
+}
+
+- (void)setFacebookAccount:(NSDictionary *)data {
+    [self.importer setUserPasswordForFacebookUser:data success:^(NSDictionary *success) {
+        if(success){
+            NSLog(@"%@",success);
+        }
+    } failure:^(NSError *er) {
+        if(er){
+            NSLog(@"FacebookPasswordError %@", er);
+        }
+    }];
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
@@ -112,6 +156,7 @@
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kAuthentication];
     NSLog(@"login view showing logged out user");
 }
 
@@ -121,9 +166,6 @@
     if([self isLoginFieldsValid]){
         [self.view endEditing:YES];
         [SVProgressHUD showWithStatus:@"Logging In" maskType:SVProgressHUDMaskTypeClear];
-//        __block NSManagedObjectContext *moc = [(MBAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-        __block NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-        [moc setParentContext:[NSManagedObjectContext MR_defaultContext]];
         __weak MBLoginViewController *weakSelf = self;
         [self.importer getUserWithCredtentials:@{@"email": self.emailField.text, @"password":self.passwordField.text} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
         {
@@ -131,23 +173,13 @@
             if (JSON && ![[[[JSON objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]){
                 [weakSelf handleLoginFailureWithError:[[[JSON objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"FriendlyErrorMsg"]];
             } else if (JSON && [[[[JSON objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]){
-                NSDictionary *user = [[[(NSDictionary *)JSON objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"Items"] objectAtIndex:0];
-                MBUser *mbuser = [MBUser createEntity];
-                mbuser.firstName = user[@"FirstName"];
-                mbuser.lastName = user[@"LastName"];
-                mbuser.meetBallHandle = user[@"Handle"];
-                mbuser.meetBallID = @"601";
-                mbuser.facebookID = user[@"FacebookId"];
-                mbuser.email = user[@"Email"];
-                mbuser.phoneNumber = @"1234567890";
-                [moc saveWithOptions:MRSaveParentContexts|MRSaveSynchronously completion:^(BOOL success, NSError *error) {
-                    if (error) {
-                        NSLog(@"error %@",error);
-                    }
-                }];
+                
+                NSURLCredential *streetCred = [[NSURLCredential alloc] initWithUser:weakSelf.emailField.text password:weakSelf.passwordField.text persistence:NSURLCredentialPersistencePermanent];
+                [MBCredentialManager saveCredential:streetCred];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAuthentication];
+                [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
+                [[NSUserDefaults standardUserDefaults] synchronize];
             }
-//            MBUser *u = [MBUser MR_findFirstWithPredicate:predicate];
-            //[weakSelf launchToHomeScreenWithUser:u];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
         {
             [SVProgressHUD dismiss];

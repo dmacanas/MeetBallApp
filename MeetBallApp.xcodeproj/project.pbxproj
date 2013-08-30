@@ -25,6 +25,8 @@
 		343491F217CF92D000C857F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7B17CD0747001AE7D2 /* CoreData.framework */; };
 		343491F317CF92D600C857F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3917CCE92B00BE0E85 /* CoreGraphics.framework */; };
 		343491F417CF92E200C857F8 /* MBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815717CE43980050A47D /* MBUser.m */; };
+		3434920517D0E88700C857F8 /* MBCredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3434920417D0E88700C857F8 /* MBCredentialManager.m */; };
+		3434920617D0E88700C857F8 /* MBCredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3434920417D0E88700C857F8 /* MBCredentialManager.m */; };
 		3446716C17CD225400469B39 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D8617CD152C001AE7D2 /* libTestFlight.a */; };
 		3446716E17CD22B900469B39 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3446716D17CD22B900469B39 /* libz.dylib */; };
 		3446717117CD24AC00469B39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3446717017CD24AC00469B39 /* Default-568h@2x.png */; };
@@ -71,6 +73,8 @@
 		343491DE17CF914500C857F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		343491E317CF914500C857F8 /* Unit Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unit Tests-Prefix.pch"; sourceTree = "<group>"; };
 		343491EF17CF91D400C857F8 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "../Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		3434920317D0E88700C857F8 /* MBCredentialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCredentialManager.h; sourceTree = "<group>"; };
+		3434920417D0E88700C857F8 /* MBCredentialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCredentialManager.m; sourceTree = "<group>"; };
 		3446716D17CD22B900469B39 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		3446717017CD24AC00469B39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3446717217CD24FD00469B39 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -195,12 +199,22 @@
 				3495815717CE43980050A47D /* MBUser.m */,
 			);
 			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		343491FA17D0E26000C857F8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				343491F517CFA74F00C857F8 /* Models */,
+				3434920317D0E88700C857F8 /* MBCredentialManager.h */,
+				3434920417D0E88700C857F8 /* MBCredentialManager.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		3446716F17CD244D00469B39 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				343491F517CFA74F00C857F8 /* Models */,
 				3446717617CD26FF00469B39 /* images */,
 				3446717817CD273600469B39 /* wsresources_prod.plist */,
 				3495816D17CE5C230050A47D /* wsresource_dev.plist */,
@@ -261,6 +275,7 @@
 		347BBD3B17CCE92B00BE0E85 /* MeetBallApp */ = {
 			isa = PBXGroup;
 			children = (
+				343491FA17D0E26000C857F8 /* Common */,
 				347BBD7A17CCF49C00BE0E85 /* Main */,
 				347BBD4417CCE92B00BE0E85 /* MBAppDelegate.h */,
 				347BBD4517CCE92B00BE0E85 /* MBAppDelegate.m */,
@@ -489,6 +504,7 @@
 				343491ED17CF917C00C857F8 /* MBDataCommunicator.m in Sources */,
 				343491EE17CF917F00C857F8 /* MBSuitUpViewController.m in Sources */,
 				343491F417CF92E200C857F8 /* MBUser.m in Sources */,
+				3434920617D0E88700C857F8 /* MBCredentialManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +523,7 @@
 				3495815C17CE47400050A47D /* MeetBall.xcdatamodeld in Sources */,
 				3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */,
 				3495816B17CE502E0050A47D /* MBDataCommunicator.m in Sources */,
+				3434920517D0E88700C857F8 /* MBCredentialManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

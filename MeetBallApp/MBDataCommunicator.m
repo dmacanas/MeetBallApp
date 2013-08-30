@@ -24,7 +24,7 @@
     NSURL *url = [[NSURL alloc] initWithString:@"http://wsdev.meetball.com/2.0/service.svc/json/Session/Login"];
     self.email = [data objectForKey:@"email"];
     self.password = [data objectForKey:@"password"];
-    NSURLRequest *request = [self createURLRequestWithURL:url];
+    NSURLRequest *request = [self createURLRequestWithURL:url forFacebook:NO];
     
     AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if(success){
@@ -40,10 +40,10 @@
     [AFRequest start];
 }
 
-- (NSURLRequest *)createURLRequestWithURL:(NSURL *)url {
+- (NSURLRequest *)createURLRequestWithURL:(NSURL *)url forFacebook:(BOOL)fbUser{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    [request setHTTPBody:[self createJSONBodyForRequest]];
+    [request setHTTPBody:[self createJSONBodyForRequest:fbUser]];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -51,8 +51,14 @@
     return request;
 }
 
-- (NSData *)createJSONBodyForRequest {
-    NSDictionary *params = @{@"email": self.email, @"password":self.password, @"apikey":@"43f1f673-959b-4abd-8619-027902a3a4a8"};
+- (NSData *)createJSONBodyForRequest:(BOOL)forFacebook{
+    NSDictionary *params;
+    if(forFacebook) {
+        params = @{@"appUserId": self.email, @"oldPassword":[NSNull null], @"newPassword":self.password, @"apikey":@"43f1f673-959b-4abd-8619-027902a3a4a8"};
+    }else{
+        params = @{@"email": self.email, @"password":self.password, @"apikey":@"43f1f673-959b-4abd-8619-027902a3a4a8"};
+    }
+    
     NSError *jsonError;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:0 error:&jsonError];
     
@@ -108,6 +114,27 @@
             }
         }];
     }];
+}
+
+-(void)updatePasswordForNewFacebookUser:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure {
+    NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Password?appUserId=%@",self.email];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    self.email = [data objectForKey:@"AppUserId"];
+    self.password = [data objectForKey:@"password"];
+    NSURLRequest *request = [self createURLRequestWithURL:url forFacebook:YES];
+    
+    AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if(success){
+            success(request, response, JSON);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if(failure){
+            failure(request, response, error, JSON);
+        }
+    }];
+    
+    [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
+    [AFRequest start];
 }
 
 @end

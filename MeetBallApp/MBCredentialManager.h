@@ -10,4 +10,8 @@
 
 @interface MBCredentialManager : NSObject
 
++(void)saveCredential:(NSURLCredential *)credential;
++(NSURLCredential *)defaultCredential;
++(void)clearCredentials;
+
 @end

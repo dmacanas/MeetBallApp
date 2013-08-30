@@ -16,5 +16,6 @@
 - (void)getUserWithCredtentials:(NSDictionary *)userInfo success:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
 
 - (void)getUserWithFacebookID:(NSDictionary *)userInfo success:(void(^)(NSDictionary *JSON))success failure:(void(^)(NSError *error))failure;
+- (void)setUserPasswordForFacebookUser:(NSDictionary *)userInfo success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure;
 
 @end

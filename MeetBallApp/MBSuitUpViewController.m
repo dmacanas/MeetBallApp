@@ -56,6 +56,10 @@
     NSString *mainLabelText = [[NSString alloc] initWithFormat:@"%@:",[self.labelArray objectAtIndex:indexPath.row]];
     [cell.mainLabel setText:mainLabelText];
     [cell.textField setPlaceholder:[self.labelArray objectAtIndex:indexPath.row]];
+    if ([mainLabelText isEqualToString:@"Password:"] || [mainLabelText isEqualToString:@"Confirm Password:"]) {
+        cell.textField.secureTextEntry = YES;
+    }
+    cell.tag = indexPath.row+2;
     
     return cell;
 }
@@ -71,6 +75,7 @@
 }
 
 - (IBAction)suitUpAction:(id)sender {
+    MBSuitUpCell *cell = (MBSuitUpCell *)[self.tableView viewWithTag:2];
     
 }
 @end
