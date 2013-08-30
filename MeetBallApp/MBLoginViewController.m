@@ -95,8 +95,8 @@ static NSString * const kAppUserId = @"AppUserId";
 }
 
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
-    [SVProgressHUD showWithStatus:@"Loading Account" maskType:SVProgressHUDMaskTypeClear];
     if(![[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
+        [SVProgressHUD showWithStatus:@"Loading Account" maskType:SVProgressHUDMaskTypeClear];
         __weak MBLoginViewController *weakSelf = self;
         [self.importer getUserWithFacebookID:(NSDictionary *)user success:^(NSDictionary *JSON) {
             if(JSON){
@@ -104,7 +104,7 @@ static NSString * const kAppUserId = @"AppUserId";
                     [SVProgressHUD dismiss];
                     weakSelf.email = [[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Email"];
                     NSString *pwd = [[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Password"];
-                    [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Email"] forKey:kAppUserId];
+                    [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     if(pwd == nil){
                         weakSelf.needsPasswordUpdate = YES;

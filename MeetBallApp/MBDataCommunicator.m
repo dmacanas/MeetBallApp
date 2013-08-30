@@ -117,10 +117,11 @@
 }
 
 -(void)updatePasswordForNewFacebookUser:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure {
-    NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Password?appUserId=%@",self.email];
-    NSURL *url = [[NSURL alloc] initWithString:urlString];
     self.email = [data objectForKey:@"AppUserId"];
     self.password = [data objectForKey:@"password"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Password?appUserId=%@",self.email];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest *request = [self createURLRequestWithURL:url forFacebook:YES];
     
     AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -135,6 +136,45 @@
     
     [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
     [AFRequest start];
+}
+
+-(void)registerNewUser:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure {
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser/"];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    NSURLRequest *request = [self createURLRequestForNewUserWithURL:url withInfo:data];
+    
+    AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if(success){
+            success(request, response, JSON);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if(failure){
+            failure(request, response, error, JSON);
+        }
+    }];
+    
+    [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
+    [AFRequest start];
+}
+
+- (NSURLRequest *)createURLRequestForNewUserWithURL:(NSURL *)url withInfo:(NSDictionary *)info{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [request setHTTPBody:[self createJSONBodyForNewUser:info]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    return request;
+}
+
+- (NSData *)createJSONBodyForNewUser:(NSDictionary *)data{
+    NSDictionary *params = @{@"firstName": data[@"firstName"], @"lastName":data[@"lastName"], @"email":data[@"email"], @"handle":data[@"handle"],@"phone":data[@"phone"],@"sessionId":@""};
+    NSError *jsonError;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:0 error:&jsonError];
+    
+    return jsonData;
 }
 
 @end

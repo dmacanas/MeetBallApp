@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MBSuitUpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MBSuitUpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)cancelButtonPressed:(id)sender;
