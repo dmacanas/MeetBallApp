@@ -8,11 +8,13 @@
 
 #import "MBSuitUpViewController.h"
 #import "MBSuitUpCell.h"
+#import "MBDataCommunicator.h"
 
 @interface MBSuitUpViewController ()
 
 @property (strong, nonatomic) NSArray *labelArray;
 @property (assign, nonatomic) CGSize originalSize;
+@property (strong, nonatomic) MBDataCommunicator *commLink;
 
 @end
 
@@ -34,6 +36,7 @@
     self.labelArray = [[NSArray alloc] initWithObjects:@"First Name", @"Last Name", @"Email", @"Phone Number", @"MeetBall Handle", @"Password", @"Confirm Password", nil];
     [self.tableView setDelegate: self];
     [self.tableView setDataSource:self];
+    self.commLink = [[MBDataCommunicator alloc] init];
 	// Do any additional setup after loading the view.
 }
 
@@ -107,6 +110,41 @@
 }
 
 - (IBAction)suitUpAction:(id)sender {
+    if([self validateSuitUpCells]){
+        __weak MBSuitUpViewController *weakSelf = self;
+        __block NSString *firstName = [[(MBSuitUpCell *)[self.tableView viewWithTag:2] textField] text];
+        __block NSString *lastName = [[(MBSuitUpCell *)[self.tableView viewWithTag:3] textField] text];
+        __block NSString *email = [[(MBSuitUpCell *)[self.tableView viewWithTag:4] textField] text];
+        __block NSString *handle = [[(MBSuitUpCell *)[self.tableView viewWithTag:6] textField] text];
+        __block NSString *phone = [[(MBSuitUpCell *)[self.tableView viewWithTag:5] textField] text];
+        [self.commLink getSessionID:^(NSString *sid) {
+            if(sid){
+                //actual user registration
+                NSDictionary *params = @{@"firstName": firstName, @"lastName":lastName, @"email":email, @"handle":handle,@"phone":phone,@"sessionId":[sid stringByReplacingOccurrencesOfString:@"\"" withString:@""]};
+                [weakSelf completionBlock:params];
+            }
+        }];
+    }
+}
+
+- (void)completionBlock:(NSDictionary *)data {
+    
+    __weak MBSuitUpViewController *weakSelf = self;
+    [self.commLink registerNewUser:data succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if ([[(NSDictionary *)JSON[@"InsertAppUserJsonResult"][@"MbResult"] objectForKey: @"Success"] boolValue]){
+            NSDictionary *data = @{@"AppUserId": @"",@"password":@""};
+//            [weakSelf.commLink updatePasswordForNewFacebookUser:data succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//                NSLog(@"JSON %@", JSON);
+//            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+//                NSLog(@"Error %@ %s", error, __PRETTY_FUNCTION__);
+//            }];
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Error %@ %s", error, __PRETTY_FUNCTION__);
+    }];
+}
+
+- (BOOL)validateSuitUpCells{
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (int i = 2; i < self.labelArray.count+2; i++){
         MBSuitUpCell *cell = (MBSuitUpCell *)[self.tableView viewWithTag:i];
@@ -118,7 +156,7 @@
     if(array.count > 0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please enter all of your information" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [alert show];
-        return;
+        return NO;
     }
     
     NSString *pwd = [[(MBSuitUpCell *)[self.tableView viewWithTag:7] textField] text];
@@ -126,11 +164,10 @@
     if(![pwd isEqualToString:cpwd]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Passwords don't match" message:nil delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [alert show];
-        return;
+        return NO;
     }
     
-    
-    
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning

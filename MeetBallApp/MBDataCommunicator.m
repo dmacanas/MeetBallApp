@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *password;
+@property (strong, nonatomic) NSDictionary *dictionary;
 
 @end
 
@@ -79,8 +80,20 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
 
-    AFHTTPClient *AFClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    [AFClient getPath:[url absoluteString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    AFHTTPClient *AFClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+//    [AFClient getPath:[url absoluteString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        if(responseObject){
+//            NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
+//            if(completion){
+//                completion(str);
+//            }
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Get session id failure");
+//    }];
+    
+    AFHTTPRequestOperation *AFRequest = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [AFRequest setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if(responseObject){
             NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
             if(completion){
@@ -90,6 +103,11 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Get session id failure");
     }];
+    [AFRequest start];
+    
+    
+//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//    [queue addOperation:AFClient];
 }
 
 -(void)getUserInfoWithFacebookID:(NSDictionary *)data succss:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure {
@@ -134,6 +152,7 @@
         }
     }];
     
+    [AFRequest waitUntilFinished];
     [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
     [AFRequest start];
 }
@@ -160,7 +179,7 @@
 
 - (NSURLRequest *)createURLRequestForNewUserWithURL:(NSURL *)url withInfo:(NSDictionary *)info{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
+    self.dictionary = info;
     [request setHTTPBody:[self createJSONBodyForNewUser:info]];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -170,7 +189,12 @@
 }
 
 - (NSData *)createJSONBodyForNewUser:(NSDictionary *)data{
-    NSDictionary *params = @{@"firstName": data[@"firstName"], @"lastName":data[@"lastName"], @"email":data[@"email"], @"handle":data[@"handle"],@"phone":data[@"phone"],@"sessionId":@""};
+    NSDictionary *params;
+    if(data){
+        params = @{@"firstName": data[@"firstName"], @"lastName":data[@"lastName"], @"email":data[@"email"], @"handle":data[@"handle"],@"phone":data[@"phone"],@"sessionId":data[@"sessionId"]};
+    } else {
+        params = @{@"firstName": self.dictionary[@"firstName"], @"lastName":self.dictionary[@"lastName"], @"email":self.dictionary[@"email"], @"handle":self.dictionary[@"handle"],@"phone":self.dictionary[@"phone"],@"sessionId":self.dictionary[@"sessionId"]};
+    }
     NSError *jsonError;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:0 error:&jsonError];
     

@@ -13,6 +13,7 @@
 //POST methods
 - (void)executeRequestWithData:(NSDictionary *)data succss:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
 -(void)updatePasswordForNewFacebookUser:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
+-(void)registerNewUser:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
 
 //GET methods
 - (void)getPhoneNumberWithUserInfo:(NSDictionary *)userInfo succss:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
