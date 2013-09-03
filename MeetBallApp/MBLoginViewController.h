@@ -19,6 +19,7 @@
 
 - (IBAction)login:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
+- (IBAction)forgotPasswordAction:(id)sender;
 
 
 @end

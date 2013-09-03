@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBSuitUpViewController.m"
-         timestampString = "399834569.269603"
+         timestampString = "399933611.368563"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
+         startingLineNumber = "191"
+         endingLineNumber = "191"
          landmarkName = "@implementation MBSuitUpViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -21,16 +21,16 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBDataCommunicator.m"
-         timestampString = "399837290.266656"
+         timestampString = "399925200.488467"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "141"
-         endingLineNumber = "141"
-         landmarkName = "-updatePasswordForNewFacebookUser:succss:failure:"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
+         landmarkName = "-getUserInfoWithFacebookID:succss:failure:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBDataCommunicator.m"
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBSuitUpViewController.m"
-         timestampString = "399828603.508072"
+         timestampString = "399933611.368563"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "105"
+         endingLineNumber = "105"
          landmarkName = "-textFieldShouldBeginEditing:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBSuitUpViewController.m"
-         timestampString = "399828603.508072"
+         timestampString = "399933611.368563"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
          landmarkName = "-textFieldShouldBeginEditing:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBSuitUpViewController.m"
-         timestampString = "399828603.508072"
+         timestampString = "399933611.368563"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "102"
-         endingLineNumber = "102"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
          landmarkName = "-textFieldShouldReturn:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,38 +86,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBSuitUpViewController.m"
-         timestampString = "399831911.937849"
+         timestampString = "399933611.368563"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
+         startingLineNumber = "135"
+         endingLineNumber = "135"
          landmarkName = "-suitUpAction:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "MeetBallApp/MBDataCommunicator.m"
-         timestampString = "399837290.266656"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "201"
-         endingLineNumber = "201"
-         landmarkName = "-createJSONBodyForNewUser:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "MeetBallApp/MBDataCommunicator.m"
-         timestampString = "399837290.266656"
+         filePath = "MeetBallApp/MBHomeViewController.m"
+         timestampString = "399925843.129415"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "192"
-         endingLineNumber = "192"
-         landmarkName = "-createJSONBodyForNewUser:"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "-testCancel:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MeetBallApp/MBForgotPasswordViewController.m"
+         timestampString = "399937608.376858"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
+         landmarkName = "-resetPassword:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MeetBallApp/MBForgotPasswordViewController.m"
+         timestampString = "399937649.73871"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
+         landmarkName = "-resetPassword:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -125,25 +138,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBDataCommunicator.m"
-         timestampString = "399837290.266656"
+         timestampString = "399937690.201683"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "198"
-         endingLineNumber = "198"
-         landmarkName = "-createJSONBodyForNewUser:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "MeetBallApp/MBSuitUpViewController.m"
-         timestampString = "399834566.560512"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
-         landmarkName = "-completionBlock:"
+         startingLineNumber = "187"
+         endingLineNumber = "187"
+         landmarkName = "-resetPassword:succss:failure:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

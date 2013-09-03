@@ -22,6 +22,7 @@
 
 static NSString * const kAuthentication = @"authenticated";
 static NSString * const kAppUserId = @"AppUserId";
+static NSString * const kFirstName = @"FirstName";
 
 @interface MBLoginViewController () <FBLoginViewDelegate>
 
@@ -51,12 +52,12 @@ static NSString * const kAppUserId = @"AppUserId";
     [self.passwordField setDelegate:self];
     [self.emailField setDelegate:self];
     self.email = @"";
-    self.emailField.text = @"dominic@meetball.com";
-    self.passwordField.text = @"password1";
     self.importer = [[MBDataImporter alloc] init];
 
     self.FacebookLogin.readPermissions = @[@"basic_info", @"email", @"user_mobile_phone"];
     self.FacebookLogin.delegate = self;
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
+    [self.loginButton setBackgroundImage:[[UIImage imageNamed:@"btn-blue.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:14] forState:UIControlStateNormal];
     
 	// Do any additional setup after loading the view.
 }
@@ -90,11 +91,14 @@ static NSString * const kAppUserId = @"AppUserId";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
+- (IBAction)forgotPasswordAction:(id)sender {
+}
+
+- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
     NSLog(@"Facebook Error");
 }
 
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
     if(![[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
         [SVProgressHUD showWithStatus:@"Loading Account" maskType:SVProgressHUDMaskTypeClear];
         __weak MBLoginViewController *weakSelf = self;
@@ -105,6 +109,7 @@ static NSString * const kAppUserId = @"AppUserId";
                     weakSelf.email = [[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Email"];
                     NSString *pwd = [[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Password"];
                     [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
+                    [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"Items"] objectAtIndex:0] objectForKey:@"FirstName"] forKey:kFirstName];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     if(pwd == nil){
                         weakSelf.needsPasswordUpdate = YES;
@@ -113,6 +118,7 @@ static NSString * const kAppUserId = @"AppUserId";
                 }
             }
         } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
             NSLog(@"ero %@",error);
         }];
     }
@@ -133,6 +139,7 @@ static NSString * const kAppUserId = @"AppUserId";
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAuthentication];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [self setFacebookAccount:@{@"AppUserId": [[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId], @"password":[alertView textFieldAtIndex:0].text}];
+            [self launchHomeScreen];
         } else {
             [FBSession.activeSession closeAndClearTokenInformation];
         }
@@ -160,8 +167,6 @@ static NSString * const kAppUserId = @"AppUserId";
     NSLog(@"login view showing logged out user");
 }
 
-
-
 - (IBAction)login:(id)sender {
     if([self isLoginFieldsValid]){
         [self.view endEditing:YES];
@@ -178,7 +183,10 @@ static NSString * const kAppUserId = @"AppUserId";
                 [MBCredentialManager saveCredential:streetCred];
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAuthentication];
                 [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
+                [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"FirstName"] forKey:kFirstName];
                 [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                [weakSelf launchHomeScreen];
             }
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
         {
@@ -188,17 +196,15 @@ static NSString * const kAppUserId = @"AppUserId";
     }
 }
 
+- (void)launchHomeScreen {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
+    UIViewController *vc = [sb instantiateInitialViewController];
+    [self presentViewController:vc animated:NO completion:nil];
+}
+
 - (void)handleLoginFailureWithError:(NSString *)error {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Error" message:error delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
     [alert show];
-}
-
-- (void)launchToHomeScreenWithUser:(MBUser *)user{
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
-    MBHomeViewController *home = [sb instantiateInitialViewController];
-    home.userInfo = user;
-    
-    [self presentViewController:home animated:NO completion:nil];
 }
 
 - (BOOL)isLoginFieldsValid {

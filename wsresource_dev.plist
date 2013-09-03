@@ -29,5 +29,36 @@
 		<key>method</key>
 		<string>GET</string>
 	</dict>
+	<key>GetUserWithFacebookId</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Facebook/{sessionID}?firstName={firstName}&amp;lastName={lastName}&amp;facebookId={facebookID}&amp;email={email}&amp;accessToken={facebookAppID}</string>
+		<key>method</key>
+		<string>GET</string>
+		<key>facebookAppID</key>
+		<string>417231521721790</string>
+	</dict>
+	<key>UpdatePassword</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Password?appUserId={appUserID}</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>CreateNewUser</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/2.0/service.svc/json/AppUser</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
 </dict>
 </plist>

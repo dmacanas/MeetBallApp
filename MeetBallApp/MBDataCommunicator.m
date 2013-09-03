@@ -19,6 +19,8 @@
 
 @end
 
+static NSString * const kSessionId = @"sessionId";
+
 @implementation MBDataCommunicator
 
 - (void)executeRequestWithData:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure {
@@ -80,22 +82,11 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
 
-//    AFHTTPClient *AFClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-//    [AFClient getPath:[url absoluteString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        if(responseObject){
-//            NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
-//            if(completion){
-//                completion(str);
-//            }
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Get session id failure");
-//    }];
-    
     AFHTTPRequestOperation *AFRequest = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [AFRequest setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if(responseObject){
             NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
+            str = [str stringByReplacingOccurrencesOfString:@"\"" withString:@""];
             if(completion){
                 completion(str);
             }
@@ -104,16 +95,13 @@
         NSLog(@"Get session id failure");
     }];
     [AFRequest start];
-    
-    
-//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-//    [queue addOperation:AFClient];
 }
 
 -(void)getUserInfoWithFacebookID:(NSDictionary *)data succss:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure {
     [self getSessionID:^(NSString *sid) {
-        NSString *token = [sid stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-        NSString *str = [[NSString alloc] initWithFormat:@"%@?firstName=%@&lastName=%@&facebookId=%@&email=%@&accessToken=417231521721790",token,data[@"first_name"],data[@"last_name"],data[@"id"],data[@"email"]];
+        [[NSUserDefaults standardUserDefaults] setObject:sid forKey:kSessionId];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        NSString *str = [[NSString alloc] initWithFormat:@"%@?firstName=%@&lastName=%@&facebookId=%@&email=%@&accessToken=417231521721790",sid,data[@"first_name"],data[@"last_name"],data[@"id"],data[@"email"]];
         NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Facebook/%@",str];
         NSURL *url = [[NSURL alloc] initWithString:urlString];
         
@@ -158,28 +146,34 @@
 }
 
 -(void)registerNewUser:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure {
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser/"];
-    NSURL *url = [[NSURL alloc] initWithString:urlString];
-    NSURLRequest *request = [self createURLRequestForNewUserWithURL:url withInfo:data];
-    
-    AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        if(success){
-            success(request, response, JSON);
-        }
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        if(failure){
-            failure(request, response, error, JSON);
-        }
+    [self getSessionID:^(NSString *sid) {
+        [[NSUserDefaults standardUserDefaults] setObject:sid forKey:kSessionId];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser"];
+        NSURL *url = [[NSURL alloc] initWithString:urlString];
+        NSMutableDictionary *d = [data mutableCopy];
+        [d setValue:sid forKey:@"sessionId"];
+        
+        NSURLRequest *request = [self createURLRequestForNewUserWithURL:url withInfo:d];
+        
+        AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            if(success){
+                success(request, response, JSON);
+            }
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            if(failure){
+                failure(request, response, error, JSON);
+            }
+        }];
+        
+        [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
+        [AFRequest start];
     }];
-    
-    [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
-    [AFRequest start];
 }
 
 - (NSURLRequest *)createURLRequestForNewUserWithURL:(NSURL *)url withInfo:(NSDictionary *)info{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    self.dictionary = info;
     [request setHTTPBody:[self createJSONBodyForNewUser:info]];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -189,16 +183,48 @@
 }
 
 - (NSData *)createJSONBodyForNewUser:(NSDictionary *)data{
-    NSDictionary *params;
-    if(data){
-        params = @{@"firstName": data[@"firstName"], @"lastName":data[@"lastName"], @"email":data[@"email"], @"handle":data[@"handle"],@"phone":data[@"phone"],@"sessionId":data[@"sessionId"]};
-    } else {
-        params = @{@"firstName": self.dictionary[@"firstName"], @"lastName":self.dictionary[@"lastName"], @"email":self.dictionary[@"email"], @"handle":self.dictionary[@"handle"],@"phone":self.dictionary[@"phone"],@"sessionId":self.dictionary[@"sessionId"]};
-    }
+    NSDictionary *params = @{@"firstName": data[@"firstName"], @"lastName":data[@"lastName"], @"email":data[@"email"], @"handle":data[@"handle"],@"phone":data[@"phone"],@"sessionId":data[@"sessionId"]};
     NSError *jsonError;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:0 error:&jsonError];
     
     return jsonData;
+}
+
+-(void)resetPassword:(NSString *)email succss:(void (^)(id JSON))success failure:(void (^)(NSError *error, id JSON))failure {
+    [self getSessionID:^(NSString *sid) {
+        [[NSUserDefaults standardUserDefaults] setObject:sid forKey:kSessionId];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser/ResetPassword"];
+        NSURL *url = [[NSURL alloc] initWithString:urlString];
+        NSDictionary *dict = @{@"email": email,@"sessionId":sid};
+        NSURLRequest *request = [self createURLRequestForResetPassword:url withInfo:dict];
+        
+        AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            if(success){
+                success(JSON);
+            }
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            if(failure){
+                failure(error, JSON);
+            }
+        }];
+        
+        [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
+        [AFRequest start];
+    }];
+}
+
+- (NSURLRequest *)createURLRequestForResetPassword:(NSURL *)url withInfo:(NSDictionary *)info{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSError *jsonError;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:info options:0 error:&jsonError];
+    [request setHTTPBody:jsonData];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    return request;
 }
 
 @end

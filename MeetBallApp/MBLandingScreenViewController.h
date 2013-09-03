@@ -10,4 +10,6 @@
 
 @interface MBLandingScreenViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+
 @end

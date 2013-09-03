@@ -9,6 +9,8 @@
 #import "MBSuitUpViewController.h"
 #import "MBSuitUpCell.h"
 #import "MBDataCommunicator.h"
+#import "MBCredentialManager.h"
+#import "SVProgressHUD.h"
 
 @interface MBSuitUpViewController ()
 
@@ -17,6 +19,10 @@
 @property (strong, nonatomic) MBDataCommunicator *commLink;
 
 @end
+
+static NSString * const kAuthentication = @"authenticated";
+static NSString * const kAppUserId = @"AppUserId";
+static NSString * const kFirstName = @"FirstName";
 
 @implementation MBSuitUpViewController
 
@@ -37,7 +43,21 @@
     [self.tableView setDelegate: self];
     [self.tableView setDataSource:self];
     self.commLink = [[MBDataCommunicator alloc] init];
-	// Do any additional setup after loading the view.
+    [self setupBackgrounds];
+    [self.suitUpButton setBackgroundImage:[[UIImage imageNamed:@"btn-blue.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5] forState:UIControlStateNormal];
+//    [self setupButtons];
+    // Do any additional setup after loading the view.
+}
+
+- (void)setupBackgrounds {
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
+    UIView *v = [[UIView alloc] initWithFrame:self.tableView.frame];
+    [v setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
+    [self.tableView setBackgroundView:v];
+}
+
+- (void)setupButtons {
+    [self.cancelButton setBackgroundImage:[[UIImage imageNamed:@"btn-cancel"] stretchableImageWithLeftCapWidth:5 topCapHeight:5] forState:UIControlStateNormal];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -61,6 +81,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MBSuitUpCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    
     NSString *mainLabelText = [[NSString alloc] initWithFormat:@"%@:",[self.labelArray objectAtIndex:indexPath.row]];
     [cell.mainLabel setText:mainLabelText];
     [cell.textField setPlaceholder:[self.labelArray objectAtIndex:indexPath.row]];
@@ -78,7 +99,7 @@
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if(self.tableView.frame.size.height == self.originalSize.height){
-        [self.tableView setFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.view.frame.size.height - 216)];
+        [self.tableView setFrame:CGRectMake(0, 40, self.tableView.frame.size.width, self.view.frame.size.height - 250)];
     }
     NSIndexPath *ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[textField.superview superview]];
     [self.tableView scrollToRowAtIndexPath:ind atScrollPosition:UITableViewScrollPositionBottom animated:YES];
@@ -90,9 +111,9 @@
     NSIndexPath *ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[textField.superview superview]];
     
     if(ind.row + 1 == [self.tableView numberOfRowsInSection:0]){
-        [self.tableView endEditing:YES];
+        [textField resignFirstResponder];
         if(self.tableView.frame.size.height != self.originalSize.height){
-            [self.tableView setFrame:CGRectMake(0, 0, self.originalSize.width, self.originalSize.height)];
+            [self.tableView setFrame:CGRectMake(0, 40, self.originalSize.width, self.originalSize.height)];
         }
     } else{
         NSIndexPath *ind2 = [NSIndexPath indexPathForItem:(ind.row + 1) inSection:ind.section];
@@ -110,38 +131,36 @@
 }
 
 - (IBAction)suitUpAction:(id)sender {
-    if([self validateSuitUpCells]){
-        __weak MBSuitUpViewController *weakSelf = self;
-        __block NSString *firstName = [[(MBSuitUpCell *)[self.tableView viewWithTag:2] textField] text];
-        __block NSString *lastName = [[(MBSuitUpCell *)[self.tableView viewWithTag:3] textField] text];
-        __block NSString *email = [[(MBSuitUpCell *)[self.tableView viewWithTag:4] textField] text];
-        __block NSString *handle = [[(MBSuitUpCell *)[self.tableView viewWithTag:6] textField] text];
-        __block NSString *phone = [[(MBSuitUpCell *)[self.tableView viewWithTag:5] textField] text];
-        [self.commLink getSessionID:^(NSString *sid) {
-            if(sid){
-                //actual user registration
-                NSDictionary *params = @{@"firstName": firstName, @"lastName":lastName, @"email":email, @"handle":handle,@"phone":phone,@"sessionId":[sid stringByReplacingOccurrencesOfString:@"\"" withString:@""]};
-                [weakSelf completionBlock:params];
-            }
-        }];
-    }
-}
-
-- (void)completionBlock:(NSDictionary *)data {
     
-    __weak MBSuitUpViewController *weakSelf = self;
-    [self.commLink registerNewUser:data succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        if ([[(NSDictionary *)JSON[@"InsertAppUserJsonResult"][@"MbResult"] objectForKey: @"Success"] boolValue]){
-            NSDictionary *data = @{@"AppUserId": @"",@"password":@""};
-//            [weakSelf.commLink updatePasswordForNewFacebookUser:data succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-//                NSLog(@"JSON %@", JSON);
-//            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-//                NSLog(@"Error %@ %s", error, __PRETTY_FUNCTION__);
-//            }];
-        }
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"Error %@ %s", error, __PRETTY_FUNCTION__);
-    }];
+    if([self validateSuitUpCells]){
+        [SVProgressHUD showWithStatus:@"Creating Account" maskType:SVProgressHUDMaskTypeClear];
+        NSString *firstName = [[(MBSuitUpCell *)[self.tableView viewWithTag:2] textField] text];
+        NSString *lastName = [[(MBSuitUpCell *)[self.tableView viewWithTag:3] textField] text];
+        NSString *email = [[(MBSuitUpCell *)[self.tableView viewWithTag:4] textField] text];
+        NSString *handle = [[(MBSuitUpCell *)[self.tableView viewWithTag:6] textField] text];
+        NSString *phone = [[(MBSuitUpCell *)[self.tableView viewWithTag:5] textField] text];
+        NSString *cpwd = [[(MBSuitUpCell *)[self.tableView viewWithTag:8] textField] text];
+        NSDictionary *params = @{@"firstName": firstName, @"lastName":lastName, @"email":email, @"handle":handle,@"phone":phone,@"sessionId":@""};
+        [self.commLink registerNewUser:params succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            if(JSON){
+                if ([[[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
+                    [SVProgressHUD dismiss];
+                    [[NSUserDefaults standardUserDefaults] setObject:[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"] forKey:kAppUserId];
+                    [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:kFirstName];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    NSURLCredential *newCreds = [NSURLCredential credentialWithUser:email password:cpwd persistence:NSURLCredentialPersistencePermanent];
+                    [MBCredentialManager saveCredential:newCreds];
+                    
+                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
+                    UIViewController *vc = [sb instantiateInitialViewController];
+                    [self presentViewController:vc animated:NO completion:nil];
+                }
+            }
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            NSLog(@"error %@",error);
+        }];
+
+    }
 }
 
 - (BOOL)validateSuitUpCells{

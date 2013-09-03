@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MBSuitUpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
-
+@property (weak, nonatomic) IBOutlet UIButton *suitUpButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 - (IBAction)cancelButtonPressed:(id)sender;
 - (IBAction)suitUpAction:(id)sender;
 
