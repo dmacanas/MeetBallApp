@@ -10,4 +10,6 @@
 
 @interface MBHomeDataCommunicator : NSObject
 
+- (void)getUpcomingMeetBallsWithSuccess:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure ;
+
 @end

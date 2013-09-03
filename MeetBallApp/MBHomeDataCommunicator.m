@@ -7,7 +7,91 @@
 //
 
 #import "MBHomeDataCommunicator.h"
+#import "MBDataCommunicator.h"
+#import "AFJsonRequestOperation.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFHTTPClient.h"
+
+static NSString * const kSessionId = @"sessionId";
+static NSString * const kAppUserId = @"AppUserId";
 
 @implementation MBHomeDataCommunicator
+
+- (void)getUpcomingMeetBallsWithSuccess:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId] && [[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]) {
+        [self getUpcomingMeetBallsWithSuccess:success failure:failure];
+    }else if([[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId] && ![[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]){
+        [self getUpcomingMeetBallsWithNoSessionIDWithSuccess:success failure:failure];
+    }
+}
+
+- (void)getUpcomingMeetBallsWithSessionIDWithSuccess:(void (^)(NSDictionary *JSON))success failure:(void (^)(NSError *er))failure {
+    NSString *appId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]];
+    NSString *sessId = [[NSUserDefaults standardUserDefaults] objectForKey:kSessionId];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/Meetball/Current/%@?appUserId=%@",sessId,appId];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    
+    AFHTTPRequestOperation *AFRequest = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [AFRequest setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if(responseObject){
+            if(success){
+                NSError* error;
+                NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                success(json);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Get session id failure");
+    }];
+    [AFRequest start];
+}
+
+-(void)getUpcomingMeetBallsWithNoSessionIDWithSuccess:(void (^)(NSDictionary *JSON))success failure:(void (^)(NSError *er))failure {
+    [self getSessionID:^(NSString *sid) {
+        NSString *appId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]];
+        
+        NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/Meetball/Current/%@?appUserId=%@",sid,appId];
+        NSURL *url = [[NSURL alloc] initWithString:urlString];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+        [request setHTTPMethod:@"GET"];
+        
+        AFHTTPRequestOperation *AFRequest = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        [AFRequest setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if(responseObject){
+                if(success){
+                    NSError* error;
+                    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                    success(json);
+                }
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Get session id failure");
+        }];
+        [AFRequest start];
+    }];
+}
+
+- (void)getSessionID:(void(^)(NSString *sid))completion {
+    NSURL *url = [[NSURL alloc] initWithString:@"http://wsdev.meetball.com/2.0/service.svc/json/Session/GetSessionId?existingId=null&appUserId=-1&apiKey=43f1f673-959b-4abd-8619-027902a3a4a8"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    
+    AFHTTPRequestOperation *AFRequest = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [AFRequest setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if(responseObject){
+            NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
+            str = [str stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            if(completion){
+                completion(str);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Get session id failure");
+    }];
+    [AFRequest start];
+}
 
 @end

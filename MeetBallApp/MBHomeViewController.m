@@ -10,9 +10,19 @@
 #import "MBCredentialManager.h"
 #import "MBLoginViewController.h"
 #import "MBSuitUpViewController.h"
+#import "MBHomeDataCommunicator.h"
+#import "MBCredentialManager.h"
+
 #import "MBUser.h"
+#import "MeetBalls.h"
+
+#import <CoreData/CoreData.h>
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @interface MBHomeViewController ()
+
+@property (strong, nonatomic) MBHomeDataCommunicator *homeCommLink;
 
 @end
 
@@ -43,7 +53,22 @@ static NSString * const kSessionId = @"sessionId";
         self.fullNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:kFirstName];
         self.emailLabel.text = [MBCredentialManager defaultCredential].user;
     }
+    
+    self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [self.homeCommLink getUpcomingMeetBallsWithSuccess:^(NSDictionary *JSON) {
+        NSDictionary *meetball = [JSON[@"Items"] objectAtIndex:0];
+        for (id part in meetball) {
+            NSLog(@"%@ is of class %@", part, [[meetball objectForKey:part] class]);
+        }
+//        NSLog(@"Success %@", JSON);
+    } failure:^(NSError *er) {
+        NSLog(@"Error upcoming meetballs %@", er);
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +83,8 @@ static NSString * const kSessionId = @"sessionId";
     if([self.presentingViewController class] == [MBLoginViewController class] || [self.presentingViewController class] ==[MBSuitUpViewController class]){
         [self dismissViewControllerAnimated:YES completion:nil];
     } else{
+        [FBSession.activeSession closeAndClearTokenInformation];
+        [MBCredentialManager clearCredentials];
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"loginFlow" bundle:nil];
         UIViewController *vc = [sb instantiateInitialViewController];
         [self presentViewController:vc animated:NO completion:nil];

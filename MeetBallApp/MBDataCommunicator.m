@@ -140,7 +140,6 @@ static NSString * const kSessionId = @"sessionId";
         }
     }];
     
-    [AFRequest waitUntilFinished];
     [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
     [AFRequest start];
 }
