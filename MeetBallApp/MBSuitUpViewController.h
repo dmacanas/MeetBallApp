@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *suitUpButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 - (IBAction)cancelButtonPressed:(id)sender;
 - (IBAction)suitUpAction:(id)sender;

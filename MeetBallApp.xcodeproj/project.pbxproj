@@ -70,6 +70,10 @@
 		34AF8CF517D696690090D826 /* MeetBalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF317D696690090D826 /* MeetBalls.m */; };
 		34AF8CF817D698F60090D826 /* MBHomeDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */; };
 		34AF8CF917D698F60090D826 /* MBHomeDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */; };
+		34AF8CFC17D784660090D826 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 34AF8CFA17D784660090D826 /* navbar.png */; };
+		34AF8CFD17D784660090D826 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 34AF8CFA17D784660090D826 /* navbar.png */; };
+		34AF8CFE17D784660090D826 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34AF8CFB17D784660090D826 /* navbar@2x.png */; };
+		34AF8CFF17D784660090D826 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34AF8CFB17D784660090D826 /* navbar@2x.png */; };
 		34C70D7717CD06B4001AE7D2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7517CD06A1001AE7D2 /* CoreLocation.framework */; };
 		34C70D7A17CD06CE001AE7D2 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7817CD06C5001AE7D2 /* AddressBook.framework */; };
 		34C70D7C17CD0747001AE7D2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7B17CD0747001AE7D2 /* CoreData.framework */; };
@@ -149,6 +153,8 @@
 		34AF8CF317D696690090D826 /* MeetBalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetBalls.m; sourceTree = "<group>"; };
 		34AF8CF617D698F60090D826 /* MBHomeDataCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHomeDataCommunicator.h; sourceTree = "<group>"; };
 		34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHomeDataCommunicator.m; sourceTree = "<group>"; };
+		34AF8CFA17D784660090D826 /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar.png; sourceTree = "<group>"; };
+		34AF8CFB17D784660090D826 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar@2x.png"; sourceTree = "<group>"; };
 		34C70D7517CD06A1001AE7D2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		34C70D7817CD06C5001AE7D2 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		34C70D7B17CD0747001AE7D2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -265,6 +271,8 @@
 				34AF8CDF17D6688E0090D826 /* dotz@2x.png */,
 				34AF8CE217D66D080090D826 /* ballz.png */,
 				34AF8CE317D66D080090D826 /* ballz@2x.png */,
+				34AF8CFA17D784660090D826 /* navbar.png */,
+				34AF8CFB17D784660090D826 /* navbar@2x.png */,
 				34AF8CDA17D6641B0090D826 /* toolbar.png */,
 				34AF8CDB17D6641B0090D826 /* toolbar@2x.png */,
 				34AF8CE617D66E8F0090D826 /* btn-cancel.png */,
@@ -466,6 +474,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				343491DF17CF914500C857F8 /* InfoPlist.strings in Resources */,
+				34AF8CFD17D784660090D826 /* navbar.png in Resources */,
+				34AF8CFF17D784660090D826 /* navbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +507,8 @@
 				34AF8CE917D66E8F0090D826 /* btn-cancel@2x.png in Resources */,
 				34AF8CEC17D6805F0090D826 /* btn-blue.png in Resources */,
 				34AF8CED17D6805F0090D826 /* btn-blue@2x.png in Resources */,
+				34AF8CFC17D784660090D826 /* navbar.png in Resources */,
+				34AF8CFE17D784660090D826 /* navbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

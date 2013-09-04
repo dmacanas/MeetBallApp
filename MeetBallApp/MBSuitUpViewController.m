@@ -45,6 +45,7 @@ static NSString * const kFirstName = @"FirstName";
     self.commLink = [[MBDataCommunicator alloc] init];
     [self setupBackgrounds];
     [self.suitUpButton setBackgroundImage:[[UIImage imageNamed:@"btn-blue.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5] forState:UIControlStateNormal];
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
 //    [self setupButtons];
     // Do any additional setup after loading the view.
 }

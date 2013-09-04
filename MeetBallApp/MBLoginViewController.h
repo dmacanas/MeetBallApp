@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet FBLoginView *FacebookLogin;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
 - (IBAction)login:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
