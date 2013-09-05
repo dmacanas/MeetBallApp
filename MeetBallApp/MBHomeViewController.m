@@ -13,6 +13,7 @@
 #import "MBHomeDataCommunicator.h"
 #import "MBCredentialManager.h"
 #import "MBEventCollectionViewCell.h"
+#import "MBMenuView.h"
 
 #import "MBUser.h"
 #import "MeetBalls.h"
@@ -24,6 +25,8 @@
 @interface MBHomeViewController ()
 
 @property (strong, nonatomic) MBHomeDataCommunicator *homeCommLink;
+@property (strong, nonatomic) MBMenuView *menu;
+@property (assign, nonatomic) BOOL isShowingMenu;
 
 @end
 
@@ -50,7 +53,8 @@ static NSString * const kSessionId = @"sessionId";
     [self.collectionView setDelegate:self];
     UINib *cellNib = [UINib nibWithNibName:@"MBEventCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"EventCell"];
-        
+    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
+    self.menu = [array objectAtIndex:0];
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
 	// Do any additional setup after loading the view.
@@ -85,6 +89,13 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (IBAction)showMenu:(id)sender {
+    if (self.isShowingMenu == NO){
+        [self.view addSubview:self.menu];
+        self.isShowingMenu = YES;
+    } else {
+        [self.menu removeFromSuperview];
+        self.isShowingMenu = NO;
+    }
 }
 
 - (IBAction)testCancel:(id)sender {

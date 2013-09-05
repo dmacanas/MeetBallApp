@@ -28,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *throwButton;
 @property (weak, nonatomic) IBOutlet UIImageView *ownerIcon;
 
--(void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate index:(NSInteger)index;
 - (IBAction)hideAction:(id)sender;
 - (IBAction)notesAction:(id)sender;
 - (IBAction)saveAction:(id)sender;

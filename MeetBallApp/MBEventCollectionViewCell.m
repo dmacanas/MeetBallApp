@@ -41,7 +41,7 @@
 }
 
 - (NSInteger)collectionView:(MBFriendsCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 15;
+    return 13;
 }
 
 -(UICollectionViewCell *)collectionView:(MBFriendsCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
