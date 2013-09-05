@@ -12,6 +12,7 @@
 #import "MBSuitUpViewController.h"
 #import "MBHomeDataCommunicator.h"
 #import "MBCredentialManager.h"
+#import "MBEventCollectionViewCell.h"
 
 #import "MBUser.h"
 #import "MeetBalls.h"
@@ -45,15 +46,11 @@ static NSString * const kSessionId = @"sessionId";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    if(self.userInfo){
-        self.fullNameLabel.text = self.userInfo.firstName;
-        self.emailLabel.text = self.userInfo.email;
-    } else if ([[NSUserDefaults standardUserDefaults] objectForKey:kFirstName] && [MBCredentialManager defaultCredential]){
-        self.fullNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:kFirstName];
-        self.emailLabel.text = [MBCredentialManager defaultCredential].user;
-    }
-    
+    [self.collectionView setDataSource:self];
+    [self.collectionView setDelegate:self];
+    UINib *cellNib = [UINib nibWithNibName:@"MBEventCollectionViewCell" bundle:nil];
+    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"EventCell"];
+        
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
 	// Do any additional setup after loading the view.
@@ -61,24 +58,33 @@ static NSString * const kSessionId = @"sessionId";
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    [self.homeCommLink getUpcomingMeetBallsWithSuccess:^(NSDictionary *JSON) {
-        if (JSON && [(NSArray *)JSON[@"Items"] count] > 0) {
-            NSDictionary *meetball = [JSON[@"Items"] objectAtIndex:0];
-            for (id part in meetball) {
-                NSLog(@"%@ is of class %@", part, [[meetball objectForKey:part] class]);
-            }
-        }
-
-//        NSLog(@"Success %@", JSON);
-    } failure:^(NSError *er) {
-        NSLog(@"Error upcoming meetballs %@", er);
-    }];
 }
+
+//main collectionview delegates
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *cellID = @"EventCell";
+    MBEventCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    return cell;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showMenu:(id)sender {
 }
 
 - (IBAction)testCancel:(id)sender {

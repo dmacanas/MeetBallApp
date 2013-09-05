@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MBUser.h"
 
-@interface MBHomeViewController : UIViewController
-@property (strong, nonatomic) MBUser *userInfo;
+@interface MBHomeViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+- (IBAction)showMenu:(id)sender;
 - (IBAction)testCancel:(id)sender;
 
 @end
