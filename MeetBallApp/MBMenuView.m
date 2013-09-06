@@ -32,6 +32,11 @@
     self.menuItems = [[NSArray alloc] initWithObjects:@"Home", @"My MeetBalls", @"Team Roster", @"Profile", @"Settings", @"Help", nil];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self.delegate didSelectionMenuItem:cell.textLabel.text];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellID = @"CellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];

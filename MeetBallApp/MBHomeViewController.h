@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MBUser.h"
+#import "MBMenuView.h"
 
-@interface MBHomeViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface MBHomeViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, MBMenuViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

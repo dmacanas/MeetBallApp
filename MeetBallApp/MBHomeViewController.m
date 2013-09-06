@@ -55,6 +55,7 @@ static NSString * const kSessionId = @"sessionId";
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"EventCell"];
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
     self.menu = [array objectAtIndex:0];
+    self.menu.delegate = self;
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
 	// Do any additional setup after loading the view.
@@ -70,6 +71,22 @@ static NSString * const kSessionId = @"sessionId";
     
     NSString *cellID = @"EventCell";
     MBEventCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    if (indexPath.row == 1) {
+        cell.titleSubheader1.text = @"5:00PM CST";
+        cell.titleSubheader2.text = @"Saturday September 7th";
+        cell.contentHeaderLabel.text = @"Dominic shared an event";
+        cell.dividerView.backgroundColor = [UIColor colorWithRed:244.0/255.0 green:156.0/255.0 blue:17.0/255.0 alpha:1.0];
+        cell.friendsCollectionView.hidden = YES;
+        cell.contentNoteCountLabel.text = @"2 Notes";
+    } else if (indexPath.row == 2) {
+        cell.titleHeaderLabel.text = @"Ryan Field";
+        cell.titleSubheader1.text = @"1501 Central St.";
+        cell.titleSubheader2.text = @"Evanston, IL 60201";
+        cell.contentHeaderLabel.text = @"Dominic shared a location";
+        cell.dividerView.backgroundColor = [UIColor colorWithRed:208.0/255.0 green:44.0/255.0 blue:48.0/255.0 alpha:1.0];
+        cell.friendsCollectionView.hidden = YES;
+        cell.contentNoteCountLabel.text = @"4 Notes";
+    }
     return cell;
 }
 
@@ -81,6 +98,11 @@ static NSString * const kSessionId = @"sessionId";
     return 1;
 }
 
+- (void)didSelectionMenuItem:(NSString *)item {
+    NSLog(@"Menu Select %@", item);
+    self.isShowingMenu = NO;
+    [self.menu removeFromSuperview];
+}
 
 - (void)didReceiveMemoryWarning
 {
