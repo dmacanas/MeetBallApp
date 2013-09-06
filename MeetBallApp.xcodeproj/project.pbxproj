@@ -50,6 +50,16 @@
 		3446717C17CD465D00469B39 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3446717B17CD465D00469B39 /* Security.framework */; };
 		3446717E17CD543400469B39 /* homeStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3446717D17CD543400469B39 /* homeStoryBoard.storyboard */; };
 		3446718117CD545B00469B39 /* MBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3446718017CD545B00469B39 /* MBHomeViewController.m */; };
+		344B514217DA6EA8000F31FB /* notes.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B513A17DA6EA8000F31FB /* notes.png */; };
+		344B514317DA6EA8000F31FB /* notes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B513B17DA6EA8000F31FB /* notes@2x.png */; };
+		344B514417DA6EA8000F31FB /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B513C17DA6EA8000F31FB /* save.png */; };
+		344B514517DA6EA8000F31FB /* save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B513D17DA6EA8000F31FB /* save@2x.png */; };
+		344B514617DA6EA8000F31FB /* hide.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B513E17DA6EA8000F31FB /* hide.png */; };
+		344B514717DA6EA8000F31FB /* hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B513F17DA6EA8000F31FB /* hide@2x.png */; };
+		344B514817DA6EA8000F31FB /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B514017DA6EA8000F31FB /* beer.png */; };
+		344B514917DA6EA8000F31FB /* beer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B514117DA6EA8000F31FB /* beer@2x.png */; };
+		344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344B514B17DA74E4000F31FB /* MBDetailsViewController.m */; };
+		344B514D17DA74E4000F31FB /* MBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344B514B17DA74E4000F31FB /* MBDetailsViewController.m */; };
 		347BBD3617CCE92B00BE0E85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3517CCE92B00BE0E85 /* UIKit.framework */; };
 		347BBD3817CCE92B00BE0E85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3717CCE92B00BE0E85 /* Foundation.framework */; };
 		347BBD4017CCE92B00BE0E85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD3E17CCE92B00BE0E85 /* InfoPlist.strings */; };
@@ -133,6 +143,16 @@
 		3446717D17CD543400469B39 /* homeStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = homeStoryBoard.storyboard; sourceTree = "<group>"; };
 		3446717F17CD545B00469B39 /* MBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHomeViewController.h; sourceTree = "<group>"; };
 		3446718017CD545B00469B39 /* MBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHomeViewController.m; sourceTree = "<group>"; };
+		344B513A17DA6EA8000F31FB /* notes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notes.png; sourceTree = "<group>"; };
+		344B513B17DA6EA8000F31FB /* notes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notes@2x.png"; sourceTree = "<group>"; };
+		344B513C17DA6EA8000F31FB /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		344B513D17DA6EA8000F31FB /* save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save@2x.png"; sourceTree = "<group>"; };
+		344B513E17DA6EA8000F31FB /* hide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hide.png; sourceTree = "<group>"; };
+		344B513F17DA6EA8000F31FB /* hide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hide@2x.png"; sourceTree = "<group>"; };
+		344B514017DA6EA8000F31FB /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
+		344B514117DA6EA8000F31FB /* beer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer@2x.png"; sourceTree = "<group>"; };
+		344B514A17DA74E4000F31FB /* MBDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDetailsViewController.h; sourceTree = "<group>"; };
+		344B514B17DA74E4000F31FB /* MBDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDetailsViewController.m; sourceTree = "<group>"; };
 		347BBD3217CCE92B00BE0E85 /* MeetBall Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MeetBall Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BBD3517CCE92B00BE0E85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		347BBD3717CCE92B00BE0E85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -315,6 +335,14 @@
 				3445C9B117D8D05400399715 /* pl_icon@2x.png */,
 				3445C9C417D912EC00399715 /* menu_splash.png */,
 				3445C9C517D912EC00399715 /* menu_splash@2x.png */,
+				344B513A17DA6EA8000F31FB /* notes.png */,
+				344B513B17DA6EA8000F31FB /* notes@2x.png */,
+				344B513C17DA6EA8000F31FB /* save.png */,
+				344B513D17DA6EA8000F31FB /* save@2x.png */,
+				344B513E17DA6EA8000F31FB /* hide.png */,
+				344B513F17DA6EA8000F31FB /* hide@2x.png */,
+				344B514017DA6EA8000F31FB /* beer.png */,
+				344B514117DA6EA8000F31FB /* beer@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -422,6 +450,8 @@
 				3445C9C217D905F300399715 /* MBMenuView.xib */,
 				3445C9B817D8E4AA00399715 /* MBFriendsCollectionView.h */,
 				3445C9B917D8E4AA00399715 /* MBFriendsCollectionView.m */,
+				344B514A17DA74E4000F31FB /* MBDetailsViewController.h */,
+				344B514B17DA74E4000F31FB /* MBDetailsViewController.m */,
 				34AF8CF617D698F60090D826 /* MBHomeDataCommunicator.h */,
 				34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */,
 				3445C9A817D8CDB700399715 /* MBEventCollectionViewCell.xib */,
@@ -493,6 +523,11 @@
 				CLASSPREFIX = MB;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = MeetBall;
+				TargetAttributes = {
+					347BBD3117CCE92B00BE0E85 = {
+						DevelopmentTeam = G5QMKBE589;
+					};
+				};
 			};
 			buildConfigurationList = 347BBD2D17CCE92B00BE0E85 /* Build configuration list for PBXProject "MeetBallApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -562,6 +597,14 @@
 				3445C9C317D905F300399715 /* MBMenuView.xib in Resources */,
 				3445C9C617D912EC00399715 /* menu_splash.png in Resources */,
 				3445C9C717D912EC00399715 /* menu_splash@2x.png in Resources */,
+				344B514217DA6EA8000F31FB /* notes.png in Resources */,
+				344B514317DA6EA8000F31FB /* notes@2x.png in Resources */,
+				344B514417DA6EA8000F31FB /* save.png in Resources */,
+				344B514517DA6EA8000F31FB /* save@2x.png in Resources */,
+				344B514617DA6EA8000F31FB /* hide.png in Resources */,
+				344B514717DA6EA8000F31FB /* hide@2x.png in Resources */,
+				344B514817DA6EA8000F31FB /* beer.png in Resources */,
+				344B514917DA6EA8000F31FB /* beer@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +676,7 @@
 				34AF8CF917D698F60090D826 /* MBHomeDataCommunicator.m in Sources */,
 				3445C9B717D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */,
 				3445C9BB17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */,
+				344B514D17DA74E4000F31FB /* MBDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +702,7 @@
 				3445C9B617D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */,
 				3445C9BA17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */,
 				3445C9C117D905E100399715 /* MBMenuView.m in Sources */,
+				344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +827,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2BE6291DE139430690C1E728 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeetBallApp/MeetBallApp-Prefix.pch";
 				INFOPLIST_FILE = "MeetBallApp/MeetBallApp-Info.plist";
@@ -799,7 +845,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2BE6291DE139430690C1E728 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeetBallApp/MeetBallApp-Prefix.pch";

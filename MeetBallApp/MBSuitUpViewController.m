@@ -45,7 +45,7 @@ static NSString * const kFirstName = @"FirstName";
     self.commLink = [[MBDataCommunicator alloc] init];
     [self setupBackgrounds];
     [self.suitUpButton setBackgroundImage:[[UIImage imageNamed:@"btn-blue.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5] forState:UIControlStateNormal];
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
 //    [self setupButtons];
     // Do any additional setup after loading the view.
 }
@@ -100,7 +100,7 @@ static NSString * const kFirstName = @"FirstName";
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if(self.tableView.frame.size.height == self.originalSize.height){
-        [self.tableView setFrame:CGRectMake(0, 40, self.tableView.frame.size.width, self.view.frame.size.height - 250)];
+        [self.tableView setFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.view.frame.size.height - 200)];
     }
     NSIndexPath *ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[textField.superview superview]];
     [self.tableView scrollToRowAtIndexPath:ind atScrollPosition:UITableViewScrollPositionBottom animated:YES];
@@ -109,12 +109,17 @@ static NSString * const kFirstName = @"FirstName";
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    NSIndexPath *ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[textField.superview superview]];
+    NSIndexPath *ind;
+    if([[[UIDevice currentDevice] systemVersion] isEqualToString:@"6.1"]){
+        ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[textField.superview superview]];
+    } else{
+        ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[[textField.superview superview] superview]];
+    }
     
     if(ind.row + 1 == [self.tableView numberOfRowsInSection:0]){
         [textField resignFirstResponder];
         if(self.tableView.frame.size.height != self.originalSize.height){
-            [self.tableView setFrame:CGRectMake(0, 40, self.originalSize.width, self.originalSize.height)];
+            [self.tableView setFrame:CGRectMake(0, 0, self.originalSize.width, self.originalSize.height)];
         }
     } else{
         NSIndexPath *ind2 = [NSIndexPath indexPathForItem:(ind.row + 1) inSection:ind.section];
@@ -145,16 +150,27 @@ static NSString * const kFirstName = @"FirstName";
         [self.commLink registerNewUser:params succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             if(JSON){
                 if ([[[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
-                    [SVProgressHUD dismiss];
-                    [[NSUserDefaults standardUserDefaults] setObject:[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"] forKey:kAppUserId];
-                    [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:kFirstName];
-                    [[NSUserDefaults standardUserDefaults] synchronize];
-                    NSURLCredential *newCreds = [NSURLCredential credentialWithUser:email password:cpwd persistence:NSURLCredentialPersistencePermanent];
-                    [MBCredentialManager saveCredential:newCreds];
-                    
-                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
-                    UIViewController *vc = [sb instantiateInitialViewController];
-                    [self presentViewController:vc animated:NO completion:nil];
+                    //self.email = [data objectForKey:@"AppUserId"];
+                    //self.password = [data objectForKey:@"password"];
+                    [self.commLink updatePasswordForNewFacebookUser:@{@"AppUserId":[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"],@"password":cpwd} succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                        NSLog(@"%@",JSON);
+                        [[NSUserDefaults standardUserDefaults] setObject:[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"] forKey:kAppUserId];
+                        [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:kFirstName];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        
+                        if(JSON && [[(NSDictionary *)JSON[@"UpdateAppUserPasswordJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]){
+                            [SVProgressHUD dismiss];
+                            NSURLCredential *newCreds = [NSURLCredential credentialWithUser:email password:cpwd persistence:NSURLCredentialPersistencePermanent];
+                            [MBCredentialManager saveCredential:newCreds];
+                            
+                            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
+                            UIViewController *vc = [sb instantiateInitialViewController];
+                            [self presentViewController:vc animated:NO completion:nil];
+                        }
+                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                        NSLog(@"%@", error);
+                    }];
+
                 }
             }
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {

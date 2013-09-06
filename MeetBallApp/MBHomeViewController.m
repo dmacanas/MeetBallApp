@@ -71,14 +71,14 @@ static NSString * const kSessionId = @"sessionId";
     
     NSString *cellID = @"EventCell";
     MBEventCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
-    if (indexPath.row == 1) {
+    if (indexPath.row % 3 == 1) {
         cell.titleSubheader1.text = @"5:00PM CST";
         cell.titleSubheader2.text = @"Saturday September 7th";
         cell.contentHeaderLabel.text = @"Dominic shared an event";
         cell.dividerView.backgroundColor = [UIColor colorWithRed:244.0/255.0 green:156.0/255.0 blue:17.0/255.0 alpha:1.0];
         cell.friendsCollectionView.hidden = YES;
         cell.contentNoteCountLabel.text = @"2 Notes";
-    } else if (indexPath.row == 2) {
+    } else if (indexPath.row % 3 == 2) {
         cell.titleHeaderLabel.text = @"Ryan Field";
         cell.titleSubheader1.text = @"1501 Central St.";
         cell.titleSubheader2.text = @"Evanston, IL 60201";
@@ -86,16 +86,29 @@ static NSString * const kSessionId = @"sessionId";
         cell.dividerView.backgroundColor = [UIColor colorWithRed:208.0/255.0 green:44.0/255.0 blue:48.0/255.0 alpha:1.0];
         cell.friendsCollectionView.hidden = YES;
         cell.contentNoteCountLabel.text = @"4 Notes";
+    } else {
+        cell.titleHeaderLabel.text = @"NUMBAlum Tailgate";
+        cell.titleSubheader1.text = @"5:00PM Saturday";
+        cell.titleSubheader2.text = @"13 Friends Going";
+        cell.contentHeaderLabel.text = @"Dominic threw a MeetBall";
+        cell.dividerView.backgroundColor = [UIColor colorWithRed:53.0/255.0 green:83.0/255.0 blue:172.0/255.0 alpha:1.0];
+        cell.friendsCollectionView.hidden = NO;
+        cell.contentNoteCountLabel.text = @"7 Notes";
     }
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    return 15;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"selected %@", indexPath);
+    [self performSegueWithIdentifier:@"detailsPush" sender:self];
 }
 
 - (void)didSelectionMenuItem:(NSString *)item {
