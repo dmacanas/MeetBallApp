@@ -51,13 +51,19 @@ static NSString * const kSessionId = @"sessionId";
     [super viewDidLoad];
     [self.collectionView setDataSource:self];
     [self.collectionView setDelegate:self];
+    [self.secondaryCollectionView setDelegate:self];
+    [self.secondaryCollectionView setDataSource:self];
+    [self.secondaryCollectionView setTag:2];
+    
     UINib *cellNib = [UINib nibWithNibName:@"MBEventCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"EventCell"];
+    [self.secondaryCollectionView registerNib:cellNib forCellWithReuseIdentifier:@"EventCell"];
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
     self.menu = [array objectAtIndex:0];
     self.menu.delegate = self;
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.scrollView setContentSize:CGSizeMake(320, 660)];
 	// Do any additional setup after loading the view.
 }
 

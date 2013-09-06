@@ -13,6 +13,8 @@
 @interface MBHomeViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, MBMenuViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UICollectionView *secondaryCollectionView;
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)testCancel:(id)sender;
