@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "MBUser.h"
 #import "MBMenuView.h"
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface MBHomeViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, MBMenuViewDelegate>
+@interface MBHomeViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, MBMenuViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UICollectionView *secondaryCollectionView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)testCancel:(id)sender;
+- (IBAction)noMeetBalls:(id)sender;
 
 @end

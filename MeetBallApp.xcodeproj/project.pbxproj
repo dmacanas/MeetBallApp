@@ -60,6 +60,10 @@
 		344B514917DA6EA8000F31FB /* beer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 344B514117DA6EA8000F31FB /* beer@2x.png */; };
 		344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344B514B17DA74E4000F31FB /* MBDetailsViewController.m */; };
 		344B514D17DA74E4000F31FB /* MBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344B514B17DA74E4000F31FB /* MBDetailsViewController.m */; };
+		346599D717DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346599D617DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib */; };
+		346599DA17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */; };
+		346599DB17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */; };
+		346599DE17DE687C007CAE61 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346599DC17DE6856007CAE61 /* MapKit.framework */; };
 		347BBD3617CCE92B00BE0E85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3517CCE92B00BE0E85 /* UIKit.framework */; };
 		347BBD3817CCE92B00BE0E85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3717CCE92B00BE0E85 /* Foundation.framework */; };
 		347BBD4017CCE92B00BE0E85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD3E17CCE92B00BE0E85 /* InfoPlist.strings */; };
@@ -153,6 +157,10 @@
 		344B514117DA6EA8000F31FB /* beer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer@2x.png"; sourceTree = "<group>"; };
 		344B514A17DA74E4000F31FB /* MBDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDetailsViewController.h; sourceTree = "<group>"; };
 		344B514B17DA74E4000F31FB /* MBDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDetailsViewController.m; sourceTree = "<group>"; };
+		346599D617DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBHomeMeetBallCollectionViewCell.xib; sourceTree = "<group>"; };
+		346599D817DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHomeMeetBallCollectionViewCell.h; sourceTree = "<group>"; };
+		346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHomeMeetBallCollectionViewCell.m; sourceTree = "<group>"; };
+		346599DC17DE6856007CAE61 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		347BBD3217CCE92B00BE0E85 /* MeetBall Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MeetBall Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BBD3517CCE92B00BE0E85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		347BBD3717CCE92B00BE0E85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -238,6 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346599DE17DE687C007CAE61 /* MapKit.framework in Frameworks */,
 				3495816817CE4D340050A47D /* CoreGraphics.framework in Frameworks */,
 				3446717C17CD465D00469B39 /* Security.framework in Frameworks */,
 				3446716E17CD22B900469B39 /* libz.dylib in Frameworks */,
@@ -371,6 +380,7 @@
 		347BBD3417CCE92B00BE0E85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				346599DC17DE6856007CAE61 /* MapKit.framework */,
 				3446717B17CD465D00469B39 /* Security.framework */,
 				3446716D17CD22B900469B39 /* libz.dylib */,
 				34C70D8517CD152C001AE7D2 /* TestFlightSDK2.0.0 */,
@@ -454,6 +464,9 @@
 				344B514B17DA74E4000F31FB /* MBDetailsViewController.m */,
 				34AF8CF617D698F60090D826 /* MBHomeDataCommunicator.h */,
 				34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */,
+				346599D617DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib */,
+				346599D817DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.h */,
+				346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */,
 				3445C9A817D8CDB700399715 /* MBEventCollectionViewCell.xib */,
 				3445C9B417D8D33D00399715 /* MBEventCollectionViewCell.h */,
 				3445C9B517D8D33D00399715 /* MBEventCollectionViewCell.m */,
@@ -605,6 +618,7 @@
 				344B514717DA6EA8000F31FB /* hide@2x.png in Resources */,
 				344B514817DA6EA8000F31FB /* beer.png in Resources */,
 				344B514917DA6EA8000F31FB /* beer@2x.png in Resources */,
+				346599D717DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +691,7 @@
 				3445C9B717D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */,
 				3445C9BB17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */,
 				344B514D17DA74E4000F31FB /* MBDetailsViewController.m in Sources */,
+				346599DB17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +718,7 @@
 				3445C9BA17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */,
 				3445C9C117D905E100399715 /* MBMenuView.m in Sources */,
 				344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */,
+				346599DA17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

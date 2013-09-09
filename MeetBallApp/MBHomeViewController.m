@@ -13,6 +13,7 @@
 #import "MBHomeDataCommunicator.h"
 #import "MBCredentialManager.h"
 #import "MBEventCollectionViewCell.h"
+#import "MBHomeMeetBallCollectionViewCell.h"
 #import "MBMenuView.h"
 
 #import "MBUser.h"
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) MBHomeDataCommunicator *homeCommLink;
 @property (strong, nonatomic) MBMenuView *menu;
 @property (assign, nonatomic) BOOL isShowingMenu;
+@property (assign, nonatomic) BOOL isShowingCollectionView;
 
 @end
 
@@ -49,22 +51,27 @@ static NSString * const kSessionId = @"sessionId";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self collectionViewSetup];
+    [self menuSetup];
+    self.isShowingCollectionView = YES;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
+    self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
+    
+    [self.mapView setDelegate:self];
+    self.mapView.showsUserLocation = YES;
+}
+
+- (void)collectionViewSetup {
     [self.collectionView setDataSource:self];
     [self.collectionView setDelegate:self];
-    [self.secondaryCollectionView setDelegate:self];
-    [self.secondaryCollectionView setDataSource:self];
-    [self.secondaryCollectionView setTag:2];
-    
-    UINib *cellNib = [UINib nibWithNibName:@"MBEventCollectionViewCell" bundle:nil];
-    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"EventCell"];
-    [self.secondaryCollectionView registerNib:cellNib forCellWithReuseIdentifier:@"EventCell"];
+    UINib *cellNib = [UINib nibWithNibName:@"MBHomeMeetBallCollectionViewCell" bundle:nil];
+    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"HomeCollectionCell"];
+}
+
+- (void)menuSetup {
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
     self.menu = [array objectAtIndex:0];
     self.menu.delegate = self;
-    self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
-    [self.scrollView setContentSize:CGSizeMake(320, 660)];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -75,47 +82,32 @@ static NSString * const kSessionId = @"sessionId";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *cellID = @"EventCell";
-    MBEventCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
-    if (indexPath.row % 3 == 1) {
-        cell.titleSubheader1.text = @"5:00PM CST";
-        cell.titleSubheader2.text = @"Saturday September 7th";
-        cell.contentHeaderLabel.text = @"Dominic shared an event";
-        cell.dividerView.backgroundColor = [UIColor colorWithRed:244.0/255.0 green:156.0/255.0 blue:17.0/255.0 alpha:1.0];
-        cell.friendsCollectionView.hidden = YES;
-        cell.contentNoteCountLabel.text = @"2 Notes";
-    } else if (indexPath.row % 3 == 2) {
-        cell.titleHeaderLabel.text = @"Ryan Field";
-        cell.titleSubheader1.text = @"1501 Central St.";
-        cell.titleSubheader2.text = @"Evanston, IL 60201";
-        cell.contentHeaderLabel.text = @"Dominic shared a location";
-        cell.dividerView.backgroundColor = [UIColor colorWithRed:208.0/255.0 green:44.0/255.0 blue:48.0/255.0 alpha:1.0];
-        cell.friendsCollectionView.hidden = YES;
-        cell.contentNoteCountLabel.text = @"4 Notes";
-    } else {
-        cell.titleHeaderLabel.text = @"NUMBAlum Tailgate";
-        cell.titleSubheader1.text = @"5:00PM Saturday";
-        cell.titleSubheader2.text = @"13 Friends Going";
-        cell.contentHeaderLabel.text = @"Dominic threw a MeetBall";
-        cell.dividerView.backgroundColor = [UIColor colorWithRed:53.0/255.0 green:83.0/255.0 blue:172.0/255.0 alpha:1.0];
-        cell.friendsCollectionView.hidden = NO;
-        cell.contentNoteCountLabel.text = @"7 Notes";
+    NSString *cellID = @"HomeCollectionCell";
+    MBHomeMeetBallCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    if(cell == nil){
+        cell = [[MBHomeMeetBallCollectionViewCell alloc] init];
     }
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 15;
+    return 5;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"selected %@", indexPath);
-    [self performSegueWithIdentifier:@"detailsPush" sender:self];
+// mapview delegates
+
+-(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([self.mapView userLocation].coordinate, MKCoordinateSpanMake(0.0005, 0.0005))] animated:YES];
 }
+
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"selected %@", indexPath);
+//    [self performSegueWithIdentifier:@"detailsPush" sender:self];
+//}
 
 - (void)didSelectionMenuItem:(NSString *)item {
     NSLog(@"Menu Select %@", item);
@@ -152,5 +144,22 @@ static NSString * const kSessionId = @"sessionId";
         [self presentViewController:vc animated:NO completion:nil];
     }
 
+}
+
+- (IBAction)noMeetBalls:(id)sender {
+    if (self.isShowingCollectionView) {
+        self.isShowingCollectionView = NO;
+        self.collectionView.hidden = YES;
+        UILabel *noItems = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 44)];
+        noItems.tag = 4;
+        noItems.text = @"No active Meetballs!";
+        [self.view addSubview:noItems];
+    }else {
+        self.isShowingCollectionView = YES;
+        self.collectionView.hidden = NO;
+        UILabel *lab = (UILabel *)[self.view viewWithTag:4];
+        [lab removeFromSuperview];
+
+    }
 }
 @end

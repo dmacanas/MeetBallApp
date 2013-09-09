@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBHomeViewController.m"
-         timestampString = "400200101.246331"
+         timestampString = "400453877.942982"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "145"
-         endingLineNumber = "145"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-testCancel:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -163,19 +163,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "MeetBallApp/MBHomeViewController.m"
-         timestampString = "400200101.246331"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
-         landmarkName = "-collectionView:cellForItemAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBEventCollectionViewCell.m"
          timestampString = "400097315.582025"
          startingColumnNumber = "9223372036854775807"
@@ -229,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBHomeViewController.m"
-         timestampString = "400200101.246331"
+         timestampString = "400453877.942982"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "133"
-         endingLineNumber = "133"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
          landmarkName = "-showMenu:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -281,11 +268,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MeetBallApp/MBHomeViewController.m"
-         timestampString = "400200101.246331"
+         timestampString = "400452726.667248"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-collectionView:cellForItemAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -293,26 +280,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "MeetBallApp/MBHomeViewController.m"
-         timestampString = "400200101.246331"
+         filePath = "MeetBallApp/MBHomeMeetBallCollectionViewCell.m"
+         timestampString = "400450660.569866"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "116"
-         endingLineNumber = "116"
-         landmarkName = "-collectionView:didSelectItemAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "MeetBallApp/MBHomeViewController.m"
-         timestampString = "400200101.246331"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
-         landmarkName = "-collectionView:cellForItemAtIndexPath:"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
+         landmarkName = "-awakeFromNib"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

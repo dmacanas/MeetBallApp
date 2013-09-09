@@ -7,6 +7,7 @@
 //
 
 #import "MBLandingScreenViewController.h"
+#import "SVProgressHUD.h"
 
 @interface MBLandingScreenViewController ()
 
@@ -32,9 +33,12 @@ static NSString * const kAuthentication = @"authenticated";
 
 - (void)viewDidAppear:(BOOL)animated {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
+        [SVProgressHUD showWithStatus:@"Loading Profile" maskType:SVProgressHUDMaskTypeClear];
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
         UIViewController *vc = [sb instantiateInitialViewController];
-        [self presentViewController:vc animated:NO completion:nil];
+        [self presentViewController:vc animated:NO completion:^{
+            [SVProgressHUD dismiss];
+        }];
     }
 }
 

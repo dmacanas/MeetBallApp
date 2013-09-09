@@ -222,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oU-mL-H2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="-179"/>
+            <point key="canvasLocation" x="1469" y="-389"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lKU-f2-2i5">
@@ -303,51 +303,6 @@
             <point key="canvasLocation" x="936" y="594"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FBLoginView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBLoginView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="MBForgotPasswordViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MBForgotPasswordViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="resetPassword:"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="resetButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MBLandingScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MBLandingScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="MBLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MBLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="action" name="forgotPasswordAction:"/>
-                <relationship kind="action" name="login:"/>
-                <relationship kind="outlet" name="FacebookLogin" candidateClass="FBLoginView"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MBSuitUpViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MBSuitUpViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="action" name="suitUpAction:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="suitUpButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
