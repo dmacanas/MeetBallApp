@@ -57,7 +57,7 @@ static NSString * const kFirstName = @"FirstName";
     self.FacebookLogin.readPermissions = @[@"basic_info", @"email", @"user_mobile_phone"];
     self.FacebookLogin.delegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
-    [self.loginButton setBackgroundImage:[[UIImage imageNamed:@"btn-blue.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:14] forState:UIControlStateNormal];
+//    [self.loginButton setBackgroundImage:[[UIImage imageNamed:@"btn-blue.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:14] forState:UIControlStateNormal];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.cancelButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"btn-cancel.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:12] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
