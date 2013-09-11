@@ -1,19 +1,22 @@
 PODS:
   - AFNetworking (1.1.0)
   - Facebook-iOS-SDK (3.7.1)
-  - MagicalRecord (2.1)
+  - MagicalRecord (2.2)
   - SVProgressHUD (0.8.1)
+  - TestFlightSDK (2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 1.1.0)
   - Facebook-iOS-SDK (~> 3.7.1)
   - MagicalRecord (~> 2.1)
   - SVProgressHUD (~> 0.8.1)
+  - TestFlightSDK (~> 2.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   Facebook-iOS-SDK: bf38d403928f6adb652e2e5ae46253e0c6ba9a19
-  MagicalRecord: 64e7184c240087a45e9588a722eaf05b0ad837f7
+  MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
   SVProgressHUD: 592da548680cd3613923b5f98113add52ad30cc2
+  TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.24.0
