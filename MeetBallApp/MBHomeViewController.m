@@ -14,6 +14,7 @@
 #import "MBCredentialManager.h"
 #import "MBMenuView.h"
 #import "MBAnnotation.h"
+#import "MBMenuNavigator.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <CoreData/CoreData.h>
@@ -56,7 +57,6 @@ static NSString * const kSessionId = @"sessionId";
     [self menuSetup];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
-    [self setNeedsStatusBarAppearanceUpdate];
     
     [self.mapView setDelegate:self];
     self.mapView.showsUserLocation = YES;
@@ -102,13 +102,14 @@ static NSString * const kSessionId = @"sessionId";
 #pragma mark - Menu Delegate
 
 - (void)didSelectionMenuItem:(NSString *)item {
-    NSLog(@"Menu Select %@", item);
+//    NSLog(@"Menu Select %@", item);
     self.isShowingMenu = NO;
     self.menuContainer.hidden = YES;
-    if ([item isEqualToString:@"My MeetBalls"]) {
-        
+    if ([item isEqualToString:@"Home"]) {
+        return;
     }
-
+    __weak MBHomeViewController *weakSelf = self;
+    [MBMenuNavigator navigateToMenuItem:item fromVC:weakSelf];
 }
 
 #pragma mark - Location Manager Delegates
@@ -172,10 +173,22 @@ static NSString * const kSessionId = @"sessionId";
     [self.headingLabel sizeToFit];
 }
 
+#pragma mark - clean up
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+}
+
+- (void)dealloc {
+    [self.locationManager stopUpdatingHeading];
+    self.mapView.delegate = nil;
+    self.menu.delegate = nil;
+    self.locationManager.delegate = nil;
 }
 
 #pragma mark - IBActions

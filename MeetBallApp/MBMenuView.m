@@ -25,6 +25,10 @@
     return self;
 }
 
+- (void)dealloc {
+    self.delegate = nil;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self.menuTableView setDataSource:self];
@@ -34,6 +38,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.highlighted = NO;
     [self.delegate didSelectionMenuItem:cell.textLabel.text];
 }
 
@@ -43,7 +48,7 @@
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
     return cell;
 }
