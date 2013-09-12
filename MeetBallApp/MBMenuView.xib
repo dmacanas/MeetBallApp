@@ -23,12 +23,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="260" height="185"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" image="menu_splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="20">
+                        <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" image="menu_splash" translatesAutoresizingMaskIntoConstraints="NO" id="20">
                             <rect key="frame" x="0.0" y="0.0" width="260" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="pl_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="12">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="pl_icon" translatesAutoresizingMaskIntoConstraints="NO" id="12">
                             <rect key="frame" x="12" y="27" width="49" height="50"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
@@ -82,7 +82,7 @@
         </view>
     </objects>
     <resources>
-        <image name="menu_splash.png" width="260" height="104"/>
-        <image name="pl_icon.png" width="50" height="50"/>
+        <image name="menu_splash" width="260" height="104"/>
+        <image name="pl_icon" width="50" height="50"/>
     </resources>
 </document>

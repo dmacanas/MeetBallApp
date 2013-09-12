@@ -18,15 +18,17 @@
                         <rect key="frame" x="52" y="4" width="243" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pl_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-ay-IdN">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pl_icon" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-ay-IdN">
                         <rect key="frame" x="14" y="1" width="25" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <size key="customSize" width="300" height="26"/>
             <connections>
                 <outlet property="commentLabel" destination="WN3-me-PCX" id="AWo-hp-jgx"/>
@@ -35,6 +37,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="pl_icon.png" width="50" height="50"/>
+        <image name="pl_icon" width="50" height="50"/>
     </resources>
 </document>

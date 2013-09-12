@@ -19,6 +19,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreData/CoreData.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <QuartzCore/QuartzCore.h>
 
 #define degreesToRadians(x) (M_PI * x / 180.0)
 #define radiansToDegrees(x) (x * 180.0 / M_PI)
@@ -77,6 +78,19 @@ static NSString * const kSessionId = @"sessionId";
     self.menu = [array objectAtIndex:0];
     self.menu.delegate = self;
     [self.menuContainer addSubview:self.menu];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    CGAffineTransform rotate2 = CGAffineTransformMakeRotation(degreesToRadians(0));
+    [self.compassImageVIew setTransform:rotate2];
+    [self.compassImageVIew.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
+    [self.locationManager startUpdatingHeading];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    CGAffineTransform rotate2 = CGAffineTransformMakeRotation(degreesToRadians(0));
+    [self.compassImageVIew setTransform:rotate2];
+    [self.locationManager stopUpdatingHeading];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -148,6 +162,8 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)setMeetBallHeading:(CLHeading *)heading{
+//    CGAffineTransform rotate2 = CGAffineTransformMakeRotation(degreesToRadians(0));
+//    [self.compassImageVIew setTransform:rotate2];
     CLLocationCoordinate2D cord = CLLocationCoordinate2DMake(42.06540, -87.69442);
     double lon = cord.longitude - [self.mapView userLocation].coordinate.longitude;
     double dlon = degreesToRadians(lon);
@@ -180,16 +196,12 @@ static NSString * const kSessionId = @"sessionId";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:YES];
-}
-
-- (void)dealloc {
-    [self.locationManager stopUpdatingHeading];
-    self.mapView.delegate = nil;
-    self.menu.delegate = nil;
-    self.locationManager.delegate = nil;
-}
+//- (void)dealloc {
+//    [self.locationManager stopUpdatingHeading];
+//    self.mapView.delegate = nil;
+//    self.menu.delegate = nil;
+//    self.locationManager.delegate = nil;
+//}
 
 #pragma mark - IBActions
 - (IBAction)showMenu:(id)sender {
