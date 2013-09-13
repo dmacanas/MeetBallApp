@@ -15,15 +15,11 @@
 @interface MBHomeViewController : UIViewController <MBMenuViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UILabel *headingLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *compassImageVIew;
 @property (weak, nonatomic) IBOutlet UIView *menuContainer;
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)testCancel:(id)sender;
 - (IBAction)noMeetBalls:(id)sender;
-- (IBAction)throwMeetBallAction:(id)sender;
 
 @end

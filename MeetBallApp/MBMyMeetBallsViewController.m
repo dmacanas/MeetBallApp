@@ -93,6 +93,9 @@
 - (void)didSelectionMenuItem:(NSString *)item {
     self.isShowingMenu = NO;
     self.menuContainer.hidden = YES;
+    if ([item isEqualToString:@"My MeetBalls"]) {
+        return;
+    }
     __weak MBMyMeetBallsViewController *weakSelf = self;
     [MBMenuNavigator navigateToMenuItem:item fromVC:weakSelf];
 }

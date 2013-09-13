@@ -61,8 +61,22 @@ static NSString * const kSessionId = @"sessionId";
     
     [self.mapView setDelegate:self];
     self.mapView.showsUserLocation = YES;
-    
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
+    [self setAnchorPoint:CGPointMake(0.5, 0.5) forView:self.compassImageVIew];
     [self locationManagerSetup];
+}
+
+-(void)setAnchorPoint:(CGPoint)anchorpoint forView:(UIView *)view
+{
+    CGPoint oldOrigin = view.frame.origin;
+    view.layer.anchorPoint = anchorpoint;
+    CGPoint newOrigin = view.frame.origin;
+    
+    CGPoint transition;
+    transition.x = newOrigin.x - oldOrigin.x;
+    transition.y = oldOrigin.y - oldOrigin.y;
+    
+    view.center = CGPointMake (view.center.x - transition.x, view.center.y - transition.y);
 }
 
 - (void)locationManagerSetup {
@@ -70,7 +84,6 @@ static NSString * const kSessionId = @"sessionId";
     [self.locationManager setDelegate:self];
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
     [self.locationManager setHeadingFilter:kCLHeadingFilterNone];
-    [self.locationManager startUpdatingHeading];
 }
 
 - (void)menuSetup {
@@ -81,15 +94,10 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    CGAffineTransform rotate2 = CGAffineTransformMakeRotation(degreesToRadians(0));
-    [self.compassImageVIew setTransform:rotate2];
-    [self.compassImageVIew.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
     [self.locationManager startUpdatingHeading];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    CGAffineTransform rotate2 = CGAffineTransformMakeRotation(degreesToRadians(0));
-    [self.compassImageVIew setTransform:rotate2];
     [self.locationManager stopUpdatingHeading];
 }
 
@@ -129,41 +137,45 @@ static NSString * const kSessionId = @"sessionId";
 #pragma mark - Location Manager Delegates
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
     if(self.isShowingMeetBall == NO){
-        [self setHeading:newHeading];
+//        [self setHeading:newHeading];
     } else {
         [self setMeetBallHeading:newHeading];
     }
 }
 
 - (void)setHeading:(CLHeading *)heading {
-    float mHeading = heading.trueHeading;
-    if ((mHeading >= 339) || (mHeading <= 22)) {
-        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f N", mHeading]];
-    }else if ((mHeading > 23) && (mHeading <= 68)) {
-        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f NE", mHeading]];
-    }else if ((mHeading > 69) && (mHeading <= 113)) {
-        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f E", mHeading]];
-    }else if ((mHeading > 114) && (mHeading <= 158)) {
-        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f SE", mHeading]];
-    }else if ((mHeading > 159) && (mHeading <= 203)) {
-        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f S", mHeading]];
-    }else if ((mHeading > 204) && (mHeading <= 248)) {
-        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f SW", mHeading]];
-    }else if ((mHeading > 249) && (mHeading <= 293)) {
-        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f W", mHeading]];
-    }else if ((mHeading > 294) && (mHeading <= 338)) {
-        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f NW", mHeading]];
-    }
+//    float mHeading = heading.trueHeading;
+//    if ((mHeading >= 339) || (mHeading <= 22)) {
+//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f N", mHeading]];
+//    }else if ((mHeading > 23) && (mHeading <= 68)) {
+//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f NE", mHeading]];
+//    }else if ((mHeading > 69) && (mHeading <= 113)) {
+//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f E", mHeading]];
+//    }else if ((mHeading > 114) && (mHeading <= 158)) {
+//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f SE", mHeading]];
+//    }else if ((mHeading > 159) && (mHeading <= 203)) {
+//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f S", mHeading]];
+//    }else if ((mHeading > 204) && (mHeading <= 248)) {
+//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f SW", mHeading]];
+//    }else if ((mHeading > 249) && (mHeading <= 293)) {
+//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f W", mHeading]];
+//    }else if ((mHeading > 294) && (mHeading <= 338)) {
+//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f NW", mHeading]];
+//    }
+//    
+//    [self.headingLabel sizeToFit];
     
-    [self.headingLabel sizeToFit];
     NSInteger trueNorth = heading.trueHeading;
+    [self.compassImageVIew.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
     CGAffineTransform rotate = CGAffineTransformMakeRotation(degreesToRadians(-trueNorth));
-    [self.compassImageVIew setTransform:rotate];
+    [UIView animateWithDuration:0.1f animations:^{
+         [self.compassImageVIew setTransform:rotate];
+    }];
+   
+    
 }
 
 - (void)setMeetBallHeading:(CLHeading *)heading{
-//    CGAffineTransform rotate2 = CGAffineTransformMakeRotation(degreesToRadians(0));
-//    [self.compassImageVIew setTransform:rotate2];
     CLLocationCoordinate2D cord = CLLocationCoordinate2DMake(42.06540, -87.69442);
     double lon = cord.longitude - [self.mapView userLocation].coordinate.longitude;
     double dlon = degreesToRadians(lon);
@@ -185,8 +197,6 @@ static NSString * const kSessionId = @"sessionId";
 
     CGAffineTransform rotate = CGAffineTransformMakeRotation(degreesToRadians(hd));
     [self.compassImageVIew setTransform:rotate];
-    [self.headingLabel setText:@"Dominic's MeetBall"];
-    [self.headingLabel sizeToFit];
 }
 
 #pragma mark - clean up
@@ -234,6 +244,7 @@ static NSString * const kSessionId = @"sessionId";
         CGAffineTransform rotate = CGAffineTransformMakeRotation(degreesToRadians(0));
         [self.compassImageVIew setTransform:rotate];
         self.isShowingMeetBall = YES;
+        self.compassImageVIew.hidden = NO;
         [self.compassImageVIew setImage:[UIImage imageNamed:@"meetBallCompass"]];
         if (self.annotation == nil) {
             CLLocationCoordinate2D cord = CLLocationCoordinate2DMake(42.06540, -87.69442);
@@ -243,12 +254,11 @@ static NSString * const kSessionId = @"sessionId";
             [self.mapView selectAnnotation:self.annotation animated:YES];
         }
     } else {
-        CGAffineTransform rotate = CGAffineTransformMakeRotation(degreesToRadians(0));
-        [self.compassImageVIew setTransform:rotate];
+        self.compassImageVIew.hidden = YES;
+        [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
         self.isShowingMeetBall = NO;
         [self.mapView removeAnnotation:self.annotation];
         self.annotation = nil;
-        [self.compassImageVIew setImage:[UIImage imageNamed:@"compass"]];
         [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([self.mapView userLocation].coordinate, MKCoordinateSpanMake(0.005, 0.005))] animated:YES];
     }
 

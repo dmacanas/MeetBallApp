@@ -33,12 +33,11 @@ static NSString * const kAuthentication = @"authenticated";
 
 - (void)viewDidAppear:(BOOL)animated {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
-        [SVProgressHUD showWithStatus:@"Loading Profile" maskType:SVProgressHUDMaskTypeClear];
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
+        __weak MBLandingScreenViewController *weakSelf = self;
+//        [SVProgressHUD showWithStatus:@"Loading Profile" maskType:SVProgressHUDMaskTypeClear];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:[NSBundle mainBundle]];
         UIViewController *vc = [sb instantiateInitialViewController];
-        [self presentViewController:vc animated:NO completion:^{
-            [SVProgressHUD dismiss];
-        }];
+        [weakSelf presentViewController:vc animated:NO completion:nil];
     }
 }
 

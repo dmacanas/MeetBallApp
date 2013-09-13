@@ -57,9 +57,9 @@ static NSString * const kSessionId = @"sessionId";
 - (NSData *)createJSONBodyForRequest:(BOOL)forFacebook{
     NSDictionary *params;
     if(forFacebook) {
-        params = @{@"appUserId": self.email, @"oldPassword":[NSNull null], @"newPassword":self.password, @"apikey":@"43f1f673-959b-4abd-8619-027902a3a4a8"};
+        params = @{@"appUserId": self.email, @"oldPassword":[NSNull null], @"newPassword":self.password, @"apikey":@"6FC455D3-6207-4112-9D71-005A6EF96422"};
     }else{
-        params = @{@"email": self.email, @"password":self.password, @"apikey":@"43f1f673-959b-4abd-8619-027902a3a4a8"};
+        params = @{@"email": self.email, @"password":self.password, @"apikey":@"6FC455D3-6207-4112-9D71-005A6EF96422"};
     }
     
     NSError *jsonError;
@@ -78,7 +78,7 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)getSessionID:(void(^)(NSString *sid))completion {
-    NSURL *url = [[NSURL alloc] initWithString:@"http://wsdev.meetball.com/2.0/service.svc/json/Session/GetSessionId?existingId=null&appUserId=-1&apiKey=43f1f673-959b-4abd-8619-027902a3a4a8"];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://wsdev.meetball.com/2.0/service.svc/json/Session/GetSessionId?existingId=null&appUserId=-1&apiKey=6FC455D3-6207-4112-9D71-005A6EF96422"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
 
