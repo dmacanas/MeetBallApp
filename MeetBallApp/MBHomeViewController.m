@@ -56,7 +56,7 @@ static NSString * const kSessionId = @"sessionId";
 {
     [super viewDidLoad];
     [self menuSetup];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
     
     [self.mapView setDelegate:self];
@@ -101,9 +101,6 @@ static NSString * const kSessionId = @"sessionId";
     [self.locationManager stopUpdatingHeading];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
 
 #pragma mark - Mapview Delegates
 
@@ -136,43 +133,9 @@ static NSString * const kSessionId = @"sessionId";
 
 #pragma mark - Location Manager Delegates
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
-    if(self.isShowingMeetBall == NO){
-//        [self setHeading:newHeading];
-    } else {
+    if(self.isShowingMeetBall == YES) {
         [self setMeetBallHeading:newHeading];
     }
-}
-
-- (void)setHeading:(CLHeading *)heading {
-//    float mHeading = heading.trueHeading;
-//    if ((mHeading >= 339) || (mHeading <= 22)) {
-//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f N", mHeading]];
-//    }else if ((mHeading > 23) && (mHeading <= 68)) {
-//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f NE", mHeading]];
-//    }else if ((mHeading > 69) && (mHeading <= 113)) {
-//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f E", mHeading]];
-//    }else if ((mHeading > 114) && (mHeading <= 158)) {
-//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f SE", mHeading]];
-//    }else if ((mHeading > 159) && (mHeading <= 203)) {
-//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f S", mHeading]];
-//    }else if ((mHeading > 204) && (mHeading <= 248)) {
-//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f SW", mHeading]];
-//    }else if ((mHeading > 249) && (mHeading <= 293)) {
-//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f W", mHeading]];
-//    }else if ((mHeading > 294) && (mHeading <= 338)) {
-//        [self.headingLabel setText:[NSString stringWithFormat:@"Heading: %.1f NW", mHeading]];
-//    }
-//    
-//    [self.headingLabel sizeToFit];
-    
-    NSInteger trueNorth = heading.trueHeading;
-    [self.compassImageVIew.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
-    CGAffineTransform rotate = CGAffineTransformMakeRotation(degreesToRadians(-trueNorth));
-    [UIView animateWithDuration:0.1f animations:^{
-         [self.compassImageVIew setTransform:rotate];
-    }];
-   
-    
 }
 
 - (void)setMeetBallHeading:(CLHeading *)heading{
@@ -199,19 +162,40 @@ static NSString * const kSessionId = @"sessionId";
     [self.compassImageVIew setTransform:rotate];
 }
 
+#pragma mark - tableView methods
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *ID = @"CellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    if (indexPath.row != 3) {
+        cell.textLabel.text = @"Friend Name";
+    } else {
+        cell.textLabel.text = @"Add more friends ...";
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Select Friends and Throw a MeetBall!";
+    }
+}
+
 #pragma mark - clean up
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-//- (void)dealloc {
-//    [self.locationManager stopUpdatingHeading];
-//    self.mapView.delegate = nil;
-//    self.menu.delegate = nil;
-//    self.locationManager.delegate = nil;
-//}
 
 #pragma mark - IBActions
 - (IBAction)showMenu:(id)sender {
@@ -264,7 +248,7 @@ static NSString * const kSessionId = @"sessionId";
 
 }
 
-- (IBAction)throwMeetBallAction:(id)sender {
+- (IBAction)throwMeetBall:(id)sender {
 }
 
 @end
