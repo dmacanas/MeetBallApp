@@ -16,8 +16,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userHandle;
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
+@property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
 @property (weak, nonatomic) id<MBMenuViewDelegate> delegate;
+
+- (void)createBlurViewInView:(UIView *)view forImageView:(UIImageView *)imageView;
 
 @end
 

@@ -56,6 +56,7 @@
 		3473046317E209590026CE10 /* MBMenuNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046217E209590026CE10 /* MBMenuNavigator.m */; };
 		3473046717E248210026CE10 /* MBMeetBallDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */; };
 		3473046817E248210026CE10 /* MBMeetBallDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */; };
+		3477701817E7593200E804FE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3477701717E7593200E804FE /* CoreImage.framework */; };
 		347BBD3617CCE92B00BE0E85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3517CCE92B00BE0E85 /* UIKit.framework */; };
 		347BBD3817CCE92B00BE0E85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3717CCE92B00BE0E85 /* Foundation.framework */; };
 		347BBD4017CCE92B00BE0E85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD3E17CCE92B00BE0E85 /* InfoPlist.strings */; };
@@ -140,6 +141,7 @@
 		3473046217E209590026CE10 /* MBMenuNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuNavigator.m; sourceTree = "<group>"; };
 		3473046517E248210026CE10 /* MBMeetBallDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMeetBallDetailViewController.h; sourceTree = "<group>"; };
 		3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMeetBallDetailViewController.m; sourceTree = "<group>"; };
+		3477701717E7593200E804FE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		347BBD3217CCE92B00BE0E85 /* MeetBall Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MeetBall Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BBD3517CCE92B00BE0E85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		347BBD3717CCE92B00BE0E85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -214,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3477701817E7593200E804FE /* CoreImage.framework in Frameworks */,
 				34DE22BF17E3788600B99554 /* QuartzCore.framework in Frameworks */,
 				3473044317E0D2CC0026CE10 /* libPods.a in Frameworks */,
 				346599DE17DE687C007CAE61 /* MapKit.framework in Frameworks */,
@@ -347,6 +350,7 @@
 		347BBD3417CCE92B00BE0E85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3477701717E7593200E804FE /* CoreImage.framework */,
 				34DE22BE17E3788600B99554 /* QuartzCore.framework */,
 				3473044417E0D2CD0026CE10 /* libPods.a */,
 				3473044217E0D2CC0026CE10 /* libPods.a */,

@@ -5,11 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Home-->
+        <!--Navigation Controller-->
         <scene sceneID="vym-6A-kkC">
             <objects>
                 <navigationController definesPresentationContext="YES" id="1rE-ex-XxX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="veO-bv-Rog"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EXU-if-0JX">
                         <autoresizingMask key="autoresizingMask"/>
@@ -22,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="201" y="-35"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home View Controller - Throw MeetBall-->
         <scene sceneID="qqV-Qe-750">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" id="9k4-Qt-OAQ" customClass="MBHomeViewController" sceneMemberID="viewController">
@@ -35,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UD-Zl-tYz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gR3-21-jyP">
@@ -48,8 +47,28 @@
                                             <outlet property="delegate" destination="9k4-Qt-OAQ" id="g5Y-gI-slO"/>
                                         </connections>
                                     </mapView>
+                                    <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omN-9L-aD7">
+                                        <rect key="frame" x="0.0" y="197" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <items>
+                                            <barButtonItem width="46" style="plain" systemItem="fixedSpace" id="DTR-bM-mO9"/>
+                                            <barButtonItem image="location_ic" id="uco-hA-w9G">
+                                                <connections>
+                                                    <action selector="adjustUserLocation:" destination="9k4-Qt-OAQ" id="c4Q-tJ-lcP"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem width="185" style="plain" systemItem="fixedSpace" id="00C-7B-cA5"/>
+                                            <barButtonItem image="fullScreen_ic" id="w4C-Hj-S46">
+                                                <connections>
+                                                    <action selector="adjustMap:" destination="9k4-Qt-OAQ" id="Yve-uT-zNo"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                    </toolbar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="brV-22-7Ed">
-                                        <rect key="frame" x="0.0" y="241" width="320" height="195"/>
+                                        <rect key="frame" x="0.0" y="241" width="320" height="239"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -123,12 +142,15 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gR3-21-jyP" secondAttribute="trailing" id="0mp-Fu-2DO"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="trailing" secondItem="brV-22-7Ed" secondAttribute="trailing" id="7Fz-Eu-qdf"/>
+                                    <constraint firstItem="brV-22-7Ed" firstAttribute="top" secondItem="omN-9L-aD7" secondAttribute="bottom" id="7hP-oB-VqG"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="leading" secondItem="Dp0-3U-mzl" secondAttribute="leading" constant="-260" id="A1l-vO-f6A"/>
                                     <constraint firstItem="Dp0-3U-mzl" firstAttribute="top" secondItem="gR3-21-jyP" secondAttribute="bottom" constant="-230" id="CIY-1W-81d"/>
                                     <constraint firstItem="brV-22-7Ed" firstAttribute="top" secondItem="gR3-21-jyP" secondAttribute="bottom" id="HkE-pZ-oQf"/>
-                                    <constraint firstAttribute="bottom" secondItem="brV-22-7Ed" secondAttribute="bottom" id="bZW-O6-u03"/>
+                                    <constraint firstItem="omN-9L-aD7" firstAttribute="trailing" secondItem="brV-22-7Ed" secondAttribute="trailing" id="JUM-7h-s8s"/>
+                                    <constraint firstAttribute="bottom" secondItem="brV-22-7Ed" secondAttribute="bottom" constant="88" id="bZW-O6-u03"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="leading" secondItem="brV-22-7Ed" secondAttribute="leading" id="fB8-Wt-Qyv"/>
-                                    <constraint firstAttribute="bottom" secondItem="gR3-21-jyP" secondAttribute="bottom" constant="195" id="gLa-qW-avK"/>
+                                    <constraint firstAttribute="bottom" secondItem="gR3-21-jyP" secondAttribute="bottom" constant="327" id="gLa-qW-avK"/>
+                                    <constraint firstItem="omN-9L-aD7" firstAttribute="leading" secondItem="brV-22-7Ed" secondAttribute="leading" id="jG4-gI-GKC"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="top" secondItem="2UD-Zl-tYz" secondAttribute="top" id="o0k-C3-yjs"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="centerX" secondItem="2UD-Zl-tYz" secondAttribute="centerX" id="qFV-QF-H9J"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="top" secondItem="Dp0-3U-mzl" secondAttribute="top" constant="-11" id="rzf-bO-WLg"/>
@@ -146,73 +168,62 @@
                                 <items>
                                     <barButtonItem title="Throw MeetBall" width="298" style="plain" id="K6g-h6-gyw">
                                         <connections>
-                                            <action selector="throwMeetBall:" destination="9k4-Qt-OAQ" id="DLr-cA-6nH"/>
+                                            <action selector="noMeetBalls:" destination="9k4-Qt-OAQ" id="bA1-sD-jWU"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXL-ns-c07">
-                                <rect key="frame" x="0.0" y="64" width="320" height="501"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHE-m0-pmH" userLabel="menuSuperContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LxP-x9-Jtl">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXL-ns-c07">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="505"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="LxP-x9-Jtl" firstAttribute="top" secondItem="BHE-m0-pmH" secondAttribute="top" id="9Cl-Bn-tpR"/>
+                                    <constraint firstItem="wXL-ns-c07" firstAttribute="top" secondItem="BHE-m0-pmH" secondAttribute="top" constant="64" id="Oae-i5-bmG"/>
+                                    <constraint firstItem="LxP-x9-Jtl" firstAttribute="leading" secondItem="wXL-ns-c07" secondAttribute="leading" id="U78-W3-exT"/>
+                                    <constraint firstAttribute="trailing" secondItem="wXL-ns-c07" secondAttribute="trailing" id="UJa-Zk-zzE"/>
+                                    <constraint firstItem="wXL-ns-c07" firstAttribute="leading" secondItem="BHE-m0-pmH" secondAttribute="leading" id="Vwz-6h-s97"/>
+                                    <constraint firstAttribute="bottom" secondItem="LxP-x9-Jtl" secondAttribute="bottom" id="aJv-J5-Klb"/>
+                                    <constraint firstAttribute="bottom" secondItem="wXL-ns-c07" secondAttribute="bottom" constant="-1" id="hso-Ba-GnU"/>
+                                    <constraint firstItem="LxP-x9-Jtl" firstAttribute="trailing" secondItem="wXL-ns-c07" secondAttribute="trailing" id="j8w-ln-aaf"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BHE-m0-pmH" firstAttribute="top" secondItem="2UD-Zl-tYz" secondAttribute="top" id="32G-sK-uBk"/>
+                            <constraint firstItem="BHE-m0-pmH" firstAttribute="leading" secondItem="BxQ-Vg-YK7" secondAttribute="leading" id="7Bc-Hf-Tm1"/>
                             <constraint firstItem="2UD-Zl-tYz" firstAttribute="top" secondItem="UFR-LU-z26" secondAttribute="top" id="7Ld-MU-TUd"/>
-                            <constraint firstItem="wXL-ns-c07" firstAttribute="leading" secondItem="UFR-LU-z26" secondAttribute="leading" id="H2q-kT-SUL"/>
+                            <constraint firstItem="BHE-m0-pmH" firstAttribute="leading" secondItem="UFR-LU-z26" secondAttribute="leading" id="OjS-Be-N6q"/>
+                            <constraint firstItem="BHE-m0-pmH" firstAttribute="bottom" secondItem="BxQ-Vg-YK7" secondAttribute="bottom" id="Slt-WT-e0K"/>
                             <constraint firstItem="2UD-Zl-tYz" firstAttribute="trailing" secondItem="BxQ-Vg-YK7" secondAttribute="trailing" id="TvP-KJ-bgL"/>
-                            <constraint firstItem="BxQ-Vg-YK7" firstAttribute="trailing" secondItem="wXL-ns-c07" secondAttribute="trailing" id="Y0m-23-Tty"/>
                             <constraint firstItem="2UD-Zl-tYz" firstAttribute="leading" secondItem="BxQ-Vg-YK7" secondAttribute="leading" id="YfJ-tF-rGS"/>
-                            <constraint firstItem="BxQ-Vg-YK7" firstAttribute="leading" secondItem="wXL-ns-c07" secondAttribute="leading" id="ZVI-uY-coT"/>
-                            <constraint firstItem="wXL-ns-c07" firstAttribute="top" secondItem="vhP-vV-SOe" secondAttribute="bottom" id="eDa-NY-c9s"/>
-                            <constraint firstAttribute="bottom" secondItem="wXL-ns-c07" secondAttribute="bottom" constant="3" id="f4O-FP-nKZ"/>
-                            <constraint firstItem="2UD-Zl-tYz" firstAttribute="bottom" secondItem="BxQ-Vg-YK7" secondAttribute="top" id="h3L-Cx-rQk"/>
-                            <constraint firstAttribute="trailing" secondItem="wXL-ns-c07" secondAttribute="trailing" id="jfe-IM-MRr"/>
+                            <constraint firstItem="BHE-m0-pmH" firstAttribute="trailing" secondItem="BxQ-Vg-YK7" secondAttribute="trailing" id="ePj-uG-92t"/>
+                            <constraint firstItem="2UD-Zl-tYz" firstAttribute="bottom" secondItem="BxQ-Vg-YK7" secondAttribute="top" constant="44" id="h3L-Cx-rQk"/>
                             <constraint firstAttribute="bottom" secondItem="BxQ-Vg-YK7" secondAttribute="bottom" id="yuH-LE-A9X"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ClL-q8-aqU">
-                        <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="c4b-DO-HX5">
+                    <navigationItem key="navigationItem" title="Throw MeetBall" id="ClL-q8-aqU">
+                        <barButtonItem key="leftBarButtonItem" image="menu_ic" id="c4b-DO-HX5">
                             <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showMenu:" destination="9k4-Qt-OAQ" id="pfC-cT-jBc"/>
                             </connections>
                         </barButtonItem>
-                        <view key="titleView" contentMode="scaleToFill" id="GJb-0L-O24">
-                            <rect key="frame" x="86" y="5" width="149" height="35"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eto-RB-5kR">
-                                    <rect key="frame" x="20" y="0.0" width="57" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" image="save">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="noMeetBalls:" destination="9k4-Qt-OAQ" eventType="touchUpInside" id="fMk-hx-MpQ"/>
-                                    </connections>
-                                </button>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIU-Nc-eoe">
-                                    <rect key="frame" x="85" y="0.0" width="44" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" backgroundImage="ping">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="5rH-FD-1jF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="5rH-FD-1jF">
                             <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="testCancel:" destination="9k4-Qt-OAQ" id="jwc-I7-wiQ"/>
@@ -221,10 +232,17 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="adjustLocation" destination="uco-hA-w9G" id="BOm-q1-FUd"/>
+                        <outlet property="blurView" destination="LxP-x9-Jtl" id="0kh-uu-PEW"/>
                         <outlet property="compassImageVIew" destination="Dp0-3U-mzl" id="daH-b3-L7J"/>
                         <outlet property="homeTableView" destination="brV-22-7Ed" id="ZUC-Xh-YfH"/>
+                        <outlet property="mainToolbar" destination="BxQ-Vg-YK7" id="l7w-rz-lEc"/>
+                        <outlet property="mapToolBar" destination="omN-9L-aD7" id="os0-DW-xlO"/>
                         <outlet property="mapView" destination="gR3-21-jyP" id="yAg-Ea-pa1"/>
                         <outlet property="menuContainer" destination="wXL-ns-c07" id="tc8-nI-Asj"/>
+                        <outlet property="menuSuperContainer" destination="BHE-m0-pmH" id="a9j-6H-t5B"/>
+                        <outlet property="scrollView" destination="2UD-Zl-tYz" id="Anj-Ba-Ont"/>
+                        <outlet property="toolBarButton" destination="w4C-Hj-S46" id="iqo-X0-gRj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdM-uA-o5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,8 +287,9 @@
     </scenes>
     <resources>
         <image name="compass" width="50" height="50"/>
-        <image name="ping" width="45" height="60"/>
-        <image name="save" width="35" height="33"/>
+        <image name="fullScreen_ic" width="20" height="20"/>
+        <image name="location_ic" width="20" height="20"/>
+        <image name="menu_ic" width="20" height="19"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

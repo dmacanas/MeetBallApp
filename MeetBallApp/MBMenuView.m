@@ -61,4 +61,19 @@
     return 1;
 }
 
+- (void)createBlurViewInView:(UIView *)view forImageView:(UIImageView *)imageView {
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 0);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    CIImage *blur = [CIImage imageWithCGImage:image.CGImage];
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setValue:blur forKey:@"inputImage"];
+    [filter setValue:[NSNumber numberWithFloat:10.0] forKey:@"inputRadius"];
+    CIImage *final = [filter valueForKey:@"outputImage"];
+    CIImage *f = [final imageByCroppingToRect:blur.extent];
+    UIImage *endImage = [[UIImage alloc] initWithCIImage:f scale:2.0 orientation:UIImageOrientationUp];
+    [imageView setImage:endImage];
+}
+
 @end

@@ -34,7 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     [self menuSetup];
 	// Do any additional setup after loading the view.
 }
@@ -49,7 +48,7 @@
 
 #pragma mark - tableView Delegates
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 5;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -71,7 +70,28 @@
         NSArray *ar = [[NSBundle mainBundle] loadNibNamed:@"meetBallListTableViewCell" owner:self options:nil];
         cell = [ar objectAtIndex:0];
     }
-    
+    switch (indexPath.row) {
+        case 1:
+            cell.titleLabel.text = @"Tailgate Two";
+            cell.ownerLabel.text = @"Dominic Macanas";
+            break;
+        case 2:
+            cell.titleLabel.text = @"Tailgate Three";
+            cell.ownerLabel.text = @"Northwestern University Marching Band";
+            break;
+        case 3:
+            cell.titleLabel.text = @"Tailgate Four";
+            cell.ownerLabel.text = @"Northwestern Alumni Association";
+            break;
+        case 4:
+            cell.titleLabel.text = @"Tailgate Five";
+            cell.ownerLabel.text = @"John Doe";
+            break;
+        default:
+            cell.titleLabel.text = @"Tailgate One";
+            cell.ownerLabel.text = @"Jane Smith";
+            break;
+    }
     return cell;
 }
 
@@ -92,6 +112,7 @@
 #pragma mark - menu delegate 
 - (void)didSelectionMenuItem:(NSString *)item {
     self.isShowingMenu = NO;
+    self.blurView.hidden = YES;
     self.menuContainer.hidden = YES;
     if ([item isEqualToString:@"My MeetBalls"]) {
         return;
@@ -114,9 +135,12 @@
 
 - (IBAction)showMenu:(id)sender {
     if (self.isShowingMenu == NO){
+        [self.menu createBlurViewInView:self.view forImageView:self.blurView];
+        self.blurView.hidden = NO;
         self.menuContainer.hidden = NO;
         self.isShowingMenu = YES;
     } else {
+        self.blurView.hidden = YES;
         self.menuContainer.hidden = YES;
         self.isShowingMenu = NO;
     }

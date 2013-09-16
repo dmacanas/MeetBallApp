@@ -20,6 +20,7 @@
 #import <CoreData/CoreData.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <QuartzCore/QuartzCore.h>
+#import <CoreImage/CoreImage.h>
 
 #define degreesToRadians(x) (M_PI * x / 180.0)
 #define radiansToDegrees(x) (x * 180.0 / M_PI)
@@ -31,6 +32,9 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (assign, nonatomic) BOOL isShowingMenu;
 @property (assign, nonatomic) BOOL isShowingMeetBall;
+@property (assign, nonatomic) BOOL isShowingFullScreenMap;
+@property (assign, nonatomic) CGRect originalRect;
+@property (assign, nonatomic) CGRect originalToolbarFrame;
 @property (strong, nonatomic) MBAnnotation *annotation;
 
 @end
@@ -56,7 +60,6 @@ static NSString * const kSessionId = @"sessionId";
 {
     [super viewDidLoad];
     [self menuSetup];
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
     
     [self.mapView setDelegate:self];
@@ -64,6 +67,7 @@ static NSString * const kSessionId = @"sessionId";
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     [self setAnchorPoint:CGPointMake(0.5, 0.5) forView:self.compassImageVIew];
     [self locationManagerSetup];
+    [self createAnnotations];
 }
 
 -(void)setAnchorPoint:(CGPoint)anchorpoint forView:(UIView *)view
@@ -86,6 +90,25 @@ static NSString * const kSessionId = @"sessionId";
     [self.locationManager setHeadingFilter:kCLHeadingFilterNone];
 }
 
+- (void)createAnnotations {
+    CLLocationCoordinate2D one = CLLocationCoordinate2DMake(42.068147, -87.694432);
+    CLLocationCoordinate2D two = CLLocationCoordinate2DMake(42.066877, -87.691739);
+    CLLocationCoordinate2D three = CLLocationCoordinate2DMake(42.066140, -87.690693);
+    CLLocationCoordinate2D four = CLLocationCoordinate2DMake(42.064691, -87.694523);
+    CLLocationCoordinate2D five = CLLocationCoordinate2DMake(42.064412, -87.692893);
+    
+    MBAnnotation *aOne = [[MBAnnotation alloc] initWithTitle:@"Tailgate One" andCoordinate:one];
+    MBAnnotation *aTwo = [[MBAnnotation alloc] initWithTitle:@"Tailgate Two" andCoordinate:two];
+    MBAnnotation *aThree = [[MBAnnotation alloc] initWithTitle:@"Tailgate Three" andCoordinate:three];
+    MBAnnotation *aFour =[[MBAnnotation alloc] initWithTitle:@"Tailgate Four" andCoordinate:four];
+    MBAnnotation *aFive = [[MBAnnotation alloc] initWithTitle:@"Tailgate Five" andCoordinate:five];
+    
+    NSArray *a = [[NSArray alloc] initWithObjects:aOne, aTwo, aThree, aFour, aFive, nil];
+    
+    [self.mapView addAnnotations:a];
+    
+}
+
 - (void)menuSetup {
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
     self.menu = [array objectAtIndex:0];
@@ -94,6 +117,11 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    if (self.isShowingFullScreenMap) {
+        [self resetHomeScreen];
+    }
+    self.originalRect = self.mapView.frame;
+    self.originalToolbarFrame = self.mapToolBar.frame;
     [self.locationManager startUpdatingHeading];
 }
 
@@ -110,7 +138,7 @@ static NSString * const kSessionId = @"sessionId";
     if([mp class] != [MKUserLocation class]){
         [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([mp coordinate], MKCoordinateSpanMake(1, 1))] animated:YES];
     } else {
-        [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([self.mapView userLocation].coordinate, MKCoordinateSpanMake(0.005, 0.005))] animated:YES];
+//        [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([self.mapView userLocation].coordinate, MKCoordinateSpanMake(0.005, 0.005))] animated:YES];
     }
 }
 
@@ -121,9 +149,8 @@ static NSString * const kSessionId = @"sessionId";
 #pragma mark - Menu Delegate
 
 - (void)didSelectionMenuItem:(NSString *)item {
-//    NSLog(@"Menu Select %@", item);
     self.isShowingMenu = NO;
-    self.menuContainer.hidden = YES;
+    self.menuSuperContainer.hidden = YES;
     if ([item isEqualToString:@"Home"]) {
         return;
     }
@@ -188,6 +215,8 @@ static NSString * const kSessionId = @"sessionId";
     if (section == 0) {
         return @"Select Friends and Throw a MeetBall!";
     }
+    
+    return @"";
 }
 
 #pragma mark - clean up
@@ -200,10 +229,12 @@ static NSString * const kSessionId = @"sessionId";
 #pragma mark - IBActions
 - (IBAction)showMenu:(id)sender {
     if (self.isShowingMenu == NO){
-        self.menuContainer.hidden = NO;
+        [self.menu createBlurViewInView:self.view forImageView:self.blurView];
+        self.menuSuperContainer.hidden = NO;
         self.isShowingMenu = YES;
+        
     } else {
-        self.menuContainer.hidden = YES;
+        self.menuSuperContainer.hidden = YES;
         self.isShowingMenu = NO;
     }
 }
@@ -224,31 +255,77 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (IBAction)noMeetBalls:(id)sender {
-    if (self.isShowingMeetBall == NO) {
-        CGAffineTransform rotate = CGAffineTransformMakeRotation(degreesToRadians(0));
-        [self.compassImageVIew setTransform:rotate];
-        self.isShowingMeetBall = YES;
-        self.compassImageVIew.hidden = NO;
-        [self.compassImageVIew setImage:[UIImage imageNamed:@"meetBallCompass"]];
-        if (self.annotation == nil) {
-            CLLocationCoordinate2D cord = CLLocationCoordinate2DMake(42.06540, -87.69442);
-            NSString *title = @"Dominic's MeetBall";
-            self.annotation = [[MBAnnotation alloc] initWithTitle:title andCoordinate:cord];
-            [self.mapView addAnnotation:self.annotation];
-            [self.mapView selectAnnotation:self.annotation animated:YES];
-        }
-    } else {
-        self.compassImageVIew.hidden = YES;
-        [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
-        self.isShowingMeetBall = NO;
-        [self.mapView removeAnnotation:self.annotation];
-        self.annotation = nil;
-        [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([self.mapView userLocation].coordinate, MKCoordinateSpanMake(0.005, 0.005))] animated:YES];
-    }
+//    if (self.isShowingMeetBall == NO) {
+//        CGAffineTransform rotate = CGAffineTransformMakeRotation(degreesToRadians(0));
+//        [self.compassImageVIew setTransform:rotate];
+//        self.isShowingMeetBall = YES;
+//        self.compassImageVIew.hidden = NO;
+//        [self.compassImageVIew setImage:[UIImage imageNamed:@"meetBallCompass"]];
+//        if (self.annotation == nil) {
+//            CLLocationCoordinate2D cord = CLLocationCoordinate2DMake(42.06540, -87.69442);
+//            NSString *title = @"Dominic's MeetBall";
+//            self.annotation = [[MBAnnotation alloc] initWithTitle:title andCoordinate:cord];
+//            [self.mapView addAnnotation:self.annotation];
+//            [self.mapView selectAnnotation:self.annotation animated:YES];
+//        }
+//    } else {
+//        self.compassImageVIew.hidden = YES;
+//        [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
+//        self.isShowingMeetBall = NO;
+//        [self.mapView removeAnnotation:self.annotation];
+//        self.annotation = nil;
+//        [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([self.mapView userLocation].coordinate, MKCoordinateSpanMake(0.005, 0.005))] animated:YES];
+//    }
 
 }
 
 - (IBAction)throwMeetBall:(id)sender {
+}
+
+- (IBAction)adjustMap:(id)sender {
+    if (self.isShowingFullScreenMap) {
+        [self resetHomeScreen];
+    } else {
+        [UIView animateWithDuration:0.1f animations:^{
+            [self setForFullScreen];
+        } completion:^(BOOL finished) {
+            [self setFramesForFullScreen];
+        }];
+    }
+}
+
+- (IBAction)adjustUserLocation:(id)sender {
+    [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([self.mapView userLocation].coordinate, MKCoordinateSpanMake(0.005, 0.005))] animated:YES];
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
+}
+
+- (void)resetHomeScreen {
+    [self.toolBarButton setImage:[UIImage imageNamed:@"fullScreen_ic"]];
+    self.isShowingFullScreenMap = NO;
+    
+    self.homeTableView.hidden = NO;
+    self.mainToolbar.hidden = NO;
+    [self.mapView setFrame:self.originalRect];
+    [self.mapToolBar setFrame:self.originalToolbarFrame];
+    [self.scrollView setScrollEnabled:YES];
+}
+
+- (void)setForFullScreen {
+    [self.scrollView scrollRectToVisible:self.mapView.frame animated:NO];
+    [self.scrollView setScrollEnabled:NO];
+    [self.toolBarButton setImage:[UIImage imageNamed:@"shrink_ic"]];
+    self.isShowingFullScreenMap = YES;
+}
+
+- (void)setFramesForFullScreen {
+    self.homeTableView.hidden = YES;
+    self.mainToolbar.hidden = YES;
+    CGRect f = self.mapView.frame;
+    f.size.height = self.scrollView.frame.size.height -64;
+    [self.mapView setFrame:f];
+    f = self.mapToolBar.frame;
+    f.origin.y = self.mapView.frame.size.height - self.mapToolBar.frame.size.height;
+    [self.mapToolBar setFrame:f];
 }
 
 @end

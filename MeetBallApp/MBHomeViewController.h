@@ -18,10 +18,20 @@
 @property (weak, nonatomic) IBOutlet UIImageView *compassImageVIew;
 @property (weak, nonatomic) IBOutlet UIView *menuContainer;
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
+@property (weak, nonatomic) IBOutlet UIImageView *blurView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *menuSuperContainer;
+@property (weak, nonatomic) IBOutlet UIToolbar *mapToolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *toolBarButton;
+@property (weak, nonatomic) IBOutlet UIToolbar *mainToolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *adjustLocation;
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)testCancel:(id)sender;
 - (IBAction)noMeetBalls:(id)sender;
 - (IBAction)throwMeetBall:(id)sender;
+- (IBAction)adjustMap:(id)sender;
+- (IBAction)adjustUserLocation:(id)sender;
+
 
 @end

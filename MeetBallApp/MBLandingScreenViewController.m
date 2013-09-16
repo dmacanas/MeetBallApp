@@ -20,7 +20,7 @@ static NSString * const kAuthentication = @"authenticated";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.toolBar setBackgroundImage:[UIImage imageNamed:@"toolbar"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+//    [self.toolBar setBackgroundImage:[UIImage imageNamed:@"toolbar"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
 	// Do any additional setup after loading the view, typically from a nib.
 }
