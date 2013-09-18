@@ -7,30 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		343491D717CF914500C857F8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD5917CCE92B00BE0E85 /* SenTestingKit.framework */; };
-		343491D817CF914500C857F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3517CCE92B00BE0E85 /* UIKit.framework */; };
-		343491D917CF914500C857F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3717CCE92B00BE0E85 /* Foundation.framework */; };
-		343491DF17CF914500C857F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 343491DD17CF914500C857F8 /* InfoPlist.strings */; };
-		343491E717CF915900C857F8 /* MBDataImporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495816317CE4C230050A47D /* MBDataImporterTests.m */; };
-		343491E817CF915F00C857F8 /* MBDataCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495817117CE61BA0050A47D /* MBDataCommunicatorTests.m */; };
-		343491E917CF917000C857F8 /* MBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3446718017CD545B00469B39 /* MBHomeViewController.m */; };
-		343491EA17CF917300C857F8 /* MBLandingScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD5117CCE92B00BE0E85 /* MBLandingScreenViewController.m */; };
-		343491EB17CF917600C857F8 /* MBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7217CCEFE500BE0E85 /* MBLoginViewController.m */; };
-		343491EC17CF917900C857F8 /* MBDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815F17CE4AE10050A47D /* MBDataImporter.m */; };
-		343491ED17CF917C00C857F8 /* MBDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495816A17CE502E0050A47D /* MBDataCommunicator.m */; };
-		343491EE17CF917F00C857F8 /* MBSuitUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7617CCF1F300BE0E85 /* MBSuitUpViewController.m */; };
-		343491F017CF91D400C857F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 343491EF17CF91D400C857F8 /* libPods.a */; };
-		343491F117CF920700C857F8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3446716D17CD22B900469B39 /* libz.dylib */; };
-		343491F217CF92D000C857F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7B17CD0747001AE7D2 /* CoreData.framework */; };
-		343491F317CF92D600C857F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3917CCE92B00BE0E85 /* CoreGraphics.framework */; };
-		343491F417CF92E200C857F8 /* MBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815717CE43980050A47D /* MBUser.m */; };
+		340F3C4417E8B18D00491CCB /* female_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C4217E8B18D00491CCB /* female_face.png */; };
+		340F3C4517E8B18D00491CCB /* male_face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C4317E8B18D00491CCB /* male_face.jpg */; };
+		340F3C4917E8B1FF00491CCB /* Dan-Farris-003.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C4617E8B1FF00491CCB /* Dan-Farris-003.jpg */; };
+		340F3C4A17E8B1FF00491CCB /* dominic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C4717E8B1FF00491CCB /* dominic.jpg */; };
+		340F3C4B17E8B1FF00491CCB /* naa.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C4817E8B1FF00491CCB /* naa.jpeg */; };
+		340F3C4E17E8BA3D00491CCB /* TeamRosterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C4D17E8BA3D00491CCB /* TeamRosterStoryboard.storyboard */; };
+		340F3C5117E8BB8700491CCB /* MBTeamRoserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C5017E8BB8700491CCB /* MBTeamRoserViewController.m */; };
+		340F3C5317E8C56C00491CCB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 340F3C5217E8C56C00491CCB /* AddressBookUI.framework */; };
+		340F3C5617E8C73700491CCB /* MBPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C5517E8C73700491CCB /* MBPerson.m */; };
+		340F3C5917E8CE1A00491CCB /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C5817E8CE1A00491CCB /* ProfileStoryboard.storyboard */; };
+		340F3C5C17E8CEAC00491CCB /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C5B17E8CEAC00491CCB /* SettingsStoryboard.storyboard */; };
+		340F3C5F17E9FB2000491CCB /* MBWebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C5E17E9FB2000491CCB /* MBWebServiceManager.m */; };
+		340F3C6517EA010100491CCB /* MBWebServiceConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C6417EA010100491CCB /* MBWebServiceConstants.m */; };
+		340F3C8717EA119F00491CCB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 340F3C7517EA096300491CCB /* XCTest.framework */; };
+		340F3C8817EA119F00491CCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3717CCE92B00BE0E85 /* Foundation.framework */; };
+		340F3C8917EA119F00491CCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3517CCE92B00BE0E85 /* UIKit.framework */; };
+		340F3C8F17EA119F00491CCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 340F3C8D17EA119F00491CCB /* InfoPlist.strings */; };
+		340F3C9817EA11AE00491CCB /* MBWebServiceManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C6117E9FCBE00491CCB /* MBWebServiceManagerTests.m */; };
+		340F3C9917EA11F500491CCB /* MBWebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C5E17E9FB2000491CCB /* MBWebServiceManager.m */; };
+		340F3C9A17EA11F800491CCB /* MBWebServiceConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C6417EA010100491CCB /* MBWebServiceConstants.m */; };
+		340F3C9C17EA12F300491CCB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161DEAD26C1043BC9F84DB02 /* libPods.a */; };
+		340F3C9D17EA131700491CCB /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7D17CD0780001AE7D2 /* Accounts.framework */; };
+		340F3C9E17EA131700491CCB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7817CD06C5001AE7D2 /* AddressBook.framework */; };
+		340F3C9F17EA131700491CCB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 340F3C5217E8C56C00491CCB /* AddressBookUI.framework */; };
+		340F3CA017EA131700491CCB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7B17CD0747001AE7D2 /* CoreData.framework */; };
+		340F3CA117EA131700491CCB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3477701717E7593200E804FE /* CoreImage.framework */; };
+		340F3CA217EA131700491CCB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7517CD06A1001AE7D2 /* CoreLocation.framework */; };
+		340F3CA317EA131700491CCB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346599DC17DE6856007CAE61 /* MapKit.framework */; };
+		340F3CA417EA131700491CCB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE22BE17E3788600B99554 /* QuartzCore.framework */; };
+		340F3CA517EA132A00491CCB /* MBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815717CE43980050A47D /* MBUser.m */; };
+		340F3CA617EA132D00491CCB /* MeetBalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF317D696690090D826 /* MeetBalls.m */; };
+		340F3CA717EA132F00491CCB /* MBPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C5517E8C73700491CCB /* MBPerson.m */; };
+		340F3CA817EA133100491CCB /* MBCredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3434920417D0E88700C857F8 /* MBCredentialManager.m */; };
+		340F3CA917EA133400491CCB /* MBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */; };
+		340F3CAA17EA133600491CCB /* MBMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9C017D905E100399715 /* MBMenuView.m */; };
+		340F3CAB17EA133900491CCB /* MBMenuNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046217E209590026CE10 /* MBMenuNavigator.m */; };
+		340F3CAC17EA134000491CCB /* MBMyMeetBallsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473045017E10EC30026CE10 /* MBMyMeetBallsViewController.m */; };
+		340F3CAD17EA134200491CCB /* MBMeetBallDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */; };
+		340F3CAE17EA134500491CCB /* meetBallListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473045717E1167B0026CE10 /* meetBallListTableViewCell.m */; };
+		340F3CAF17EA134900491CCB /* MBCommentsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473045A17E116D50026CE10 /* MBCommentsCollectionView.m */; };
+		340F3CB017EA134C00491CCB /* commentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473045D17E11A3E0026CE10 /* commentsCollectionViewCell.m */; };
+		340F3CB117EA134F00491CCB /* MBTeamRoserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C5017E8BB8700491CCB /* MBTeamRoserViewController.m */; };
+		340F3CB217EA135800491CCB /* MBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3446718017CD545B00469B39 /* MBHomeViewController.m */; };
+		340F3CB317EA135B00491CCB /* MBFriendsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B917D8E4AA00399715 /* MBFriendsCollectionView.m */; };
+		340F3CB417EA135D00491CCB /* MBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344B514B17DA74E4000F31FB /* MBDetailsViewController.m */; };
+		340F3CB517EA136000491CCB /* MBHomeDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */; };
+		340F3CB617EA136200491CCB /* MBHomeMeetBallCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */; };
+		340F3CB717EA136500491CCB /* MBEventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B517D8D33D00399715 /* MBEventCollectionViewCell.m */; };
+		340F3CB917EA13FB00491CCB /* MBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7217CCEFE500BE0E85 /* MBLoginViewController.m */; };
+		340F3CBA17EA13FF00491CCB /* MBForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CEF17D68B990090D826 /* MBForgotPasswordViewController.m */; };
+		340F3CBB17EA140200491CCB /* MBDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815F17CE4AE10050A47D /* MBDataImporter.m */; };
+		340F3CBC17EA140400491CCB /* MBDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495816A17CE502E0050A47D /* MBDataCommunicator.m */; };
+		340F3CBD17EA140600491CCB /* MBSuitUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7617CCF1F300BE0E85 /* MBSuitUpViewController.m */; };
+		340F3CBE17EA140A00491CCB /* MBSuitUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7C17CCF7CD00BE0E85 /* MBSuitUpCell.m */; };
+		340F3CC917EA252A00491CCB /* MBLandingScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD5117CCE92B00BE0E85 /* MBLandingScreenViewController.m */; };
 		3434920517D0E88700C857F8 /* MBCredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3434920417D0E88700C857F8 /* MBCredentialManager.m */; };
-		3434920617D0E88700C857F8 /* MBCredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3434920417D0E88700C857F8 /* MBCredentialManager.m */; };
 		3445C9A917D8CDB700399715 /* MBEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3445C9A817D8CDB700399715 /* MBEventCollectionViewCell.xib */; };
 		3445C9B617D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B517D8D33D00399715 /* MBEventCollectionViewCell.m */; };
-		3445C9B717D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B517D8D33D00399715 /* MBEventCollectionViewCell.m */; };
 		3445C9BA17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B917D8E4AA00399715 /* MBFriendsCollectionView.m */; };
-		3445C9BB17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B917D8E4AA00399715 /* MBFriendsCollectionView.m */; };
 		3445C9C117D905E100399715 /* MBMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9C017D905E100399715 /* MBMenuView.m */; };
 		3445C9C317D905F300399715 /* MBMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3445C9C217D905F300399715 /* MBMenuView.xib */; };
 		3446716E17CD22B900469B39 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3446716D17CD22B900469B39 /* libz.dylib */; };
@@ -39,10 +74,8 @@
 		3446717E17CD543400469B39 /* homeStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3446717D17CD543400469B39 /* homeStoryBoard.storyboard */; };
 		3446718117CD545B00469B39 /* MBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3446718017CD545B00469B39 /* MBHomeViewController.m */; };
 		344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344B514B17DA74E4000F31FB /* MBDetailsViewController.m */; };
-		344B514D17DA74E4000F31FB /* MBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344B514B17DA74E4000F31FB /* MBDetailsViewController.m */; };
 		346599D717DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346599D617DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib */; };
 		346599DA17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */; };
-		346599DB17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */; };
 		346599DE17DE687C007CAE61 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346599DC17DE6856007CAE61 /* MapKit.framework */; };
 		3473044317E0D2CC0026CE10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3473044217E0D2CC0026CE10 /* libPods.a */; };
 		3473044617E0D42F0026CE10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3473044517E0D42F0026CE10 /* Images.xcassets */; };
@@ -55,7 +88,6 @@
 		3473046017E11A510026CE10 /* commentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3473045F17E11A510026CE10 /* commentsCollectionViewCell.xib */; };
 		3473046317E209590026CE10 /* MBMenuNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046217E209590026CE10 /* MBMenuNavigator.m */; };
 		3473046717E248210026CE10 /* MBMeetBallDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */; };
-		3473046817E248210026CE10 /* MBMeetBallDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */; };
 		3477701817E7593200E804FE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3477701717E7593200E804FE /* CoreImage.framework */; };
 		347BBD3617CCE92B00BE0E85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3517CCE92B00BE0E85 /* UIKit.framework */; };
 		347BBD3817CCE92B00BE0E85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3717CCE92B00BE0E85 /* Foundation.framework */; };
@@ -73,14 +105,11 @@
 		3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815F17CE4AE10050A47D /* MBDataImporter.m */; };
 		3495816817CE4D340050A47D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347BBD3917CCE92B00BE0E85 /* CoreGraphics.framework */; };
 		3495816B17CE502E0050A47D /* MBDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495816A17CE502E0050A47D /* MBDataCommunicator.m */; };
-		3495816E17CE5C230050A47D /* wsresource_dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3495816D17CE5C230050A47D /* wsresource_dev.plist */; };
+		3495816E17CE5C230050A47D /* wsresources_dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3495816D17CE5C230050A47D /* wsresources_dev.plist */; };
 		3495817417CE62880050A47D /* MeetBallApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD3D17CCE92B00BE0E85 /* MeetBallApp-Info.plist */; };
 		34AF8CF017D68B990090D826 /* MBForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CEF17D68B990090D826 /* MBForgotPasswordViewController.m */; };
-		34AF8CF117D68B990090D826 /* MBForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CEF17D68B990090D826 /* MBForgotPasswordViewController.m */; };
 		34AF8CF417D696690090D826 /* MeetBalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF317D696690090D826 /* MeetBalls.m */; };
-		34AF8CF517D696690090D826 /* MeetBalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF317D696690090D826 /* MeetBalls.m */; };
 		34AF8CF817D698F60090D826 /* MBHomeDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */; };
-		34AF8CF917D698F60090D826 /* MBHomeDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */; };
 		34C70D7717CD06B4001AE7D2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7517CD06A1001AE7D2 /* CoreLocation.framework */; };
 		34C70D7A17CD06CE001AE7D2 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7817CD06C5001AE7D2 /* AddressBook.framework */; };
 		34C70D7C17CD0747001AE7D2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C70D7B17CD0747001AE7D2 /* CoreData.framework */; };
@@ -89,18 +118,50 @@
 		34C70D8D17CD152C001AE7D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 34C70D8717CD152C001AE7D2 /* README.md */; };
 		34C70D8E17CD152C001AE7D2 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 34C70D8817CD152C001AE7D2 /* release_notes.md */; };
 		34CEA38917E0C3A6008BEDE5 /* MBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */; };
-		34CEA38A17E0C3A6008BEDE5 /* MBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */; };
 		34DE22BF17E3788600B99554 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE22BE17E3788600B99554 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		340F3C9317EA119F00491CCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 347BBD2A17CCE92B00BE0E85 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 347BBD3117CCE92B00BE0E85;
+			remoteInfo = MeetBallApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		161DEAD26C1043BC9F84DB02 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE6291DE139430690C1E728 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		343491D617CF914500C857F8 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		343491DC17CF914500C857F8 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
-		343491DE17CF914500C857F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		343491E317CF914500C857F8 /* Unit Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unit Tests-Prefix.pch"; sourceTree = "<group>"; };
-		343491EF17CF91D400C857F8 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "../Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		340F3C4217E8B18D00491CCB /* female_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female_face.png; sourceTree = "<group>"; };
+		340F3C4317E8B18D00491CCB /* male_face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = male_face.jpg; sourceTree = "<group>"; };
+		340F3C4617E8B1FF00491CCB /* Dan-Farris-003.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Dan-Farris-003.jpg"; sourceTree = "<group>"; };
+		340F3C4717E8B1FF00491CCB /* dominic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dominic.jpg; sourceTree = "<group>"; };
+		340F3C4817E8B1FF00491CCB /* naa.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = naa.jpeg; sourceTree = "<group>"; };
+		340F3C4D17E8BA3D00491CCB /* TeamRosterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamRosterStoryboard.storyboard; sourceTree = "<group>"; };
+		340F3C4F17E8BB8700491CCB /* MBTeamRoserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTeamRoserViewController.h; sourceTree = "<group>"; };
+		340F3C5017E8BB8700491CCB /* MBTeamRoserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTeamRoserViewController.m; sourceTree = "<group>"; };
+		340F3C5217E8C56C00491CCB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		340F3C5417E8C73700491CCB /* MBPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPerson.h; sourceTree = "<group>"; };
+		340F3C5517E8C73700491CCB /* MBPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPerson.m; sourceTree = "<group>"; };
+		340F3C5817E8CE1A00491CCB /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		340F3C5B17E8CEAC00491CCB /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		340F3C5D17E9FB2000491CCB /* MBWebServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBWebServiceManager.h; sourceTree = "<group>"; };
+		340F3C5E17E9FB2000491CCB /* MBWebServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBWebServiceManager.m; sourceTree = "<group>"; };
+		340F3C6117E9FCBE00491CCB /* MBWebServiceManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MBWebServiceManagerTests.m; path = "../Unit Tests/MBWebServiceManagerTests.m"; sourceTree = "<group>"; };
+		340F3C6317EA010100491CCB /* MBWebServiceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBWebServiceConstants.h; sourceTree = "<group>"; };
+		340F3C6417EA010100491CCB /* MBWebServiceConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBWebServiceConstants.m; sourceTree = "<group>"; };
+		340F3C7517EA096300491CCB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		340F3C8617EA119F00491CCB /* MeetBallApp Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MeetBallApp Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		340F3C8C17EA119F00491CCB /* MeetBallApp Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeetBallApp Tests-Info.plist"; sourceTree = "<group>"; };
+		340F3C8E17EA119F00491CCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		340F3C9217EA119F00491CCB /* MeetBallApp Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetBallApp Tests-Prefix.pch"; sourceTree = "<group>"; };
+		340F3CBF17EA143700491CCB /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Build/Products/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		340F3CC017EA143700491CCB /* libPods-Facebook-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Facebook-iOS-SDK.a"; path = "Build/Products/Debug-iphoneos/libPods-Facebook-iOS-SDK.a"; sourceTree = "<group>"; };
+		340F3CC117EA143700491CCB /* libPods-MagicalRecord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MagicalRecord.a"; path = "Build/Products/Debug-iphoneos/libPods-MagicalRecord.a"; sourceTree = "<group>"; };
+		340F3CC217EA143700491CCB /* libPods-SVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SVProgressHUD.a"; path = "Build/Products/Debug-iphoneos/libPods-SVProgressHUD.a"; sourceTree = "<group>"; };
+		340F3CC317EA143700491CCB /* libPods-TestFlightSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-TestFlightSDK.a"; path = "Build/Products/Debug-iphoneos/libPods-TestFlightSDK.a"; sourceTree = "<group>"; };
 		3434920317D0E88700C857F8 /* MBCredentialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCredentialManager.h; sourceTree = "<group>"; };
 		3434920417D0E88700C857F8 /* MBCredentialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCredentialManager.m; sourceTree = "<group>"; };
 		3445C9A817D8CDB700399715 /* MBEventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBEventCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -138,7 +199,7 @@
 		3473045D17E11A3E0026CE10 /* commentsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentsCollectionViewCell.m; sourceTree = "<group>"; };
 		3473045F17E11A510026CE10 /* commentsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commentsCollectionViewCell.xib; sourceTree = "<group>"; };
 		3473046117E209590026CE10 /* MBMenuNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuNavigator.h; sourceTree = "<group>"; };
-		3473046217E209590026CE10 /* MBMenuNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuNavigator.m; sourceTree = "<group>"; };
+		3473046217E209590026CE10 /* MBMenuNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuNavigator.m; sourceTree = "<group>"; wrapsLines = 0; };
 		3473046517E248210026CE10 /* MBMeetBallDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMeetBallDetailViewController.h; sourceTree = "<group>"; };
 		3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMeetBallDetailViewController.m; sourceTree = "<group>"; };
 		3477701717E7593200E804FE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -168,13 +229,9 @@
 		3495815B17CE47400050A47D /* MeetBall.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeetBall.xcdatamodel; sourceTree = "<group>"; };
 		3495815E17CE4AE10050A47D /* MBDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataImporter.h; sourceTree = "<group>"; };
 		3495815F17CE4AE10050A47D /* MBDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataImporter.m; sourceTree = "<group>"; };
-		3495816217CE4C230050A47D /* MBDataImporterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBDataImporterTests.h; path = ../MeetBallApp/MBDataImporterTests.h; sourceTree = "<group>"; };
-		3495816317CE4C230050A47D /* MBDataImporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBDataImporterTests.m; path = ../MeetBallApp/MBDataImporterTests.m; sourceTree = "<group>"; };
 		3495816917CE502E0050A47D /* MBDataCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataCommunicator.h; sourceTree = "<group>"; };
 		3495816A17CE502E0050A47D /* MBDataCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataCommunicator.m; sourceTree = "<group>"; };
-		3495816D17CE5C230050A47D /* wsresource_dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wsresource_dev.plist; sourceTree = "<group>"; };
-		3495817017CE61BA0050A47D /* MBDataCommunicatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBDataCommunicatorTests.h; path = ../MBDataCommunicatorTests.h; sourceTree = "<group>"; };
-		3495817117CE61BA0050A47D /* MBDataCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBDataCommunicatorTests.m; path = ../MBDataCommunicatorTests.m; sourceTree = "<group>"; };
+		3495816D17CE5C230050A47D /* wsresources_dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wsresources_dev.plist; sourceTree = "<group>"; };
 		34AF8CEE17D68B980090D826 /* MBForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBForgotPasswordViewController.h; sourceTree = "<group>"; };
 		34AF8CEF17D68B990090D826 /* MBForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBForgotPasswordViewController.m; sourceTree = "<group>"; };
 		34AF8CF217D696690090D826 /* MeetBalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetBalls.h; sourceTree = "<group>"; };
@@ -198,17 +255,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		343491D217CF914500C857F8 /* Frameworks */ = {
+		340F3C8317EA119F00491CCB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343491F317CF92D600C857F8 /* CoreGraphics.framework in Frameworks */,
-				343491F217CF92D000C857F8 /* CoreData.framework in Frameworks */,
-				343491F117CF920700C857F8 /* libz.dylib in Frameworks */,
-				343491F017CF91D400C857F8 /* libPods.a in Frameworks */,
-				343491D717CF914500C857F8 /* SenTestingKit.framework in Frameworks */,
-				343491D817CF914500C857F8 /* UIKit.framework in Frameworks */,
-				343491D917CF914500C857F8 /* Foundation.framework in Frameworks */,
+				340F3C9D17EA131700491CCB /* Accounts.framework in Frameworks */,
+				340F3C9E17EA131700491CCB /* AddressBook.framework in Frameworks */,
+				340F3C9F17EA131700491CCB /* AddressBookUI.framework in Frameworks */,
+				340F3CA017EA131700491CCB /* CoreData.framework in Frameworks */,
+				340F3CA117EA131700491CCB /* CoreImage.framework in Frameworks */,
+				340F3CA217EA131700491CCB /* CoreLocation.framework in Frameworks */,
+				340F3CA317EA131700491CCB /* MapKit.framework in Frameworks */,
+				340F3CA417EA131700491CCB /* QuartzCore.framework in Frameworks */,
+				340F3C9C17EA12F300491CCB /* libPods.a in Frameworks */,
+				340F3C8717EA119F00491CCB /* XCTest.framework in Frameworks */,
+				340F3C8917EA119F00491CCB /* UIKit.framework in Frameworks */,
+				340F3C8817EA119F00491CCB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +278,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340F3C5317E8C56C00491CCB /* AddressBookUI.framework in Frameworks */,
+				34C70D7A17CD06CE001AE7D2 /* AddressBook.framework in Frameworks */,
 				3477701817E7593200E804FE /* CoreImage.framework in Frameworks */,
 				34DE22BF17E3788600B99554 /* QuartzCore.framework in Frameworks */,
 				3473044317E0D2CC0026CE10 /* libPods.a in Frameworks */,
@@ -227,7 +291,6 @@
 				34C70D8017CD07B5001AE7D2 /* Social.framework in Frameworks */,
 				34C70D7E17CD0780001AE7D2 /* Accounts.framework in Frameworks */,
 				34C70D7C17CD0747001AE7D2 /* CoreData.framework in Frameworks */,
-				34C70D7A17CD06CE001AE7D2 /* AddressBook.framework in Frameworks */,
 				34C70D7717CD06B4001AE7D2 /* CoreLocation.framework in Frameworks */,
 				347BBD3817CCE92B00BE0E85 /* Foundation.framework in Frameworks */,
 			);
@@ -236,25 +299,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		343491DA17CF914500C857F8 /* Unit Tests */ = {
+		340F3C4C17E8BA2B00491CCB /* Team Roster */ = {
 			isa = PBXGroup;
 			children = (
-				343491EF17CF91D400C857F8 /* libPods.a */,
-				3495816217CE4C230050A47D /* MBDataImporterTests.h */,
-				3495816317CE4C230050A47D /* MBDataImporterTests.m */,
-				3495817017CE61BA0050A47D /* MBDataCommunicatorTests.h */,
-				3495817117CE61BA0050A47D /* MBDataCommunicatorTests.m */,
-				343491DB17CF914500C857F8 /* Supporting Files */,
+				340F3C4D17E8BA3D00491CCB /* TeamRosterStoryboard.storyboard */,
+				340F3C4F17E8BB8700491CCB /* MBTeamRoserViewController.h */,
+				340F3C5017E8BB8700491CCB /* MBTeamRoserViewController.m */,
 			);
-			path = "Unit Tests";
+			name = "Team Roster";
 			sourceTree = "<group>";
 		};
-		343491DB17CF914500C857F8 /* Supporting Files */ = {
+		340F3C5717E8CDED00491CCB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				343491DC17CF914500C857F8 /* Unit Tests-Info.plist */,
-				343491DD17CF914500C857F8 /* InfoPlist.strings */,
-				343491E317CF914500C857F8 /* Unit Tests-Prefix.pch */,
+				340F3C5817E8CE1A00491CCB /* ProfileStoryboard.storyboard */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		340F3C5A17E8CE9E00491CCB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				340F3C5B17E8CEAC00491CCB /* SettingsStoryboard.storyboard */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		340F3C8A17EA119F00491CCB /* MeetBallApp Tests */ = {
+			isa = PBXGroup;
+			children = (
+				340F3C6117E9FCBE00491CCB /* MBWebServiceManagerTests.m */,
+				340F3C8B17EA119F00491CCB /* Supporting Files */,
+			);
+			path = "MeetBallApp Tests";
+			sourceTree = "<group>";
+		};
+		340F3C8B17EA119F00491CCB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				340F3C8C17EA119F00491CCB /* MeetBallApp Tests-Info.plist */,
+				340F3C8D17EA119F00491CCB /* InfoPlist.strings */,
+				340F3C9217EA119F00491CCB /* MeetBallApp Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -266,6 +351,8 @@
 				3495815717CE43980050A47D /* MBUser.m */,
 				34AF8CF217D696690090D826 /* MeetBalls.h */,
 				34AF8CF317D696690090D826 /* MeetBalls.m */,
+				340F3C5417E8C73700491CCB /* MBPerson.h */,
+				340F3C5517E8C73700491CCB /* MBPerson.m */,
 			);
 			name = Models;
 			path = ..;
@@ -284,6 +371,10 @@
 				3445C9C217D905F300399715 /* MBMenuView.xib */,
 				3473046117E209590026CE10 /* MBMenuNavigator.h */,
 				3473046217E209590026CE10 /* MBMenuNavigator.m */,
+				340F3C5D17E9FB2000491CCB /* MBWebServiceManager.h */,
+				340F3C5E17E9FB2000491CCB /* MBWebServiceManager.m */,
+				340F3C6317EA010100491CCB /* MBWebServiceConstants.h */,
+				340F3C6417EA010100491CCB /* MBWebServiceConstants.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -292,8 +383,13 @@
 			isa = PBXGroup;
 			children = (
 				3473044517E0D42F0026CE10 /* Images.xcassets */,
+				340F3C4217E8B18D00491CCB /* female_face.png */,
+				340F3C4317E8B18D00491CCB /* male_face.jpg */,
+				340F3C4617E8B1FF00491CCB /* Dan-Farris-003.jpg */,
+				340F3C4717E8B1FF00491CCB /* dominic.jpg */,
+				340F3C4817E8B1FF00491CCB /* naa.jpeg */,
 				3446717817CD273600469B39 /* wsresources_prod.plist */,
-				3495816D17CE5C230050A47D /* wsresource_dev.plist */,
+				3495816D17CE5C230050A47D /* wsresources_dev.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -302,6 +398,9 @@
 			isa = PBXGroup;
 			children = (
 				3473046417E22C390026CE10 /* My MeetBalls */,
+				340F3C4C17E8BA2B00491CCB /* Team Roster */,
+				340F3C5717E8CDED00491CCB /* Profile */,
+				340F3C5A17E8CE9E00491CCB /* Settings */,
 			);
 			name = "Menu Items";
 			sourceTree = "<group>";
@@ -331,7 +430,7 @@
 			children = (
 				3446716F17CD244D00469B39 /* Resources */,
 				347BBD3B17CCE92B00BE0E85 /* MeetBallApp */,
-				343491DA17CF914500C857F8 /* Unit Tests */,
+				340F3C8A17EA119F00491CCB /* MeetBallApp Tests */,
 				347BBD3417CCE92B00BE0E85 /* Frameworks */,
 				347BBD3317CCE92B00BE0E85 /* Products */,
 				2BE6291DE139430690C1E728 /* Pods.xcconfig */,
@@ -342,7 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				347BBD3217CCE92B00BE0E85 /* MeetBall Lite.app */,
-				343491D617CF914500C857F8 /* Unit Tests.octest */,
+				340F3C8617EA119F00491CCB /* MeetBallApp Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -350,6 +449,13 @@
 		347BBD3417CCE92B00BE0E85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				340F3CBF17EA143700491CCB /* libPods-AFNetworking.a */,
+				340F3CC017EA143700491CCB /* libPods-Facebook-iOS-SDK.a */,
+				340F3CC117EA143700491CCB /* libPods-MagicalRecord.a */,
+				340F3CC217EA143700491CCB /* libPods-SVProgressHUD.a */,
+				340F3CC317EA143700491CCB /* libPods-TestFlightSDK.a */,
+				340F3C7517EA096300491CCB /* XCTest.framework */,
+				340F3C5217E8C56C00491CCB /* AddressBookUI.framework */,
 				3477701717E7593200E804FE /* CoreImage.framework */,
 				34DE22BE17E3788600B99554 /* QuartzCore.framework */,
 				3473044417E0D2CD0026CE10 /* libPods.a */,
@@ -459,23 +565,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		343491D517CF914500C857F8 /* Unit Tests */ = {
+		340F3C8517EA119F00491CCB /* MeetBallApp Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 343491E617CF914500C857F8 /* Build configuration list for PBXNativeTarget "Unit Tests" */;
+			buildConfigurationList = 340F3C9517EA119F00491CCB /* Build configuration list for PBXNativeTarget "MeetBallApp Tests" */;
 			buildPhases = (
-				343491D117CF914500C857F8 /* Sources */,
-				343491D217CF914500C857F8 /* Frameworks */,
-				343491D317CF914500C857F8 /* Resources */,
-				343491D417CF914500C857F8 /* ShellScript */,
+				340F3C8217EA119F00491CCB /* Sources */,
+				340F3C8317EA119F00491CCB /* Frameworks */,
+				340F3C8417EA119F00491CCB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				340F3C9417EA119F00491CCB /* PBXTargetDependency */,
 			);
-			name = "Unit Tests";
-			productName = "Unit Tests";
-			productReference = 343491D617CF914500C857F8 /* Unit Tests.octest */;
-			productType = "com.apple.product-type.bundle";
+			name = "MeetBallApp Tests";
+			productName = "MeetBallApp Tests";
+			productReference = 340F3C8617EA119F00491CCB /* MeetBallApp Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		347BBD3117CCE92B00BE0E85 /* MeetBallApp */ = {
 			isa = PBXNativeTarget;
@@ -506,6 +612,9 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = MeetBall;
 				TargetAttributes = {
+					340F3C8517EA119F00491CCB = {
+						TestTargetID = 347BBD3117CCE92B00BE0E85;
+					};
 					347BBD3117CCE92B00BE0E85 = {
 						DevelopmentTeam = G5QMKBE589;
 					};
@@ -524,17 +633,17 @@
 			projectRoot = "";
 			targets = (
 				347BBD3117CCE92B00BE0E85 /* MeetBallApp */,
-				343491D517CF914500C857F8 /* Unit Tests */,
+				340F3C8517EA119F00491CCB /* MeetBallApp Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		343491D317CF914500C857F8 /* Resources */ = {
+		340F3C8417EA119F00491CCB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343491DF17CF914500C857F8 /* InfoPlist.strings in Resources */,
+				340F3C8F17EA119F00491CCB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,15 +652,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				347BBD4017CCE92B00BE0E85 /* InfoPlist.strings in Resources */,
+				340F3C4A17E8B1FF00491CCB /* dominic.jpg in Resources */,
+				340F3C4917E8B1FF00491CCB /* Dan-Farris-003.jpg in Resources */,
+				340F3C4417E8B18D00491CCB /* female_face.png in Resources */,
+				340F3C5917E8CE1A00491CCB /* ProfileStoryboard.storyboard in Resources */,
 				347BBD4F17CCE92B00BE0E85 /* loginFlow.storyboard in Resources */,
+				340F3C5C17E8CEAC00491CCB /* SettingsStoryboard.storyboard in Resources */,
+				340F3C4E17E8BA3D00491CCB /* TeamRosterStoryboard.storyboard in Resources */,
 				347BBD7F17CCF7E900BE0E85 /* MBSuitUpCell.xib in Resources */,
 				3473045317E10EDA0026CE10 /* myMeetBallsStoryBoard.storyboard in Resources */,
 				34C70D8D17CD152C001AE7D2 /* README.md in Resources */,
+				340F3C4B17E8B1FF00491CCB /* naa.jpeg in Resources */,
 				34C70D8E17CD152C001AE7D2 /* release_notes.md in Resources */,
 				3473044617E0D42F0026CE10 /* Images.xcassets in Resources */,
 				3446717917CD273600469B39 /* wsresources_prod.plist in Resources */,
+				340F3C4517E8B18D00491CCB /* male_face.jpg in Resources */,
 				3446717E17CD543400469B39 /* homeStoryBoard.storyboard in Resources */,
-				3495816E17CE5C230050A47D /* wsresource_dev.plist in Resources */,
+				3495816E17CE5C230050A47D /* wsresources_dev.plist in Resources */,
 				3495817417CE62880050A47D /* MeetBallApp-Info.plist in Resources */,
 				3473045517E10F9B0026CE10 /* meetBallListTableViewCell.xib in Resources */,
 				3445C9A917D8CDB700399715 /* MBEventCollectionViewCell.xib in Resources */,
@@ -564,19 +681,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		343491D417CF914500C857F8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
 		5FEDFEE2593940309EC8E585 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -610,29 +714,39 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		343491D117CF914500C857F8 /* Sources */ = {
+		340F3C8217EA119F00491CCB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343491E717CF915900C857F8 /* MBDataImporterTests.m in Sources */,
-				34CEA38A17E0C3A6008BEDE5 /* MBAnnotation.m in Sources */,
-				343491E817CF915F00C857F8 /* MBDataCommunicatorTests.m in Sources */,
-				343491E917CF917000C857F8 /* MBHomeViewController.m in Sources */,
-				343491EA17CF917300C857F8 /* MBLandingScreenViewController.m in Sources */,
-				343491EB17CF917600C857F8 /* MBLoginViewController.m in Sources */,
-				343491EC17CF917900C857F8 /* MBDataImporter.m in Sources */,
-				343491ED17CF917C00C857F8 /* MBDataCommunicator.m in Sources */,
-				343491EE17CF917F00C857F8 /* MBSuitUpViewController.m in Sources */,
-				343491F417CF92E200C857F8 /* MBUser.m in Sources */,
-				3434920617D0E88700C857F8 /* MBCredentialManager.m in Sources */,
-				34AF8CF117D68B990090D826 /* MBForgotPasswordViewController.m in Sources */,
-				34AF8CF517D696690090D826 /* MeetBalls.m in Sources */,
-				34AF8CF917D698F60090D826 /* MBHomeDataCommunicator.m in Sources */,
-				3445C9B717D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */,
-				3445C9BB17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */,
-				344B514D17DA74E4000F31FB /* MBDetailsViewController.m in Sources */,
-				3473046817E248210026CE10 /* MBMeetBallDetailViewController.m in Sources */,
-				346599DB17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */,
+				340F3CB917EA13FB00491CCB /* MBLoginViewController.m in Sources */,
+				340F3CAC17EA134000491CCB /* MBMyMeetBallsViewController.m in Sources */,
+				340F3CB317EA135B00491CCB /* MBFriendsCollectionView.m in Sources */,
+				340F3C9917EA11F500491CCB /* MBWebServiceManager.m in Sources */,
+				340F3CAA17EA133600491CCB /* MBMenuView.m in Sources */,
+				340F3CA817EA133100491CCB /* MBCredentialManager.m in Sources */,
+				340F3CAD17EA134200491CCB /* MBMeetBallDetailViewController.m in Sources */,
+				340F3CA717EA132F00491CCB /* MBPerson.m in Sources */,
+				340F3CBC17EA140400491CCB /* MBDataCommunicator.m in Sources */,
+				340F3CB117EA134F00491CCB /* MBTeamRoserViewController.m in Sources */,
+				340F3CB417EA135D00491CCB /* MBDetailsViewController.m in Sources */,
+				340F3CC917EA252A00491CCB /* MBLandingScreenViewController.m in Sources */,
+				340F3CA917EA133400491CCB /* MBAnnotation.m in Sources */,
+				340F3CBB17EA140200491CCB /* MBDataImporter.m in Sources */,
+				340F3CA617EA132D00491CCB /* MeetBalls.m in Sources */,
+				340F3CB217EA135800491CCB /* MBHomeViewController.m in Sources */,
+				340F3CB617EA136200491CCB /* MBHomeMeetBallCollectionViewCell.m in Sources */,
+				340F3CA517EA132A00491CCB /* MBUser.m in Sources */,
+				340F3CB717EA136500491CCB /* MBEventCollectionViewCell.m in Sources */,
+				340F3CBE17EA140A00491CCB /* MBSuitUpCell.m in Sources */,
+				340F3C9A17EA11F800491CCB /* MBWebServiceConstants.m in Sources */,
+				340F3CB017EA134C00491CCB /* commentsCollectionViewCell.m in Sources */,
+				340F3CAE17EA134500491CCB /* meetBallListTableViewCell.m in Sources */,
+				340F3C9817EA11AE00491CCB /* MBWebServiceManagerTests.m in Sources */,
+				340F3CBD17EA140600491CCB /* MBSuitUpViewController.m in Sources */,
+				340F3CAB17EA133900491CCB /* MBMenuNavigator.m in Sources */,
+				340F3CBA17EA13FF00491CCB /* MBForgotPasswordViewController.m in Sources */,
+				340F3CB517EA136000491CCB /* MBHomeDataCommunicator.m in Sources */,
+				340F3CAF17EA134900491CCB /* MBCommentsCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +756,7 @@
 			files = (
 				347BBD4217CCE92B00BE0E85 /* main.m in Sources */,
 				347BBD4617CCE92B00BE0E85 /* MBAppDelegate.m in Sources */,
+				340F3C5117E8BB8700491CCB /* MBTeamRoserViewController.m in Sources */,
 				347BBD5217CCE92B00BE0E85 /* MBLandingScreenViewController.m in Sources */,
 				347BBD7317CCEFE500BE0E85 /* MBLoginViewController.m in Sources */,
 				347BBD7717CCF1F300BE0E85 /* MBSuitUpViewController.m in Sources */,
@@ -654,11 +769,14 @@
 				3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */,
 				3473045117E10EC30026CE10 /* MBMyMeetBallsViewController.m in Sources */,
 				3495816B17CE502E0050A47D /* MBDataCommunicator.m in Sources */,
+				340F3C5F17E9FB2000491CCB /* MBWebServiceManager.m in Sources */,
 				3434920517D0E88700C857F8 /* MBCredentialManager.m in Sources */,
+				340F3C6517EA010100491CCB /* MBWebServiceConstants.m in Sources */,
 				34AF8CF017D68B990090D826 /* MBForgotPasswordViewController.m in Sources */,
 				34AF8CF417D696690090D826 /* MeetBalls.m in Sources */,
 				3473045817E1167B0026CE10 /* meetBallListTableViewCell.m in Sources */,
 				3473045B17E116D50026CE10 /* MBCommentsCollectionView.m in Sources */,
+				340F3C5617E8C73700491CCB /* MBPerson.m in Sources */,
 				34AF8CF817D698F60090D826 /* MBHomeDataCommunicator.m in Sources */,
 				3445C9B617D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */,
 				3473045E17E11A3E0026CE10 /* commentsCollectionViewCell.m in Sources */,
@@ -672,11 +790,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		340F3C9417EA119F00491CCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 347BBD3117CCE92B00BE0E85 /* MeetBallApp */;
+			targetProxy = 340F3C9317EA119F00491CCB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		343491DD17CF914500C857F8 /* InfoPlist.strings */ = {
+		340F3C8D17EA119F00491CCB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				343491DE17CF914500C857F8 /* en */,
+				340F3C8E17EA119F00491CCB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -700,34 +826,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		343491E417CF914500C857F8 /* Debug */ = {
+		340F3C9617EA119F00491CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2BE6291DE139430690C1E728 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MeetBall Lite.app/MeetBall Lite";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Unit Tests/Unit Tests-Prefix.pch";
-				INFOPLIST_FILE = "Unit Tests/Unit Tests-Info.plist";
+				GCC_PREFIX_HEADER = "MeetBallApp Tests/MeetBallApp Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "MeetBallApp Tests/MeetBallApp Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		343491E517CF914500C857F8 /* Release */ = {
+		340F3C9717EA119F00491CCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BE6291DE139430690C1E728 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MeetBall Lite.app/MeetBall Lite";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Unit Tests/Unit Tests-Prefix.pch";
-				INFOPLIST_FILE = "Unit Tests/Unit Tests-Info.plist";
+				GCC_PREFIX_HEADER = "MeetBallApp Tests/MeetBallApp Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "MeetBallApp Tests/MeetBallApp Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -757,7 +925,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -782,7 +950,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -798,6 +967,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Colleen Carlo (48369UQJQ2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Colleen Carlo (48369UQJQ2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeetBallApp/MeetBallApp-Prefix.pch";
 				INFOPLIST_FILE = "MeetBallApp/MeetBallApp-Info.plist";
@@ -823,6 +996,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MeetBall LLC (G5QMKBE589)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MeetBall LLC (G5QMKBE589)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeetBallApp/MeetBallApp-Prefix.pch";
 				INFOPLIST_FILE = "MeetBallApp/MeetBallApp-Info.plist";
@@ -843,14 +1020,13 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		343491E617CF914500C857F8 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
+		340F3C9517EA119F00491CCB /* Build configuration list for PBXNativeTarget "MeetBallApp Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				343491E417CF914500C857F8 /* Debug */,
-				343491E517CF914500C857F8 /* Release */,
+				340F3C9617EA119F00491CCB /* Debug */,
+				340F3C9717EA119F00491CCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		347BBD2D17CCE92B00BE0E85 /* Build configuration list for PBXProject "MeetBallApp" */ = {
 			isa = XCConfigurationList;

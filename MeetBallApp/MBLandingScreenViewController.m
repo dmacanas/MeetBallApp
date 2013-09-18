@@ -20,7 +20,6 @@ static NSString * const kAuthentication = @"authenticated";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self.toolBar setBackgroundImage:[UIImage imageNamed:@"toolbar"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -34,7 +33,6 @@ static NSString * const kAuthentication = @"authenticated";
 - (void)viewDidAppear:(BOOL)animated {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
         __weak MBLandingScreenViewController *weakSelf = self;
-//        [SVProgressHUD showWithStatus:@"Loading Profile" maskType:SVProgressHUDMaskTypeClear];
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:[NSBundle mainBundle]];
         UIViewController *vc = [sb instantiateInitialViewController];
         [weakSelf presentViewController:vc animated:NO completion:nil];

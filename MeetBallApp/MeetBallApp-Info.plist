@@ -21,7 +21,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -37,7 +37,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>1</string>
 	<key>FacebookAppID</key>
 	<string>417231521721790</string>
 	<key>FacebookDisplayName</key>
@@ -63,11 +63,11 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.4862745098039216</real>
+				<real>0.48627450980392162</real>
 				<key>Green</key>
-				<real>0.2274509803921569</real>
+				<real>0.22745098039215689</real>
 				<key>Red</key>
-				<real>0.1490196078431373</real>
+				<real>0.14901960784313731</real>
 			</dict>
 			<key>Translucent</key>
 			<false/>

@@ -5,10 +5,10 @@
 	<key>MeetBallLogin</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/2.0/service.svc/json/Session/Login</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/Session/Login</string>
 		<key>method</key>
 		<string>POST</string>
-		<key>apiKey</key>
+		<key>apikey</key>
 		<string>6FC455D3-6207-4112-9D71-005A6EF96422</string>
 		<key>Content-Type</key>
 		<string>application/json</string>
@@ -18,15 +18,15 @@
 	<key>GetPhoneNumbers</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Browse/Phone/{sessionID}/?appUserId={appUserId}</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Browse/Phone/{sessionId}/?appUserId={appUserId}</string>
 		<key>method</key>
 		<string>GET</string>
 	</dict>
-	<key>GetSessionID</key>
+	<key>GetSessionId</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/2.0/service.svc/json/Session/GetSessionId?existingId=null&amp;appUserId=-1&amp;apiKey={apiKey}</string>
-		<key>apiKey</key>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/Session/GetSessionId?existingId=null&amp;appUserId=-1&amp;apiKey={apikey}</string>
+		<key>apikey</key>
 		<string>6FC455D3-6207-4112-9D71-005A6EF96422</string>
 		<key>method</key>
 		<string>GET</string>
@@ -34,7 +34,7 @@
 	<key>GetUserWithFacebookId</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Facebook/{sessionID}?firstName={firstName}&amp;lastName={lastName}&amp;facebookId={facebookID}&amp;email={email}&amp;accessToken={facebookAppID}</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Facebook/{sessionId}?firstName={first_name}&amp;lastName={last_name}&amp;facebookId={id}&amp;email={email}&amp;accessToken=417231521721790</string>
 		<key>method</key>
 		<string>GET</string>
 		<key>facebookAppID</key>
@@ -43,7 +43,7 @@
 	<key>UpdatePassword</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/2.0/service.svc/json/AppUser/Password?appUserId={appUserID}</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Password?appUserId={appUserId}</string>
 		<key>method</key>
 		<string>POST</string>
 		<key>Content-Type</key>
@@ -54,7 +54,7 @@
 	<key>CreateNewUser</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/2.0/service.svc/json/AppUser</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser</string>
 		<key>method</key>
 		<string>POST</string>
 		<key>Content-Type</key>
@@ -65,14 +65,14 @@
 	<key>GetUpcomingMeetBalls</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/2.0/service.svc/json/Meetball/Current/{sessionID}?appUserId={appUserID}</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/Meetball/Current/{sessionId}?appUserId={appUserId}</string>
 		<key>method</key>
 		<string>GET</string>
 	</dict>
-	<key>resetPassword</key>
+	<key>ResetPassword</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/2.0/service.svc/json/AppUser/ResetPassword</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/ResetPassword</string>
 		<key>method</key>
 		<string>POST</string>
 		<key>Accept</key>

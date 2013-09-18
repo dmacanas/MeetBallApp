@@ -21,6 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSUserDefaults standardUserDefaults] setObject:@"dev" forKey:@"environment"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [TestFlight takeOff:@"6504280e-1deb-4c64-8f27-0269303db94d"];
     [MagicalRecord setupCoreDataStack];
     // Override point for customization after application launch.

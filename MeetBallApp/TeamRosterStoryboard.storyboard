@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1WJ-gl-FYZ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="kfS-y3-mQ5">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="1WJ-gl-FYZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wRZ-zL-8Cu">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eA2-Sx-O4Y" kind="relationship" relationship="rootViewController" id="L5l-fP-mwU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3sR-BC-Gm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9" y="-5"/>
+        </scene>
+        <!--Team Roser View Controller - Team Roster-->
+        <scene sceneID="ayH-Jy-fch">
+            <objects>
+                <viewController id="eA2-Sx-O4Y" customClass="MBTeamRoserViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f7q-Lw-PRK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gym-rP-8QG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QSi-Qx-jd4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VX1-Hb-sgg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vxZ-tF-aTA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16F-48-8IP">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VX1-Hb-sgg" firstAttribute="leading" secondItem="vxZ-tF-aTA" secondAttribute="leading" id="FMe-Xe-unZ"/>
+                            <constraint firstItem="16F-48-8IP" firstAttribute="leading" secondItem="VX1-Hb-sgg" secondAttribute="leading" id="GeL-j1-9Qz"/>
+                            <constraint firstAttribute="trailing" secondItem="VX1-Hb-sgg" secondAttribute="trailing" id="La9-Ap-W8Y"/>
+                            <constraint firstItem="VX1-Hb-sgg" firstAttribute="leading" secondItem="QSi-Qx-jd4" secondAttribute="leading" id="UC5-6U-fSL"/>
+                            <constraint firstItem="16F-48-8IP" firstAttribute="top" secondItem="f7q-Lw-PRK" secondAttribute="bottom" constant="1" id="Vtk-9k-0IS"/>
+                            <constraint firstItem="16F-48-8IP" firstAttribute="bottom" secondItem="VX1-Hb-sgg" secondAttribute="bottom" id="Yje-jI-SWf"/>
+                            <constraint firstItem="VX1-Hb-sgg" firstAttribute="top" secondItem="QSi-Qx-jd4" secondAttribute="top" id="a0k-Xj-4Mu"/>
+                            <constraint firstAttribute="bottom" secondItem="VX1-Hb-sgg" secondAttribute="bottom" id="bYJ-iA-XpC"/>
+                            <constraint firstItem="VX1-Hb-sgg" firstAttribute="bottom" secondItem="vxZ-tF-aTA" secondAttribute="bottom" id="fWx-4Y-EIE"/>
+                            <constraint firstItem="VX1-Hb-sgg" firstAttribute="trailing" secondItem="vxZ-tF-aTA" secondAttribute="trailing" id="l8O-Yh-wzz"/>
+                            <constraint firstItem="16F-48-8IP" firstAttribute="trailing" secondItem="vxZ-tF-aTA" secondAttribute="trailing" id="mVh-p7-k7V"/>
+                            <constraint firstItem="VX1-Hb-sgg" firstAttribute="top" secondItem="vxZ-tF-aTA" secondAttribute="top" id="mzl-EE-EO4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Team Roster" id="iUm-a9-v2H">
+                        <barButtonItem key="leftBarButtonItem" image="menu_ic" id="HQw-SZ-fgs">
+                            <connections>
+                                <action selector="showMenu:" destination="eA2-Sx-O4Y" id="RdR-WY-dF7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Qb-cV-DLH">
+                            <connections>
+                                <segue destination="aWf-TX-E6G" kind="push" id="UhJ-Wk-NSj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="blurView" destination="vxZ-tF-aTA" id="oZF-E5-RqD"/>
+                        <outlet property="friendsTableView" destination="VX1-Hb-sgg" id="Rxv-4N-j6f"/>
+                        <outlet property="menuContainer" destination="16F-48-8IP" id="wm8-ME-eoY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5m-b8-J4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="466" y="-5"/>
+        </scene>
+        <!--View Controller - Invite Friends-->
+        <scene sceneID="LGJ-n4-DWM">
+            <objects>
+                <viewController id="aWf-TX-E6G" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8BQ-FQ-DQJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="n7P-ka-HM3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sDk-0p-SAG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZb-1V-W8Y">
+                                <rect key="frame" x="20" y="89" width="280" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x4a-fq-Sd9">
+                                <rect key="frame" x="20" y="161" width="280" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8k-YA-MO8">
+                                <rect key="frame" x="152" y="132" width="16" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIV-zF-VFJ">
+                                <rect key="frame" x="20" y="215" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.32549019610000002" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <state key="normal" title="Invite">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Invite Friends" id="tXR-EE-mdi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ifr-qq-871" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="-5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu_ic" width="20" height="19"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

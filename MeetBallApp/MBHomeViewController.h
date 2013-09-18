@@ -32,6 +32,7 @@
 - (IBAction)throwMeetBall:(id)sender;
 - (IBAction)adjustMap:(id)sender;
 - (IBAction)adjustUserLocation:(id)sender;
+- (IBAction)carLocation:(id)sender;
 
 
 @end

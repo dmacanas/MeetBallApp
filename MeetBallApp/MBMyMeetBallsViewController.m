@@ -12,11 +12,15 @@
 #import "MBCommentsCollectionView.h"
 #import "MBMenuView.h"
 #import "MBMenuNavigator.h"
+#import "MBMeetBallDetailViewController.h"
 
 @interface MBMyMeetBallsViewController () <MBMenuViewDelegate>
 
 @property (assign, nonatomic) BOOL isShowingMenu;
-@property (assign, nonatomic) MBMenuView *menu;
+@property (strong, nonatomic) MBMenuView *menu;
+@property (strong, nonatomic) NSString *titleString;
+
+
 
 @end
 
@@ -74,29 +78,41 @@
         case 1:
             cell.titleLabel.text = @"Tailgate Two";
             cell.ownerLabel.text = @"Dominic Macanas";
+            cell.iconImageView.image = [UIImage imageNamed:@"dominic.jpg"];
             break;
         case 2:
             cell.titleLabel.text = @"Tailgate Three";
             cell.ownerLabel.text = @"Northwestern University Marching Band";
+            cell.iconImageView.image = [UIImage imageNamed:@"Dan-Farris-003.jpg"];
             break;
         case 3:
             cell.titleLabel.text = @"Tailgate Four";
             cell.ownerLabel.text = @"Northwestern Alumni Association";
+            cell.iconImageView.image = [UIImage imageNamed:@"naa.jpeg"];
             break;
         case 4:
             cell.titleLabel.text = @"Tailgate Five";
             cell.ownerLabel.text = @"John Doe";
+            cell.iconImageView.image = [UIImage imageNamed:@"male_face.jpg"];
             break;
         default:
             cell.titleLabel.text = @"Tailgate One";
             cell.ownerLabel.text = @"Jane Smith";
+            cell.iconImageView.image = [UIImage imageNamed:@"female_face.png"];
             break;
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    meetBallListTableViewCell *cell = (meetBallListTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    self.titleString = cell.titleLabel.text;
     [self performSegueWithIdentifier:@"meetBallDetailPush" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MBMeetBallDetailViewController *mVC = [segue destinationViewController];
+    mVC.titleString = self.titleString;
 }
 
 #pragma mark - collectionView Delegates
@@ -117,8 +133,12 @@
     if ([item isEqualToString:@"My MeetBalls"]) {
         return;
     }
-    __weak MBMyMeetBallsViewController *weakSelf = self;
-    [MBMenuNavigator navigateToMenuItem:item fromVC:weakSelf];
+    
+    [self dismissViewControllerAnimated:NO completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"navigate" object:item];
+    }];
+//    __weak MBMyMeetBallsViewController *weakSelf = self;
+//    [MBMenuNavigator navigateToMenuItem:item fromVC:weakSelf];
 }
 
 - (void)didReceiveMemoryWarning

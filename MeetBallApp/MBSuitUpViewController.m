@@ -152,7 +152,7 @@ static NSString * const kFirstName = @"FirstName";
                 if ([[[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
                     //self.email = [data objectForKey:@"AppUserId"];
                     //self.password = [data objectForKey:@"password"];
-                    [self.commLink updatePasswordForNewFacebookUser:@{@"AppUserId":[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"],@"password":cpwd} succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                    [self.commLink updatePasswordForNewFacebookUser:@{@"appUserId":[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"],@"newPassword":cpwd} succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                         NSLog(@"%@",JSON);
                         [[NSUserDefaults standardUserDefaults] setObject:[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"] forKey:kAppUserId];
                         [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:kFirstName];

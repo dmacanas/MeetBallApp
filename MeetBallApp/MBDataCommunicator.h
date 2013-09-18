@@ -19,6 +19,6 @@
 //GET methods
 - (void)getPhoneNumberWithUserInfo:(NSDictionary *)userInfo succss:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
 - (void)getUserInfoWithFacebookID:(NSDictionary *)data succss:(void(^)(NSDictionary *JSON))success failure:(void(^)(NSError *error))failure;
-- (void)getSessionID:(void(^)(NSString *sid))completion;
+- (void)getSessionID:(void(^)(NSString *sid))completion failure:(void(^)(NSError *error))failure;
 
 @end

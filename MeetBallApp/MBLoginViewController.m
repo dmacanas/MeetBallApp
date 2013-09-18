@@ -17,6 +17,8 @@
 #import "MagicalRecordShorthand.h"
 #import "NSManagedObject+MagicalFinders.h"
 #import "MBCredentialManager.h"
+#import "MBWebServiceConstants.h"
+#import "MBWebServiceManager.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -115,6 +117,13 @@ static NSString * const kFirstName = @"FirstName";
                     if(pwd == nil){
                         weakSelf.needsPasswordUpdate = YES;
                         [weakSelf showAlertViewToGetPassword];
+                    } else {
+                        [MBCredentialManager clearCredentials];
+                        NSURLCredential *cred = [[NSURLCredential alloc] initWithUser:weakSelf.email password:pwd persistence:NSURLCredentialPersistencePermanent];
+                        [MBCredentialManager saveCredential:cred];
+                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAuthentication];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        [weakSelf launchHomeScreen];
                     }
                 }
             }
