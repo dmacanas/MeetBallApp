@@ -191,6 +191,11 @@
                                     <constraint firstAttribute="height" constant="44" id="ika-yK-PH4"/>
                                 </constraints>
                             </view>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9l7-WH-a3M">
+                                <rect key="frame" x="0.0" y="65" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -222,6 +227,7 @@
                         <outlet property="emailField" destination="ske-PK-LUR" id="AkZ-Lv-a1q"/>
                         <outlet property="loginButton" destination="d5u-Xl-Kyf" id="rwS-0q-xcs"/>
                         <outlet property="passwordField" destination="49c-3N-OZ8" id="fwE-Jo-GV1"/>
+                        <outlet property="progressView" destination="9l7-WH-a3M" id="BVv-8H-hlu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yia-mg-aEH" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,9 +14,6 @@
 @property (strong, nonatomic) NSString *firstName;
 @property (strong, nonatomic) NSString *lastName;
 @property (strong, nonatomic) NSString *email;
-@property (strong, nonatomic) NSString *phoneNumber;
-@property (strong, nonatomic) NSString *facebookID;
-@property (strong, nonatomic) NSString *meetBallHandle;
-@property (strong, nonatomic) NSString *meetBallID;
+@property (assign, nonatomic) NSInteger meetBallID;
 
 @end

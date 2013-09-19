@@ -13,9 +13,6 @@
 @dynamic firstName;
 @dynamic lastName;
 @dynamic email;
-@dynamic phoneNumber;
-@dynamic facebookID;
-@dynamic meetBallHandle;
 @dynamic meetBallID;
 
 @end

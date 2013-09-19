@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "MagicalRecordShorthand.h"
 #import "MagicalRecord+Setup.h"
+#import "MBCredentialManager.h"
 
 @implementation MBAppDelegate
 
@@ -34,8 +35,13 @@
         NSString *path = [url host];
         if ([path isEqualToString:@"test"] || [path isEqualToString:@"prod"] || [path isEqualToString:@"staging"]) {
             NSLog(@"URL launch with host: %@", [url host]);
-            [[NSUserDefaults standardUserDefaults] setObject:[url host] forKey:@"wsresources"];
+            [[NSUserDefaults standardUserDefaults] setObject:[url host] forKey:@"environment"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+        } else if ([path isEqualToString:@"clear"]) {
+            [MagicalRecord cleanUp];
+            [MBCredentialManager clearCredentials];
+            NSString *defaultDomain = [[NSBundle mainBundle] bundleIdentifier];
+            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:defaultDomain];
         }
     }
     

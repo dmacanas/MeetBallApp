@@ -15,6 +15,9 @@
 #import "MBMenuView.h"
 #import "MBAnnotation.h"
 #import "MBMenuNavigator.h"
+#import "MBMathBlock.h"
+#import "MBAppDelegate.h"
+#import "NSManagedObject+MRImportAdditions.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <CoreData/CoreData.h>
@@ -24,6 +27,7 @@
 
 #define degreesToRadians(x) (M_PI * x / 180.0)
 #define radiansToDegrees(x) (x * 180.0 / M_PI)
+static NSString * const kAnnotaionId = @"pinId";
 
 @interface MBHomeViewController () <CLLocationManagerDelegate>
 
@@ -35,7 +39,9 @@
 @property (assign, nonatomic) BOOL isShowingFullScreenMap;
 @property (assign, nonatomic) CGRect originalRect;
 @property (assign, nonatomic) CGRect originalToolbarFrame;
+@property (assign, nonatomic) CGRect originalTableFrame;
 @property (strong, nonatomic) MBAnnotation *annotation;
+@property (strong, nonatomic) NSMutableArray *contactsArray;
 
 @end
 
@@ -61,12 +67,12 @@ static NSString * const kSessionId = @"sessionId";
     [super viewDidLoad];
     [self menuSetup];
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
-    
+    self.contactsArray = [[NSMutableArray alloc] init];
     [self setMapView];
     [self setAnchorPoint:CGPointMake(0.5, 0.5) forView:self.compassImageVIew];
     [self locationManagerSetup];
     [self createAnnotations];
-    
+    [self getMeetBallContacts];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(navigateWithNotification:) name:@"navigate" object:nil];
 }
 
@@ -103,11 +109,11 @@ static NSString * const kSessionId = @"sessionId";
     CLLocationCoordinate2D four = CLLocationCoordinate2DMake(42.064691, -87.694523);
     CLLocationCoordinate2D five = CLLocationCoordinate2DMake(42.064412, -87.692893);
     
-    MBAnnotation *aOne = [[MBAnnotation alloc] initWithTitle:@"Tailgate One" andCoordinate:one];
-    MBAnnotation *aTwo = [[MBAnnotation alloc] initWithTitle:@"Tailgate Two" andCoordinate:two];
-    MBAnnotation *aThree = [[MBAnnotation alloc] initWithTitle:@"Tailgate Three" andCoordinate:three];
-    MBAnnotation *aFour =[[MBAnnotation alloc] initWithTitle:@"Tailgate Four" andCoordinate:four];
-    MBAnnotation *aFive = [[MBAnnotation alloc] initWithTitle:@"Tailgate Five" andCoordinate:five];
+    MBAnnotation *aOne = [[MBAnnotation alloc] initWithTitle:@"Tailgate One" andCoordinate:one reuseId:kAnnotaionId];
+    MBAnnotation *aTwo = [[MBAnnotation alloc] initWithTitle:@"Tailgate Two" andCoordinate:two reuseId:kAnnotaionId];
+    MBAnnotation *aThree = [[MBAnnotation alloc] initWithTitle:@"Tailgate Three" andCoordinate:three reuseId:kAnnotaionId];
+    MBAnnotation *aFour =[[MBAnnotation alloc] initWithTitle:@"Tailgate Four" andCoordinate:four reuseId:kAnnotaionId];
+    MBAnnotation *aFive = [[MBAnnotation alloc] initWithTitle:@"Tailgate Five" andCoordinate:five reuseId:kAnnotaionId];
     
     NSArray *a = [[NSArray alloc] initWithObjects:aOne, aTwo, aThree, aFour, aFive, nil];
     
@@ -128,6 +134,7 @@ static NSString * const kSessionId = @"sessionId";
     }
     self.originalRect = self.mapView.frame;
     self.originalToolbarFrame = self.mapToolBar.frame;
+    self.originalTableFrame = self.homeTableView.frame;
     [self.locationManager startUpdatingHeading];
     [self.locationManager startUpdatingLocation];
 }
@@ -141,14 +148,32 @@ static NSString * const kSessionId = @"sessionId";
 #pragma mark - Mapview Delegates
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
-    MKAnnotationView *annotationView = [views objectAtIndex:0];
-	id <MKAnnotation> mp = [annotationView annotation];
-    if([mp class] != [MKUserLocation class]){
-        [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([mp coordinate], MKCoordinateSpanMake(1, 1))] animated:YES];
-    }
+
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    if ([annotation isKindOfClass:[MBAnnotation class]]) {
+        MKPinAnnotationView *pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:kAnnotaionId];
+        if (pinView == nil) {
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:kAnnotaionId];
+            pinView.pinColor = MKPinAnnotationColorPurple;
+            pinView.animatesDrop = YES;
+            pinView.canShowCallout = YES;
+            UIButton *callout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+            [callout setImage:[UIImage imageNamed:@"car"] forState:UIControlStateNormal];
+            pinView.rightCalloutAccessoryView = callout;
+        }else {
+            pinView.annotation = annotation;
+        }
+        
+        return pinView;
+    }
+
+    return nil;
 }
 
 #pragma mark - Menu Delegate
@@ -164,34 +189,22 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 #pragma mark - Location Manager Delegates
-- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
-    if(self.isShowingMeetBall == YES) {
-        [self setMeetBallHeading:newHeading];
-    }
-}
 
-- (void)setMeetBallHeading:(CLHeading *)heading{
-    CLLocationCoordinate2D cord = CLLocationCoordinate2DMake(42.06540, -87.69442);
-    double lon = cord.longitude - [self.mapView userLocation].coordinate.longitude;
-    double dlon = degreesToRadians(lon);
-    double lat1 = degreesToRadians([self.mapView userLocation].coordinate.latitude);
-    double lat2 = degreesToRadians(cord.latitude);
-    double y = sin(dlon) * cos(lat2);
-    double x1 = cos(lat1) * sin(lat2);
-    double x2 = sin(lat1) * cos(lat2) * cos(dlon);
-    double x = x1 - x2;
-    double brng = radiansToDegrees(atan2(y, x));
-    
-    if (brng<0) {
-        brng = (180+(180+brng));
-    }
-    
-    double trueNorth = heading.trueHeading;
-    double hd = trueNorth - brng;
-    hd = 360 - hd;
-
-    CGAffineTransform rotate = CGAffineTransformMakeRotation(degreesToRadians(hd));
-    [self.compassImageVIew setTransform:rotate];
+#pragma mark - contacts setUp
+- (void)getMeetBallContacts {
+    __weak MBHomeViewController *weakSelf = self;
+    __block NSManagedObjectContext *moc = [NSManagedObjectContext MR_contextForCurrentThread];
+    __block NSMutableArray *objectIds = [NSMutableArray array];
+    [self.homeCommLink getMeetBallContacts:^(id contacts){
+        NSError* error;
+        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:contacts options:kNilOptions error:&error];
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            weakSelf.contactsArray = [MBUser MR_importFromArrayAndWait:json[@"Items"] inContext:localContext];
+            [weakSelf.homeTableView reloadData];
+        }];
+    } failure:^(NSError *err) {
+        NSLog(@"error %@",err);
+    }];
 }
 
 #pragma mark - tableView methods
@@ -201,19 +214,21 @@ static NSString * const kSessionId = @"sessionId";
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    if (indexPath.row != 3) {
-        cell.textLabel.text = @"Friend Name";
-    } else {
-        cell.textLabel.text = @"Add more friends ...";
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    if (indexPath.row == self.contactsArray.count) {
+        cell.textLabel.text = @"Add More Friends...";
+        return cell;
     }
-    
+    if (self.contactsArray) {
+        MBUser *u = (MBUser *)[[NSManagedObjectContext MR_contextForCurrentThread] objectWithID:[[self.contactsArray objectAtIndex:1] objectID]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", u.firstName, u.lastName];
+    }
+
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return self.contactsArray.count + 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -288,9 +303,9 @@ static NSString * const kSessionId = @"sessionId";
     if (self.annotation) {
         [self.mapView removeAnnotation:self.annotation];
         self.annotation = nil;
-        self.annotation = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:[self.mapView userLocation].coordinate];
+        self.annotation = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:[self.mapView userLocation].coordinate reuseId:kAnnotaionId];
     } else {
-        self.annotation = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:[self.mapView userLocation].coordinate];
+        self.annotation = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:[self.mapView userLocation].coordinate reuseId:kAnnotaionId];
     }
     
     [self.mapView addAnnotation:self.annotation];
@@ -299,12 +314,21 @@ static NSString * const kSessionId = @"sessionId";
 - (void)resetHomeScreen {
     [self.toolBarButton setImage:[UIImage imageNamed:@"fullScreen_ic"]];
     self.isShowingFullScreenMap = NO;
+    __weak MBHomeViewController *weakSelf = self;
+    [UIView animateWithDuration:0.5 animations:^{
+        [weakSelf.mapView setFrame:weakSelf.originalRect];
+        [weakSelf.mapToolBar setFrame:weakSelf.originalToolbarFrame];
+        [weakSelf.scrollView setScrollEnabled:YES];
+        weakSelf.homeTableView.hidden = NO;
+
+    }];
     
-    self.homeTableView.hidden = NO;
-    self.mainToolbar.hidden = NO;
-    [self.mapView setFrame:self.originalRect];
-    [self.mapToolBar setFrame:self.originalToolbarFrame];
-    [self.scrollView setScrollEnabled:YES];
+    [UIView animateWithDuration:0.5 animations:^{
+        [weakSelf.homeTableView setFrame:weakSelf.originalTableFrame];
+    } completion:^(BOOL finished) {
+         weakSelf.mainToolbar.hidden = NO;
+    }];
+
 }
 
 - (void)setForFullScreen {
@@ -315,14 +339,25 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)setFramesForFullScreen {
-    self.homeTableView.hidden = YES;
-    self.mainToolbar.hidden = YES;
-    CGRect f = self.mapView.frame;
-    f.size.height = self.scrollView.frame.size.height -64;
-    [self.mapView setFrame:f];
-    f = self.mapToolBar.frame;
-    f.origin.y = self.mapView.frame.size.height - self.mapToolBar.frame.size.height;
-    [self.mapToolBar setFrame:f];
+    __weak MBHomeViewController *weakSelf = self;
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect f = weakSelf.homeTableView.frame;
+        f.origin.y = weakSelf.scrollView.frame.size.height;
+        [weakSelf.homeTableView setFrame:f];
+        weakSelf.mainToolbar.hidden = YES;
+    } completion:^(BOOL finished) {
+        weakSelf.homeTableView.hidden = YES;
+    }];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect f = weakSelf.mapView.frame;
+        f.size.height = weakSelf.scrollView.frame.size.height -64;
+        [weakSelf.mapView setFrame:f];
+        f = weakSelf.mapToolBar.frame;
+        f.origin.y = weakSelf.mapView.frame.size.height - weakSelf.mapToolBar.frame.size.height;
+        [weakSelf.mapToolBar setFrame:f];
+
+    }];
 }
 
 #pragma mark - notifications

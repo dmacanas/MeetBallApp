@@ -62,6 +62,9 @@
 		340F3CBD17EA140600491CCB /* MBSuitUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7617CCF1F300BE0E85 /* MBSuitUpViewController.m */; };
 		340F3CBE17EA140A00491CCB /* MBSuitUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7C17CCF7CD00BE0E85 /* MBSuitUpCell.m */; };
 		340F3CC917EA252A00491CCB /* MBLandingScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD5117CCE92B00BE0E85 /* MBLandingScreenViewController.m */; };
+		340F3CCD17EB47B000491CCB /* MBMathBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3CCC17EB47B000491CCB /* MBMathBlock.m */; };
+		340F3CCE17EB47B000491CCB /* MBMathBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3CCC17EB47B000491CCB /* MBMathBlock.m */; };
+		340F3CD017EB738300491CCB /* MBTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340F3CCF17EB738300491CCB /* MBTipView.xib */; };
 		3434920517D0E88700C857F8 /* MBCredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3434920417D0E88700C857F8 /* MBCredentialManager.m */; };
 		3445C9A917D8CDB700399715 /* MBEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3445C9A817D8CDB700399715 /* MBEventCollectionViewCell.xib */; };
 		3445C9B617D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B517D8D33D00399715 /* MBEventCollectionViewCell.m */; };
@@ -100,6 +103,7 @@
 		347BBD7717CCF1F300BE0E85 /* MBSuitUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7617CCF1F300BE0E85 /* MBSuitUpViewController.m */; };
 		347BBD7D17CCF7CD00BE0E85 /* MBSuitUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BBD7C17CCF7CD00BE0E85 /* MBSuitUpCell.m */; };
 		347BBD7F17CCF7E900BE0E85 /* MBSuitUpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 347BBD7E17CCF7E900BE0E85 /* MBSuitUpCell.xib */; };
+		347E418A17EB783E004C16EF /* MBTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 347E418917EB783E004C16EF /* MBTipView.m */; };
 		3495815817CE43980050A47D /* MBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815717CE43980050A47D /* MBUser.m */; };
 		3495815C17CE47400050A47D /* MeetBall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3495815A17CE47400050A47D /* MeetBall.xcdatamodeld */; };
 		3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495815F17CE4AE10050A47D /* MBDataImporter.m */; };
@@ -118,6 +122,7 @@
 		34C70D8D17CD152C001AE7D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 34C70D8717CD152C001AE7D2 /* README.md */; };
 		34C70D8E17CD152C001AE7D2 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 34C70D8817CD152C001AE7D2 /* release_notes.md */; };
 		34CEA38917E0C3A6008BEDE5 /* MBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */; };
+		34DA7FF017EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 34DA7FEF17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m */; };
 		34DE22BF17E3788600B99554 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE22BE17E3788600B99554 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +167,9 @@
 		340F3CC117EA143700491CCB /* libPods-MagicalRecord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MagicalRecord.a"; path = "Build/Products/Debug-iphoneos/libPods-MagicalRecord.a"; sourceTree = "<group>"; };
 		340F3CC217EA143700491CCB /* libPods-SVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SVProgressHUD.a"; path = "Build/Products/Debug-iphoneos/libPods-SVProgressHUD.a"; sourceTree = "<group>"; };
 		340F3CC317EA143700491CCB /* libPods-TestFlightSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-TestFlightSDK.a"; path = "Build/Products/Debug-iphoneos/libPods-TestFlightSDK.a"; sourceTree = "<group>"; };
+		340F3CCB17EB47B000491CCB /* MBMathBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMathBlock.h; sourceTree = "<group>"; };
+		340F3CCC17EB47B000491CCB /* MBMathBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMathBlock.m; sourceTree = "<group>"; };
+		340F3CCF17EB738300491CCB /* MBTipView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBTipView.xib; sourceTree = "<group>"; };
 		3434920317D0E88700C857F8 /* MBCredentialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCredentialManager.h; sourceTree = "<group>"; };
 		3434920417D0E88700C857F8 /* MBCredentialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCredentialManager.m; sourceTree = "<group>"; };
 		3445C9A817D8CDB700399715 /* MBEventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBEventCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -224,6 +232,8 @@
 		347BBD7B17CCF7CD00BE0E85 /* MBSuitUpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSuitUpCell.h; sourceTree = "<group>"; };
 		347BBD7C17CCF7CD00BE0E85 /* MBSuitUpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSuitUpCell.m; sourceTree = "<group>"; };
 		347BBD7E17CCF7E900BE0E85 /* MBSuitUpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBSuitUpCell.xib; sourceTree = "<group>"; };
+		347E418817EB783E004C16EF /* MBTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTipView.h; sourceTree = "<group>"; };
+		347E418917EB783E004C16EF /* MBTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTipView.m; sourceTree = "<group>"; };
 		3495815617CE43980050A47D /* MBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBUser.h; path = MeetBallApp/MBUser.h; sourceTree = "<group>"; };
 		3495815717CE43980050A47D /* MBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBUser.m; path = MeetBallApp/MBUser.m; sourceTree = "<group>"; };
 		3495815B17CE47400050A47D /* MeetBall.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeetBall.xcdatamodel; sourceTree = "<group>"; };
@@ -251,6 +261,8 @@
 		34C70D8B17CD152C001AE7D2 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		34CEA38717E0C3A6008BEDE5 /* MBAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAnnotation.h; sourceTree = "<group>"; };
 		34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAnnotation.m; sourceTree = "<group>"; };
+		34DA7FEE17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MRImportAdditions.h"; sourceTree = "<group>"; };
+		34DA7FEF17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MRImportAdditions.m"; sourceTree = "<group>"; };
 		34DE22BE17E3788600B99554 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -375,6 +387,10 @@
 				340F3C5E17E9FB2000491CCB /* MBWebServiceManager.m */,
 				340F3C6317EA010100491CCB /* MBWebServiceConstants.h */,
 				340F3C6417EA010100491CCB /* MBWebServiceConstants.m */,
+				340F3CCB17EB47B000491CCB /* MBMathBlock.h */,
+				340F3CCC17EB47B000491CCB /* MBMathBlock.m */,
+				34DA7FEE17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.h */,
+				34DA7FEF17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -421,6 +437,9 @@
 				3473045C17E11A3E0026CE10 /* commentsCollectionViewCell.h */,
 				3473045D17E11A3E0026CE10 /* commentsCollectionViewCell.m */,
 				3473045F17E11A510026CE10 /* commentsCollectionViewCell.xib */,
+				347E418817EB783E004C16EF /* MBTipView.h */,
+				347E418917EB783E004C16EF /* MBTipView.m */,
+				340F3CCF17EB738300491CCB /* MBTipView.xib */,
 			);
 			name = "My MeetBalls";
 			sourceTree = "<group>";
@@ -670,6 +689,7 @@
 				3446717E17CD543400469B39 /* homeStoryBoard.storyboard in Resources */,
 				3495816E17CE5C230050A47D /* wsresources_dev.plist in Resources */,
 				3495817417CE62880050A47D /* MeetBallApp-Info.plist in Resources */,
+				340F3CD017EB738300491CCB /* MBTipView.xib in Resources */,
 				3473045517E10F9B0026CE10 /* meetBallListTableViewCell.xib in Resources */,
 				3445C9A917D8CDB700399715 /* MBEventCollectionViewCell.xib in Resources */,
 				3445C9C317D905F300399715 /* MBMenuView.xib in Resources */,
@@ -718,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340F3CCE17EB47B000491CCB /* MBMathBlock.m in Sources */,
 				340F3CB917EA13FB00491CCB /* MBLoginViewController.m in Sources */,
 				340F3CAC17EA134000491CCB /* MBMyMeetBallsViewController.m in Sources */,
 				340F3CB317EA135B00491CCB /* MBFriendsCollectionView.m in Sources */,
@@ -766,10 +787,13 @@
 				3495815817CE43980050A47D /* MBUser.m in Sources */,
 				3495815C17CE47400050A47D /* MeetBall.xcdatamodeld in Sources */,
 				34CEA38917E0C3A6008BEDE5 /* MBAnnotation.m in Sources */,
+				340F3CCD17EB47B000491CCB /* MBMathBlock.m in Sources */,
 				3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */,
 				3473045117E10EC30026CE10 /* MBMyMeetBallsViewController.m in Sources */,
+				34DA7FF017EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m in Sources */,
 				3495816B17CE502E0050A47D /* MBDataCommunicator.m in Sources */,
 				340F3C5F17E9FB2000491CCB /* MBWebServiceManager.m in Sources */,
+				347E418A17EB783E004C16EF /* MBTipView.m in Sources */,
 				3434920517D0E88700C857F8 /* MBCredentialManager.m in Sources */,
 				340F3C6517EA010100491CCB /* MBWebServiceConstants.m in Sources */,
 				34AF8CF017D68B990090D826 /* MBForgotPasswordViewController.m in Sources */,
@@ -1027,6 +1051,7 @@
 				340F3C9717EA119F00491CCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		347BBD2D17CCE92B00BE0E85 /* Build configuration list for PBXProject "MeetBallApp" */ = {
 			isa = XCConfigurationList;

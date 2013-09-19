@@ -4,15 +4,80 @@
 <dict>
 	<key>MeetBallLogin</key>
 	<dict>
-		<key>path</key>
-		<string>/Session/Login</string>
-		<key>protocol</key>
-		<string>https</string>
-		<key>server</key>
-		<string>ws.meetball.com/2.0/service.svc/json</string>
+		<key>URL</key>
+		<string>http://ws.meetball.com/{version}/service.svc/json/Session/Login</string>
 		<key>method</key>
 		<string>POST</string>
-		<key>contentType</key>
+		<key>apikey</key>
+		<string>6FC455D3-6207-4112-9D71-005A6EF96422</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>GetPhoneNumbers</key>
+	<dict>
+		<key>URL</key>
+		<string>http://ws.meetball.com/{version}/service.svc/json/AppUser/Browse/Phone/{sessionId}/?appUserId={appUserId}</string>
+		<key>method</key>
+		<string>GET</string>
+	</dict>
+	<key>GetSessionId</key>
+	<dict>
+		<key>URL</key>
+		<string>http://ws.meetball.com/{version}/service.svc/json/Session/GetSessionId?existingId=null&amp;appUserId=-1&amp;apiKey={apikey}</string>
+		<key>apikey</key>
+		<string>6FC455D3-6207-4112-9D71-005A6EF96422</string>
+		<key>method</key>
+		<string>GET</string>
+	</dict>
+	<key>GetUserWithFacebookId</key>
+	<dict>
+		<key>URL</key>
+		<string>http://ws.meetball.com/{version}/service.svc/json/AppUser/Facebook/{sessionId}?firstName={first_name}&amp;lastName={last_name}&amp;facebookId={id}&amp;email={email}&amp;accessToken=417231521721790</string>
+		<key>method</key>
+		<string>GET</string>
+		<key>facebookAppID</key>
+		<string>417231521721790</string>
+	</dict>
+	<key>UpdatePassword</key>
+	<dict>
+		<key>URL</key>
+		<string>http://ws.meetball.com/{version}/service.svc/json/AppUser/Password?appUserId={appUserId}</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>CreateNewUser</key>
+	<dict>
+		<key>URL</key>
+		<string>http://ws.meetball.com/{version}/service.svc/json/AppUser</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>GetUpcomingMeetBalls</key>
+	<dict>
+		<key>URL</key>
+		<string>http://ws.meetball.com/{version}/service.svc/json/Meetball/Current/{sessionId}?appUserId={appUserId}</string>
+		<key>method</key>
+		<string>GET</string>
+	</dict>
+	<key>ResetPassword</key>
+	<dict>
+		<key>URL</key>
+		<string>http://ws.meetball.com/{version}/service.svc/json/AppUser/ResetPassword</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Accept</key>
+		<string>application/json</string>
+		<key>Content-Type</key>
 		<string>application/json</string>
 	</dict>
 </dict>

@@ -16,3 +16,4 @@ NSString * const kWebServiceUpdatePassword = @"UpdatePassword";
 NSString * const kWebServiceCreateNewUser = @"CreateNewUser";
 NSString * const kWebServiceGetUpcomingMeetBalls = @"GetUpcomingMeetBalls";
 NSString * const kWebServiceResetPassword = @"ResetPassword";
+NSString * const kWebServiceGetMeetBallFriends = @"GetMeetBallFriends";

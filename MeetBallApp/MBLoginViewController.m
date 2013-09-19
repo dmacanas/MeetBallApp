@@ -103,17 +103,19 @@ static NSString * const kFirstName = @"FirstName";
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
     if(![[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
-        [SVProgressHUD showWithStatus:@"Loading Account" maskType:SVProgressHUDMaskTypeClear];
+        self.progressView.hidden = NO;
+        [self.progressView setProgress:0.6 animated:YES];
         __weak MBLoginViewController *weakSelf = self;
         [self.importer getUserWithFacebookID:(NSDictionary *)user success:^(NSDictionary *JSON) {
             if(JSON){
                 if([JSON[@"MbResult"][@"Success"] boolValue]){
-                    [SVProgressHUD dismiss];
+                    [self.progressView setProgress:1 animated:YES];
                     weakSelf.email = [[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Email"];
                     NSString *pwd = [[JSON[@"Items"] objectAtIndex:0] objectForKey:@"Password"];
                     [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
                     [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"Items"] objectAtIndex:0] objectForKey:@"FirstName"] forKey:kFirstName];
                     [[NSUserDefaults standardUserDefaults] synchronize];
+                    self.progressView.hidden = YES;
                     if(pwd == nil){
                         weakSelf.needsPasswordUpdate = YES;
                         [weakSelf showAlertViewToGetPassword];
@@ -128,7 +130,7 @@ static NSString * const kFirstName = @"FirstName";
                 }
             }
         } failure:^(NSError *error) {
-            [SVProgressHUD dismiss];
+            weakSelf.progressView.hidden = YES;
             NSLog(@"ero %@",error);
         }];
     }
@@ -180,12 +182,13 @@ static NSString * const kFirstName = @"FirstName";
 - (IBAction)login:(id)sender {
     if([self isLoginFieldsValid]){
         [self.view endEditing:YES];
-        [SVProgressHUD showWithStatus:@"Logging In" maskType:SVProgressHUDMaskTypeClear];
+        self.progressView.hidden = NO;
+        [self.progressView setProgress:0.6 animated:YES];
         __weak MBLoginViewController *weakSelf = self;
         [self.importer getUserWithCredtentials:@{@"email": self.emailField.text, @"password":self.passwordField.text} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
         {
-            [SVProgressHUD dismiss];
             if (JSON && ![[[[JSON objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]){
+                weakSelf.progressView.hidden = YES;
                 [weakSelf handleLoginFailureWithError:[[[JSON objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"FriendlyErrorMsg"]];
             } else if (JSON && [[[[JSON objectForKey:@"LoginAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]){
                 
@@ -195,18 +198,20 @@ static NSString * const kFirstName = @"FirstName";
                 [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
                 [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"FirstName"] forKey:kFirstName];
                 [[NSUserDefaults standardUserDefaults] synchronize];
-                
+                [weakSelf.progressView setProgress:1 animated:YES];
+
                 [weakSelf launchHomeScreen];
             }
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
         {
-            [SVProgressHUD dismiss];
+            weakSelf.progressView.hidden = YES;
             [weakSelf handleLoginFailureWithError:error.localizedDescription];
         }];
     }
 }
 
 - (void)launchHomeScreen {
+    self.progressView.hidden = YES;
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
     UIViewController *vc = [sb instantiateInitialViewController];
     [self presentViewController:vc animated:NO completion:nil];

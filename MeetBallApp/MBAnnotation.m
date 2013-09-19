@@ -10,11 +10,12 @@
 
 @implementation MBAnnotation
 
-- (id)initWithTitle:(NSString *)ttl andCoordinate:(CLLocationCoordinate2D)c2d {
+- (id)initWithTitle:(NSString *)ttl andCoordinate:(CLLocationCoordinate2D)c2d reuseId:(NSString *)rid{
     self = [super init];
     if (self) {
         _title = ttl;
         _coordinate = c2d;
+        _reuseId = rid;
     }
 	return self;
 }

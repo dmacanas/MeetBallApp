@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *distanceUnitLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbarl;
 
 - (IBAction)adjustUserLocation:(id)sender;
 - (IBAction)carLocation:(id)sender;

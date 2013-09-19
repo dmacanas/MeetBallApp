@@ -196,6 +196,7 @@
                         <outlet property="compass" destination="sXZ-jK-vpO" id="fhW-3F-gSX"/>
                         <outlet property="distanceLabel" destination="oTV-mh-dpd" id="m61-8z-vzE"/>
                         <outlet property="mapView" destination="b9X-Bv-qDw" id="UTd-19-leg"/>
+                        <outlet property="toolbarl" destination="038-GP-HXH" id="dih-g7-ILF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9v-le-qaI" userLabel="First Responder" sceneMemberID="firstResponder"/>

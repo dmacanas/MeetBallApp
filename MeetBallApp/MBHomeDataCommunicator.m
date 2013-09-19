@@ -8,9 +8,12 @@
 
 #import "MBHomeDataCommunicator.h"
 #import "MBDataCommunicator.h"
+#import "MBWebServiceManager.h"
+#import "MBWebServiceConstants.h"
 #import "AFJsonRequestOperation.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFHTTPClient.h"
+#import "MBUser.h"
 
 static NSString * const kSessionId = @"sessionId";
 static NSString * const kAppUserId = @"AppUserId";
@@ -92,6 +95,43 @@ static NSString * const kAppUserId = @"AppUserId";
         NSLog(@"Get session id failure");
     }];
     [AFRequest start];
+}
+
+- (void)getMeetBallContacts:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId] && [[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]) {
+        [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetMeetBallFriends URLReplacements:@{@"version":[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"],@"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId],@"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+            if (success) {
+                success(responseObject);
+            }
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+    } else if([[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId] && ![[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]){
+        [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetSessionId URLReplacements:@{@"version":[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+            if (responseObject) {
+                NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
+                str = [str stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+                [[NSUserDefaults standardUserDefaults] setObject:str forKey:kSessionId];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetMeetBallFriends URLReplacements:@{@"version":[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"],@"sessionId":str,@"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+                    if (success) {
+                        success(responseObject);
+                    }
+                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                    if (failure) {
+                        failure(error);
+                    }
+                }];
+            }
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+    }
 }
 
 @end
