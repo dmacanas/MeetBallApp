@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="5" y="-49"/>
         </scene>
-        <!--View Controller - Profile-->
+        <!--Profile View Controller - Profile-->
         <scene sceneID="xOw-Zl-IBp">
             <objects>
-                <viewController id="sX1-aX-Yz3" sceneMemberID="viewController">
+                <viewController id="sX1-aX-Yz3" customClass="MBProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fPc-ha-0Uy"/>
                         <viewControllerLayoutGuide type="bottom" id="jzA-3v-Mmg"/>
@@ -31,11 +31,30 @@
                     <view key="view" contentMode="scaleToFill" id="vql-Gz-SQB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ekh-Bo-xI3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hkd-lO-Cg2">
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="SM1-4G-j58">
-                        <barButtonItem key="leftBarButtonItem" image="menu_ic" id="43J-9J-m0A"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu_ic" id="43J-9J-m0A">
+                            <connections>
+                                <action selector="showMenu:" destination="sX1-aX-Yz3" id="a3U-A8-IAo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="blurView" destination="ekh-Bo-xI3" id="u6W-fz-AcA"/>
+                        <outlet property="menuContainer" destination="hkd-lO-Cg2" id="hsV-la-X9n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FrW-ev-Bot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

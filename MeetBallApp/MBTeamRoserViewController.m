@@ -32,20 +32,29 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)tableViewSetUp
 {
-    [super viewDidLoad];
-    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
-    self.menu = [array objectAtIndex:0];
-    self.menu.delegate = self;
-    [self.menuContainer addSubview:self.menu];
-    
     self.friendsTableView.delegate = self;
     self.friendsTableView.dataSource = self;
     self.addressBookData = [[NSMutableArray alloc] init];
     [self getPersonOutOfAddressBook];
     [self.friendsTableView reloadData];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setUpMenu];
+    [self tableViewSetUp];
 	// Do any additional setup after loading the view.
+}
+
+- (void)setUpMenu
+{
+    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
+    self.menu = [array objectAtIndex:0];
+    self.menu.delegate = self;
+    [self.menuContainer addSubview:self.menu];
 }
 
 - (void)didSelectionMenuItem:(NSString *)item {

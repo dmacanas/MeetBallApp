@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="466" y="-5"/>
         </scene>
-        <!--View Controller - Invite Friends-->
+        <!--Invite Friends View Controller - Invite Friends-->
         <scene sceneID="LGJ-n4-DWM">
             <objects>
-                <viewController id="aWf-TX-E6G" sceneMemberID="viewController">
+                <viewController id="aWf-TX-E6G" customClass="MBInviteFriendsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8BQ-FQ-DQJ"/>
                         <viewControllerLayoutGuide type="bottom" id="n7P-ka-HM3"/>

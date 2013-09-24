@@ -631,9 +631,6 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = MeetBall;
 				TargetAttributes = {
-					340F3C8517EA119F00491CCB = {
-						TestTargetID = 347BBD3117CCE92B00BE0E85;
-					};
 					347BBD3117CCE92B00BE0E85 = {
 						DevelopmentTeam = G5QMKBE589;
 					};
@@ -855,7 +852,6 @@
 			baseConfigurationReference = 2BE6291DE139430690C1E728 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MeetBall Lite.app/MeetBall Lite";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -883,7 +879,6 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -893,7 +888,6 @@
 			baseConfigurationReference = 2BE6291DE139430690C1E728 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MeetBall Lite.app/MeetBall Lite";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -918,7 +912,6 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
