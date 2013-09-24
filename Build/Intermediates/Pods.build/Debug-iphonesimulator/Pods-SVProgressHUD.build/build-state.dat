@@ -1,0 +1,175 @@
+TPods-SVProgressHUD
+v6
+r1
+cCheck dependencies
+cProcessPCH /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.o /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.o /Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLibtool /Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/libPods-SVProgressHUD.a normal i386
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk
+c00000000521BCCE50000000000000176
+t1377553637
+s374
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/SDKSettings.plist
+c00000000522ACC8F00000000000003B5
+t1378536591
+s949
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/CoreServices/SystemVersion.plist
+c00000000522ACCD2000000000000019E
+t1378536658
+s414
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000522ACCFA000000000088B570
+t1378536698
+s8959344
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c00000000522ACD120000000000484860
+t1378536722
+s4737120
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.o
+t1380034311
+s3300
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD.LinkFileList
+c000000005241A7060000000000000143
+t1380034310
+s323
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.o
+t1380034311
+s114680
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.pch
+t1380034311
+s5340072
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.pch
+t1380034311
+s5347720
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/libPods-SVProgressHUD.a
+t1380034311
+s118824
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m
+c000000005241A5EF000000000000008C
+t1380034031
+s140
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-prefix.pch
+c000000005241A5EF000000000000004D
+t1380034031
+s77
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-environment.h
+c000000005241A5EF00000000000004FD
+t1380034031
+s1277
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.h
+c000000005241A25700000000000007D2
+t1380033111
+s2002
+
+N/Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m
+c000000005241A2570000000000004A91
+t1380033111
+s19089
+
+CBuild AST from /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m
+r0
+
+CBuild AST from /Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies85b2e4e9e6f1b741^45f0e7e9e6f1b741^---0#1#1#--18"Check dependencies36"CFFB25BA-07CB-429A-A813-7968C58F6948-
+
+CCompileC /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.o /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401727111.349113
+e401727111.401560
+r1
+xCompileC
+x/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.o
+x/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m270"CompileC /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.o Pods-SVProgressHUD-dummy.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler0c785987def1b741^08cd6687def1b741^---0#0#1#-19%DVTDocumentLocation2@89"file://localhost/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m0000000000000000^4356"CompileC /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.o Pods-SVProgressHUD-dummy.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dominicmacanas/Desktop/MeetBallApp/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-generated-files.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-own-target-headers.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-all-target-headers.hmap -iquote /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-project-headers.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/include -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders/SVProgressHUD -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/AFNetworking -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/MagicalRecord -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/SVProgressHUD -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/TestFlightSDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/DerivedSources/i386 -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/DerivedSources -F/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator -include /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch -MMD -MT dependencies -MF /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.d --serialize-diagnostics /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.dia -c /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-dummy.m -o /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD-dummy.o36"D54B40DD-0934-4462-81E3-168A82B5AD02-
+bC8BE2BCE-6E7B-4063-9FAF-F27AA07E1040
+
+CCompileC /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.o /Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401727111.402957
+e401727111.509270
+r1
+xCompileC
+x/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.o
+x/Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m
+d/Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compile /Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m276"CompileC /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.o SVProgressHUD/SVProgressHUD/SVProgressHUD.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler14426787def1b741^e95f8287def1b741^---0#0#1#-19%DVTDocumentLocation2@106"file://localhost/Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m0000000000000000^4380"CompileC /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.o SVProgressHUD/SVProgressHUD/SVProgressHUD.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dominicmacanas/Desktop/MeetBallApp/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-generated-files.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-own-target-headers.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-all-target-headers.hmap -iquote /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-project-headers.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/include -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders/SVProgressHUD -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/AFNetworking -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/MagicalRecord -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/SVProgressHUD -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/TestFlightSDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/DerivedSources/i386 -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/DerivedSources -F/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator -fobjc-arc -DOS_OBJECT_USE_OBJC=0 -include /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch -MMD -MT dependencies -MF /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.d --serialize-diagnostics /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.dia -c /Users/dominicmacanas/Desktop/MeetBallApp/Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.m -o /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/SVProgressHUD.o36"DD2327F2-B2FA-4987-B251-99C04957B7D8-
+bC8BE2BCE-6E7B-4063-9FAF-F27AA07E1040
+
+CLibtool /Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/libPods-SVProgressHUD.a normal i386
+s401727111.744987
+e401727111.767594
+r1
+xLibtool
+x/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/libPods-SVProgressHUD.a
+xnormal
+xi386
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection122"Libtool /Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/libPods-SVProgressHUD.a normal i386122"Libtool /Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/libPods-SVProgressHUD.a normal i386c4ccbe87def1b741^6f81c487def1b741^---0#0#1#--1093"Libtool /Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/libPods-SVProgressHUD.a normal i386    cd /Users/dominicmacanas/Desktop/MeetBallApp/Pods    setenv IPHONEOS_DEPLOYMENT_TARGET 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only i386 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -L/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator -filelist /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Objects-normal/i386/Pods-SVProgressHUD.LinkFileList -framework Foundation -framework QuartzCore -o /Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/libPods-SVProgressHUD.a36"25C0894A-726A-49DB-9B9E-0A893BE74912-
+bC8BE2BCE-6E7B-4063-9FAF-F27AA07E1040
+
+CProcessPCH /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401727110.614832
+e401727111.132651
+r1
+xProcessPCH
+x/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.pch
+xPods-SVProgressHUD-prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-prefix.pch
+d/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-environment.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Precompile Pods-SVProgressHUD-prefix.pch278"ProcessPCH /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerf5809d86def1b741^7d232287def1b741^---0#0#1#-19%DVTDocumentLocation2@92"file://localhost/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-prefix.pch0000000000000000^4204"ProcessPCH /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dominicmacanas/Desktop/MeetBallApp/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-generated-files.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-own-target-headers.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-all-target-headers.hmap -iquote /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-project-headers.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/include -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders/SVProgressHUD -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/AFNetworking -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/MagicalRecord -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/SVProgressHUD -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/TestFlightSDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/DerivedSources/i386 -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/DerivedSources -F/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator --serialize-diagnostics /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.dia -MMD -MT dependencies -MF /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.d -c /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-prefix.pch -o /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-befmwibkakndzxecyzuyjbzcmixh/Pods-SVProgressHUD-prefix.pch.pch36"066CFD44-F371-46CD-B5FB-906B37901561-
+bC8BE2BCE-6E7B-4063-9FAF-F27AA07E1040
+
+CProcessPCH /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401727110.616131
+e401727111.340324
+r1
+xProcessPCH
+x/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.pch
+xPods-SVProgressHUD-prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-prefix.pch
+d/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-environment.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Precompile Pods-SVProgressHUD-prefix.pch278"ProcessPCH /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerf2d29d86def1b741^9b1f5787def1b741^---0#0#1#-19%DVTDocumentLocation2@92"file://localhost/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-prefix.pch0000000000000000^4238"ProcessPCH /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dominicmacanas/Desktop/MeetBallApp/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-generated-files.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-own-target-headers.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-all-target-headers.hmap -iquote /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/Pods-SVProgressHUD-project-headers.hmap -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/include -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders/SVProgressHUD -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/AFNetworking -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/MagicalRecord -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/SVProgressHUD -I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/TestFlightSDK -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/DerivedSources/i386 -I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-SVProgressHUD.build/DerivedSources -F/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator -fobjc-arc -DOS_OBJECT_USE_OBJC=0 --serialize-diagnostics /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.dia -MMD -MT dependencies -MF /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.d -c /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-SVProgressHUD-prefix.pch -o /Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-SVProgressHUD-prefix-dkcdpdxuyecgeufamvbwzdodusta/Pods-SVProgressHUD-prefix.pch.pch36"05BBEEB7-379C-42BE-AEA6-049938E3B9A3-
+bC8BE2BCE-6E7B-4063-9FAF-F27AA07E1040
+
+CProcessPCH /Users/dominicmacanas/Library/Developer/Xcode/DerivedData/MeetBallApp-gzxpqasrirjmyiakopcthikmutpq/Index/PrecompiledHeaders/Pods-SVProgressHUD-prefix-bemgdauugasrylarehpzbkkejjrj_ast/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /Users/dominicmacanas/Library/Developer/Xcode/DerivedData/MeetBallApp-gzxpqasrirjmyiakopcthikmutpq/Index/PrecompiledHeaders/Pods-SVProgressHUD-prefix-chvrexxtkqxyrzczvuwbxdejodrn_ast/Pods-SVProgressHUD-prefix.pch.pch Pods-SVProgressHUD-prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+

@@ -1,0 +1,1 @@
+/Users/dominicmacanas/Desktop/MeetBallApp/Build/Intermediates/ArchiveIntermediates/MeetBallApp/InstallationBuildProductsLocation/Applications/MeetBall Lite.app
