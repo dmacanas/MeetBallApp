@@ -41,7 +41,7 @@ static NSString * const kAnnotaionId = @"pinId";
 @property (assign, nonatomic) CGRect originalToolbarFrame;
 @property (assign, nonatomic) CGRect originalTableFrame;
 @property (strong, nonatomic) MBAnnotation *annotation;
-@property (strong, nonatomic) NSMutableArray *contactsArray;
+@property (strong, nonatomic) NSArray *contactsArray;
 
 @end
 
@@ -67,7 +67,7 @@ static NSString * const kSessionId = @"sessionId";
     [super viewDidLoad];
     [self menuSetup];
     self.homeCommLink = [[MBHomeDataCommunicator alloc] init];
-    self.contactsArray = [[NSMutableArray alloc] init];
+//    self.contactsArray = [[NSMutableArray alloc] init];
     [self setMapView];
     [self setAnchorPoint:CGPointMake(0.5, 0.5) forView:self.compassImageVIew];
     [self locationManagerSetup];
@@ -193,8 +193,6 @@ static NSString * const kSessionId = @"sessionId";
 #pragma mark - contacts setUp
 - (void)getMeetBallContacts {
     __weak MBHomeViewController *weakSelf = self;
-    __block NSManagedObjectContext *moc = [NSManagedObjectContext MR_contextForCurrentThread];
-    __block NSMutableArray *objectIds = [NSMutableArray array];
     [self.homeCommLink getMeetBallContacts:^(id contacts){
         NSError* error;
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:contacts options:kNilOptions error:&error];
@@ -212,15 +210,16 @@ static NSString * const kSessionId = @"sessionId";
     static NSString *ID = @"CellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     if (indexPath.row == self.contactsArray.count) {
         cell.textLabel.text = @"Add More Friends...";
         return cell;
     }
-    if (self.contactsArray) {
-        MBUser *u = (MBUser *)[[NSManagedObjectContext MR_contextForCurrentThread] objectWithID:[[self.contactsArray objectAtIndex:1] objectID]];
+    if (self.contactsArray && self.contactsArray.count > 1) {
+        MBUser *u = (MBUser *)[[NSManagedObjectContext MR_contextForCurrentThread] objectWithID:[[self.contactsArray objectAtIndex:indexPath.row] objectID]];
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", u.firstName, u.lastName];
+        cell.detailTextLabel.text = u.email;
     }
 
     
