@@ -193,6 +193,11 @@ static NSString * const kSessionId = @"sessionId";
 #pragma mark - contacts setUp
 - (void)getMeetBallContacts {
     __weak MBHomeViewController *weakSelf = self;
+<<<<<<< HEAD
+=======
+//    __block NSManagedObjectContext *moc = [NSManagedObjectContext MR_contextForCurrentThread];
+//    __block NSMutableArray *objectIds = [NSMutableArray array];
+>>>>>>> dbf2cbecbd10f3c98a430cc4920003baca752119
     [self.homeCommLink getMeetBallContacts:^(id contacts){
         NSError* error;
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:contacts options:kNilOptions error:&error];

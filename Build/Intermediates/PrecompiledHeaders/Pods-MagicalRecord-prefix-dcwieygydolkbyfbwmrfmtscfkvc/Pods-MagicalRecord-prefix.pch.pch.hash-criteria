@@ -1,0 +1,37 @@
+Contents of /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-MagicalRecord-prefix.pch
+-x
+objective-c
+-arch
+i386
+-std=gnu99
+-fpascal-strings
+-O0
+-DDEBUG=1
+-DCOCOAPODS=1
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk
+-fexceptions
+-fasm-blocks
+-g
+-fobjc-abi-version=2
+-fobjc-legacy-dispatch
+-mios-simulator-version-min=6.0
+-iquote
+-iquote
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator/include
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/BuildHeaders/MagicalRecord
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/AFNetworking
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/MagicalRecord
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/SVProgressHUD
+-I/Users/dominicmacanas/Desktop/MeetBallApp/Pods/Headers/TestFlightSDK
+-F/Users/dominicmacanas/Desktop/MeetBallApp/Build/Products/Debug-iphonesimulator
+-fobjc-arc
+-DOS_OBJECT_USE_OBJC=0
+i386-apple-darwin12.4.0
+"4.2.1 Compatible Apple LLVM 5.0 (clang-500.2.75)"
+SDK_PRODUCT_BUILD_VERSION=11A465
+11A465

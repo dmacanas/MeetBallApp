@@ -1,0 +1,31 @@
+dependencies: \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-MagicalRecord-prefix.pch \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-environment.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/CoreData+MagicalRecord.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Core/MagicalRecordShorthand.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalSaves.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Actions.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalRecord.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+ErrorHandling.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Options.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+ShorthandSupport.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Setup.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+iCloud.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalRecord.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalRequests.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalFinders.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalAggregation.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalObserving.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalThreading.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStore+MagicalRecord.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectModel+MagicalRecord.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/MagicalImportFunctions.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalDataImport.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSNumber+MagicalDataImport.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSObject+MagicalDataImport.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSString+MagicalDataImport.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSAttributeDescription+MagicalDataImport.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSRelationshipDescription+MagicalDataImport.h \
+  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSEntityDescription+MagicalDataImport.h
