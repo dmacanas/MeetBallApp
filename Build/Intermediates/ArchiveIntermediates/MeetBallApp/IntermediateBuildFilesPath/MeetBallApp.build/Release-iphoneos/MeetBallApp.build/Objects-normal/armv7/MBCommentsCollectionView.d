@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBCommentsCollectionView.m \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBCommentsCollectionView.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBCommentsCollectionView.m \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBCommentsCollectionView.h

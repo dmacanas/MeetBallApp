@@ -15,5 +15,7 @@ extern NSString * const kWebServiceCreateNewUser;
 extern NSString * const kWebServiceGetUpcomingMeetBalls;
 extern NSString * const kWebServiceResetPassword;
 extern NSString * const kWebServiceGetMeetBallFriends;
+extern NSString * const kWebServiceCreateNewMeetBall;
+extern NSString * const kWebServiceAddInviteesToMeetBall;
 
 

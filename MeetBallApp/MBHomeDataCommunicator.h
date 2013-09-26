@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MeetBalls.h"
 
 @interface MBHomeDataCommunicator : NSObject
 
-- (void)getUpcomingMeetBallsWithSuccess:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure ;
 - (void)getMeetBallContacts:(void (^)(id contacts))success failure:(void (^)(NSError *))failure;
+- (void)throwMeetBall:(MeetBalls *)meetBAll success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
+- (void)getUpcomingMeetBalls:(void (^)(NSDictionary *items))success failure:(void (^)(NSError *error))failure;
 
 @end

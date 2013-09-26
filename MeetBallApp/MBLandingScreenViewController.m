@@ -8,6 +8,7 @@
 
 #import "MBLandingScreenViewController.h"
 #import "SVProgressHUD.h"
+#import "MBUser.h"
 
 @interface MBLandingScreenViewController ()
 
@@ -21,6 +22,11 @@ static NSString * const kAuthentication = @"authenticated";
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
+    NSLog(@"Resources %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"environment"]);
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"environment"]) {
+//        [[NSUserDefaults standardUserDefaults] setObject:@"dev" forKey:@"environment"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

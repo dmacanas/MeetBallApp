@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/commentsCollectionViewCell.m \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/commentsCollectionViewCell.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/commentsCollectionViewCell.m \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/commentsCollectionViewCell.h

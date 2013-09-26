@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBSuitUpCell.m \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBSuitUpCell.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBSuitUpCell.m \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBSuitUpCell.h

@@ -1,1 +1,2 @@
-dependencies: /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-dummy.m
+dependencies: \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-dummy.m

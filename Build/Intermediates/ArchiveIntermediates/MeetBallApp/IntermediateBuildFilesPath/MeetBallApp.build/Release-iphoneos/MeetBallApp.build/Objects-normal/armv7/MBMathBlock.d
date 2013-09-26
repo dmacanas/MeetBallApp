@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBMathBlock.m \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBMathBlock.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMathBlock.m \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMathBlock.h

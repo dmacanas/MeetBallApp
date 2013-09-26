@@ -72,7 +72,7 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)getSessionID:(void(^)(NSString *sid))completion failure:(void(^)(NSError *error))failure{
-    [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetSessionId URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+    [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetSessionId URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:@"AppUserId"]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
         if(responseObject){
             NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
             str = [str stringByReplacingOccurrencesOfString:@"\"" withString:@""];

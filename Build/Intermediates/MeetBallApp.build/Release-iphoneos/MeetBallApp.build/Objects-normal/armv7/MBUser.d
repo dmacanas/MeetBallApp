@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBUser.m \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBUser.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBUser.m \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBUser.h

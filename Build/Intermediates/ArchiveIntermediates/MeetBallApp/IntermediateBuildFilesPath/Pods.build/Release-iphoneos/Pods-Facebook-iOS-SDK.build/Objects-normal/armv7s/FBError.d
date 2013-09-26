@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBError.m \
-  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBError.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBError.m \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBError.h

@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/Pods-AFNetworking-dummy.m
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-AFNetworking-dummy.m

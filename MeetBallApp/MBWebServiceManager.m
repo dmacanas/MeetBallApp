@@ -15,8 +15,13 @@
 
 + (NSString *)getPlistForEnvironment {
     NSString *userDefaults = [[NSUserDefaults standardUserDefaults] objectForKey:@"environment"];
-    NSString *plist = [NSString stringWithFormat:@"wsresources_%@",userDefaults];
-    return plist;
+    if (userDefaults) {
+        NSString *plist = [NSString stringWithFormat:@"wsresources_%@",userDefaults];
+        return plist;
+    }else {
+        return @"wsresources_prod";
+    }
+
 }
 
 + (NSURL *)createURLForService:(NSString *)webService withURLReplacements:(NSDictionary *)URLReplacements {

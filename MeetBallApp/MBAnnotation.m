@@ -10,12 +10,13 @@
 
 @implementation MBAnnotation
 
-- (id)initWithTitle:(NSString *)ttl andCoordinate:(CLLocationCoordinate2D)c2d reuseId:(NSString *)rid{
+- (id)initWithTitle:(NSString *)ttl andCoordinate:(CLLocationCoordinate2D)c2d reuseId:(NSString *)rid withID:(NSInteger)mbid{
     self = [super init];
     if (self) {
         _title = ttl;
         _coordinate = c2d;
         _reuseId = rid;
+        _meetBallId = mbid;
     }
 	return self;
 }

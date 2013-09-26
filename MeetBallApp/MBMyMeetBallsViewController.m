@@ -14,11 +14,15 @@
 #import "MBMenuNavigator.h"
 #import "MBMeetBallDetailViewController.h"
 
+#import "MBMeetBall.h"
+
 @interface MBMyMeetBallsViewController () <MBMenuViewDelegate>
 
 @property (assign, nonatomic) BOOL isShowingMenu;
 @property (strong, nonatomic) MBMenuView *menu;
 @property (strong, nonatomic) NSString *titleString;
+@property (strong, nonatomic) NSString *coordString;
+@property (strong, nonatomic) NSArray *meetBallArray;
 
 
 
@@ -39,6 +43,7 @@
 {
     [super viewDidLoad];
     [self menuSetup];
+    self.meetBallArray = [MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES];
 	// Do any additional setup after loading the view.
 }
 
@@ -49,10 +54,24 @@
     [self.menuContainer addSubview:self.menu];
 }
 
+- (NSDate *)dateFromString:(NSString *)fromDateString {
+    NSString *d1 = [fromDateString stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+    NSString *d2 = [d1 stringByReplacingOccurrencesOfString:@")/" withString:@""];
+    
+    NSArray *a = [d2 componentsSeparatedByString:@"-"];
+    
+    NSString *time = (NSString *)[a objectAtIndex:0];
+    double mSec = [time doubleValue];
+    double sec = mSec/1000;
+    sec += 600;
+    
+    return [NSDate dateWithTimeIntervalSince1970:sec];
+}
+
 
 #pragma mark - tableView Delegates
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.meetBallArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -74,45 +93,43 @@
         NSArray *ar = [[NSBundle mainBundle] loadNibNamed:@"meetBallListTableViewCell" owner:self options:nil];
         cell = [ar objectAtIndex:0];
     }
-    switch (indexPath.row) {
-        case 1:
-            cell.titleLabel.text = @"Tailgate Two";
-            cell.ownerLabel.text = @"Dominic Macanas";
-            cell.iconImageView.image = [UIImage imageNamed:@"dominic.jpg"];
-            break;
-        case 2:
-            cell.titleLabel.text = @"Tailgate Three";
-            cell.ownerLabel.text = @"Northwestern University Marching Band";
-            cell.iconImageView.image = [UIImage imageNamed:@"Dan-Farris-003.jpg"];
-            break;
-        case 3:
-            cell.titleLabel.text = @"Tailgate Four";
-            cell.ownerLabel.text = @"Northwestern Alumni Association";
-            cell.iconImageView.image = [UIImage imageNamed:@"naa.jpeg"];
-            break;
-        case 4:
-            cell.titleLabel.text = @"Tailgate Five";
-            cell.ownerLabel.text = @"John Doe";
-            cell.iconImageView.image = [UIImage imageNamed:@"male_face.jpg"];
-            break;
-        default:
-            cell.titleLabel.text = @"Tailgate One";
-            cell.ownerLabel.text = @"Jane Smith";
-            cell.iconImageView.image = [UIImage imageNamed:@"female_face.png"];
-            break;
-    }
+    MBMeetBall *mb = (MBMeetBall *)[[NSManagedObjectContext MR_contextForCurrentThread] objectWithID:[[self.meetBallArray objectAtIndex:indexPath.row] objectID]];
+    cell.titleLabel.text = [mb.meetBallName stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    cell.ownerLabel.text = mb.ownersName;
+    cell.coordinateString = mb.generalLocationGPX;
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"MM/dd/yyyy"];
+    NSString *dateString = [df stringFromDate:(NSDate *)[self dateFromString:mb.startDate]];
+    cell.dateLabel.text = [NSString stringWithFormat:@"Date: %@",dateString];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     meetBallListTableViewCell *cell = (meetBallListTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     self.titleString = cell.titleLabel.text;
+    self.coordString = cell.coordinateString;
     [self performSegueWithIdentifier:@"meetBallDetailPush" sender:self];
+}
+
+#pragma mark - segue prep methods
+
+- (CLLocationCoordinate2D)extractLocationFromString:(NSString *)location {
+    NSString *d1 = [location stringByReplacingOccurrencesOfString:@"POINT (" withString:@""];
+    NSString *d2 = [d1 stringByReplacingOccurrencesOfString:@")" withString:@""];
+    
+    NSArray *a = [d2 componentsSeparatedByString:@" "];
+    NSString *lon = (NSString *)[a objectAtIndex:0];
+    NSString *lat = (NSString *)[a objectAtIndex:1];
+    //    NSString *alt = (NSString *)[a objectAtIndex:2];
+    double longitude = [lon doubleValue];
+    double latitude = [lat doubleValue];
+    return CLLocationCoordinate2DMake(latitude, longitude);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MBMeetBallDetailViewController *mVC = [segue destinationViewController];
     mVC.titleString = self.titleString;
+    mVC.cord = [self extractLocationFromString:self.coordString];
 }
 
 #pragma mark - collectionView Delegates

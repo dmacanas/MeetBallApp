@@ -50,6 +50,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
+    [cell.textLabel setBackgroundColor:[UIColor whiteColor]];
     return cell;
 }
 

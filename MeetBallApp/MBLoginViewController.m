@@ -62,6 +62,12 @@ static NSString * const kFirstName = @"FirstName";
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
     [self.cancelButton setBackButtonBackgroundImage:[[UIImage imageNamed:@"btn-cancel.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:12] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
+#pragma warning - remove for release
+    [[NSUserDefaults standardUserDefaults]setObject:@"dev" forKey:@"environment"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"Resources %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"environment"]);
+
 	// Do any additional setup after loading the view.
 }
 

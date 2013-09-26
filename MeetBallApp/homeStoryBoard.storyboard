@@ -48,6 +48,11 @@
                                             <outlet property="delegate" destination="9k4-Qt-OAQ" id="g5Y-gI-slO"/>
                                         </connections>
                                     </mapView>
+                                    <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-RS-LGn">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omN-9L-aD7">
                                         <rect key="frame" x="0.0" y="197" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -78,7 +83,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VR2-Nf-nZH" style="IBUITableViewCellStyleDefault" id="6WO-I1-syn">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VR2-Nf-nZH" detailTextLabel="ecX-Dn-vPw" style="IBUITableViewCellStyleSubtitle" id="6WO-I1-syn">
                                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6WO-I1-syn" id="yG9-VP-kpU">
@@ -86,9 +91,18 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Matt Owen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VR2-Nf-nZH">
-                                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                            <rect key="frame" x="15" y="3" width="89" height="22"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ecX-Dn-vPw">
+                                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -152,6 +166,8 @@
                                     <constraint firstItem="Dp0-3U-mzl" firstAttribute="top" secondItem="gR3-21-jyP" secondAttribute="bottom" constant="-230" id="CIY-1W-81d"/>
                                     <constraint firstItem="brV-22-7Ed" firstAttribute="top" secondItem="gR3-21-jyP" secondAttribute="bottom" id="HkE-pZ-oQf"/>
                                     <constraint firstItem="omN-9L-aD7" firstAttribute="trailing" secondItem="brV-22-7Ed" secondAttribute="trailing" id="JUM-7h-s8s"/>
+                                    <constraint firstItem="hMv-RS-LGn" firstAttribute="trailing" secondItem="omN-9L-aD7" secondAttribute="trailing" id="N0J-6H-lGf"/>
+                                    <constraint firstItem="hMv-RS-LGn" firstAttribute="top" secondItem="Dp0-3U-mzl" secondAttribute="bottom" constant="-61" id="ZC3-wf-ctY"/>
                                     <constraint firstAttribute="bottom" secondItem="brV-22-7Ed" secondAttribute="bottom" constant="88" id="bZW-O6-u03"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="leading" secondItem="brV-22-7Ed" secondAttribute="leading" id="fB8-Wt-Qyv"/>
                                     <constraint firstAttribute="bottom" secondItem="gR3-21-jyP" secondAttribute="bottom" constant="327" id="gLa-qW-avK"/>
@@ -160,6 +176,7 @@
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="centerX" secondItem="2UD-Zl-tYz" secondAttribute="centerX" id="qFV-QF-H9J"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="top" secondItem="Dp0-3U-mzl" secondAttribute="top" constant="-11" id="rzf-bO-WLg"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="leading" secondItem="2UD-Zl-tYz" secondAttribute="leading" id="sO4-0x-Yf5"/>
+                                    <constraint firstItem="hMv-RS-LGn" firstAttribute="leading" secondItem="omN-9L-aD7" secondAttribute="leading" id="v6S-Mk-3DL"/>
                                 </constraints>
                             </scrollView>
                             <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxQ-Vg-YK7">
@@ -174,7 +191,6 @@
                                     <barButtonItem title="Throw MeetBall" width="298" style="plain" id="K6g-h6-gyw">
                                         <connections>
                                             <action selector="noMeetBalls:" destination="9k4-Qt-OAQ" id="bA1-sD-jWU"/>
-                                            <segue destination="dsP-tF-jXu" kind="push" id="S47-Os-Ki2"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -247,6 +263,7 @@
                         <outlet property="mapView" destination="gR3-21-jyP" id="yAg-Ea-pa1"/>
                         <outlet property="menuContainer" destination="wXL-ns-c07" id="tc8-nI-Asj"/>
                         <outlet property="menuSuperContainer" destination="BHE-m0-pmH" id="a9j-6H-t5B"/>
+                        <outlet property="progressView" destination="hMv-RS-LGn" id="RhN-KN-VQU"/>
                         <outlet property="scrollView" destination="2UD-Zl-tYz" id="Anj-Ba-Ont"/>
                         <outlet property="toolBarButton" destination="w4C-Hj-S46" id="iqo-X0-gRj"/>
                     </connections>
@@ -264,7 +281,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lD3-FP-zks"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1kP-KC-LMI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="MeetBall Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQ7-mA-uXS">

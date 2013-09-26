@@ -1,2 +1,3 @@
-dependencies: /Users/dominicmacanas/Desktop/MeetBallApp/MBPerson.m \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MBPerson.h
+dependencies: \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MBPerson.m \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MBPerson.h

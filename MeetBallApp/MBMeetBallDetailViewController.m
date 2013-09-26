@@ -21,10 +21,11 @@ static NSString * const kAnnotationId = @"pinId";
 static NSString * const kCarKey = @"carLocation";
 static NSString * const kCarTip = @"carTip";
 
-@interface MBMeetBallDetailViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface MBMeetBallDetailViewController () <CLLocationManagerDelegate, MKMapViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) MBAnnotation *annotaion;
+@property (strong, nonatomic) MBAnnotation *meetBallAnnotation;
 @property (strong, nonatomic) MBTipView *tipView;
 @property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
 
@@ -50,16 +51,16 @@ static NSString * const kCarTip = @"carTip";
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kCarKey]) {
         NSDictionary *d = [[NSUserDefaults standardUserDefaults] objectForKey:kCarKey];
         CLLocationCoordinate2D cord = CLLocationCoordinate2DMake([d[@"lat"] floatValue], [d[@"lon"] floatValue]);
-        self.annotaion = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:cord reuseId:kAnnotationId];
+        self.annotaion = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:cord reuseId:kAnnotationId withID:0];
         [self.mapView addAnnotation:self.annotaion];
     }
     
     [self.mapView setDelegate:self];
+    [self annotationSetup];
     [self locationManagerSetup];
     [self setAnchorPoint:CGPointMake(0.5, 0.5) forView:self.compass];
     
-    self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissCoachTip:)];
-    [self.view addGestureRecognizer:self.tapGesture];
+    
 }
 
 -(void)setAnchorPoint:(CGPoint)anchorpoint forView:(UIView *)view
@@ -79,7 +80,7 @@ static NSString * const kCarTip = @"carTip";
     [self.locationManager startUpdatingHeading];
     [self.locationManager startUpdatingLocation];
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
-    [self annotationSetup];
+    
     [self showCoachTip];
 }
 
@@ -96,38 +97,14 @@ static NSString * const kCarTip = @"carTip";
 }
 
 - (void)annotationSetup {
-    CLLocationCoordinate2D one = CLLocationCoordinate2DMake(42.068147, -87.694432);
-    CLLocationCoordinate2D two = CLLocationCoordinate2DMake(42.066877, -87.691739);
-    CLLocationCoordinate2D three = CLLocationCoordinate2DMake(42.066140, -87.690693);
-    CLLocationCoordinate2D four = CLLocationCoordinate2DMake(42.064691, -87.694523);
-    CLLocationCoordinate2D five = CLLocationCoordinate2DMake(42.064412, -87.692893);
-    
-    
-    if ([self.titleString isEqualToString:@"Tailgate One"]) {
-        MBAnnotation *annotation = [[MBAnnotation alloc] initWithTitle:self.titleString andCoordinate:one reuseId:kAnnotationId];
-        self.cord = one;
-        [self.mapView addAnnotation:annotation];
-    } else if ([self.titleString isEqualToString:@"Tailgate Two"]){
-        MBAnnotation *annotation = [[MBAnnotation alloc] initWithTitle:self.titleString andCoordinate:two reuseId:kAnnotationId];
-        self.cord = two;
-        [self.mapView addAnnotation:annotation];
-    } else if ([self.titleString isEqualToString:@"Tailgate Three"]) {
-        MBAnnotation *annotation = [[MBAnnotation alloc] initWithTitle:self.titleString andCoordinate:three reuseId:kAnnotationId];
-        self.cord = three;
-        [self.mapView addAnnotation:annotation];
-    } else if ([self.titleString isEqualToString:@"Tailgate Four"]) {
-        MBAnnotation *annotation = [[MBAnnotation alloc] initWithTitle:self.titleString andCoordinate:four reuseId:kAnnotationId];
-        self.cord = four;
-        [self.mapView addAnnotation:annotation];
-    } else if ([self.titleString isEqualToString:@"Tailgate Five"]) {
-        MBAnnotation *annotation = [[MBAnnotation alloc] initWithTitle:self.titleString andCoordinate:five reuseId:kAnnotationId];
-        self.cord = five;
-        [self.mapView addAnnotation:annotation];
-    }
+    MBAnnotation *annotation = [[MBAnnotation alloc] initWithTitle:self.titleString andCoordinate:self.cord reuseId:kAnnotationId withID:0];
+    [self.mapView addAnnotation:annotation];
 }
 
 - (void)showCoachTip {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kCarTip] == NO) {
+        self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissCoachTip:)];
+        [self.view addGestureRecognizer:self.tapGesture];
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MBTipView" owner:self options:nil];
         self.tipView = [nib objectAtIndex:0];
         CGRect f = self.tipView.frame;
@@ -145,6 +122,7 @@ static NSString * const kCarTip = @"carTip";
 - (void)dismissCoachTip:(UITapGestureRecognizer *)tap {
     CGPoint location = [tap locationInView:self.view];
     if (CGRectContainsPoint(self.tipView.frame, location)) {
+        [self.view removeGestureRecognizer:self.tapGesture];
         [UIView animateWithDuration:0.4 animations:^{
             CGRect fr = self.tipView.frame;
             fr.origin.y += fr.size.height +200;
@@ -178,13 +156,77 @@ static NSString * const kCarTip = @"carTip";
 
 - (void)calculateDistance:(CLLocationCoordinate2D)userLocation {
     double dft = [MBMathBlock getDistanceBetweenUserLocation:userLocation andDestination:self.cord];
-    self.distanceLabel.text = [NSString stringWithFormat:@"Distance:%f ft", dft];
+    self.distanceLabel.text = [NSString stringWithFormat:@"Distance:%1.0f ft", dft];
     [self.distanceLabel sizeToFit];
 }
 
+#pragma mark - Map view methods
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
-    MBAnnotation *mp = [views objectAtIndex:0];
-    [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([mp coordinate], MKCoordinateSpanMake(0.5, 0.5))] animated:YES];
+//    MBAnnotation *mp = [views objectAtIndex:0];
+//    [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([mp coordinate], MKCoordinateSpanMake(0.5, 0.5))] animated:YES];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if ([annotation isKindOfClass:[MBAnnotation class]]) {
+        MKPinAnnotationView *pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:kAnnotationId];
+        if (pinView == nil) {
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:kAnnotationId];
+            pinView.pinColor = MKPinAnnotationColorPurple;
+            pinView.animatesDrop = YES;
+            pinView.canShowCallout = YES;
+            UIButton *callout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+            if ([[(MBAnnotation *)annotation title] isEqualToString:@"Car Location"]) {
+                [callout setImage:[UIImage imageNamed:@"hide"] forState:UIControlStateNormal];
+                callout.tag = 1;
+            } else {
+                [callout setImage:[UIImage imageNamed:@"car"] forState:UIControlStateNormal];
+                callout.tag = 2;
+            }
+            pinView.rightCalloutAccessoryView = callout;
+        }else {
+            UIButton *callout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+            if ([[(MBAnnotation *)annotation title] isEqualToString:@"Car Location"]) {
+                [callout setImage:[UIImage imageNamed:@"hide"] forState:UIControlStateNormal];
+                callout.tag = 1;
+            } else {
+                [callout setImage:[UIImage imageNamed:@"car"] forState:UIControlStateNormal];
+                callout.tag = 2;
+            }
+            pinView.rightCalloutAccessoryView = callout;
+            pinView.annotation = annotation;
+        }
+        
+        return pinView;
+    }
+    
+    return nil;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    if ([view.annotation isKindOfClass:[MBAnnotation class]]) {
+        if ([[(MBAnnotation*)view.annotation title] isEqualToString:@"Car Location"]) {
+            [self.mapView removeAnnotation:self.annotaion];
+            self.annotaion = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCarKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } else {
+            self.meetBallAnnotation = view.annotation;
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Launch Navigation?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Launch Maps", nil];
+            [actionSheet showInView:self.view];
+        }
+    }
+    
+}
+
+#pragma mark - action Sheet Delegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        NSDictionary *launchOptions = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving};
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.meetBallAnnotation.coordinate addressDictionary:nil];
+        MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        mapItem.name = self.meetBallAnnotation.title;
+        [mapItem openInMapsWithLaunchOptions:launchOptions];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -192,6 +234,8 @@ static NSString * const kCarTip = @"carTip";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Button Actions
 
 - (IBAction)adjustUserLocation:(id)sender {
     [self.mapView setRegion:[self.mapView regionThatFits:MKCoordinateRegionMake([self.mapView userLocation].coordinate, MKCoordinateSpanMake(0.005, 0.005))] animated:YES];
@@ -202,9 +246,9 @@ static NSString * const kCarTip = @"carTip";
     if (self.annotaion) {
         [self.mapView removeAnnotation:self.annotaion];
         self.annotaion = nil;
-        self.annotaion = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:[self.mapView userLocation].coordinate reuseId:kAnnotationId];
+        self.annotaion = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:[self.mapView userLocation].coordinate reuseId:kAnnotationId withID:0];
     } else {
-        self.annotaion = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:[self.mapView userLocation].coordinate reuseId:kAnnotationId];
+        self.annotaion = [[MBAnnotation alloc] initWithTitle:@"Car Location" andCoordinate:[self.mapView userLocation].coordinate reuseId:kAnnotationId withID:0];
     }
     [[NSUserDefaults standardUserDefaults] setObject:@{@"lat":[NSString stringWithFormat:@"%f",self.annotaion.coordinate.latitude], @"lon":[NSString stringWithFormat:@"%f",self.annotaion.coordinate.longitude]} forKey:kCarKey];
     [[NSUserDefaults standardUserDefaults] synchronize];

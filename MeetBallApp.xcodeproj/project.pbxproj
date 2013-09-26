@@ -115,6 +115,11 @@
 		34974E5A17F1EA6500D0BA84 /* MBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34974E5917F1EA6500D0BA84 /* MBSettingsViewController.m */; };
 		34974E5E17F1EA7200D0BA84 /* MBHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34974E5D17F1EA7200D0BA84 /* MBHelpViewController.m */; };
 		34974E6017F1EA7600D0BA84 /* HelpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34974E5F17F1EA7600D0BA84 /* HelpStoryboard.storyboard */; };
+		34974E6317F203DD00D0BA84 /* MBInvitee.m in Sources */ = {isa = PBXBuildFile; fileRef = 34974E6217F203DD00D0BA84 /* MBInvitee.m */; };
+		34974E6417F203DD00D0BA84 /* MBInvitee.m in Sources */ = {isa = PBXBuildFile; fileRef = 34974E6217F203DD00D0BA84 /* MBInvitee.m */; };
+		34974E6717F35DDD00D0BA84 /* MBMyMeetBallsCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34974E6617F35DDD00D0BA84 /* MBMyMeetBallsCommunicator.m */; };
+		34974E6A17F35E5200D0BA84 /* MBMeetBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 34974E6917F35E5200D0BA84 /* MBMeetBall.m */; };
+		34974E6B17F35E5200D0BA84 /* MBMeetBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 34974E6917F35E5200D0BA84 /* MBMeetBall.m */; };
 		34AF8CF017D68B990090D826 /* MBForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CEF17D68B990090D826 /* MBForgotPasswordViewController.m */; };
 		34AF8CF417D696690090D826 /* MeetBalls.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF317D696690090D826 /* MeetBalls.m */; };
 		34AF8CF817D698F60090D826 /* MBHomeDataCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AF8CF717D698F60090D826 /* MBHomeDataCommunicator.m */; };
@@ -253,6 +258,12 @@
 		34974E5C17F1EA7200D0BA84 /* MBHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHelpViewController.h; sourceTree = "<group>"; };
 		34974E5D17F1EA7200D0BA84 /* MBHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHelpViewController.m; sourceTree = "<group>"; };
 		34974E5F17F1EA7600D0BA84 /* HelpStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HelpStoryboard.storyboard; sourceTree = "<group>"; };
+		34974E6117F203DD00D0BA84 /* MBInvitee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBInvitee.h; sourceTree = "<group>"; };
+		34974E6217F203DD00D0BA84 /* MBInvitee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBInvitee.m; sourceTree = "<group>"; };
+		34974E6517F35DDD00D0BA84 /* MBMyMeetBallsCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMyMeetBallsCommunicator.h; sourceTree = "<group>"; };
+		34974E6617F35DDD00D0BA84 /* MBMyMeetBallsCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMyMeetBallsCommunicator.m; sourceTree = "<group>"; };
+		34974E6817F35E5200D0BA84 /* MBMeetBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMeetBall.h; sourceTree = "<group>"; };
+		34974E6917F35E5200D0BA84 /* MBMeetBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMeetBall.m; sourceTree = "<group>"; };
 		34AF8CEE17D68B980090D826 /* MBForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBForgotPasswordViewController.h; sourceTree = "<group>"; };
 		34AF8CEF17D68B990090D826 /* MBForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBForgotPasswordViewController.m; sourceTree = "<group>"; };
 		34AF8CF217D696690090D826 /* MeetBalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetBalls.h; sourceTree = "<group>"; };
@@ -380,6 +391,10 @@
 				34AF8CF317D696690090D826 /* MeetBalls.m */,
 				340F3C5417E8C73700491CCB /* MBPerson.h */,
 				340F3C5517E8C73700491CCB /* MBPerson.m */,
+				34974E6117F203DD00D0BA84 /* MBInvitee.h */,
+				34974E6217F203DD00D0BA84 /* MBInvitee.m */,
+				34974E6817F35E5200D0BA84 /* MBMeetBall.h */,
+				34974E6917F35E5200D0BA84 /* MBMeetBall.m */,
 			);
 			name = Models;
 			path = ..;
@@ -443,6 +458,8 @@
 				3473045217E10EDA0026CE10 /* myMeetBallsStoryBoard.storyboard */,
 				3473044F17E10EC30026CE10 /* MBMyMeetBallsViewController.h */,
 				3473045017E10EC30026CE10 /* MBMyMeetBallsViewController.m */,
+				34974E6517F35DDD00D0BA84 /* MBMyMeetBallsCommunicator.h */,
+				34974E6617F35DDD00D0BA84 /* MBMyMeetBallsCommunicator.m */,
 				3473046517E248210026CE10 /* MBMeetBallDetailViewController.h */,
 				3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */,
 				3473045617E1167B0026CE10 /* meetBallListTableViewCell.h */,
@@ -772,6 +789,7 @@
 				340F3CAD17EA134200491CCB /* MBMeetBallDetailViewController.m in Sources */,
 				340F3CA717EA132F00491CCB /* MBPerson.m in Sources */,
 				340F3CBC17EA140400491CCB /* MBDataCommunicator.m in Sources */,
+				34974E6417F203DD00D0BA84 /* MBInvitee.m in Sources */,
 				340F3CB117EA134F00491CCB /* MBTeamRoserViewController.m in Sources */,
 				340F3CB417EA135D00491CCB /* MBDetailsViewController.m in Sources */,
 				340F3CC917EA252A00491CCB /* MBLandingScreenViewController.m in Sources */,
@@ -789,6 +807,7 @@
 				340F3C9817EA11AE00491CCB /* MBWebServiceManagerTests.m in Sources */,
 				340F3CBD17EA140600491CCB /* MBSuitUpViewController.m in Sources */,
 				340F3CAB17EA133900491CCB /* MBMenuNavigator.m in Sources */,
+				34974E6B17F35E5200D0BA84 /* MBMeetBall.m in Sources */,
 				340F3CBA17EA13FF00491CCB /* MBForgotPasswordViewController.m in Sources */,
 				340F3CB517EA136000491CCB /* MBHomeDataCommunicator.m in Sources */,
 				340F3CAF17EA134900491CCB /* MBCommentsCollectionView.m in Sources */,
@@ -830,9 +849,12 @@
 				340F3C5617E8C73700491CCB /* MBPerson.m in Sources */,
 				34AF8CF817D698F60090D826 /* MBHomeDataCommunicator.m in Sources */,
 				3445C9B617D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */,
+				34974E6717F35DDD00D0BA84 /* MBMyMeetBallsCommunicator.m in Sources */,
+				34974E6317F203DD00D0BA84 /* MBInvitee.m in Sources */,
 				3473045E17E11A3E0026CE10 /* commentsCollectionViewCell.m in Sources */,
 				3445C9BA17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */,
 				3445C9C117D905E100399715 /* MBMenuView.m in Sources */,
+				34974E6A17F35E5200D0BA84 /* MBMeetBall.m in Sources */,
 				344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */,
 				3473046717E248210026CE10 /* MBMeetBallDetailViewController.m in Sources */,
 				346599DA17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */,
@@ -958,8 +980,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Colleen Carlo (48369UQJQ2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Colleen Carlo (48369UQJQ2)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -990,8 +1012,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MeetBall LLC (G5QMKBE589)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MeetBall LLC (G5QMKBE589)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

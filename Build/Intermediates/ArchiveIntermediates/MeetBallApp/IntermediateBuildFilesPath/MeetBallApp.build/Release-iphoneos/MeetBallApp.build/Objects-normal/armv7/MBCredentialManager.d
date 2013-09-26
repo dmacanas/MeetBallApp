@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBCredentialManager.m \
-  /Users/dominicmacanas/Desktop/MeetBallApp/MeetBallApp/MBCredentialManager.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBCredentialManager.m \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBCredentialManager.h

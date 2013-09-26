@@ -25,11 +25,11 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toolBarButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *mainToolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *adjustLocation;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)testCancel:(id)sender;
 - (IBAction)noMeetBalls:(id)sender;
-- (IBAction)throwMeetBall:(id)sender;
 - (IBAction)adjustMap:(id)sender;
 - (IBAction)adjustUserLocation:(id)sender;
 - (IBAction)carLocation:(id)sender;

@@ -22,8 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[NSUserDefaults standardUserDefaults] setObject:@"dev" forKey:@"environment"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+
     [TestFlight takeOff:@"6504280e-1deb-4c64-8f27-0269303db94d"];
     [MagicalRecord setupCoreDataStack];
     // Override point for customization after application launch.
@@ -33,12 +32,18 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     if(url) {
         NSString *path = [url host];
-        if ([path isEqualToString:@"test"] || [path isEqualToString:@"prod"] || [path isEqualToString:@"staging"]) {
+        if ([path isEqualToString:@"dev"] || [path isEqualToString:@"prod"] || [path isEqualToString:@"staging"]) {
             NSLog(@"URL launch with host: %@", [url host]);
             [[NSUserDefaults standardUserDefaults] setObject:[url host] forKey:@"environment"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         } else if ([path isEqualToString:@"clear"]) {
+            NSError *error = nil;
+            NSPersistentStore *store = [[NSPersistentStoreCoordinator defaultStoreCoordinator] persistentStores][0];
+            
             [MagicalRecord cleanUp];
+            [[NSPersistentStoreCoordinator defaultStoreCoordinator] removePersistentStore:store error:&error];
+            [[NSFileManager defaultManager] removeItemAtURL:store.URL error:&error];
+            
             [MBCredentialManager clearCredentials];
             NSString *defaultDomain = [[NSBundle mainBundle] bundleIdentifier];
             [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:defaultDomain];

@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/dominicmacanas/Desktop/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSRelationshipDescription+MagicalDataImport.m
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSRelationshipDescription+MagicalDataImport.m

@@ -1,5 +1,125 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="MBMeetBall" representedClassName="MBMeetBall" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="EndDate"/>
+            </userInfo>
+        </attribute>
+        <attribute name="facebookId" optional="YES" attributeType="Integer 32" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="FacebookEventId"/>
+            </userInfo>
+        </attribute>
+        <attribute name="generalLocationAddress1" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="GeneralLocationAddress1"/>
+            </userInfo>
+        </attribute>
+        <attribute name="generalLocationAddress2" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="GeneralLocationAddress2"/>
+            </userInfo>
+        </attribute>
+        <attribute name="generalLocationCity" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="GeneralLocationCity"/>
+            </userInfo>
+        </attribute>
+        <attribute name="generalLocationGPX" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="GeneralLocationGPX"/>
+            </userInfo>
+        </attribute>
+        <attribute name="generalLocationPhone" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="GeneralLocationPhone"/>
+            </userInfo>
+        </attribute>
+        <attribute name="generalLocationState" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="GeneralLocationState"/>
+            </userInfo>
+        </attribute>
+        <attribute name="generalLocationZip" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="GeneralLocationZip"/>
+            </userInfo>
+        </attribute>
+        <attribute name="isPrivate" optional="YES" attributeType="Boolean" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="Private"/>
+            </userInfo>
+        </attribute>
+        <attribute name="locationName" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="LocationName"/>
+            </userInfo>
+        </attribute>
+        <attribute name="locationNotes" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="LocationNotes"/>
+            </userInfo>
+        </attribute>
+        <attribute name="meetBallDescription" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="MeetballDescription"/>
+            </userInfo>
+        </attribute>
+        <attribute name="meetBallId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="MeetballId"/>
+            </userInfo>
+        </attribute>
+        <attribute name="meetBallName" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="MeetballName"/>
+            </userInfo>
+        </attribute>
+        <attribute name="ownerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="OwnerId"/>
+            </userInfo>
+        </attribute>
+        <attribute name="ownerPrivate" optional="YES" attributeType="Boolean" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="OwnerPrivate"/>
+            </userInfo>
+        </attribute>
+        <attribute name="ownerSharingId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="OwnerSharingId"/>
+            </userInfo>
+        </attribute>
+        <attribute name="ownersName" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="OwnersName"/>
+            </userInfo>
+        </attribute>
+        <attribute name="responseId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="ResponseId"/>
+            </userInfo>
+        </attribute>
+        <attribute name="specificLocationGPX" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="SpecificLocationGPX"/>
+            </userInfo>
+        </attribute>
+        <attribute name="startDate" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="StartDate"/>
+            </userInfo>
+        </attribute>
+        <attribute name="usageId" optional="YES" attributeType="Integer 32" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="UsageId"/>
+            </userInfo>
+        </attribute>
+        <userInfo>
+            <entry key="relatedByAttribute" value="meetBallId"/>
+        </userInfo>
+    </entity>
     <entity name="MBUser" representedClassName="MBUser" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
@@ -27,5 +147,6 @@
     </entity>
     <elements>
         <element name="MBUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MBMeetBall" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
