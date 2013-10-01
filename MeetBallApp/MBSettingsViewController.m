@@ -10,10 +10,12 @@
 #import "MBMenuNavigator.h"
 #import "MBMenuView.h"
 
-@interface MBSettingsViewController () <MBMenuViewDelegate>
+@interface MBSettingsViewController () <MBMenuViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) MBMenuView *menu;
 @property (assign, nonatomic) BOOL isShowingMenu;
+@property (strong, nonatomic) NSArray *sectionHeaderArray;
+@property (strong, nonatomic) NSArray *sectionValueArray;
 
 @end
 
@@ -41,7 +43,43 @@
 {
     [super viewDidLoad];
     [self setUpMenu];
+    self.sectionHeaderArray = [NSArray arrayWithObjects:@"Home Screen Settings", @"Sharing Settings", @"Notification Settings", nil];
+    self.sectionValueArray = [NSArray arrayWithObjects:@[@"Friend Sorting", @"Sub-heading Sorting"], @[@"My MeetBalls", @"Location"], @[@"Push Notifications", @"Text Messages", @"Email"], nil];
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.sectionHeaderArray objectAtIndex:section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellId = @"cellId";
+    NSArray *array = [self.sectionValueArray objectAtIndex:indexPath.section];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    
+    cell.textLabel.text = [array objectAtIndex:indexPath.row];
+    [cell.textLabel setTextColor:[UIColor darkGrayColor]];
+    
+    if (indexPath.section == 2) {
+        UISwitch *swtch = [[UISwitch alloc] init];
+        cell.accessoryView = swtch;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[self.sectionValueArray objectAtIndex:section] count];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.sectionHeaderArray.count;
+}
+
 
 - (void)didSelectionMenuItem:(NSString *)item {
     self.isShowingMenu = NO;
@@ -73,5 +111,9 @@
         self.blurView.hidden = NO;
         self.isShowingMenu = !self.isShowingMenu;
     }
+}
+
+- (IBAction)save:(id)sender {
+    
 }
 @end

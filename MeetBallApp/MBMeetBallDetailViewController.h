@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "MBMeetBall.h"
 
 @interface MBMeetBallDetailViewController : UIViewController
 
 @property (strong, nonatomic) NSString *titleString;
 @property (assign, nonatomic) CLLocationCoordinate2D cord;
+@property (strong, nonatomic) MBMeetBall *meetBall;
 
 @property (weak, nonatomic) IBOutlet UIView *compassContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *compass;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "MBCommentsCollectionView.h"
+#import "MBMeetBall.h"
 
 static NSString *collectionViewCellID = @"commentCell";
 
@@ -20,6 +21,7 @@ static NSString *collectionViewCellID = @"commentCell";
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (strong, nonatomic) IBOutlet MBCommentsCollectionView *commentsCollectionView;
 @property (strong, nonatomic) NSString *coordinateString;
+@property (strong, nonatomic) MBMeetBall *meetBall;
 
 -(void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate index:(NSInteger)index;
 

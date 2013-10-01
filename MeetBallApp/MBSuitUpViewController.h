@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)cancelButtonPressed:(id)sender;
-- (IBAction)suitUpAction:(id)sender;
+- (IBAction)connectFacebook:(id)sender;
 
 @end

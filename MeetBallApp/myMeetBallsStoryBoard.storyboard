@@ -9,9 +9,13 @@
         <scene sceneID="eGB-4G-a9f">
             <objects>
                 <navigationController definesPresentationContext="YES" id="MZm-WJ-5M7" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fOY-MQ-Zom">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="fOY-MQ-Zom">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BOL-NU-K4p" kind="relationship" relationship="rootViewController" id="jkD-xh-rad"/>
@@ -30,16 +34,16 @@
                         <viewControllerLayoutGuide type="bottom" id="sO9-Mk-4K1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gpL-6u-3h2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="157" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E9J-r1-oxY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Qdo-ZH-BXj" customClass="meetBallListTableViewCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="157"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="157"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qdo-ZH-BXj" id="DZb-yN-2MV">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="156"/>
@@ -56,11 +60,11 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZBr-xh-fAv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sku-HP-Lz3">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <rect key="frame" x="0.0" y="1" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -82,8 +86,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My MeetBalls" id="Dml-Z5-Off">
-                        <barButtonItem key="backBarButtonItem" title="My Meet..." id="xwC-1e-Bzd"/>
+                        <barButtonItem key="backBarButtonItem" title="My Meet..." id="xwC-1e-Bzd">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" image="menu_ic" id="rtJ-c1-sXp">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="showMenu:" destination="BOL-NU-K4p" id="ffv-pA-7ic"/>
                             </connections>
@@ -108,15 +115,15 @@
                         <viewControllerLayoutGuide type="bottom" id="Fdl-dB-Fo0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8vG-c5-QKD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9X-Bv-qDw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="038-GP-HXH">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -136,14 +143,14 @@
                                     </barButtonItem>
                                     <barButtonItem image="notes" width="66" id="QDe-14-TBY">
                                         <connections>
-                                            <segue destination="7gm-Jc-Hxt" kind="push" id="S9p-T4-Qgc"/>
+                                            <segue destination="7gm-Jc-Hxt" kind="push" identifier="comments" id="S9p-T4-Qgc"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTV-mh-dpd">
-                                <rect key="frame" x="20" y="487" width="253" height="25"/>
+                                <rect key="frame" x="20" y="423" width="253" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -155,7 +162,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59K-Vs-a5x">
-                                <rect key="frame" x="280" y="113" width="35" height="35"/>
+                                <rect key="frame" x="280" y="49" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compass-small" translatesAutoresizingMaskIntoConstraints="NO" id="sXZ-jK-vpO">
@@ -203,20 +210,68 @@
             </objects>
             <point key="canvasLocation" x="1107" y="-36"/>
         </scene>
-        <!--View Controller - Notes-->
+        <!--Comments View Controller - Notes-->
         <scene sceneID="v6I-c0-tZ8">
             <objects>
-                <viewController id="7gm-Jc-Hxt" sceneMemberID="viewController">
+                <viewController id="7gm-Jc-Hxt" customClass="MBCommentsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uRI-VD-pZh"/>
                         <viewControllerLayoutGuide type="bottom" id="ATO-dn-hej"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZHY-V6-Vuc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXQ-Xh-Ofa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="w7C-QU-802">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KL8-d8-vbx">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" id="Hnr-2S-rmL">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter note" minimumFontSize="17" id="zl5-mv-OQd">
+                                            <rect key="frame" x="16" y="7" width="238" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="7gm-Jc-Hxt" id="atA-hu-mRe"/>
+                                            </connections>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem title="Post" width="48" id="Pxo-fj-HQH">
+                                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="sendComment:" destination="7gm-Jc-Hxt" id="BbB-LV-qP5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jXQ-Xh-Ofa" firstAttribute="trailing" secondItem="KL8-d8-vbx" secondAttribute="trailing" id="Bdq-5J-jRQ"/>
+                            <constraint firstItem="jXQ-Xh-Ofa" firstAttribute="bottom" secondItem="KL8-d8-vbx" secondAttribute="top" id="D1x-4O-oIE"/>
+                            <constraint firstItem="jXQ-Xh-Ofa" firstAttribute="leading" secondItem="KL8-d8-vbx" secondAttribute="leading" id="JaQ-dx-seM"/>
+                            <constraint firstItem="jXQ-Xh-Ofa" firstAttribute="top" secondItem="ZHY-V6-Vuc" secondAttribute="top" id="Jli-Df-Gi9"/>
+                            <constraint firstAttribute="trailing" secondItem="jXQ-Xh-Ofa" secondAttribute="trailing" id="KUC-5g-gJO"/>
+                            <constraint firstAttribute="bottom" secondItem="jXQ-Xh-Ofa" secondAttribute="bottom" constant="44" id="SFN-Jq-0dY"/>
+                            <constraint firstItem="jXQ-Xh-Ofa" firstAttribute="leading" secondItem="ZHY-V6-Vuc" secondAttribute="leading" id="jKk-Ai-qpv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="SpU-0c-kRc"/>
+                    <connections>
+                        <outlet property="progressView" destination="w7C-QU-802" id="Pgz-jr-jcS"/>
+                        <outlet property="scrollView" destination="jXQ-Xh-Ofa" id="3bE-8w-kjt"/>
+                        <outlet property="textField" destination="zl5-mv-OQd" id="t62-PE-i5l"/>
+                        <outlet property="toolbar" destination="KL8-d8-vbx" id="sah-Qv-r5q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5f-Mz-aho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

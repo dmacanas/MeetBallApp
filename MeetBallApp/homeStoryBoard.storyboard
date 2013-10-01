@@ -9,10 +9,15 @@
         <scene sceneID="vym-6A-kkC">
             <objects>
                 <navigationController definesPresentationContext="YES" id="1rE-ex-XxX" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EXU-if-0JX">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="9k4-Qt-OAQ" kind="relationship" relationship="rootViewController" id="CfM-gX-ZEt"/>
@@ -48,11 +53,6 @@
                                             <outlet property="delegate" destination="9k4-Qt-OAQ" id="g5Y-gI-slO"/>
                                         </connections>
                                     </mapView>
-                                    <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-RS-LGn">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                                    </progressView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omN-9L-aD7">
                                         <rect key="frame" x="0.0" y="197" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -78,9 +78,11 @@
                                         <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                     </toolbar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="brV-22-7Ed">
-                                        <rect key="frame" x="0.0" y="241" width="320" height="239"/>
+                                        <rect key="frame" x="0.0" y="241" width="320" height="327"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="327" id="dIj-SO-Lcn"/>
+                                        </constraints>
                                         <color key="sectionIndexColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VR2-Nf-nZH" detailTextLabel="ecX-Dn-vPw" style="IBUITableViewCellStyleSubtitle" id="6WO-I1-syn">
@@ -158,6 +160,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gR3-21-jyP" secondAttribute="trailing" id="0mp-Fu-2DO"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="trailing" secondItem="brV-22-7Ed" secondAttribute="trailing" id="7Fz-Eu-qdf"/>
@@ -166,9 +169,6 @@
                                     <constraint firstItem="Dp0-3U-mzl" firstAttribute="top" secondItem="gR3-21-jyP" secondAttribute="bottom" constant="-230" id="CIY-1W-81d"/>
                                     <constraint firstItem="brV-22-7Ed" firstAttribute="top" secondItem="gR3-21-jyP" secondAttribute="bottom" id="HkE-pZ-oQf"/>
                                     <constraint firstItem="omN-9L-aD7" firstAttribute="trailing" secondItem="brV-22-7Ed" secondAttribute="trailing" id="JUM-7h-s8s"/>
-                                    <constraint firstItem="hMv-RS-LGn" firstAttribute="trailing" secondItem="omN-9L-aD7" secondAttribute="trailing" id="N0J-6H-lGf"/>
-                                    <constraint firstItem="hMv-RS-LGn" firstAttribute="top" secondItem="Dp0-3U-mzl" secondAttribute="bottom" constant="-61" id="ZC3-wf-ctY"/>
-                                    <constraint firstAttribute="bottom" secondItem="brV-22-7Ed" secondAttribute="bottom" constant="88" id="bZW-O6-u03"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="leading" secondItem="brV-22-7Ed" secondAttribute="leading" id="fB8-Wt-Qyv"/>
                                     <constraint firstAttribute="bottom" secondItem="gR3-21-jyP" secondAttribute="bottom" constant="327" id="gLa-qW-avK"/>
                                     <constraint firstItem="omN-9L-aD7" firstAttribute="leading" secondItem="brV-22-7Ed" secondAttribute="leading" id="jG4-gI-GKC"/>
@@ -176,9 +176,13 @@
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="centerX" secondItem="2UD-Zl-tYz" secondAttribute="centerX" id="qFV-QF-H9J"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="top" secondItem="Dp0-3U-mzl" secondAttribute="top" constant="-11" id="rzf-bO-WLg"/>
                                     <constraint firstItem="gR3-21-jyP" firstAttribute="leading" secondItem="2UD-Zl-tYz" secondAttribute="leading" id="sO4-0x-Yf5"/>
-                                    <constraint firstItem="hMv-RS-LGn" firstAttribute="leading" secondItem="omN-9L-aD7" secondAttribute="leading" id="v6S-Mk-3DL"/>
                                 </constraints>
                             </scrollView>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-RS-LGn">
+                                <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.20784313730000001" green="0.32549019610000002" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                             <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxQ-Vg-YK7">
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -190,7 +194,7 @@
                                 <items>
                                     <barButtonItem title="Throw MeetBall" width="298" style="plain" id="K6g-h6-gyw">
                                         <connections>
-                                            <action selector="noMeetBalls:" destination="9k4-Qt-OAQ" id="bA1-sD-jWU"/>
+                                            <action selector="throwMeetBalls:" destination="9k4-Qt-OAQ" id="Tjp-b1-MnR"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -227,32 +231,33 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BHE-m0-pmH" firstAttribute="top" secondItem="2UD-Zl-tYz" secondAttribute="top" id="32G-sK-uBk"/>
+                            <constraint firstItem="hMv-RS-LGn" firstAttribute="top" secondItem="vhP-vV-SOe" secondAttribute="bottom" id="4H3-Lf-qHV"/>
                             <constraint firstItem="BHE-m0-pmH" firstAttribute="leading" secondItem="BxQ-Vg-YK7" secondAttribute="leading" id="7Bc-Hf-Tm1"/>
                             <constraint firstItem="2UD-Zl-tYz" firstAttribute="top" secondItem="UFR-LU-z26" secondAttribute="top" id="7Ld-MU-TUd"/>
                             <constraint firstItem="BHE-m0-pmH" firstAttribute="leading" secondItem="UFR-LU-z26" secondAttribute="leading" id="OjS-Be-N6q"/>
                             <constraint firstItem="BHE-m0-pmH" firstAttribute="bottom" secondItem="BxQ-Vg-YK7" secondAttribute="bottom" id="Slt-WT-e0K"/>
                             <constraint firstItem="2UD-Zl-tYz" firstAttribute="trailing" secondItem="BxQ-Vg-YK7" secondAttribute="trailing" id="TvP-KJ-bgL"/>
                             <constraint firstItem="2UD-Zl-tYz" firstAttribute="leading" secondItem="BxQ-Vg-YK7" secondAttribute="leading" id="YfJ-tF-rGS"/>
+                            <constraint firstItem="hMv-RS-LGn" firstAttribute="trailing" secondItem="BxQ-Vg-YK7" secondAttribute="trailing" id="bcI-Ru-ejz"/>
                             <constraint firstItem="BHE-m0-pmH" firstAttribute="trailing" secondItem="BxQ-Vg-YK7" secondAttribute="trailing" id="ePj-uG-92t"/>
                             <constraint firstItem="2UD-Zl-tYz" firstAttribute="bottom" secondItem="BxQ-Vg-YK7" secondAttribute="top" constant="44" id="h3L-Cx-rQk"/>
+                            <constraint firstItem="hMv-RS-LGn" firstAttribute="leading" secondItem="BxQ-Vg-YK7" secondAttribute="leading" id="yMC-Oa-DKL"/>
                             <constraint firstAttribute="bottom" secondItem="BxQ-Vg-YK7" secondAttribute="bottom" id="yuH-LE-A9X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Throw MeetBall" id="ClL-q8-aqU">
                         <barButtonItem key="leftBarButtonItem" image="menu_ic" id="c4b-DO-HX5">
-                            <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="showMenu:" destination="9k4-Qt-OAQ" id="pfC-cT-jBc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="5rH-FD-1jF">
-                            <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="NOU-Za-0jf">
                             <connections>
-                                <action selector="testCancel:" destination="9k4-Qt-OAQ" id="jwc-I7-wiQ"/>
+                                <segue destination="dsP-tF-jXu" kind="push" id="CB9-ZC-X5F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="adjustLocation" destination="uco-hA-w9G" id="BOm-q1-FUd"/>
                         <outlet property="blurView" destination="LxP-x9-Jtl" id="0kh-uu-PEW"/>
@@ -265,6 +270,7 @@
                         <outlet property="menuSuperContainer" destination="BHE-m0-pmH" id="a9j-6H-t5B"/>
                         <outlet property="progressView" destination="hMv-RS-LGn" id="RhN-KN-VQU"/>
                         <outlet property="scrollView" destination="2UD-Zl-tYz" id="Anj-Ba-Ont"/>
+                        <outlet property="tableHeighConstraint" destination="dIj-SO-Lcn" id="1rf-ND-qSQ"/>
                         <outlet property="toolBarButton" destination="w4C-Hj-S46" id="iqo-X0-gRj"/>
                     </connections>
                 </viewController>
@@ -272,7 +278,7 @@
             </objects>
             <point key="canvasLocation" x="656" y="-35"/>
         </scene>
-        <!--View Controller - Success!-->
+        <!--View Controller - Notifications-->
         <scene sceneID="4Iw-Xo-GgQ">
             <objects>
                 <viewController id="dsP-tF-jXu" sceneMemberID="viewController">
@@ -281,34 +287,13 @@
                         <viewControllerLayoutGuide type="bottom" id="lD3-FP-zks"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1kP-KC-LMI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="MeetBall Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQ7-mA-uXS">
-                                <rect key="frame" x="20" y="25" width="133" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="MeetBall Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydc-jK-0D8">
-                                <rect key="frame" x="20" y="54" width="163" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Friends List:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJm-cf-iRb">
-                                <rect key="frame" x="20" y="83" width="190" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Success!" id="0SP-6A-Ko4"/>
+                    <navigationItem key="navigationItem" title="Notifications" id="0SP-6A-Ko4">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="KTx-su-Bt6"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UV-2N-lo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

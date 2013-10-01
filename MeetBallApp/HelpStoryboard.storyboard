@@ -8,8 +8,13 @@
         <scene sceneID="c23-Mo-Vfv">
             <objects>
                 <navigationController definesPresentationContext="YES" id="AVW-Tp-vIo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nLL-xt-E36">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nLL-xt-E36">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="fJf-az-tph" kind="relationship" relationship="rootViewController" id="RSy-Ia-ple"/>
@@ -28,15 +33,15 @@
                         <viewControllerLayoutGuide type="bottom" id="mfO-OR-cc2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vPf-zt-4cs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akw-om-vjs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gDc-0N-mD3">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -45,6 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="qcQ-cL-d09">
                         <barButtonItem key="leftBarButtonItem" image="menu_ic" id="IFM-Fw-Pvk">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="showMenu:" destination="fJf-az-tph" id="jct-2S-GgN"/>
                             </connections>

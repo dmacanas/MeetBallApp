@@ -13,6 +13,8 @@
 #import "MagicalRecord+Setup.h"
 #import "MBCredentialManager.h"
 
+#import <FacebookSDK/FacebookSDK.h>
+
 @implementation MBAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -25,12 +27,18 @@
 
     [TestFlight takeOff:@"6504280e-1deb-4c64-8f27-0269303db94d"];
     [MagicalRecord setupCoreDataStack];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
     // Override point for customization after application launch.
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     if(url) {
+        if ([[url scheme] isEqualToString:@"fb227261170716834"]) {
+            return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+        }
+        NSLog(@"%@", url);
         NSString *path = [url host];
         if ([path isEqualToString:@"dev"] || [path isEqualToString:@"prod"] || [path isEqualToString:@"staging"]) {
             NSLog(@"URL launch with host: %@", [url host]);
@@ -45,12 +53,22 @@
             [[NSFileManager defaultManager] removeItemAtURL:store.URL error:&error];
             
             [MBCredentialManager clearCredentials];
-            NSString *defaultDomain = [[NSBundle mainBundle] bundleIdentifier];
-            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:defaultDomain];
+//            NSString *defaultDomain = [[NSBundle mainBundle] bundleIdentifier];
+//            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:defaultDomain];
         }
     }
     
     return YES;
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSLog(@"My token is: %@", deviceToken);
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

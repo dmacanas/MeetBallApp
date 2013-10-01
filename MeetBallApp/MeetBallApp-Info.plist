@@ -37,11 +37,11 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>24</string>
 	<key>FacebookAppID</key>
-	<string>417231521721790</string>
+	<string>227261170716834</string>
 	<key>FacebookDisplayName</key>
-	<string>MeetBall Lite</string>
+	<string>MeetBall</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
@@ -78,6 +78,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

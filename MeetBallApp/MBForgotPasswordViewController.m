@@ -33,7 +33,6 @@
 	// Do any additional setup after loading the view.
     self.commLink = [[MBDataCommunicator alloc] init];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
-    [self.resetButton setBackgroundImage:[[UIImage imageNamed:@"btn-blue.png"] stretchableImageWithLeftCapWidth:14 topCapHeight:14] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +43,7 @@
 
 - (IBAction)resetPassword:(id)sender {
     if(self.emailTextField.text.length > 0){
-        [SVProgressHUD showWithStatus:@"Reseting password" maskType:SVProgressHUDMaskTypeClear];
+//        [SVProgressHUD showWithStatus:@"Reseting password" maskType:SVProgressHUDMaskTypeClear];
         [self.commLink resetPassword:self.emailTextField.text succss:^(id JSON) {
             if(JSON){
                 [SVProgressHUD dismiss];

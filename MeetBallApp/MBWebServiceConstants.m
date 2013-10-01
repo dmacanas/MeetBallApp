@@ -19,3 +19,7 @@ NSString * const kWebServiceResetPassword = @"ResetPassword";
 NSString * const kWebServiceGetMeetBallFriends = @"GetMeetBallFriends";
 NSString * const kWebServiceCreateNewMeetBall = @"CreateNewMeetBall";
 NSString * const kWebServiceAddInviteesToMeetBall = @"AddInviteesToMeetBall";
+NSString * const kWebServiceGetMeetBallComments = @"GetMeetBallComments";
+NSString * const kWebServiceAddMeetBallComment = @"AddMeetBallComment";
+NSString * const kWebServiceGetAppUserByAppUserId = @"GetAppUserByAppUserId";
+NSString * const kWebServiceAssociateFacebookAcct = @"AssociateFacebookAcct";

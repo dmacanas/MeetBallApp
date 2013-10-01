@@ -17,7 +17,7 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"myMeetBallsStoryBoard" bundle:nil];
         UIViewController *vc = [sb instantiateInitialViewController];
         [weakVC presentViewController:vc animated:NO completion:nil];
-    } else if ([feature isEqualToString:@"Team Roster"]) {
+    } else if ([feature isEqualToString:@"Friends"]) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"TeamRosterStoryboard" bundle:nil];
         UIViewController *vc = [sb instantiateInitialViewController];
         [weakVC presentViewController:vc animated:NO completion:nil];

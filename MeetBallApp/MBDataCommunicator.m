@@ -72,7 +72,13 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)getSessionID:(void(^)(NSString *sid))completion failure:(void(^)(NSError *error))failure{
-    [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetSessionId URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:@"AppUserId"]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+    NSDictionary *dict;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"AppUserId"]) {
+        dict = @{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:@"AppUserId"]};
+    }else {
+        dict = @{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"appUserId":@"-1"};
+    }
+    [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetSessionId URLReplacements:dict success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
         if(responseObject){
             NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
             str = [str stringByReplacingOccurrencesOfString:@"\"" withString:@""];
@@ -88,31 +94,15 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 -(void)getUserInfoWithFacebookID:(NSDictionary *)data succss:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure {
-    [self getSessionID:^(NSString *sid) {
-        [[NSUserDefaults standardUserDefaults] setObject:sid forKey:kSessionId];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-
-        NSMutableDictionary *dict = [data mutableCopy];
-        [dict setObject:sid forKey:@"sessionId"];
-        [dict setObject:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"] forKey:@"version"];
-        [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetUserWithFacebookId URLReplacements:dict success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
-            if(responseObject){
-                NSError* error;
-                NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                if(success){
-                    success(json);
-                }
+        [MBWebServiceManager AFJSONRequestForWebService:kWebServiceGetUserWithFacebookId URLReplacements:@{@"version":[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} UserInfo:data success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+            if (success) {
+                success(responseObject);
             }
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             if (failure) {
                 failure(error);
             }
         }];
-    } failure:^(NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
 }
 
 -(void)updatePasswordForNewFacebookUser:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure {
@@ -131,9 +121,6 @@ static NSString * const kSessionId = @"sessionId";
 
 -(void)registerNewUser:(NSDictionary *)data succss:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure {
     [self getSessionID:^(NSString *sid) {
-        [[NSUserDefaults standardUserDefaults] setObject:sid forKey:kSessionId];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-
         NSMutableDictionary *d = [data mutableCopy];
         [d setValue:sid forKey:@"sessionId"];
         
@@ -173,26 +160,17 @@ static NSString * const kSessionId = @"sessionId";
 
 -(void)resetPassword:(NSString *)email succss:(void (^)(id JSON))success failure:(void (^)(NSError *error, id JSON))failure {
     [self getSessionID:^(NSString *sid) {
-        [[NSUserDefaults standardUserDefaults] setObject:sid forKey:kSessionId];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        NSString *urlString = [NSString stringWithFormat:@"http://wsdev.meetball.com/2.0/service.svc/json/AppUser/ResetPassword"];
-        NSURL *url = [[NSURL alloc] initWithString:urlString];
         NSDictionary *dict = @{@"email": email,@"sessionId":sid};
-        NSURLRequest *request = [self createURLRequestForResetPassword:url withInfo:dict];
         
-        AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            if(success){
-                success(JSON);
+        [MBWebServiceManager AFJSONRequestForWebService:kWebServiceResetPassword URLReplacements:@{@"version":[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} UserInfo:dict success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+            if (success) {
+                success(responseObject);
             }
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            if(failure){
-                failure(error, JSON);
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            if (failure) {
+                failure(error, nil);
             }
         }];
-        
-        [AFRequest setJSONReadingOptions:NSJSONReadingMutableContainers | NSJSONReadingAllowFragments];
-        [AFRequest start];
     } failure:^(NSError *error) {
         if (failure) {
             failure(error, nil);

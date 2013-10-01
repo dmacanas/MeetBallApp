@@ -34,11 +34,15 @@
 	<key>GetUserWithFacebookId</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Facebook/{sessionId}?firstName={first_name}&amp;lastName={last_name}&amp;facebookId={id}&amp;email={email}&amp;accessToken=417231521721790</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/Session/FacebookLogin</string>
 		<key>method</key>
-		<string>GET</string>
+		<string>POST</string>
 		<key>facebookAppID</key>
-		<string>417231521721790</string>
+		<string>227261170716834</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
 	</dict>
 	<key>UpdatePassword</key>
 	<dict>
@@ -102,6 +106,42 @@
 	<dict>
 		<key>URL</key>
 		<string>http://wsdev.meetball.com/{version}/service.svc/json/Meetball/Add/Invitees/AutoAccept</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>AddMeetBallComment</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/Meetball/Comment?meetballId={meetballId}</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>GetMeetBallComments</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/Meetball/Comment/{sessionId}?meetballId={meetballId}</string>
+		<key>method</key>
+		<string>GET</string>
+	</dict>
+	<key>GetAppUserByAppUserId</key>
+	<dict>
+		<key>URL</key>
+		<string>https://ws.meetball.com/{version}/service.svc/json/AppUser/AppUserId/{sessionId}?AppUserID={appUserId}</string>
+		<key>method</key>
+		<string>GET</string>
+	</dict>
+	<key>AssociateFacebookAcct</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Facebook/Associate</string>
 		<key>method</key>
 		<string>POST</string>
 		<key>Content-Type</key>

@@ -20,6 +20,7 @@
 
 @property (assign, nonatomic) BOOL isShowingMenu;
 @property (strong, nonatomic) MBMenuView *menu;
+@property (strong, nonatomic) MBMeetBall *meetBall;
 @property (strong, nonatomic) NSString *titleString;
 @property (strong, nonatomic) NSString *coordString;
 @property (strong, nonatomic) NSArray *meetBallArray;
@@ -43,7 +44,7 @@
 {
     [super viewDidLoad];
     [self menuSetup];
-    self.meetBallArray = [MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES];
+    self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES]];
 	// Do any additional setup after loading the view.
 }
 
@@ -52,6 +53,34 @@
     self.menu = [array objectAtIndex:0];
     self.menu.delegate = self;
     [self.menuContainer addSubview:self.menu];
+}
+
+- (NSArray *)getActiveMeetBalls:(NSArray *)meetBalls {
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    for (MBMeetBall *mhb in meetBalls) {
+        if ([self isStillActive:mhb.endDate]) {
+            [temp addObject:mhb];
+        }
+    }
+    
+    return (NSArray *)temp;
+}
+
+- (BOOL)isStillActive:(NSString *)fromDateString {
+    NSString *d1 = [fromDateString stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+    NSString *d2 = [d1 stringByReplacingOccurrencesOfString:@")/" withString:@""];
+    
+    NSArray *a = [d2 componentsSeparatedByString:@"-"];
+    
+    NSString *time = (NSString *)[a objectAtIndex:0];
+    double mSec = [time doubleValue];
+    double sec = mSec/1000;
+    sec += 600;
+    
+    NSDate *date = [NSDate date];
+    double current = [date timeIntervalSince1970];
+    
+    return sec > current;
 }
 
 - (NSDate *)dateFromString:(NSString *)fromDateString {
@@ -68,6 +97,12 @@
     return [NSDate dateWithTimeIntervalSince1970:sec];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    if (self.meetBallArray.count == 0) {
+        UIAlertView *noMeetBalls = [[UIAlertView alloc] initWithTitle:@"No Active MeetBalls" message:@"Throw a MeetBall and get the party started!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        [noMeetBalls show];
+    }
+}
 
 #pragma mark - tableView Delegates
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -97,17 +132,24 @@
     cell.titleLabel.text = [mb.meetBallName stringByReplacingOccurrencesOfString:@"/" withString:@""];
     cell.ownerLabel.text = mb.ownersName;
     cell.coordinateString = mb.generalLocationGPX;
-    NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"MM/dd/yyyy"];
-    NSString *dateString = [df stringFromDate:(NSDate *)[self dateFromString:mb.startDate]];
-    cell.dateLabel.text = [NSString stringWithFormat:@"Date: %@",dateString];
+    cell.meetBall = mb;
+    NSString *dateString = [self dateFromMeetBallDate:mb.startDate];
+    cell.dateLabel.text = [NSString stringWithFormat:@"Start Date: %@",dateString];
     return cell;
+}
+
+- (NSString *)dateFromMeetBallDate:(NSString *)dateString {
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"MM/dd/yyyy HH:mm"];
+    NSString *string = [df stringFromDate:(NSDate *)[self dateFromString:dateString]];
+    return string;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     meetBallListTableViewCell *cell = (meetBallListTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     self.titleString = cell.titleLabel.text;
     self.coordString = cell.coordinateString;
+    self.meetBall = cell.meetBall;
     [self performSegueWithIdentifier:@"meetBallDetailPush" sender:self];
 }
 
@@ -130,6 +172,7 @@
     MBMeetBallDetailViewController *mVC = [segue destinationViewController];
     mVC.titleString = self.titleString;
     mVC.cord = [self extractLocationFromString:self.coordString];
+    mVC.meetBall = self.meetBall;
 }
 
 #pragma mark - collectionView Delegates

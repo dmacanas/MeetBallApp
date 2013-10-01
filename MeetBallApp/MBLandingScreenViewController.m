@@ -10,6 +10,8 @@
 #import "SVProgressHUD.h"
 #import "MBUser.h"
 
+#import <FacebookSDK/FacebookSDK.h>
+
 @interface MBLandingScreenViewController ()
 
 @end
@@ -22,6 +24,7 @@ static NSString * const kAuthentication = @"authenticated";
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
+    
     NSLog(@"Resources %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"environment"]);
 //    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"environment"]) {
 //        [[NSUserDefaults standardUserDefaults] setObject:@"dev" forKey:@"environment"];

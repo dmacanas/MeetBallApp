@@ -29,7 +29,7 @@
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)testCancel:(id)sender;
-- (IBAction)noMeetBalls:(id)sender;
+- (IBAction)throwMeetBalls:(id)sender;
 - (IBAction)adjustMap:(id)sender;
 - (IBAction)adjustUserLocation:(id)sender;
 - (IBAction)carLocation:(id)sender;

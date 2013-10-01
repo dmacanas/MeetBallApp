@@ -34,7 +34,11 @@ static NSString * const kAppUserId = @"AppUserId";
             }
         }];
     } else if([[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId] && ![[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]){
-        [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetSessionId URLReplacements:@{@"version":[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+        NSDictionary *dict;
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"AppUserId"]) {
+            dict = @{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:@"AppUserId"]};
+        }
+        [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetSessionId URLReplacements:dict success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
             if (responseObject) {
                 NSString *str = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
                 str = [str stringByReplacingOccurrencesOfString:@"\"" withString:@""];
@@ -100,7 +104,7 @@ static NSString * const kAppUserId = @"AppUserId";
                                @"LocationNotes":[NSNull null],
                                @"Private":private,
                                @"Invitees":[NSNull null],
-                               @"Location Name":MB.locationName,
+                               @"LocationName":MB.locationName,
                                @"GeneralLocationAddress1":MB.generalLocationAddress1,
                                @"GeneralLocationCity":MB.generalLocationCity,
                                @"GeneralLocationState":MB.generalLocationState,

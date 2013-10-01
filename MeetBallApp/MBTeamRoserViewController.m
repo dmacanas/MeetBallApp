@@ -61,7 +61,7 @@
     self.isShowingMenu = NO;
     self.menuContainer.hidden = YES;
     self.blurView.hidden = YES;
-    if ([item isEqualToString:@"Team Roster"]) {
+    if ([item isEqualToString:@"Friends"]) {
         return;
     }
 

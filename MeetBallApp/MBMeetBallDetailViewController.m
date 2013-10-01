@@ -10,6 +10,7 @@
 #import "MBAnnotation.h"
 #import "MBMathBlock.h"
 #import "MBTipView.h"
+#import "MBCommentsViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
@@ -87,6 +88,12 @@ static NSString * const kCarTip = @"carTip";
 - (void)viewWillDisappear:(BOOL)animated {
     [self.locationManager stopUpdatingHeading];
     [self.locationManager stopUpdatingLocation];
+//    [self.mapView removeFromSuperview];
+//    self.mapView.delegate = nil;
+//    self.locationManager.delegate = nil;
+//    self.mapView = nil;
+//    self.locationManager = nil;
+
 }
 
 - (void)locationManagerSetup {
@@ -253,5 +260,10 @@ static NSString * const kCarTip = @"carTip";
     [[NSUserDefaults standardUserDefaults] setObject:@{@"lat":[NSString stringWithFormat:@"%f",self.annotaion.coordinate.latitude], @"lon":[NSString stringWithFormat:@"%f",self.annotaion.coordinate.longitude]} forKey:kCarKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.mapView addAnnotation:self.annotaion];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MBCommentsViewController *vc = (MBCommentsViewController *)[segue destinationViewController];
+    vc.meetBall = self.meetBall;
 }
 @end

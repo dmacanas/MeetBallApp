@@ -12,5 +12,9 @@
 @property (weak, nonatomic) IBOutlet UIView *menuContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *blurView;
 - (IBAction)showMenu:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+- (IBAction)signout:(id)sender;
 
 @end

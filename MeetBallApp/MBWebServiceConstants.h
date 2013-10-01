@@ -17,5 +17,7 @@ extern NSString * const kWebServiceResetPassword;
 extern NSString * const kWebServiceGetMeetBallFriends;
 extern NSString * const kWebServiceCreateNewMeetBall;
 extern NSString * const kWebServiceAddInviteesToMeetBall;
-
-
+extern NSString * const kWebServiceGetMeetBallComments;
+extern NSString * const kWebServiceAddMeetBallComment;
+extern NSString * const kWebServiceGetAppUserByAppUserId;
+extern NSString * const kWebServiceAssociateFacebookAcct;

@@ -9,8 +9,16 @@
 #import "MBSuitUpViewController.h"
 #import "MBSuitUpCell.h"
 #import "MBDataCommunicator.h"
+#import "MBMeetBallInfoViewController.h"
 #import "MBCredentialManager.h"
 #import "SVProgressHUD.h"
+
+#import <FacebookSDK/FacebookSDK.h>
+
+static NSString * const kAuthentication = @"authenticated";
+static NSString * const kAppUserId = @"AppUserId";
+static NSString * const kFirstName = @"FirstName";
+static NSString * const kFacebookId = @"facebookId";
 
 @interface MBSuitUpViewController ()
 
@@ -20,9 +28,7 @@
 
 @end
 
-static NSString * const kAuthentication = @"authenticated";
-static NSString * const kAppUserId = @"AppUserId";
-static NSString * const kFirstName = @"FirstName";
+
 
 @implementation MBSuitUpViewController
 
@@ -39,15 +45,12 @@ static NSString * const kFirstName = @"FirstName";
 {
     [super viewDidLoad];
     
-    self.labelArray = [[NSArray alloc] initWithObjects:@"First Name", @"Last Name", @"Email", @"Phone Number", @"MeetBall Handle", @"Password", @"Confirm Password", nil];
+    self.labelArray = [NSArray arrayWithObjects:@"First Name", @"Last Name", @"Email", @"Phone Number", nil];
     [self.tableView setDelegate: self];
     [self.tableView setDataSource:self];
     self.commLink = [[MBDataCommunicator alloc] init];
     [self setupBackgrounds];
-    [self.suitUpButton setBackgroundImage:[[UIImage imageNamed:@"btn-blue.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5] forState:UIControlStateNormal];
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
-//    [self setupButtons];
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)setupBackgrounds {
@@ -57,9 +60,6 @@ static NSString * const kFirstName = @"FirstName";
     [self.tableView setBackgroundView:v];
 }
 
-- (void)setupButtons {
-    [self.cancelButton setBackgroundImage:[[UIImage imageNamed:@"btn-cancel"] stretchableImageWithLeftCapWidth:5 topCapHeight:5] forState:UIControlStateNormal];
-}
 
 -(void)viewDidAppear:(BOOL)animated {
     self.originalSize = self.tableView.frame.size;
@@ -87,12 +87,10 @@ static NSString * const kFirstName = @"FirstName";
     [cell.mainLabel setText:mainLabelText];
     [cell.textField setPlaceholder:[self.labelArray objectAtIndex:indexPath.row]];
     [cell.textField setDelegate:self];
-    if ([mainLabelText isEqualToString:@"Password:"] || [mainLabelText isEqualToString:@"Confirm Password:"]) {
-        cell.textField.secureTextEntry = YES;
+    if (indexPath.row == self.labelArray.count-1) {
+        cell.textField.returnKeyType = UIReturnKeyDone;
     }
-    if([cell.textField.placeholder isEqualToString:@"Confirm Password"]){
-        [cell.textField setReturnKeyType:UIReturnKeyDone];
-    }
+
     cell.tag = indexPath.row+2;
     
     return cell;
@@ -108,19 +106,14 @@ static NSString * const kFirstName = @"FirstName";
     return YES;
 }
 
+// add phone number text length limit
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSIndexPath *ind;
-    if([[[UIDevice currentDevice] systemVersion] isEqualToString:@"6.1"]){
-        ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[textField.superview superview]];
-    } else{
-        ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[[textField.superview superview] superview]];
-    }
+    ind = [self.tableView indexPathForCell:(MBSuitUpCell *)[[textField.superview superview] superview]];
     
     if(ind.row + 1 == [self.tableView numberOfRowsInSection:0]){
         [textField resignFirstResponder];
-        if(self.tableView.frame.size.height != self.originalSize.height){
-            [self.tableView setFrame:CGRectMake(0, 0, self.originalSize.width, self.originalSize.height)];
-        }
     } else{
         NSIndexPath *ind2 = [NSIndexPath indexPathForItem:(ind.row + 1) inSection:ind.section];
         MBSuitUpCell *cell = (MBSuitUpCell *)[self.tableView cellForRowAtIndexPath:ind2];
@@ -136,48 +129,48 @@ static NSString * const kFirstName = @"FirstName";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)suitUpAction:(id)sender {
-    
-    if([self validateSuitUpCells]){
-        [SVProgressHUD showWithStatus:@"Creating Account" maskType:SVProgressHUDMaskTypeClear];
-        NSString *firstName = [[(MBSuitUpCell *)[self.tableView viewWithTag:2] textField] text];
-        NSString *lastName = [[(MBSuitUpCell *)[self.tableView viewWithTag:3] textField] text];
-        NSString *email = [[(MBSuitUpCell *)[self.tableView viewWithTag:4] textField] text];
-        NSString *handle = [[(MBSuitUpCell *)[self.tableView viewWithTag:6] textField] text];
-        NSString *phone = [[(MBSuitUpCell *)[self.tableView viewWithTag:5] textField] text];
-        NSString *cpwd = [[(MBSuitUpCell *)[self.tableView viewWithTag:8] textField] text];
-        NSDictionary *params = @{@"firstName": firstName, @"lastName":lastName, @"email":email, @"handle":handle,@"phone":phone,@"sessionId":@""};
-        [self.commLink registerNewUser:params succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            if(JSON){
-                if ([[[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
-                    //self.email = [data objectForKey:@"AppUserId"];
-                    //self.password = [data objectForKey:@"password"];
-                    [self.commLink updatePasswordForNewFacebookUser:@{@"appUserId":[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"],@"newPassword":cpwd} succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                        NSLog(@"%@",JSON);
-                        [[NSUserDefaults standardUserDefaults] setObject:[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"] forKey:kAppUserId];
-                        [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:kFirstName];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
-                        
-                        if(JSON && [[(NSDictionary *)JSON[@"UpdateAppUserPasswordJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]){
-                            [SVProgressHUD dismiss];
-                            NSURLCredential *newCreds = [NSURLCredential credentialWithUser:email password:cpwd persistence:NSURLCredentialPersistencePermanent];
-                            [MBCredentialManager saveCredential:newCreds];
-                            
-                            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
-                            UIViewController *vc = [sb instantiateInitialViewController];
-                            [self presentViewController:vc animated:NO completion:nil];
-                        }
-                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                        NSLog(@"%@", error);
-                    }];
-
-                }
-            }
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            NSLog(@"error %@",error);
-        }];
-
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([self validateSuitUpCells]) {
+        return YES;
     }
+    return NO;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MBSuitUpCell *fname = (MBSuitUpCell *)[self.view viewWithTag:2];
+    MBSuitUpCell *lname = (MBSuitUpCell *)[self.view viewWithTag:3];
+    MBSuitUpCell *email = (MBSuitUpCell *)[self.view viewWithTag:4];
+    MBSuitUpCell *phone = (MBSuitUpCell *)[self.view viewWithTag:5];
+
+    MBMeetBallInfoViewController *vc = (MBMeetBallInfoViewController *)[segue destinationViewController];
+    vc.userInfo = @{@"firstName": fname.textField.text, @"lastName":lname.textField.text, @"email":email.textField.text, @"phone":phone.textField.text, @"facebookId":[[NSUserDefaults standardUserDefaults] objectForKey:kFacebookId]};
+}
+
+- (IBAction)connectFacebook:(id)sender {
+    UISwitch *sw = sender;
+    FBSession *session = [[FBSession alloc] init];
+    [FBSession setActiveSession:session];
+    __weak MBSuitUpViewController *weakSelf = self;
+    [session openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+        MBSuitUpCell *fname = (MBSuitUpCell *)[weakSelf.view viewWithTag:2];
+        MBSuitUpCell *lname = (MBSuitUpCell *)[weakSelf.view viewWithTag:3];
+        MBSuitUpCell *email = (MBSuitUpCell *)[weakSelf.view viewWithTag:4];
+        if (status == FBSessionStateOpen && sw.isOn) {
+            [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                NSDictionary *dict = (NSDictionary *)result;
+                fname.textField.text = dict[@"first_name"];
+                lname.textField.text = dict[@"last_name"];
+                email.textField.text = dict[@"email"];
+                [[NSUserDefaults standardUserDefaults] setObject:dict[@"id"] forKey:kFacebookId];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }];
+        } else {
+            fname.textField.text = @"";
+            lname.textField.text = @"";
+            email.textField.text = @"";
+        }
+
+    }];
 }
 
 - (BOOL)validateSuitUpCells{
@@ -195,13 +188,7 @@ static NSString * const kFirstName = @"FirstName";
         return NO;
     }
     
-    NSString *pwd = [[(MBSuitUpCell *)[self.tableView viewWithTag:7] textField] text];
-    NSString *cpwd = [[(MBSuitUpCell *)[self.tableView viewWithTag:8] textField] text];
-    if(![pwd isEqualToString:cpwd]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Passwords don't match" message:nil delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-        [alert show];
-        return NO;
-    }
+    //add alpha and numeric regex checks
     
     return YES;
 }

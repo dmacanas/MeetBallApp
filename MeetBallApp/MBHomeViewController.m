@@ -33,6 +33,10 @@
 #define radiansToDegrees(x) (x * 180.0 / M_PI)
 static NSString * const kAnnotaionId = @"pinId";
 static NSString * const kCarKey = @"carLocation";
+static NSString * const kAuthentication = @"authenticated";
+static NSString * const kAppUserId = @"AppUserId";
+static NSString * const kFirstName = @"FirstName";
+static NSString * const kSessionId = @"sessionId";
 
 
 @interface MBHomeViewController () <CLLocationManagerDelegate, UIActionSheetDelegate>
@@ -52,13 +56,10 @@ static NSString * const kCarKey = @"carLocation";
 @property (strong, nonatomic) NSArray *meetBalls;
 @property (strong, nonatomic) NSMutableArray *invtiedFriendsArray;
 @property (assign, nonatomic) MBAnnotation *launchAnnotation;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeighConstraint;
 
 @end
 
-static NSString * const kAuthentication = @"authenticated";
-static NSString * const kAppUserId = @"AppUserId";
-static NSString * const kFirstName = @"FirstName";
-static NSString * const kSessionId = @"sessionId";
 
 @implementation MBHomeViewController 
 #pragma mark - Implemenation
@@ -95,6 +96,7 @@ static NSString * const kSessionId = @"sessionId";
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(navigateWithNotification:) name:@"navigate" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(signOut:) name:@"signOut" object:nil];
 }
 
 - (void)checkForCarLocation {
@@ -115,7 +117,6 @@ static NSString * const kSessionId = @"sessionId";
 - (void)setMapView {
     [self.mapView setDelegate:self];
     self.mapView.showsUserLocation = YES;
-//    [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
 }
 
 - (void)locationManagerSetup {
@@ -128,6 +129,7 @@ static NSString * const kSessionId = @"sessionId";
 - (void)createAnnotations {
     __weak MBHomeViewController *weakSelf = self;
     [self.homeDataManager getUpcomingMeetBalls:^(BOOL done) {
+        [self resetSubViewsAfterThrow];
         weakSelf.meetBalls = [MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES];
         [weakSelf addAnnotationsFromMeetball];
     }];
@@ -140,15 +142,30 @@ static NSString * const kSessionId = @"sessionId";
     [self.menuContainer addSubview:self.menu];
 }
 
+#pragma mark - view appearing
+
 - (void)viewDidAppear:(BOOL)animated {
     if (self.isShowingFullScreenMap) {
         [self resetHomeScreen];
     }
+    
+    [self tableViewFrameUpdate];
+    [self setOriginalFrames];
+
+    [self.locationManager startUpdatingHeading];
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)tableViewFrameUpdate {
+    self.tableHeighConstraint.constant = self.homeTableView.contentSize.height;
+    [self.view needsUpdateConstraints];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.contentSize.width, self.homeTableView.contentSize.height + self.mapView.frame.size.height + self.mainToolbar.frame.size.height)];
+}
+
+- (void)setOriginalFrames {
     self.originalRect = self.mapView.frame;
     self.originalToolbarFrame = self.mapToolBar.frame;
     self.originalTableFrame = self.homeTableView.frame;
-    [self.locationManager startUpdatingHeading];
-    [self.locationManager startUpdatingLocation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -157,6 +174,7 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)addAnnotationsFromMeetball{
+    [self.mapView removeAnnotations:self.mapView.annotations];
     NSMutableArray *annotationArray = [[NSMutableArray alloc] init];
     NSArray *a = [self.homeDataManager getActiveMeetBalls:self.meetBalls];
     for (MBMeetBall *mb in a) {
@@ -265,10 +283,15 @@ static NSString * const kSessionId = @"sessionId";
         NSError* error;
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:contacts options:kNilOptions error:&error];
         [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+            [MBUser truncateAllInContext:localContext];
             [MBUser MR_importFromArrayAndWait:json[@"Items"] inContext:localContext];
         } completion:^(BOOL success, NSError *error) {
             weakSelf.contactsArray = [MBUser findAllSortedBy:@"firstName" ascending:YES];
             [weakSelf.homeTableView reloadData];
+            weakSelf.tableHeighConstraint.constant = weakSelf.homeTableView.contentSize.height;
+            [weakSelf.view needsUpdateConstraints];
+            [weakSelf.scrollView setContentSize:CGSizeMake(weakSelf.scrollView.contentSize.width, weakSelf.homeTableView.contentSize.height + weakSelf.mapView.frame.size.height + weakSelf.mainToolbar.frame.size.height)];
+            
         }];
         
         [weakSelf createAnnotations];
@@ -312,6 +335,7 @@ static NSString * const kSessionId = @"sessionId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.contactsArray.count) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
         return;
     }
     
@@ -339,10 +363,10 @@ static NSString * const kSessionId = @"sessionId";
     
     MBUser *u = (MBUser *)[[NSManagedObjectContext MR_contextForCurrentThread] objectWithID:[[self.contactsArray objectAtIndex:indexPath.row] objectID]];
     MBInvitee *i = [[MBInvitee alloc] initWithFristName:u.firstName lastName:u.lastName email:u.email Id:u.meetBallID];
-
     for (MBInvitee *invitee in self.invtiedFriendsArray) {
         if (invitee.AppUserId == i.AppUserId) {
             [self.invtiedFriendsArray removeObject:invitee];
+            return;
         }
     }
     
@@ -370,27 +394,17 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (IBAction)testCancel:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kAuthentication];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    if([self.presentingViewController class] == [MBLoginViewController class] || [self.presentingViewController class] ==[MBSuitUpViewController class]){
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else{
-        [FBSession.activeSession closeAndClearTokenInformation];
-        [MBCredentialManager clearCredentials];
-        [MBUser truncateAll];
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"loginFlow" bundle:nil];
-        UIViewController *vc = [sb instantiateInitialViewController];
-        [self presentViewController:vc animated:NO completion:nil];
-    }
+
 
 }
 
-- (IBAction)noMeetBalls:(id)sender {
+- (IBAction)throwMeetBalls:(id)sender {
     if (self.invtiedFriendsArray.count == 0) {
         return;
     }
     self.progressView.hidden = NO;
     [self.progressView setProgress:0.4 animated:YES];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.mainToolbar setUserInteractionEnabled:NO];
     __block MeetBalls *mb = [[MeetBalls alloc] init];
     mb.ownerId = (NSInteger)[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId];
@@ -398,10 +412,6 @@ static NSString * const kSessionId = @"sessionId";
     mb.meetBallDescription = [NSString stringWithFormat:@"Meet %@", [[NSUserDefaults standardUserDefaults] objectForKey:kFirstName]];
     mb.startDate = [NSDate date];
     mb.endDate = [NSDate dateWithTimeInterval:7200 sinceDate:mb.startDate];
-//    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-//    [format setDateFormat:@"MMM dd, yyyy HH:mm"];
-//    NSString *dateString = [format stringFromDate:mb.startDate];
-//    NSString *endString = [format stringFromDate:mb.endDate];
     mb.usageId = 1;
     mb.invitees = self.invtiedFriendsArray;
     mb.ownerPrivate = NO;
@@ -416,35 +426,45 @@ static NSString * const kSessionId = @"sessionId";
             [weakSelf.mainToolbar setUserInteractionEnabled:YES];
             NSLog(@"%@", error);
             return;
-        } else {
-            NSDictionary *address = [(CLPlacemark *)[placemarks objectAtIndex:0] addressDictionary];
-            mb.locationName =[(CLPlacemark *)[placemarks objectAtIndex:0] name];
-            mb.generalLocationAddress1 = address[@"Street"];
-            mb.generalLocationCity = address[@"City"];
-            mb.generalLocationState = address[@"State"];
-            mb.generalLocationZip = address[@"ZIP"];
         }
+        
+        NSDictionary *address = [(CLPlacemark *)[placemarks objectAtIndex:0] addressDictionary];
+        mb.locationName =[(CLPlacemark *)[placemarks objectAtIndex:0] name];
+        mb.generalLocationAddress1 = address[@"Street"];
+        mb.generalLocationCity = address[@"City"];
+        mb.generalLocationState = address[@"State"];
+        mb.generalLocationZip = address[@"ZIP"];
+    
         [weakSelf.progressView setProgress:0.8 animated:YES];
         [weakSelf.homeCommLink throwMeetBall:mb success:^(id responseObject) {
-            [weakSelf.progressView setProgress:1 animated:YES];
+            [weakSelf.progressView setProgress:0.9 animated:YES];
             if (responseObject && [[(NSDictionary *)responseObject[@"AddInviteesToExistingMeetBallJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]) {
                 [weakSelf threwMeetBall];
-                [weakSelf.progressView setHidden:YES];
-                [weakSelf.invtiedFriendsArray removeAllObjects];
-                [weakSelf.mainToolbar setUserInteractionEnabled:YES];
-                for (NSIndexPath *index in weakSelf.homeTableView.indexPathsForSelectedRows) {
-                    [weakSelf.homeTableView deselectRowAtIndexPath:index animated:NO];
-                }
+//                [weakSelf resetSubViewsAfterThrow];
             }
             NSLog(@"%@", responseObject);
         } failure:^(NSError *error) {
             NSLog(@"%@", error);
-            [weakSelf.mainToolbar setUserInteractionEnabled:YES];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble!" message:error.localizedDescription delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+            [alert show];
+            [weakSelf resetSubViewsAfterThrow];
         }];
     }];
 }
 
+- (void)resetSubViewsAfterThrow {
+     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self.progressView setHidden:YES];
+    [self.invtiedFriendsArray removeAllObjects];
+    [self.mainToolbar setUserInteractionEnabled:YES];
+    for (NSIndexPath *index in self.homeTableView.indexPathsForSelectedRows) {
+        [self.homeTableView deselectRowAtIndexPath:index animated:NO];
+    }
+}
+
 - (void)threwMeetBall {
+    UIAlertView *throw = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Successfully threw your MeetBall" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+    [throw show];
     [self createAnnotations];
 }
 
@@ -532,6 +552,10 @@ static NSString * const kSessionId = @"sessionId";
         return;
     }
     [MBMenuNavigator navigateToMenuItem:(NSString *)notification.object fromVC:self];
+}
+
+- (void)signOut:(NSNotification *)notification {
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

@@ -11,6 +11,8 @@
 @interface MBSettingsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *menuContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *blurView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)showMenu:(id)sender;
+- (IBAction)save:(id)sender;
 
 @end

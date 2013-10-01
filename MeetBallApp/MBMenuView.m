@@ -7,6 +7,7 @@
 //
 
 #import "MBMenuView.h"
+#import "MBCredentialManager.h"
 
 @interface MBMenuView()
 
@@ -33,7 +34,15 @@
     [super awakeFromNib];
     [self.menuTableView setDataSource:self];
     [self.menuTableView setDelegate:self];
-    self.menuItems = [[NSArray alloc] initWithObjects:@"Home", @"My MeetBalls", @"Team Roster", @"Profile", @"Settings", @"Help", nil];
+    self.menuItems = [[NSArray alloc] initWithObjects:@"Home", @"My MeetBalls", @"Friends", @"Profile", @"Settings", @"Help", nil];
+    [self setHeaders];
+}
+
+- (void)setHeaders {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"FirstName"]) {
+        self.userName.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"FirstName"];
+        self.userHandle.text = [[MBCredentialManager defaultCredential] user];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
