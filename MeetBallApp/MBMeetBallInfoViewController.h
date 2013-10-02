@@ -10,6 +10,7 @@
 
 @interface MBMeetBallInfoViewController : UIViewController
 @property (strong, nonatomic) NSDictionary *userInfo;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)signUp:(id)sender;

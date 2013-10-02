@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Menu Navigation Controller-->
         <scene sceneID="vym-6A-kkC">
             <objects>
-                <navigationController definesPresentationContext="YES" id="1rE-ex-XxX" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="1rE-ex-XxX" customClass="MBMenuNavigationController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EXU-if-0JX">
                         <autoresizingMask key="autoresizingMask"/>
@@ -64,7 +64,8 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem width="121" style="plain" systemItem="fixedSpace" id="00C-7B-cA5"/>
-                                            <barButtonItem image="car" width="61" id="LNK-Pi-heB">
+                                            <barButtonItem image="parking" width="61" id="LNK-Pi-heB">
+                                                <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="carLocation:" destination="9k4-Qt-OAQ" id="yVH-QE-vqh"/>
                                                 </connections>
@@ -85,7 +86,7 @@
                                         </constraints>
                                         <color key="sectionIndexColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VR2-Nf-nZH" detailTextLabel="ecX-Dn-vPw" style="IBUITableViewCellStyleSubtitle" id="6WO-I1-syn">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellID" textLabel="VR2-Nf-nZH" detailTextLabel="ecX-Dn-vPw" style="IBUITableViewCellStyleSubtitle" id="6WO-I1-syn">
                                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6WO-I1-syn" id="yG9-VP-kpU">
@@ -192,10 +193,17 @@
                                     <constraint firstAttribute="height" constant="44" id="WHg-U6-hlP"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Throw MeetBall" width="298" style="plain" id="K6g-h6-gyw">
-                                        <connections>
-                                            <action selector="throwMeetBalls:" destination="9k4-Qt-OAQ" id="Tjp-b1-MnR"/>
-                                        </connections>
+                                    <barButtonItem enabled="NO" width="294" style="plain" id="na5-bG-Ag7">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tap-wt-eNy">
+                                            <rect key="frame" x="16" y="6" width="294" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Throw MeetBall">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="throwMeetBalls:" destination="9k4-Qt-OAQ" eventType="touchUpInside" id="xyu-UU-Xpe"/>
+                                            </connections>
+                                        </button>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
@@ -249,10 +257,11 @@
                         <barButtonItem key="leftBarButtonItem" image="menu_ic" id="c4b-DO-HX5">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="showMenu:" destination="9k4-Qt-OAQ" id="pfC-cT-jBc"/>
+                                <action selector="showMenu:" destination="9k4-Qt-OAQ" id="xg0-FS-0X9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="NOU-Za-0jf">
+                        <barButtonItem key="rightBarButtonItem" image="inbox" id="NOU-Za-0jf">
+                            <color key="tintColor" red="0.81568627450980391" green="0.17254901960784313" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="dsP-tF-jXu" kind="push" id="CB9-ZC-X5F"/>
                             </connections>
@@ -266,11 +275,13 @@
                         <outlet property="mainToolbar" destination="BxQ-Vg-YK7" id="l7w-rz-lEc"/>
                         <outlet property="mapToolBar" destination="omN-9L-aD7" id="os0-DW-xlO"/>
                         <outlet property="mapView" destination="gR3-21-jyP" id="yAg-Ea-pa1"/>
+                        <outlet property="menuButton" destination="c4b-DO-HX5" id="z5l-2k-qkf"/>
                         <outlet property="menuContainer" destination="wXL-ns-c07" id="tc8-nI-Asj"/>
                         <outlet property="menuSuperContainer" destination="BHE-m0-pmH" id="a9j-6H-t5B"/>
                         <outlet property="progressView" destination="hMv-RS-LGn" id="RhN-KN-VQU"/>
                         <outlet property="scrollView" destination="2UD-Zl-tYz" id="Anj-Ba-Ont"/>
                         <outlet property="tableHeighConstraint" destination="dIj-SO-Lcn" id="1rf-ND-qSQ"/>
+                        <outlet property="throwMBButton" destination="Tap-wt-eNy" id="85s-pg-kTS"/>
                         <outlet property="toolBarButton" destination="w4C-Hj-S46" id="iqo-X0-gRj"/>
                     </connections>
                 </viewController>
@@ -297,15 +308,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UV-2N-lo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115" y="-35"/>
+            <point key="canvasLocation" x="1124" y="-329"/>
         </scene>
     </scenes>
     <resources>
-        <image name="car" width="20" height="18"/>
         <image name="compass" width="50" height="50"/>
         <image name="fullScreen_ic" width="20" height="20"/>
+        <image name="inbox" width="20" height="20"/>
         <image name="location_ic" width="20" height="20"/>
         <image name="menu_ic" width="20" height="19"/>
+        <image name="parking" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

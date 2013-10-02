@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="9" y="-5"/>
         </scene>
-        <!--Team Roser View Controller - Team Roster-->
+        <!--Team Roser View Controller - Friends-->
         <scene sceneID="ayH-Jy-fch">
             <objects>
                 <viewController id="eA2-Sx-O4Y" customClass="MBTeamRoserViewController" sceneMemberID="viewController">
@@ -40,6 +40,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8al-rO-vea">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8al-rO-vea">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="OFd-mu-3Or" kind="push" identifier="friendDetail" id="GZH-gq-iLB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vxZ-tF-aTA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
@@ -67,7 +80,7 @@
                             <constraint firstItem="VX1-Hb-sgg" firstAttribute="top" secondItem="vxZ-tF-aTA" secondAttribute="top" id="mzl-EE-EO4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Team Roster" id="iUm-a9-v2H">
+                    <navigationItem key="navigationItem" title="Friends" id="iUm-a9-v2H">
                         <barButtonItem key="leftBarButtonItem" image="menu_ic" id="HQw-SZ-fgs">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -139,7 +152,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ifr-qq-871" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="-5"/>
+            <point key="canvasLocation" x="1060" y="-326"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Vd5-xP-tip">
+            <objects>
+                <viewController id="OFd-mu-3Or" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LTF-PJ-QF9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ugb-W5-5dZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="veX-36-WeO">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DjA-aF-n2U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bki-Ph-NOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021" y="384"/>
         </scene>
     </scenes>
     <resources>

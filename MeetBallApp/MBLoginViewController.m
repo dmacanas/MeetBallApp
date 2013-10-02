@@ -77,6 +77,7 @@ static NSString * const kFirstName = @"FirstName";
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if(textField == self.passwordField){
         [self.passwordField endEditing:YES];
+        [self login:nil];
     } else {
         [self.passwordField becomeFirstResponder];
     }

@@ -8,6 +8,7 @@
 
 #import "MBMenuView.h"
 #import "MBCredentialManager.h"
+#import "MBMenuCell.h"
 
 @interface MBMenuView()
 
@@ -46,19 +47,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    MBMenuCell *cell = (MBMenuCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.highlighted = NO;
-    [self.delegate didSelectionMenuItem:cell.textLabel.text];
+    [self.delegate didSelectionMenuItem:cell.menuLabel.text];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellID = @"CellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    NSString *cellID = @"menuCell";
+    MBMenuCell *cell = (MBMenuCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        NSArray *ar = [[NSBundle mainBundle] loadNibNamed:@"MBMenuCell" owner:self options:nil];
+        cell = [ar objectAtIndex:0];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
+    
+    cell.menuLabel.text = [self.menuItems objectAtIndex:indexPath.row];
+    [cell.icon setImage:[UIImage imageNamed:[cell.menuLabel.text lowercaseString]]];
     [cell.textLabel setBackgroundColor:[UIColor whiteColor]];
     return cell;
 }

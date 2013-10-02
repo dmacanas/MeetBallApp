@@ -13,6 +13,7 @@
 #import "MBWebServiceManager.h"
 #import "MBWebServiceConstants.h"
 #import "MBUser.h"
+#import "MBEditProfileViewController.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -34,6 +35,9 @@ static NSString * const kSessionId = @"sessionId";
 @property (strong, nonatomic) NSArray *sectionArray;
 @property (strong, nonatomic) NSArray *subHeaderArray;
 @property (strong, nonatomic) NSDictionary *userInfo;
+
+@property (strong, nonatomic) NSString *field;
+@property (strong, nonatomic) NSString *fieldValue;
 
 @end
 
@@ -84,6 +88,25 @@ static NSString * const kSessionId = @"sessionId";
         [alert show];
         NSLog(@"error %@", error);
     }];
+    
+    [MBWebServiceManager AFHTTPRequestForWebService:kWebSerivceGetPhoneNumbers URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+        if (responseObject) {
+            NSError *error;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+            if ([[dict[@"MbResult"] objectForKey:@"Success"] boolValue]) {
+//                NSDictionary *user = [dict[@"Items"] objectAtIndex:0];
+//                weakSelf.userInfo = user;
+//                weakSelf.userLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"FirstName"],user[@"LastName"]];
+//                [weakSelf.tableView reloadData];
+            } else {
+                NSLog(@"responseObject %@", responseObject);
+            }
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble" message:@"Error finding your stats" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        [alert show];
+        NSLog(@"error %@", error);
+    }];
 }
 
 - (void)setUpMenu
@@ -120,6 +143,7 @@ static NSString * const kSessionId = @"sessionId";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if ([[array objectAtIndex:indexPath.row] isEqualToString:@"Name"]) {
         cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (self.userInfo) {
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.userInfo[@"FirstName"], self.userInfo[@"LastName"]];
         }
@@ -131,14 +155,34 @@ static NSString * const kSessionId = @"sessionId";
         }
         [swtch addTarget:self action:@selector(facebookLinking:) forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = swtch;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
         cell.detailTextLabel.text = self.userInfo[@"Handle"];
     } else if (indexPath.section == 1 && indexPath.row == 0) {
         cell.detailTextLabel.text = self.userInfo[@"Email"];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.selectionStyle == UITableViewCellSelectionStyleNone) {
+        return;
+    }
+    self.field = cell.textLabel.text;
+    self.fieldValue = cell.detailTextLabel.text;
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self performSegueWithIdentifier:@"profileDetail" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MBEditProfileViewController *vc = (MBEditProfileViewController *)[segue destinationViewController];
+    vc.field = self.field;
+    vc.value = self.fieldValue;
 }
 
 - (void)facebookLinking:(id)sender {
@@ -146,40 +190,46 @@ static NSString * const kSessionId = @"sessionId";
     if ([[FBSession activeSession] state] == FBSessionStateOpen) {
         NSLog(@"FBSession active");
         if (sw.isOn) {
-            [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                NSDictionary *dict = (NSDictionary *)result;
-                NSLog(@"ID %@", dict[@"id"]);
-                NSDictionary *d = @{@"facebookID": dict[@"id"], @"accessToken":[[[FBSession activeSession] accessTokenData] accessToken], @"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]};
-                [MBWebServiceManager AFJSONRequestForWebService:kWebServiceAssociateFacebookAcct URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} UserInfo:d success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
-                    NSLog(@"ResponseObject %@", responseObject);
-                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                    NSLog(@"Error %@", error);
-                }];
-                
-            }];
+            [self FBAssociateToken:[[[FBSession activeSession] accessTokenData] accessToken]];
+        } else {
+            [self FBDisaaociate];
         }
     } else {
+        if (sw.isOn == NO) {
+            [self FBDisaaociate];
+            return;
+        }
         FBSession *session = [[FBSession alloc] init];
         [FBSession setActiveSession:session];
         [session openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
             if (status == FBSessionStateOpen && sw.isOn) {
-                [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                    NSDictionary *dict = (NSDictionary *)result;
-                    NSLog(@"ID %@", dict[@"id"]);
-                    NSDictionary *d = @{@"facebookID": dict[@"id"], @"accessToken":[[session accessTokenData] accessToken], @"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]};
-                    [MBWebServiceManager AFJSONRequestForWebService:kWebServiceAssociateFacebookAcct URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} UserInfo:d success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
-                        NSLog(@"ResponseObject %@", responseObject);
-                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                        NSLog(@"Error %@", error);
-                    }];
-                    
-                }];
-            } else {
-                
+                [self FBAssociateToken:[[session accessTokenData] accessToken]];
             }
             
         }];
     }
+}
+
+- (void)FBAssociateToken:(NSString *)token {
+    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        NSDictionary *dict = (NSDictionary *)result;
+        NSLog(@"ID %@", dict[@"id"]);
+        NSDictionary *d = @{@"facebookID": dict[@"id"], @"accessToken":token, @"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]};
+        [MBWebServiceManager AFJSONRequestForWebService:kWebServiceAssociateFacebookAcct URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} UserInfo:d success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+            NSLog(@"ResponseObject %@", responseObject);
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            NSLog(@"Error %@", error);
+        }];
+        
+    }];
+}
+
+- (void)FBDisaaociate {
+    [MBWebServiceManager AFJSONRequestForWebService:kWebServiceDisassociateFacebookAcct URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} UserInfo:@{@"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+        NSLog(@"dis Response Object %@", responseObject);
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        NSLog(@"dis Error %@", error);
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

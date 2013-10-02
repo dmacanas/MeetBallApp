@@ -17,6 +17,7 @@
 static NSString * const kAuthentication = @"authenticated";
 static NSString * const kAppUserId = @"AppUserId";
 static NSString * const kFirstName = @"FirstName";
+static NSString * const kFacebookId = @"facebookId";
 
 @interface MBMeetBallInfoViewController () <UITextFieldDelegate>
 
@@ -40,7 +41,7 @@ static NSString * const kFirstName = @"FirstName";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.labelArray = [[NSArray alloc] initWithObjects: @"MeetBall Handle", @"Password", @"Confirm Password", nil];
+    self.labelArray = [[NSArray alloc] initWithObjects: @"MeetBall Handle", @"Password", nil];
     self.commLink = [[MBDataCommunicator alloc] init];
     [self setupBackgrounds];
 	// Do any additional setup after loading the view.
@@ -84,8 +85,10 @@ static NSString * const kFirstName = @"FirstName";
     if (indexPath.row == self.labelArray.count-1) {
         cell.textField.returnKeyType = UIReturnKeyDone;
     }
-    if ([mainLabelText isEqualToString:@"Password:"] || [mainLabelText isEqualToString:@"Confirm Password:"]) {
+    if ([mainLabelText isEqualToString:@"Password:"]) {
         cell.textField.secureTextEntry = YES;
+    } else {
+        cell.textField.text = self.userInfo[@"facebookId"];
     }
     
     cell.tag = indexPath.row+2;
@@ -121,40 +124,75 @@ static NSString * const kFirstName = @"FirstName";
 - (IBAction)suitUpAction:(id)sender {
     
     if([self validateSuitUpCells]){
+        self.progressView.hidden = NO;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        [self.view endEditing:YES];
         NSString *firstName = self.userInfo[@"firstName"];
         NSString *lastName = self.userInfo[@"lastName"];
         NSString *email = self.userInfo[@"email"];
-        NSString *handle = [[(MBSuitUpCell *)[self.tableView viewWithTag:0] textField] text];
+        NSString *handle = [[(MBSuitUpCell *)[self.view viewWithTag:2] textField] text];
         NSString *phone = self.userInfo[@"phone"];
-        NSString *cpwd = [[(MBSuitUpCell *)[self.tableView viewWithTag:4] textField] text];
+        NSString *cpwd = [[(MBSuitUpCell *)[self.view viewWithTag:3] textField] text];
         NSDictionary *params = @{@"firstName": firstName, @"lastName":lastName, @"email":email, @"handle":handle,@"phone":phone,@"sessionId":@""};
-        [self.commLink registerNewUser:params succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            if(JSON){
-                if ([[[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
-                    //self.email = [data objectForKey:@"AppUserId"];
-                    //self.password = [data objectForKey:@"password"];
-                    [self.commLink updatePasswordForNewFacebookUser:@{@"appUserId":[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"],@"newPassword":cpwd} succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                        NSLog(@"%@",JSON);
-                        [[NSUserDefaults standardUserDefaults] setObject:[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"] forKey:kAppUserId];
-                        [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:kFirstName];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
-
-                        if(JSON && [[(NSDictionary *)JSON[@"UpdateAppUserPasswordJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]){
-                            NSURLCredential *newCreds = [NSURLCredential credentialWithUser:email password:cpwd persistence:NSURLCredentialPersistencePermanent];
-                            [MBCredentialManager saveCredential:newCreds];
-
-                            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
-                            UIViewController *vc = [sb instantiateInitialViewController];
-                            [self presentViewController:vc animated:NO completion:nil];
+        NSDictionary *dict = @{@"firstName": firstName, @"lastName":lastName, @"email":email, @"handle":handle,@"phone":phone,@"version":[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]};
+        __weak MBMeetBallInfoViewController *weakSelf = self;
+        [self.commLink getHandleAvailable:dict success:^(id responseObj) {
+            [weakSelf.progressView setProgress:0.3];
+            NSDictionary *dict = (NSDictionary *)responseObj;
+            if ([dict[@"MbResult"][@"Success"] boolValue]) {
+                [weakSelf.commLink registerNewUser:params succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                    [weakSelf.progressView setProgress:0.6 animated:YES];
+                    if(JSON){
+                        if ([[[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
+                            [weakSelf.commLink updatePasswordForNewFacebookUser:@{@"appUserId":[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"],@"newPassword":cpwd} succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                [weakSelf.progressView setProgress:0.9 animated:YES];
+                                [[NSUserDefaults standardUserDefaults] setObject:[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"] forKey:kAppUserId];
+                                [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:kFirstName];
+                                [[NSUserDefaults standardUserDefaults] synchronize];
+                                
+                                if(JSON && [[(NSDictionary *)JSON[@"UpdateAppUserPasswordJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]){
+                                    
+                                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                                    weakSelf.progressView.hidden = YES;
+                                    NSURLCredential *newCreds = [NSURLCredential credentialWithUser:email password:cpwd persistence:NSURLCredentialPersistencePermanent];
+                                    [MBCredentialManager saveCredential:newCreds];
+                                    
+                                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:nil];
+                                    UIViewController *vc = [sb instantiateInitialViewController];
+                                    [weakSelf presentViewController:vc animated:NO completion:nil];
+                                } else {
+                                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                                    weakSelf.progressView.hidden = YES;
+                                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble" message:[[[(NSDictionary *)JSON objectForKey:@"UpdateAppUserPasswordJsonResult"] objectForKey:@"MbResult"] objectForKey:@"FriendlyErrorMsg"] delegate:Nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+                                    [alert show];
+                                }
+                            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                                weakSelf.progressView.hidden = YES;
+                                NSLog(@"%@", error);
+                            }];
+                            
+                        } else {
+                            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                            weakSelf.progressView.hidden = YES;
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble" message:[[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"FriendlyErrorMsg"] delegate:Nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+                            [alert show];
                         }
-                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                        NSLog(@"%@", error);
-                    }];
+                    }
+                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                    NSLog(@"error %@",error);
+                }];
 
-                }
+            } else {
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                weakSelf.progressView.hidden = YES;
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble" message:@"That handle is already in use" delegate:Nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+                [alert show];
             }
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            NSLog(@"error %@",error);
+        } failure:^(NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            weakSelf.progressView.hidden = YES;
+            NSLog(@"%@", error);
         }];
         
     }
@@ -172,14 +210,6 @@ static NSString * const kFirstName = @"FirstName";
     if(array.count > 0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please enter all of your information" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [alert show];
-        return NO;
-    }
-    
-    NSString *pwd = [[(MBSuitUpCell *)[self.tableView viewWithTag:3] textField] text];
-    NSString *cpwd = [[(MBSuitUpCell *)[self.tableView viewWithTag:4] textField] text];
-    if(![pwd isEqualToString:cpwd]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Passwords don't match" message:nil delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-       [alert show];
         return NO;
     }
     

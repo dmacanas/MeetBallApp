@@ -7,6 +7,7 @@
 //
 
 #import "MBLandingScreenViewController.h"
+#import "MBMenuNavigationController.h"
 #import "SVProgressHUD.h"
 #import "MBUser.h"
 
@@ -43,7 +44,7 @@ static NSString * const kAuthentication = @"authenticated";
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
         __weak MBLandingScreenViewController *weakSelf = self;
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:[NSBundle mainBundle]];
-        UIViewController *vc = [sb instantiateInitialViewController];
+        MBMenuNavigationController *vc = (MBMenuNavigationController *)[sb instantiateInitialViewController];
         [weakSelf presentViewController:vc animated:NO completion:nil];
     }
 }

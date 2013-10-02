@@ -13,6 +13,7 @@
 #import "MBMenuView.h"
 #import "MBMenuNavigator.h"
 #import "MBMeetBallDetailViewController.h"
+#import "MBHomeDataManager.h"
 
 #import "MBMeetBall.h"
 
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) NSString *titleString;
 @property (strong, nonatomic) NSString *coordString;
 @property (strong, nonatomic) NSArray *meetBallArray;
+@property (strong, nonatomic) MBHomeDataManager *dataManager;
 
 
 
@@ -45,6 +47,7 @@
     [super viewDidLoad];
     [self menuSetup];
     self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES]];
+    self.dataManager = [[MBHomeDataManager alloc] init];
 	// Do any additional setup after loading the view.
 }
 
@@ -224,5 +227,14 @@
         self.menuContainer.hidden = YES;
         self.isShowingMenu = NO;
     }
+}
+
+- (IBAction)refresh:(id)sender {
+    __weak MBMyMeetBallsViewController *weakSelf = self;
+    [self.dataManager getUpcomingMeetBalls:^(BOOL done) {
+        NSArray *a = [MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES];
+        weakSelf.meetBallArray = [weakSelf.dataManager getActiveMeetBalls:a];
+        [weakSelf.tableView reloadData];
+    }];
 }
 @end

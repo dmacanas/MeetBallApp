@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *mainToolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *adjustLocation;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIButton *throwMBButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)testCancel:(id)sender;

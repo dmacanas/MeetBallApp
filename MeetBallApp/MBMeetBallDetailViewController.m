@@ -183,6 +183,7 @@ static NSString * const kCarTip = @"carTip";
             pinView.canShowCallout = YES;
             UIButton *callout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             if ([[(MBAnnotation *)annotation title] isEqualToString:@"Car Location"]) {
+                pinView.pinColor = MKPinAnnotationColorRed;
                 [callout setImage:[UIImage imageNamed:@"hide"] forState:UIControlStateNormal];
                 callout.tag = 1;
             } else {
@@ -193,6 +194,7 @@ static NSString * const kCarTip = @"carTip";
         }else {
             UIButton *callout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             if ([[(MBAnnotation *)annotation title] isEqualToString:@"Car Location"]) {
+                pinView.pinColor = MKPinAnnotationColorRed;
                 [callout setImage:[UIImage imageNamed:@"hide"] forState:UIControlStateNormal];
                 callout.tag = 1;
             } else {

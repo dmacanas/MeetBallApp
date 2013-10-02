@@ -7,4 +7,5 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/commentsCollectionViewCell.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMenuView.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMenuNavigator.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMeetBallDetailViewController.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMeetBallDetailViewController.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBHomeDataManager.h

@@ -21,3 +21,6 @@ extern NSString * const kWebServiceGetMeetBallComments;
 extern NSString * const kWebServiceAddMeetBallComment;
 extern NSString * const kWebServiceGetAppUserByAppUserId;
 extern NSString * const kWebServiceAssociateFacebookAcct;
+extern NSString * const kWebServiceDisassociateFacebookAcct;
+extern NSString * const kWebServiceGetIsHandleAvailable;
+extern NSString * const kWebServiceGetPhoneNumbersByAppId;

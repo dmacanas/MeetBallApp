@@ -151,5 +151,30 @@
 		<key>Accept</key>
 		<string>application/json</string>
 	</dict>
+	<key>DisassociateFacebookAcct</key>
+	<dict>
+		<key>URL</key>
+		<string>https://ws.meetball.com/{version}/service.svc/json/AppUser/Facebook/Disassociate</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>GetIsHandleAvailable</key>
+	<dict>
+		<key>URL</key>
+		<string>https://ws.meetball.com/{version}/service.svc/json/AppUser/IsHandleAvailable/?handle={handle}&amp;firstName={firstName}&amp;lastName={lastName}&amp;email={email}</string>
+		<key>method</key>
+		<string>GET</string>
+	</dict>
+	<key>GetPhoneNumbersByAppId</key>
+	<dict>
+		<key>URL</key>
+		<string>https://ws.meetball.com/{version}/service.svc/json/AppUser/Browse/Phone/{sessionId}/?appUserId={appUserId}</string>
+		<key>method</key>
+		<string>GET</string>
+	</dict>
 </dict>
 </plist>

@@ -22,6 +22,8 @@
 #import "MeetBalls.h"
 #import "MBMeetBall.h"
 #import "MBHomeDataManager.h"
+#import "MBTeamRoserViewController.h"
+#import "MBMenuNavigationController.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <CoreData/CoreData.h>
@@ -48,6 +50,7 @@ static NSString * const kSessionId = @"sessionId";
 @property (assign, nonatomic) BOOL isShowingMenu;
 @property (assign, nonatomic) BOOL isShowingMeetBall;
 @property (assign, nonatomic) BOOL isShowingFullScreenMap;
+@property (assign, nonatomic) BOOL isFlashing;
 @property (assign, nonatomic) CGRect originalRect;
 @property (assign, nonatomic) CGRect originalToolbarFrame;
 @property (assign, nonatomic) CGRect originalTableFrame;
@@ -78,7 +81,6 @@ static NSString * const kSessionId = @"sessionId";
     [super viewDidLoad];
     [self menuSetup];
     [self initMethods];
-    [self checkForCarLocation];
     
     if ([MBUser findAll].count > 0) {
         self.contactsArray = [MBUser findAll];
@@ -142,6 +144,28 @@ static NSString * const kSessionId = @"sessionId";
     [self.menuContainer addSubview:self.menu];
 }
 
+- (void)flashOff:(UIView *)v
+{
+    [UIView animateWithDuration:1.5 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^ {
+        v.alpha = .2;  //don't animate alpha to 0, otherwise you won't be able to interact with it
+    } completion:^(BOOL finished) {
+        if (self.throwMBButton.enabled) {
+            [self flashOn:v];
+        }
+    }];
+}
+
+- (void)flashOn:(UIView *)v
+{
+    [UIView animateWithDuration:0.9 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^ {
+        v.alpha = 1;
+    } completion:^(BOOL finished) {
+        if (self.throwMBButton.enabled) {
+            [self flashOff:v];
+        }
+    }];
+}
+
 #pragma mark - view appearing
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -154,6 +178,7 @@ static NSString * const kSessionId = @"sessionId";
 
     [self.locationManager startUpdatingHeading];
     [self.locationManager startUpdatingLocation];
+    
 }
 
 - (void)tableViewFrameUpdate {
@@ -183,6 +208,7 @@ static NSString * const kSessionId = @"sessionId";
         [annotationArray addObject:a];
     }
     [self.mapView addAnnotations:annotationArray];
+    [self checkForCarLocation];
 }
 
 - (CLLocationCoordinate2D)extractLocationFromString:(NSString *)location {
@@ -211,9 +237,11 @@ static NSString * const kSessionId = @"sessionId";
             pinView.canShowCallout = YES;
             UIButton *callout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             if ([[(MBAnnotation *)annotation title] isEqualToString:@"Car Location"]) {
+                pinView.pinColor = MKPinAnnotationColorRed;
                 [callout setImage:[UIImage imageNamed:@"hide"] forState:UIControlStateNormal];
                 callout.tag = 1;
             } else {
+                pinView.pinColor = MKPinAnnotationColorPurple;
                 [callout setImage:[UIImage imageNamed:@"car"] forState:UIControlStateNormal];
                 callout.tag = 2;
             }
@@ -221,9 +249,11 @@ static NSString * const kSessionId = @"sessionId";
         }else {
             UIButton *callout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             if ([[(MBAnnotation *)annotation title] isEqualToString:@"Car Location"]) {
+                pinView.pinColor = MKPinAnnotationColorRed;
                 [callout setImage:[UIImage imageNamed:@"hide"] forState:UIControlStateNormal];
                 callout.tag = 1;
             } else {
+                pinView.pinColor = MKPinAnnotationColorPurple;
                 [callout setImage:[UIImage imageNamed:@"car"] forState:UIControlStateNormal];
                 callout.tag = 2;
             }
@@ -279,6 +309,7 @@ static NSString * const kSessionId = @"sessionId";
 #pragma mark - contacts setUp
 - (void)getMeetBallContacts {
     __weak MBHomeViewController *weakSelf = self;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.homeCommLink getMeetBallContacts:^(id contacts){
         NSError* error;
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:contacts options:kNilOptions error:&error];
@@ -286,12 +317,13 @@ static NSString * const kSessionId = @"sessionId";
             [MBUser truncateAllInContext:localContext];
             [MBUser MR_importFromArrayAndWait:json[@"Items"] inContext:localContext];
         } completion:^(BOOL success, NSError *error) {
-            weakSelf.contactsArray = [MBUser findAllSortedBy:@"firstName" ascending:YES];
+            NSPredicate *pred = [NSPredicate predicateWithFormat:@"firstName != %@ && firstName != %@ && meetBallID > 0 && email.length > 0", @"Ad Hoc", @"First"];
+            weakSelf.contactsArray = [MBUser findAllSortedBy:@"firstName" ascending:YES withPredicate:pred];
             [weakSelf.homeTableView reloadData];
             weakSelf.tableHeighConstraint.constant = weakSelf.homeTableView.contentSize.height;
             [weakSelf.view needsUpdateConstraints];
             [weakSelf.scrollView setContentSize:CGSizeMake(weakSelf.scrollView.contentSize.width, weakSelf.homeTableView.contentSize.height + weakSelf.mapView.frame.size.height + weakSelf.mainToolbar.frame.size.height)];
-            
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         }];
         
         [weakSelf createAnnotations];
@@ -309,6 +341,8 @@ static NSString * const kSessionId = @"sessionId";
     }
     if (indexPath.row == self.contactsArray.count) {
         cell.textLabel.text = @"Add More Friends...";
+        cell.detailTextLabel.text = @"";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
     if (self.contactsArray && self.contactsArray.count > 1) {
@@ -316,7 +350,7 @@ static NSString * const kSessionId = @"sessionId";
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", u.firstName, u.lastName];
         cell.detailTextLabel.text = u.email;
     }
-
+//    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     
     return cell;
 }
@@ -327,7 +361,7 @@ static NSString * const kSessionId = @"sessionId";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Select Friends and Throw a MeetBall!";
+        return @"Select Friends - Throw MeetBall - Meet Up!";
     }
     
     return @"";
@@ -354,11 +388,31 @@ static NSString * const kSessionId = @"sessionId";
     if (foundUser == NO) {
         [self.invtiedFriendsArray addObject:i];
     }
+    
+    if (self.invtiedFriendsArray.count > 0) {
+        self.throwMBButton.enabled = YES;
+        if (self.isFlashing == NO) {
+            [self flashOn:self.throwMBButton];
+            self.isFlashing = YES;
+        }
+    }
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.contactsArray.count) {
         return;
+    }
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    if (self.invtiedFriendsArray.count == 1) {
+        self.throwMBButton.enabled = NO;
+        [self.throwMBButton.layer removeAllAnimations];
+        self.isFlashing = NO;
     }
     
     MBUser *u = (MBUser *)[[NSManagedObjectContext MR_contextForCurrentThread] objectWithID:[[self.contactsArray objectAtIndex:indexPath.row] objectID]];

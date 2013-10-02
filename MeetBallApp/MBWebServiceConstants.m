@@ -23,3 +23,6 @@ NSString * const kWebServiceGetMeetBallComments = @"GetMeetBallComments";
 NSString * const kWebServiceAddMeetBallComment = @"AddMeetBallComment";
 NSString * const kWebServiceGetAppUserByAppUserId = @"GetAppUserByAppUserId";
 NSString * const kWebServiceAssociateFacebookAcct = @"AssociateFacebookAcct";
+NSString * const kWebServiceDisassociateFacebookAcct = @"DisassociateFacebookAcct";
+NSString * const kWebServiceGetIsHandleAvailable = @"GetIsHandleAvailable";
+NSString * const kWebServiceGetPhoneNumbersByAppId = @"GetPhoneNumbersByAppId";

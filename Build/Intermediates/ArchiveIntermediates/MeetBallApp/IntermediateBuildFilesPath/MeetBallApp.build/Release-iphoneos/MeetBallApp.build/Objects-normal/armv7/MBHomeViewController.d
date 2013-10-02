@@ -50,4 +50,6 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/NSManagedObject+MRImportAdditions.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/../MBInvitee.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/../MBMeetBall.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBHomeDataManager.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBHomeDataManager.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBTeamRoserViewController.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMenuNavigationController.h

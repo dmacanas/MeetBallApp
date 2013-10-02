@@ -95,6 +95,11 @@
                                 <action selector="showMenu:" destination="BOL-NU-K4p" id="ffv-pA-7ic"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="gaK-LE-eIQ">
+                            <connections>
+                                <action selector="refresh:" destination="BOL-NU-K4p" id="S97-fq-on0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="blurView" destination="ZBr-xh-fAv" id="E3l-4n-4ne"/>
@@ -136,7 +141,8 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="117" style="plain" systemItem="fixedSpace" id="vp6-I4-1cL"/>
-                                    <barButtonItem image="car" width="69" id="OSB-zd-ob6">
+                                    <barButtonItem image="parking" width="69" id="OSB-zd-ob6">
+                                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="carLocation:" destination="g2i-wy-qz8" id="AYh-o7-9Es"/>
                                         </connections>
@@ -279,11 +285,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="car" width="20" height="18"/>
         <image name="compass-small" width="35" height="35"/>
         <image name="location_ic" width="20" height="20"/>
         <image name="menu_ic" width="20" height="19"/>
         <image name="notes" width="20" height="18"/>
+        <image name="parking" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

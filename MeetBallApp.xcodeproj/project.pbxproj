@@ -40,7 +40,6 @@
 		340F3CA717EA132F00491CCB /* MBPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 340F3C5517E8C73700491CCB /* MBPerson.m */; };
 		340F3CA817EA133100491CCB /* MBCredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3434920417D0E88700C857F8 /* MBCredentialManager.m */; };
 		340F3CA917EA133400491CCB /* MBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */; };
-		340F3CAA17EA133600491CCB /* MBMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9C017D905E100399715 /* MBMenuView.m */; };
 		340F3CAB17EA133900491CCB /* MBMenuNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046217E209590026CE10 /* MBMenuNavigator.m */; };
 		340F3CAC17EA134000491CCB /* MBMyMeetBallsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473045017E10EC30026CE10 /* MBMyMeetBallsViewController.m */; };
 		340F3CAD17EA134200491CCB /* MBMeetBallDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */; };
@@ -70,8 +69,6 @@
 		3445C9A917D8CDB700399715 /* MBEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3445C9A817D8CDB700399715 /* MBEventCollectionViewCell.xib */; };
 		3445C9B617D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B517D8D33D00399715 /* MBEventCollectionViewCell.m */; };
 		3445C9BA17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9B917D8E4AA00399715 /* MBFriendsCollectionView.m */; };
-		3445C9C117D905E100399715 /* MBMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3445C9C017D905E100399715 /* MBMenuView.m */; };
-		3445C9C317D905F300399715 /* MBMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3445C9C217D905F300399715 /* MBMenuView.xib */; };
 		3446716E17CD22B900469B39 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3446716D17CD22B900469B39 /* libz.dylib */; };
 		3446717917CD273600469B39 /* wsresources_prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3446717817CD273600469B39 /* wsresources_prod.plist */; };
 		3446717C17CD465D00469B39 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3446717B17CD465D00469B39 /* Security.framework */; };
@@ -147,6 +144,18 @@
 		34CEA38917E0C3A6008BEDE5 /* MBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */; };
 		34DA7FF017EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 34DA7FEF17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m */; };
 		34DE22BF17E3788600B99554 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE22BE17E3788600B99554 /* QuartzCore.framework */; };
+		34FBC4E517FC7B5E0001933F /* MBEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC4E417FC7B5E0001933F /* MBEditProfileViewController.m */; };
+		34FBC4E717FCB9C50001933F /* MBMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FBC4E617FCB9C50001933F /* MBMenuCell.xib */; };
+		34FBC4EA17FCBA240001933F /* MBMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC4E917FCBA240001933F /* MBMenuCell.m */; };
+		34FBC4FF17FCD49B0001933F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FBC4FE17FCD49B0001933F /* Accelerate.framework */; };
+		34FBC50817FCDBC10001933F /* MBMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC50617FCDBC10001933F /* MBMenuView.m */; };
+		34FBC50917FCDBC10001933F /* MBMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FBC50717FCDBC10001933F /* MBMenuView.xib */; };
+		34FBC50D17FCDCBD0001933F /* MBMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC50B17FCDCBD0001933F /* MBMenuViewController.m */; };
+		34FBC50E17FCDCBD0001933F /* MBMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FBC50C17FCDCBD0001933F /* MBMenuViewController.xib */; };
+		34FBC51117FCDD6D0001933F /* MBMenuNaviagtionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51017FCDD6D0001933F /* MBMenuNaviagtionViewController.m */; };
+		34FBC51417FCDE500001933F /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51317FCDE500001933F /* REFrostedViewController.m */; };
+		34FBC51917FCDE7C0001933F /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51617FCDE7C0001933F /* UIImage+REFrostedViewController.m */; };
+		34FBC51A17FCDE7C0001933F /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51817FCDE7C0001933F /* UIView+REFrostedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,9 +211,6 @@
 		3445C9B517D8D33D00399715 /* MBEventCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBEventCollectionViewCell.m; sourceTree = "<group>"; };
 		3445C9B817D8E4AA00399715 /* MBFriendsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFriendsCollectionView.h; sourceTree = "<group>"; };
 		3445C9B917D8E4AA00399715 /* MBFriendsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFriendsCollectionView.m; sourceTree = "<group>"; };
-		3445C9BF17D905E100399715 /* MBMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuView.h; sourceTree = "<group>"; };
-		3445C9C017D905E100399715 /* MBMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuView.m; sourceTree = "<group>"; };
-		3445C9C217D905F300399715 /* MBMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMenuView.xib; sourceTree = "<group>"; };
 		3446716D17CD22B900469B39 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		3446717817CD273600469B39 /* wsresources_prod.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wsresources_prod.plist; sourceTree = "<group>"; };
 		3446717B17CD465D00469B39 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -311,6 +317,26 @@
 		34DA7FEE17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MRImportAdditions.h"; sourceTree = "<group>"; };
 		34DA7FEF17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MRImportAdditions.m"; sourceTree = "<group>"; };
 		34DE22BE17E3788600B99554 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		34FBC4E317FC7B5E0001933F /* MBEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBEditProfileViewController.h; sourceTree = "<group>"; };
+		34FBC4E417FC7B5E0001933F /* MBEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBEditProfileViewController.m; sourceTree = "<group>"; };
+		34FBC4E617FCB9C50001933F /* MBMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMenuCell.xib; sourceTree = "<group>"; };
+		34FBC4E817FCBA240001933F /* MBMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuCell.h; sourceTree = "<group>"; };
+		34FBC4E917FCBA240001933F /* MBMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuCell.m; sourceTree = "<group>"; };
+		34FBC4FE17FCD49B0001933F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		34FBC50517FCDBC10001933F /* MBMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuView.h; sourceTree = "<group>"; };
+		34FBC50617FCDBC10001933F /* MBMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuView.m; sourceTree = "<group>"; };
+		34FBC50717FCDBC10001933F /* MBMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMenuView.xib; sourceTree = "<group>"; };
+		34FBC50A17FCDCBD0001933F /* MBMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuViewController.h; sourceTree = "<group>"; };
+		34FBC50B17FCDCBD0001933F /* MBMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuViewController.m; sourceTree = "<group>"; };
+		34FBC50C17FCDCBD0001933F /* MBMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMenuViewController.xib; sourceTree = "<group>"; };
+		34FBC50F17FCDD6D0001933F /* MBMenuNaviagtionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuNaviagtionViewController.h; sourceTree = "<group>"; };
+		34FBC51017FCDD6D0001933F /* MBMenuNaviagtionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuNaviagtionViewController.m; sourceTree = "<group>"; };
+		34FBC51217FCDE500001933F /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
+		34FBC51317FCDE500001933F /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
+		34FBC51517FCDE7C0001933F /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
+		34FBC51617FCDE7C0001933F /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
+		34FBC51717FCDE7C0001933F /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
+		34FBC51817FCDE7C0001933F /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +363,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FBC4FF17FCD49B0001933F /* Accelerate.framework in Frameworks */,
 				340F3C5317E8C56C00491CCB /* AddressBookUI.framework in Frameworks */,
 				34C70D7A17CD06CE001AE7D2 /* AddressBook.framework in Frameworks */,
 				3477701817E7593200E804FE /* CoreImage.framework in Frameworks */,
@@ -374,6 +401,8 @@
 				340F3C5817E8CE1A00491CCB /* ProfileStoryboard.storyboard */,
 				34974E5517F1EA6000D0BA84 /* MBProfileViewController.h */,
 				34974E5617F1EA6000D0BA84 /* MBProfileViewController.m */,
+				34FBC4E317FC7B5E0001933F /* MBEditProfileViewController.h */,
+				34FBC4E417FC7B5E0001933F /* MBEditProfileViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -431,14 +460,23 @@
 		343491FA17D0E26000C857F8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				34FBC4EB17FCD0490001933F /* Controls */,
 				343491F517CFA74F00C857F8 /* Models */,
 				3434920317D0E88700C857F8 /* MBCredentialManager.h */,
 				3434920417D0E88700C857F8 /* MBCredentialManager.m */,
 				34CEA38717E0C3A6008BEDE5 /* MBAnnotation.h */,
 				34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */,
-				3445C9BF17D905E100399715 /* MBMenuView.h */,
-				3445C9C017D905E100399715 /* MBMenuView.m */,
-				3445C9C217D905F300399715 /* MBMenuView.xib */,
+				34FBC50F17FCDD6D0001933F /* MBMenuNaviagtionViewController.h */,
+				34FBC51017FCDD6D0001933F /* MBMenuNaviagtionViewController.m */,
+				34FBC50A17FCDCBD0001933F /* MBMenuViewController.h */,
+				34FBC50B17FCDCBD0001933F /* MBMenuViewController.m */,
+				34FBC50C17FCDCBD0001933F /* MBMenuViewController.xib */,
+				34FBC50517FCDBC10001933F /* MBMenuView.h */,
+				34FBC50617FCDBC10001933F /* MBMenuView.m */,
+				34FBC50717FCDBC10001933F /* MBMenuView.xib */,
+				34FBC4E617FCB9C50001933F /* MBMenuCell.xib */,
+				34FBC4E817FCBA240001933F /* MBMenuCell.h */,
+				34FBC4E917FCBA240001933F /* MBMenuCell.m */,
 				3473046117E209590026CE10 /* MBMenuNavigator.h */,
 				3473046217E209590026CE10 /* MBMenuNavigator.m */,
 				340F3C5D17E9FB2000491CCB /* MBWebServiceManager.h */,
@@ -532,6 +570,7 @@
 		347BBD3417CCE92B00BE0E85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34FBC4FE17FCD49B0001933F /* Accelerate.framework */,
 				34974E6C17F3839200D0BA84 /* libPods.a */,
 				340F3CBF17EA143700491CCB /* libPods-AFNetworking.a */,
 				340F3CC017EA143700491CCB /* libPods-Facebook-iOS-SDK.a */,
@@ -660,6 +699,19 @@
 			path = TestFlightSDK2.0.0;
 			sourceTree = "<group>";
 		};
+		34FBC4EB17FCD0490001933F /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				34FBC51217FCDE500001933F /* REFrostedViewController.h */,
+				34FBC51317FCDE500001933F /* REFrostedViewController.m */,
+				34FBC51517FCDE7C0001933F /* UIImage+REFrostedViewController.h */,
+				34FBC51617FCDE7C0001933F /* UIImage+REFrostedViewController.m */,
+				34FBC51717FCDE7C0001933F /* UIView+REFrostedViewController.h */,
+				34FBC51817FCDE7C0001933F /* UIView+REFrostedViewController.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -753,7 +805,10 @@
 				347BBD4017CCE92B00BE0E85 /* InfoPlist.strings in Resources */,
 				340F3C4A17E8B1FF00491CCB /* dominic.jpg in Resources */,
 				340F3C4917E8B1FF00491CCB /* Dan-Farris-003.jpg in Resources */,
+				34FBC50917FCDBC10001933F /* MBMenuView.xib in Resources */,
+				34FBC50E17FCDCBD0001933F /* MBMenuViewController.xib in Resources */,
 				340F3C4417E8B18D00491CCB /* female_face.png in Resources */,
+				34FBC4E717FCB9C50001933F /* MBMenuCell.xib in Resources */,
 				340F3C5917E8CE1A00491CCB /* ProfileStoryboard.storyboard in Resources */,
 				347BBD4F17CCE92B00BE0E85 /* loginFlow.storyboard in Resources */,
 				340F3C5C17E8CEAC00491CCB /* SettingsStoryboard.storyboard in Resources */,
@@ -773,7 +828,6 @@
 				348C499B17F4E5DA00E9AD98 /* commentBubbleCollectionViewCell.xib in Resources */,
 				3473045517E10F9B0026CE10 /* meetBallListTableViewCell.xib in Resources */,
 				3445C9A917D8CDB700399715 /* MBEventCollectionViewCell.xib in Resources */,
-				3445C9C317D905F300399715 /* MBMenuView.xib in Resources */,
 				3473046017E11A510026CE10 /* commentsCollectionViewCell.xib in Resources */,
 				346599D717DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib in Resources */,
 			);
@@ -838,7 +892,6 @@
 				340F3CAC17EA134000491CCB /* MBMyMeetBallsViewController.m in Sources */,
 				340F3CB317EA135B00491CCB /* MBFriendsCollectionView.m in Sources */,
 				340F3C9917EA11F500491CCB /* MBWebServiceManager.m in Sources */,
-				340F3CAA17EA133600491CCB /* MBMenuView.m in Sources */,
 				340F3CA817EA133100491CCB /* MBCredentialManager.m in Sources */,
 				340F3CAD17EA134200491CCB /* MBMeetBallDetailViewController.m in Sources */,
 				34974E7617F3941400D0BA84 /* MBHomeDataManager.m in Sources */,
@@ -887,6 +940,7 @@
 				347BBD5217CCE92B00BE0E85 /* MBLandingScreenViewController.m in Sources */,
 				347BBD7317CCEFE500BE0E85 /* MBLoginViewController.m in Sources */,
 				347BBD7717CCF1F300BE0E85 /* MBSuitUpViewController.m in Sources */,
+				34FBC51917FCDE7C0001933F /* UIImage+REFrostedViewController.m in Sources */,
 				347BBD7D17CCF7CD00BE0E85 /* MBSuitUpCell.m in Sources */,
 				3446718117CD545B00469B39 /* MBHomeViewController.m in Sources */,
 				3473046317E209590026CE10 /* MBMenuNavigator.m in Sources */,
@@ -894,6 +948,7 @@
 				3495815C17CE47400050A47D /* MeetBall.xcdatamodeld in Sources */,
 				34CEA38917E0C3A6008BEDE5 /* MBAnnotation.m in Sources */,
 				340F3CCD17EB47B000491CCB /* MBMathBlock.m in Sources */,
+				34FBC50817FCDBC10001933F /* MBMenuView.m in Sources */,
 				3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */,
 				3414FAB717F9F8C4001E89AC /* MBMeetBallInfoViewController.m in Sources */,
 				34974E5E17F1EA7200D0BA84 /* MBHelpViewController.m in Sources */,
@@ -907,21 +962,26 @@
 				34AF8CF017D68B990090D826 /* MBForgotPasswordViewController.m in Sources */,
 				34AF8CF417D696690090D826 /* MeetBalls.m in Sources */,
 				3473045817E1167B0026CE10 /* meetBallListTableViewCell.m in Sources */,
+				34FBC4E517FC7B5E0001933F /* MBEditProfileViewController.m in Sources */,
 				3473045B17E116D50026CE10 /* MBCommentsCollectionView.m in Sources */,
+				34FBC4EA17FCBA240001933F /* MBMenuCell.m in Sources */,
 				340F3C5617E8C73700491CCB /* MBPerson.m in Sources */,
 				34AF8CF817D698F60090D826 /* MBHomeDataCommunicator.m in Sources */,
 				34974E7517F3941400D0BA84 /* MBHomeDataManager.m in Sources */,
 				348C499817F4DF8E00E9AD98 /* MBCommentsViewController.m in Sources */,
+				34FBC51A17FCDE7C0001933F /* UIView+REFrostedViewController.m in Sources */,
 				3445C9B617D8D33D00399715 /* MBEventCollectionViewCell.m in Sources */,
 				348C49A317F6173300E9AD98 /* MBComment.m in Sources */,
 				34974E6317F203DD00D0BA84 /* MBInvitee.m in Sources */,
 				3473045E17E11A3E0026CE10 /* commentsCollectionViewCell.m in Sources */,
 				3445C9BA17D8E4AA00399715 /* MBFriendsCollectionView.m in Sources */,
-				3445C9C117D905E100399715 /* MBMenuView.m in Sources */,
 				34974E6A17F35E5200D0BA84 /* MBMeetBall.m in Sources */,
 				344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */,
+				34FBC51117FCDD6D0001933F /* MBMenuNaviagtionViewController.m in Sources */,
+				34FBC50D17FCDCBD0001933F /* MBMenuViewController.m in Sources */,
 				3473046717E248210026CE10 /* MBMeetBallDetailViewController.m in Sources */,
 				346599DA17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */,
+				34FBC51417FCDE500001933F /* REFrostedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

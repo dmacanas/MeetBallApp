@@ -190,4 +190,18 @@ static NSString * const kSessionId = @"sessionId";
     return request;
 }
 
+- (void)getHandleAvailable:(NSDictionary *)userInfo success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetIsHandleAvailable URLReplacements:userInfo success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+        if (success) {
+            NSError *err;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&err];
+            success(json);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 @end

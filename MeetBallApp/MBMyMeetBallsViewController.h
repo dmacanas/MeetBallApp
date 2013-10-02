@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *blurView;
 
 - (IBAction)showMenu:(id)sender;
+- (IBAction)refresh:(id)sender;
 
 @end

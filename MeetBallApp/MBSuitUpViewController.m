@@ -90,6 +90,11 @@ static NSString * const kFacebookId = @"facebookId";
     if (indexPath.row == self.labelArray.count-1) {
         cell.textField.returnKeyType = UIReturnKeyDone;
     }
+    if (indexPath.row == 2) {
+        cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
+    } else {
+        cell.textField.keyboardType = UIKeyboardTypeDefault;
+    }
 
     cell.tag = indexPath.row+2;
     
@@ -143,7 +148,12 @@ static NSString * const kFacebookId = @"facebookId";
     MBSuitUpCell *phone = (MBSuitUpCell *)[self.view viewWithTag:5];
 
     MBMeetBallInfoViewController *vc = (MBMeetBallInfoViewController *)[segue destinationViewController];
-    vc.userInfo = @{@"firstName": fname.textField.text, @"lastName":lname.textField.text, @"email":email.textField.text, @"phone":phone.textField.text, @"facebookId":[[NSUserDefaults standardUserDefaults] objectForKey:kFacebookId]};
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kFacebookId]) {
+        vc.userInfo = @{@"firstName": fname.textField.text, @"lastName":lname.textField.text, @"email":email.textField.text, @"phone":phone.textField.text, @"facebookId":[[NSUserDefaults standardUserDefaults] objectForKey:kFacebookId]};
+    } else {
+        vc.userInfo = @{@"firstName": fname.textField.text, @"lastName":lname.textField.text, @"email":email.textField.text, @"phone":phone.textField.text, @"facebookId":@""};
+    }
+    
 }
 
 - (IBAction)connectFacebook:(id)sender {
@@ -161,7 +171,7 @@ static NSString * const kFacebookId = @"facebookId";
                 fname.textField.text = dict[@"first_name"];
                 lname.textField.text = dict[@"last_name"];
                 email.textField.text = dict[@"email"];
-                [[NSUserDefaults standardUserDefaults] setObject:dict[@"id"] forKey:kFacebookId];
+                [[NSUserDefaults standardUserDefaults] setObject:dict[@"username"] forKey:kFacebookId];
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }];
         } else {
