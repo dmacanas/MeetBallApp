@@ -11,10 +11,7 @@
 @interface MBMyMeetBallsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIView *menuContainer;
-@property (weak, nonatomic) IBOutlet UIImageView *blurView;
 
-- (IBAction)showMenu:(id)sender;
 - (IBAction)refresh:(id)sender;
 
 @end

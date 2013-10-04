@@ -12,7 +12,6 @@
 #import "MBSuitUpViewController.h"
 #import "MBHomeDataCommunicator.h"
 #import "MBCredentialManager.h"
-#import "MBMenuView.h"
 #import "MBAnnotation.h"
 #import "MBMenuNavigator.h"
 #import "MBMathBlock.h"
@@ -45,7 +44,6 @@ static NSString * const kSessionId = @"sessionId";
 
 @property (strong, nonatomic) MBHomeDataCommunicator *homeCommLink;
 @property (strong, nonatomic) MBHomeDataManager *homeDataManager;
-@property (strong, nonatomic) MBMenuView *menu;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (assign, nonatomic) BOOL isShowingMenu;
 @property (assign, nonatomic) BOOL isShowingMeetBall;
@@ -59,6 +57,7 @@ static NSString * const kSessionId = @"sessionId";
 @property (strong, nonatomic) NSArray *meetBalls;
 @property (strong, nonatomic) NSMutableArray *invtiedFriendsArray;
 @property (assign, nonatomic) MBAnnotation *launchAnnotation;
+@property (assign, nonatomic) CLLocationCoordinate2D coord;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeighConstraint;
 
 @end
@@ -79,7 +78,6 @@ static NSString * const kSessionId = @"sessionId";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self menuSetup];
     [self initMethods];
     
     if ([MBUser findAll].count > 0) {
@@ -96,6 +94,9 @@ static NSString * const kSessionId = @"sessionId";
     } else {
         [self setTitle:@"Home"];
     }
+    
+    [self.navigationItem.leftBarButtonItem setTarget:(MBMenuNavigationController *)self.navigationController];
+    [self.navigationItem.leftBarButtonItem setAction:@selector(showMenu)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(navigateWithNotification:) name:@"navigate" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(signOut:) name:@"signOut" object:nil];
@@ -137,13 +138,6 @@ static NSString * const kSessionId = @"sessionId";
     }];
 }
 
-- (void)menuSetup {
-    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
-    self.menu = [array objectAtIndex:0];
-    self.menu.delegate = self;
-    [self.menuContainer addSubview:self.menu];
-}
-
 - (void)flashOff:(UIView *)v
 {
     [UIView animateWithDuration:1.5 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^ {
@@ -175,7 +169,7 @@ static NSString * const kSessionId = @"sessionId";
     
     [self tableViewFrameUpdate];
     [self setOriginalFrames];
-
+    
     [self.locationManager startUpdatingHeading];
     [self.locationManager startUpdatingLocation];
     
@@ -208,6 +202,11 @@ static NSString * const kSessionId = @"sessionId";
         [annotationArray addObject:a];
     }
     [self.mapView addAnnotations:annotationArray];
+//    if (annotationArray.count > 0) {
+//        self.compassImageVIew.hidden = NO;
+//        self.coord = [(MBAnnotation *)[annotationArray objectAtIndex:0] coordinate];
+//        [self.mapView selectAnnotation:[annotationArray objectAtIndex:0] animated:YES];
+//    }
     [self checkForCarLocation];
 }
 
@@ -223,6 +222,18 @@ static NSString * const kSessionId = @"sessionId";
     double latitude = [lat doubleValue];
     return CLLocationCoordinate2DMake(latitude, longitude);
 }
+
+#pragma mark - location manager stuffs
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
+//    [self setMeetBallHeading:newHeading];
+}
+
+- (void)setMeetBallHeading:(CLHeading *)heading{
+    double head = [MBMathBlock setMeetBallHeading:heading toPoint:self.coord userLocation:[self.mapView userLocation].coordinate];
+    CGAffineTransform rotate = CGAffineTransformMakeRotation(head);
+    [self.compassImageVIew setTransform:rotate];
+}
+
 
 #pragma mark - Mapview Delegates
 
@@ -283,17 +294,10 @@ static NSString * const kSessionId = @"sessionId";
     
 }
 
-#pragma mark - Menu Delegate
-
-- (void)didSelectionMenuItem:(NSString *)item {
-    self.isShowingMenu = NO;
-    self.menuSuperContainer.hidden = YES;
-    if ([item isEqualToString:@"Home"]) {
-        return;
-    }
-    __weak MBHomeViewController *weakSelf = self;
-    [MBMenuNavigator navigateToMenuItem:item fromVC:weakSelf];
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    self.coord = [(MBAnnotation *)view.annotation coordinate];
 }
+
 
 #pragma mark - Action Sheet Delegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -436,15 +440,7 @@ static NSString * const kSessionId = @"sessionId";
 
 #pragma mark - IBActions
 - (IBAction)showMenu:(id)sender {
-    if (self.isShowingMenu == NO){
-        [self.menu createBlurViewInView:self.view forImageView:self.blurView];
-        self.menuSuperContainer.hidden = NO;
-        self.isShowingMenu = YES;
-        
-    } else {
-        self.menuSuperContainer.hidden = YES;
-        self.isShowingMenu = NO;
-    }
+
 }
 
 - (IBAction)testCancel:(id)sender {
@@ -456,6 +452,7 @@ static NSString * const kSessionId = @"sessionId";
     if (self.invtiedFriendsArray.count == 0) {
         return;
     }
+    [self setTitle:@"Throwing ..."];
     self.progressView.hidden = NO;
     [self.progressView setProgress:0.4 animated:YES];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -494,20 +491,21 @@ static NSString * const kSessionId = @"sessionId";
             [weakSelf.progressView setProgress:0.9 animated:YES];
             if (responseObject && [[(NSDictionary *)responseObject[@"AddInviteesToExistingMeetBallJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]) {
                 [weakSelf threwMeetBall];
-//                [weakSelf resetSubViewsAfterThrow];
+                [weakSelf resetSubViewsAfterThrow];
             }
             NSLog(@"%@", responseObject);
         } failure:^(NSError *error) {
             NSLog(@"%@", error);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble!" message:error.localizedDescription delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
             [alert show];
+            [self setTitle:@"Home"];
             [weakSelf resetSubViewsAfterThrow];
         }];
     }];
 }
 
 - (void)resetSubViewsAfterThrow {
-     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.progressView setHidden:YES];
     [self.invtiedFriendsArray removeAllObjects];
     [self.mainToolbar setUserInteractionEnabled:YES];
@@ -517,6 +515,7 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)threwMeetBall {
+    [self setTitle:@"Home"];
     UIAlertView *throw = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Successfully threw your MeetBall" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
     [throw show];
     [self createAnnotations];

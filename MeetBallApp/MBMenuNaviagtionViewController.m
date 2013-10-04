@@ -7,11 +7,11 @@
 //
 
 #import "MBMenuNaviagtionViewController.h"
-#import "MBMenuViewController.h"
+#import "MBMenuDisplayViewController.h"
 
 @interface MBMenuNaviagtionViewController ()
 
-@property (strong, nonatomic) MBMenuViewController *menuViewController;
+@property (strong, readwrite, nonatomic) MBMenuDisplayViewController *menuViewController;
 
 @end
 
@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.menuViewController = [[MBMenuViewController alloc] init];
+    self.menuViewController = [[MBMenuDisplayViewController alloc] init];
     self.menuViewController.navigationController = self;
     
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];

@@ -38,7 +38,6 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBInsights.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBHomeViewController.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBUser.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMenuView.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBAppDelegate.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/SVProgressHUD/SVProgressHUD.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBDataCommunicator.h \

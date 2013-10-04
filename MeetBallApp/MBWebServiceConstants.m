@@ -26,3 +26,7 @@ NSString * const kWebServiceAssociateFacebookAcct = @"AssociateFacebookAcct";
 NSString * const kWebServiceDisassociateFacebookAcct = @"DisassociateFacebookAcct";
 NSString * const kWebServiceGetIsHandleAvailable = @"GetIsHandleAvailable";
 NSString * const kWebServiceGetPhoneNumbersByAppId = @"GetPhoneNumbersByAppId";
+NSString * const kWebServiceAddPhoneNumber = @"AddPhoneNumber";
+NSString * const kWebServiceUpdatePhoneNumber = @"UpdatePhoneNumber";
+NSString * const kWebServiceGetUserDefaults = @"GetUserDefaults";
+NSString * const kWebServiceUpdateUserDefaults = @"UpdateUserDefaults";

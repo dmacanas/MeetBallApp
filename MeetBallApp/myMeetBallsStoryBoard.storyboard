@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MZm-WJ-5M7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BOL-NU-K4p">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -37,16 +37,16 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="157" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E9J-r1-oxY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E9J-r1-oxY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Qdo-ZH-BXj" customClass="meetBallListTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="157"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qdo-ZH-BXj" id="DZb-yN-2MV">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -59,30 +59,13 @@
                                     <outlet property="delegate" destination="BOL-NU-K4p" id="pqT-Gj-2te"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZBr-xh-fAv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sku-HP-Lz3">
-                                <rect key="frame" x="0.0" y="1" width="320" height="503"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="E9J-r1-oxY" secondAttribute="trailing" id="Aen-in-omA"/>
-                            <constraint firstItem="ZBr-xh-fAv" firstAttribute="top" secondItem="E9J-r1-oxY" secondAttribute="top" id="IaV-79-gvc"/>
-                            <constraint firstItem="ZBr-xh-fAv" firstAttribute="trailing" secondItem="E9J-r1-oxY" secondAttribute="trailing" id="QsW-NL-Exk"/>
-                            <constraint firstItem="sku-HP-Lz3" firstAttribute="bottom" secondItem="E9J-r1-oxY" secondAttribute="bottom" id="TjL-JT-wCw"/>
                             <constraint firstItem="E9J-r1-oxY" firstAttribute="top" secondItem="gpL-6u-3h2" secondAttribute="top" id="U8N-Ib-bBR"/>
-                            <constraint firstItem="sku-HP-Lz3" firstAttribute="trailing" secondItem="E9J-r1-oxY" secondAttribute="trailing" id="ZGN-RO-A6N"/>
                             <constraint firstItem="E9J-r1-oxY" firstAttribute="leading" secondItem="gpL-6u-3h2" secondAttribute="leading" id="eIM-p5-WMf"/>
-                            <constraint firstItem="sku-HP-Lz3" firstAttribute="top" secondItem="u3a-JL-Nwm" secondAttribute="bottom" constant="1" id="f29-gM-wMz"/>
-                            <constraint firstItem="ZBr-xh-fAv" firstAttribute="leading" secondItem="sku-HP-Lz3" secondAttribute="leading" id="hc2-nu-xt8"/>
                             <constraint firstAttribute="bottom" secondItem="E9J-r1-oxY" secondAttribute="bottom" id="xRs-g1-7gM"/>
-                            <constraint firstItem="ZBr-xh-fAv" firstAttribute="bottom" secondItem="E9J-r1-oxY" secondAttribute="bottom" id="ynN-Ox-doz"/>
-                            <constraint firstItem="sku-HP-Lz3" firstAttribute="leading" secondItem="E9J-r1-oxY" secondAttribute="leading" id="zUh-RD-h08"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My MeetBalls" id="Dml-Z5-Off">
@@ -91,9 +74,6 @@
                         </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" image="menu_ic" id="rtJ-c1-sXp">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="showMenu:" destination="BOL-NU-K4p" id="ffv-pA-7ic"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="gaK-LE-eIQ">
                             <connections>
@@ -102,8 +82,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="blurView" destination="ZBr-xh-fAv" id="E3l-4n-4ne"/>
-                        <outlet property="menuContainer" destination="sku-HP-Lz3" id="eab-ji-Yol"/>
                         <outlet property="tableView" destination="E9J-r1-oxY" id="jdY-4J-WlG"/>
                     </connections>
                 </viewController>
@@ -135,19 +113,23 @@
                                     <constraint firstAttribute="height" constant="44" id="Mv6-5e-l3T"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="location_ic" id="6Ai-op-p7Y">
+                                    <barButtonItem image="location_ic" width="77" id="6Ai-op-p7Y">
                                         <connections>
                                             <action selector="adjustUserLocation:" destination="g2i-wy-qz8" id="een-5v-cO8"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="117" style="plain" systemItem="fixedSpace" id="vp6-I4-1cL"/>
-                                    <barButtonItem image="parking" width="69" id="OSB-zd-ob6">
+                                    <barButtonItem systemItem="action" id="vqg-ra-Rkt">
+                                        <connections>
+                                            <segue destination="jxq-yi-zQ5" kind="push" id="yrJ-Qn-Rdx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="parking" width="101" id="OSB-zd-ob6">
                                         <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="carLocation:" destination="g2i-wy-qz8" id="AYh-o7-9Es"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="notes" width="66" id="QDe-14-TBY">
+                                    <barButtonItem image="notes" width="38" id="QDe-14-TBY">
                                         <connections>
                                             <segue destination="7gm-Jc-Hxt" kind="push" identifier="comments" id="S9p-T4-Qgc"/>
                                         </connections>
@@ -216,6 +198,27 @@
             </objects>
             <point key="canvasLocation" x="1107" y="-36"/>
         </scene>
+        <!--Detail View Controller - Details-->
+        <scene sceneID="voV-Cb-vI4">
+            <objects>
+                <viewController id="jxq-yi-zQ5" customClass="MBDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A5p-N3-awK"/>
+                        <viewControllerLayoutGuide type="bottom" id="vtq-Ak-8vi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7vH-go-qdq">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="4Vl-NZ-A4V">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="QPj-sT-GeN"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bha-eX-1wK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685" y="345"/>
+        </scene>
         <!--Comments View Controller - Notes-->
         <scene sceneID="v6I-c0-tZ8">
             <objects>
@@ -281,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5f-Mz-aho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="-32"/>
+            <point key="canvasLocation" x="1712" y="-369"/>
         </scene>
     </scenes>
     <resources>

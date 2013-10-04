@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MBUser.h"
-#import "MBMenuView.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface MBHomeViewController : UIViewController <MBMenuViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MBHomeViewController : UIViewController < CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIImageView *compassImageVIew;

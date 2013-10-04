@@ -134,7 +134,7 @@
 	<key>GetAppUserByAppUserId</key>
 	<dict>
 		<key>URL</key>
-		<string>https://ws.meetball.com/{version}/service.svc/json/AppUser/AppUserId/{sessionId}?AppUserID={appUserId}</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/AppUserId/{sessionId}?AppUserID={appUserId}</string>
 		<key>method</key>
 		<string>GET</string>
 	</dict>
@@ -152,7 +152,7 @@
 	<key>DisassociateFacebookAcct</key>
 	<dict>
 		<key>URL</key>
-		<string>https://wsdev.meetball.com/{version}/service.svc/json/AppUser/Facebook/Disassociate</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Facebook/Disassociate</string>
 		<key>method</key>
 		<string>POST</string>
 		<key>Content-Type</key>
@@ -167,10 +167,43 @@
 		<key>method</key>
 		<string>GET</string>
 	</dict>
-	<key>GetPhoneNumbersByAppId</key>
+	<key>AddPhoneNumber</key>
 	<dict>
 		<key>URL</key>
-		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Browse/Phone/{sessionId}/?appUserId={appUserId}</string>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Insert/Phone</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>UpdatePhoneNumber</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Update/Phone</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>UpdateUserDefaults</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Defaults/Update/{sessionId}</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>GetUserDefaults</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/AppUser/Defaults/{sessionId}</string>
 		<key>method</key>
 		<string>GET</string>
 	</dict>

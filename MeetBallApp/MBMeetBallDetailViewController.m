@@ -88,11 +88,6 @@ static NSString * const kCarTip = @"carTip";
 - (void)viewWillDisappear:(BOOL)animated {
     [self.locationManager stopUpdatingHeading];
     [self.locationManager stopUpdatingLocation];
-//    [self.mapView removeFromSuperview];
-//    self.mapView.delegate = nil;
-//    self.locationManager.delegate = nil;
-//    self.mapView = nil;
-//    self.locationManager = nil;
 
 }
 

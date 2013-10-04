@@ -12,7 +12,6 @@
 
 + (NSArray *)MR_importFromArrayAndWait:(NSArray *)listOfObjectData inContext:(NSManagedObjectContext *)contect {
     NSMutableArray *objectIds = [NSMutableArray array];
-//    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         [listOfObjectData enumerateObjectsWithOptions:0 usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSDictionary *objectData = (NSDictionary *)obj;
             NSManagedObject *dataObject = [self MR_importFromObject:objectData inContext:contect];
@@ -20,7 +19,6 @@
                 [objectIds addObject:[dataObject objectID]];
             }
         }];
-//    }];
     
     return [self MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"self IN %@",objectIds] inContext:contect];
 }

@@ -10,21 +10,27 @@
 #import "meetBallListTableViewCell.h"
 #import "commentsCollectionViewCell.h"
 #import "MBCommentsCollectionView.h"
-#import "MBMenuView.h"
 #import "MBMenuNavigator.h"
 #import "MBMeetBallDetailViewController.h"
 #import "MBHomeDataManager.h"
+#import "MBMenuNaviagtionViewController.h"
+#import "MBWebServiceConstants.h"
+#import "MBWebServiceManager.h"
+#import "MBCommentsCollectionView.h"
 
 #import "MBMeetBall.h"
+#import "MBComment.h"
+static NSString * const kSessionId = @"sessionId";
+static NSString * const kAppUserId = @"AppUserId";
 
-@interface MBMyMeetBallsViewController () <MBMenuViewDelegate>
+@interface MBMyMeetBallsViewController ()
 
-@property (assign, nonatomic) BOOL isShowingMenu;
-@property (strong, nonatomic) MBMenuView *menu;
 @property (strong, nonatomic) MBMeetBall *meetBall;
 @property (strong, nonatomic) NSString *titleString;
 @property (strong, nonatomic) NSString *coordString;
 @property (strong, nonatomic) NSArray *meetBallArray;
+@property (strong, nonatomic) NSMutableArray *meetBallIdArray;
+@property (strong, nonatomic) NSMutableArray *bigCommentArray;
 @property (strong, nonatomic) MBHomeDataManager *dataManager;
 
 
@@ -45,18 +51,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self menuSetup];
     self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES]];
     self.dataManager = [[MBHomeDataManager alloc] init];
+    self.meetBallIdArray = [[NSMutableArray alloc] init];
+    self.bigCommentArray = [[NSMutableArray alloc] init];
+    [self.navigationItem.leftBarButtonItem setTarget:(MBMenuNaviagtionViewController *)self.navigationController];
+    [self.navigationItem.leftBarButtonItem setAction:@selector(showMenu)];
+    [self getCommentsForMeetBalls];
 	// Do any additional setup after loading the view.
 }
 
-- (void)menuSetup {
-    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
-    self.menu = [array objectAtIndex:0];
-    self.menu.delegate = self;
-    [self.menuContainer addSubview:self.menu];
-}
 
 - (NSArray *)getActiveMeetBalls:(NSArray *)meetBalls {
     NSMutableArray *temp = [[NSMutableArray alloc] init];
@@ -67,6 +71,13 @@
     }
     
     return (NSArray *)temp;
+}
+
+- (void)getCommentsForMeetBalls {
+    for (MBMeetBall *mb in self.meetBallArray) {
+        [self getCommentsForMeetBall:mb.meetBallId];
+    }
+    
 }
 
 - (BOOL)isStillActive:(NSString *)fromDateString {
@@ -137,7 +148,10 @@
     cell.coordinateString = mb.generalLocationGPX;
     cell.meetBall = mb;
     NSString *dateString = [self dateFromMeetBallDate:mb.startDate];
+    NSString *endDate = [self dateFromMeetBallDate:mb.endDate];
     cell.dateLabel.text = [NSString stringWithFormat:@"Start Date: %@",dateString];
+    cell.endDateLabel.text = [NSString stringWithFormat:@"End Date: %@",endDate];
+    cell.commentsCollectionView.index = indexPath.row;
     return cell;
 }
 
@@ -156,6 +170,34 @@
     [self performSegueWithIdentifier:@"meetBallDetailPush" sender:self];
 }
 
+
+- (void)getCommentsForMeetBall:(NSInteger)meetball {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *meetballId = [NSString stringWithFormat:@"%d",meetball];
+        __weak MBMyMeetBallsViewController *weakSelf = self;
+        [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetMeetBallComments URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId], @"meetballId":meetballId} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+            if (responseObject) {
+                NSError *jsonError;
+                NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&jsonError];
+                NSArray *items = JSON[@"Items"];
+                NSMutableArray *array = [[NSMutableArray alloc] init];
+                for (NSDictionary *dict  in items) {
+                    MBComment *comm = [[MBComment alloc] init];
+                    comm.firstName = dict[@"FirstName"];
+                    comm.comment = dict[@"Comment"];
+                    comm.commentDate = [weakSelf dateFromString:dict[@"CommentDate"]];
+                    comm.appUserId = [(NSString *)dict[@"AppUserId"] integerValue];
+                    [array addObject:comm];
+                }
+                [weakSelf.bigCommentArray addObject:array];
+                [weakSelf.tableView reloadData];
+            }
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            NSLog(@"%@",error);
+        }];
+    });
+
+}
 #pragma mark - segue prep methods
 
 - (CLLocationCoordinate2D)extractLocationFromString:(NSString *)location {
@@ -179,30 +221,23 @@
 }
 
 #pragma mark - collectionView Delegates
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+- (NSInteger)collectionView:(MBCommentsCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (self.bigCommentArray.count != self.meetBallArray.count) {
+        return 0;
+    }else {
+        return [[self.bigCommentArray objectAtIndex:collectionView.index] count];
+    }
 }
 
-- (UICollectionViewCell *)collectionView:(MBCommentsCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (commentsCollectionViewCell *)collectionView:(MBCommentsCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     commentsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"commentCell" forIndexPath:indexPath];
+    NSArray *array = [self.bigCommentArray objectAtIndex:collectionView.index];
+    MBComment *comm = [array objectAtIndex:indexPath.row];
+    cell.commentLabel.text = comm.comment;
     return cell;
 }
 
-#pragma mark - menu delegate 
-- (void)didSelectionMenuItem:(NSString *)item {
-    self.isShowingMenu = NO;
-    self.blurView.hidden = YES;
-    self.menuContainer.hidden = YES;
-    if ([item isEqualToString:@"My MeetBalls"]) {
-        return;
-    }
-    
-    [self dismissViewControllerAnimated:NO completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"navigate" object:item];
-    }];
-//    __weak MBMyMeetBallsViewController *weakSelf = self;
-//    [MBMenuNavigator navigateToMenuItem:item fromVC:weakSelf];
-}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -213,25 +248,15 @@
 - (void)dealloc {
     self.tableView.delegate = nil;
     self.tableView.dataSource = nil;
-    self.menu.delegate = nil;
 }
 
-- (IBAction)showMenu:(id)sender {
-    if (self.isShowingMenu == NO){
-        [self.menu createBlurViewInView:self.view forImageView:self.blurView];
-        self.blurView.hidden = NO;
-        self.menuContainer.hidden = NO;
-        self.isShowingMenu = YES;
-    } else {
-        self.blurView.hidden = YES;
-        self.menuContainer.hidden = YES;
-        self.isShowingMenu = NO;
-    }
-}
+
 
 - (IBAction)refresh:(id)sender {
     __weak MBMyMeetBallsViewController *weakSelf = self;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self.dataManager getUpcomingMeetBalls:^(BOOL done) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         NSArray *a = [MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES];
         weakSelf.meetBallArray = [weakSelf.dataManager getActiveMeetBalls:a];
         [weakSelf.tableView reloadData];

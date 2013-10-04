@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *previousTextField;
 @property (weak, nonatomic) IBOutlet UITextField *changeTextField;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 - (IBAction)save:(id)sender;
 
 @end

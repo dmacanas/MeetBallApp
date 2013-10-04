@@ -24,3 +24,7 @@ extern NSString * const kWebServiceAssociateFacebookAcct;
 extern NSString * const kWebServiceDisassociateFacebookAcct;
 extern NSString * const kWebServiceGetIsHandleAvailable;
 extern NSString * const kWebServiceGetPhoneNumbersByAppId;
+extern NSString * const kWebServiceAddPhoneNumber;
+extern NSString * const kWebServiceUpdatePhoneNumber;
+extern NSString * const kWebServiceGetUserDefaults;
+extern NSString * const kWebServiceUpdateUserDefaults;

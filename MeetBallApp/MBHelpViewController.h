@@ -9,9 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MBHelpViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *menuContainer;
-@property (weak, nonatomic) IBOutlet UIImageView *blurView;
-
-- (IBAction)showMenu:(id)sender;
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dci-ST-bq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sX1-aX-Yz3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -119,38 +119,18 @@
                                     <outlet property="delegate" destination="sX1-aX-Yz3" id="D6I-Vi-5i1"/>
                                 </connections>
                             </tableView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S9J-hr-ZW4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioh-zC-k1z">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="j57-Y2-REk" secondAttribute="trailing" id="84d-6l-1Jy"/>
-                            <constraint firstItem="j57-Y2-REk" firstAttribute="leading" secondItem="vql-Gz-SQB" secondAttribute="leading" id="A7G-yy-JqL"/>
-                            <constraint firstItem="j57-Y2-REk" firstAttribute="top" secondItem="S9J-hr-ZW4" secondAttribute="top" id="CtG-Xg-9Hk"/>
-                            <constraint firstItem="S9J-hr-ZW4" firstAttribute="leading" secondItem="ioh-zC-k1z" secondAttribute="leading" id="FJg-6Z-W3r"/>
-                            <constraint firstAttribute="bottom" secondItem="S9J-hr-ZW4" secondAttribute="bottom" id="Gnk-2D-Mzg"/>
-                            <constraint firstItem="S9J-hr-ZW4" firstAttribute="top" secondItem="ioh-zC-k1z" secondAttribute="top" id="Hhy-7N-dSY"/>
-                            <constraint firstItem="j57-Y2-REk" firstAttribute="trailing" secondItem="ioh-zC-k1z" secondAttribute="trailing" id="Wa4-ra-St4"/>
-                            <constraint firstItem="j57-Y2-REk" firstAttribute="leading" secondItem="S9J-hr-ZW4" secondAttribute="leading" id="eWv-9n-JRA"/>
-                            <constraint firstItem="S9J-hr-ZW4" firstAttribute="top" secondItem="vql-Gz-SQB" secondAttribute="top" id="ksq-TD-9Mz"/>
-                            <constraint firstItem="j57-Y2-REk" firstAttribute="trailing" secondItem="S9J-hr-ZW4" secondAttribute="trailing" id="sl5-ez-I8n"/>
-                            <constraint firstItem="j57-Y2-REk" firstAttribute="bottom" secondItem="S9J-hr-ZW4" secondAttribute="bottom" id="uf7-Jv-eOW"/>
-                            <constraint firstItem="S9J-hr-ZW4" firstAttribute="bottom" secondItem="ioh-zC-k1z" secondAttribute="bottom" id="vCS-Ya-kYC"/>
+                            <constraint firstAttribute="trailing" secondItem="j57-Y2-REk" secondAttribute="trailing" id="74d-gC-nGt"/>
+                            <constraint firstAttribute="bottom" secondItem="j57-Y2-REk" secondAttribute="bottom" id="8f6-Jh-VnN"/>
+                            <constraint firstItem="j57-Y2-REk" firstAttribute="leading" secondItem="vql-Gz-SQB" secondAttribute="leading" id="Bqv-5V-328"/>
+                            <constraint firstItem="j57-Y2-REk" firstAttribute="top" secondItem="vql-Gz-SQB" secondAttribute="top" id="QBM-xb-Vau"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="SM1-4G-j58">
                         <barButtonItem key="leftBarButtonItem" image="menu_ic" id="43J-9J-m0A">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="showMenu:" destination="sX1-aX-Yz3" id="a3U-A8-IAo"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="jDs-5Q-Tw9">
                             <connections>
@@ -159,8 +139,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="blurView" destination="S9J-hr-ZW4" id="6EA-AI-8uP"/>
-                        <outlet property="menuContainer" destination="ioh-zC-k1z" id="NXM-4b-FZ0"/>
                         <outlet property="profileImageView" destination="31M-Ss-9Tl" id="QWf-xK-Nzg"/>
                         <outlet property="tableView" destination="j57-Y2-REk" id="qHV-sE-z2T"/>
                         <outlet property="userLabel" destination="rEs-EY-zUf" id="dSp-K5-JmW"/>
@@ -208,6 +186,10 @@
                                     <action selector="save:" destination="9YY-y7-jKl" eventType="touchUpInside" id="iSW-Gs-F9a"/>
                                 </connections>
                             </button>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GyV-IT-b6G">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -215,6 +197,7 @@
                     <connections>
                         <outlet property="changeTextField" destination="cWB-py-YFD" id="xH5-Tg-hJ2"/>
                         <outlet property="previousTextField" destination="bHU-hP-XHo" id="soc-dz-p7K"/>
+                        <outlet property="progressView" destination="GyV-IT-b6G" id="Y9t-yR-meq"/>
                         <outlet property="saveButton" destination="Wsu-b6-W7v" id="UnS-Nc-83p"/>
                     </connections>
                 </viewController>

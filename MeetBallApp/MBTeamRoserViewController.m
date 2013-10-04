@@ -10,6 +10,7 @@
 #import "MBMenuNavigator.h"
 #import "MBMenuView.h"
 #import "MBPerson.h"
+#import "MBMenuNaviagtionViewController.h"
 
 #import <AddressBook/AddressBook.h>
 
@@ -46,6 +47,8 @@
     [super viewDidLoad];
     [self setUpMenu];
     [self tableViewSetUp];
+    [self.navigationItem.leftBarButtonItem setTarget:(MBMenuNaviagtionViewController *)self.navigationController];
+    [self.navigationItem.leftBarButtonItem setAction:@selector(showMenu)];
 	// Do any additional setup after loading the view.
 }
 

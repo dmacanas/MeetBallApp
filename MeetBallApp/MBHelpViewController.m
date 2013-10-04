@@ -8,12 +8,11 @@
 
 #import "MBHelpViewController.h"
 #import "MBMenuNavigator.h"
-#import "MBMenuView.h"
+#import "MBMenuNavigationController.h"
 
-@interface MBHelpViewController () <MBMenuViewDelegate>
+@interface MBHelpViewController ()
 
-@property (strong, nonatomic) MBMenuView *menu;
-@property (assign, nonatomic) BOOL isShowingMenu;
+
 
 @end
 
@@ -32,28 +31,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self setUpMenu];
-}
 
-- (void)setUpMenu
-{
-    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
-    self.menu = [array objectAtIndex:0];
-    self.menu.delegate = self;
-    [self.menuContainer addSubview:self.menu];
-}
-
-- (void)didSelectionMenuItem:(NSString *)item {
-    self.isShowingMenu = NO;
-    self.menuContainer.hidden = YES;
-    self.blurView.hidden = YES;
-    if ([item isEqualToString:@"Help"]) {
-        return;
-    }
-    
-    [self dismissViewControllerAnimated:NO completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"navigate" object:item];
-    }];
+    [self.navigationItem.leftBarButtonItem setTarget:(MBMenuNavigationController *)self.navigationController];
+    [self.navigationItem.leftBarButtonItem setAction:@selector(showMenu)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,16 +42,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)showMenu:(id)sender {
-    if (self.isShowingMenu) {
-        self.menuContainer.hidden = YES;
-        self.blurView.hidden = YES;
-        self.isShowingMenu = !self.isShowingMenu;
-    } else {
-        [self.menu createBlurViewInView:self.view forImageView:self.blurView];
-        self.menuContainer.hidden = NO;
-        self.blurView.hidden = NO;
-        self.isShowingMenu = !self.isShowingMenu;
-    }
-}
+
 @end

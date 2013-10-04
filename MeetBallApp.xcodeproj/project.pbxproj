@@ -150,12 +150,13 @@
 		34FBC4FF17FCD49B0001933F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FBC4FE17FCD49B0001933F /* Accelerate.framework */; };
 		34FBC50817FCDBC10001933F /* MBMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC50617FCDBC10001933F /* MBMenuView.m */; };
 		34FBC50917FCDBC10001933F /* MBMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FBC50717FCDBC10001933F /* MBMenuView.xib */; };
-		34FBC50D17FCDCBD0001933F /* MBMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC50B17FCDCBD0001933F /* MBMenuViewController.m */; };
-		34FBC50E17FCDCBD0001933F /* MBMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FBC50C17FCDCBD0001933F /* MBMenuViewController.xib */; };
 		34FBC51117FCDD6D0001933F /* MBMenuNaviagtionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51017FCDD6D0001933F /* MBMenuNaviagtionViewController.m */; };
 		34FBC51417FCDE500001933F /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51317FCDE500001933F /* REFrostedViewController.m */; };
 		34FBC51917FCDE7C0001933F /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51617FCDE7C0001933F /* UIImage+REFrostedViewController.m */; };
 		34FBC51A17FCDE7C0001933F /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51817FCDE7C0001933F /* UIView+REFrostedViewController.m */; };
+		34FBC51D17FDBE8F0001933F /* MBMenuDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51C17FDBE8F0001933F /* MBMenuDisplayViewController.m */; };
+		34FBC52017FE0FE60001933F /* MBSettingsOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC51F17FE0FE60001933F /* MBSettingsOptionsViewController.m */; };
+		34FBC52517FF553C0001933F /* MBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FBC52417FF553C0001933F /* MBDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,9 +327,6 @@
 		34FBC50517FCDBC10001933F /* MBMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuView.h; sourceTree = "<group>"; };
 		34FBC50617FCDBC10001933F /* MBMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuView.m; sourceTree = "<group>"; };
 		34FBC50717FCDBC10001933F /* MBMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMenuView.xib; sourceTree = "<group>"; };
-		34FBC50A17FCDCBD0001933F /* MBMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuViewController.h; sourceTree = "<group>"; };
-		34FBC50B17FCDCBD0001933F /* MBMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuViewController.m; sourceTree = "<group>"; };
-		34FBC50C17FCDCBD0001933F /* MBMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMenuViewController.xib; sourceTree = "<group>"; };
 		34FBC50F17FCDD6D0001933F /* MBMenuNaviagtionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuNaviagtionViewController.h; sourceTree = "<group>"; };
 		34FBC51017FCDD6D0001933F /* MBMenuNaviagtionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuNaviagtionViewController.m; sourceTree = "<group>"; };
 		34FBC51217FCDE500001933F /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
@@ -337,6 +335,12 @@
 		34FBC51617FCDE7C0001933F /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
 		34FBC51717FCDE7C0001933F /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
 		34FBC51817FCDE7C0001933F /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
+		34FBC51B17FDBE8F0001933F /* MBMenuDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMenuDisplayViewController.h; sourceTree = "<group>"; };
+		34FBC51C17FDBE8F0001933F /* MBMenuDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMenuDisplayViewController.m; sourceTree = "<group>"; };
+		34FBC51E17FE0FE60001933F /* MBSettingsOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSettingsOptionsViewController.h; sourceTree = "<group>"; };
+		34FBC51F17FE0FE60001933F /* MBSettingsOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSettingsOptionsViewController.m; sourceTree = "<group>"; };
+		34FBC52317FF553C0001933F /* MBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDetailViewController.h; sourceTree = "<group>"; };
+		34FBC52417FF553C0001933F /* MBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +417,8 @@
 				340F3C5B17E8CEAC00491CCB /* SettingsStoryboard.storyboard */,
 				34974E5817F1EA6500D0BA84 /* MBSettingsViewController.h */,
 				34974E5917F1EA6500D0BA84 /* MBSettingsViewController.m */,
+				34FBC51E17FE0FE60001933F /* MBSettingsOptionsViewController.h */,
+				34FBC51F17FE0FE60001933F /* MBSettingsOptionsViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -460,29 +466,14 @@
 		343491FA17D0E26000C857F8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				34FBC52217FF39F20001933F /* Web Services */,
+				34FBC52117FF39E00001933F /* Menu */,
 				34FBC4EB17FCD0490001933F /* Controls */,
 				343491F517CFA74F00C857F8 /* Models */,
 				3434920317D0E88700C857F8 /* MBCredentialManager.h */,
 				3434920417D0E88700C857F8 /* MBCredentialManager.m */,
 				34CEA38717E0C3A6008BEDE5 /* MBAnnotation.h */,
 				34CEA38817E0C3A6008BEDE5 /* MBAnnotation.m */,
-				34FBC50F17FCDD6D0001933F /* MBMenuNaviagtionViewController.h */,
-				34FBC51017FCDD6D0001933F /* MBMenuNaviagtionViewController.m */,
-				34FBC50A17FCDCBD0001933F /* MBMenuViewController.h */,
-				34FBC50B17FCDCBD0001933F /* MBMenuViewController.m */,
-				34FBC50C17FCDCBD0001933F /* MBMenuViewController.xib */,
-				34FBC50517FCDBC10001933F /* MBMenuView.h */,
-				34FBC50617FCDBC10001933F /* MBMenuView.m */,
-				34FBC50717FCDBC10001933F /* MBMenuView.xib */,
-				34FBC4E617FCB9C50001933F /* MBMenuCell.xib */,
-				34FBC4E817FCBA240001933F /* MBMenuCell.h */,
-				34FBC4E917FCBA240001933F /* MBMenuCell.m */,
-				3473046117E209590026CE10 /* MBMenuNavigator.h */,
-				3473046217E209590026CE10 /* MBMenuNavigator.m */,
-				340F3C5D17E9FB2000491CCB /* MBWebServiceManager.h */,
-				340F3C5E17E9FB2000491CCB /* MBWebServiceManager.m */,
-				340F3C6317EA010100491CCB /* MBWebServiceConstants.h */,
-				340F3C6417EA010100491CCB /* MBWebServiceConstants.m */,
 				340F3CCB17EB47B000491CCB /* MBMathBlock.h */,
 				340F3CCC17EB47B000491CCB /* MBMathBlock.m */,
 				34DA7FEE17EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.h */,
@@ -526,6 +517,8 @@
 				3473045017E10EC30026CE10 /* MBMyMeetBallsViewController.m */,
 				3473046517E248210026CE10 /* MBMeetBallDetailViewController.h */,
 				3473046617E248210026CE10 /* MBMeetBallDetailViewController.m */,
+				34FBC52317FF553C0001933F /* MBDetailViewController.h */,
+				34FBC52417FF553C0001933F /* MBDetailViewController.m */,
 				348C499617F4DF8E00E9AD98 /* MBCommentsViewController.h */,
 				348C499717F4DF8E00E9AD98 /* MBCommentsViewController.m */,
 				3473045617E1167B0026CE10 /* meetBallListTableViewCell.h */,
@@ -712,6 +705,36 @@
 			name = Controls;
 			sourceTree = "<group>";
 		};
+		34FBC52117FF39E00001933F /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				34FBC50F17FCDD6D0001933F /* MBMenuNaviagtionViewController.h */,
+				34FBC51017FCDD6D0001933F /* MBMenuNaviagtionViewController.m */,
+				34FBC51B17FDBE8F0001933F /* MBMenuDisplayViewController.h */,
+				34FBC51C17FDBE8F0001933F /* MBMenuDisplayViewController.m */,
+				34FBC50517FCDBC10001933F /* MBMenuView.h */,
+				34FBC50617FCDBC10001933F /* MBMenuView.m */,
+				34FBC50717FCDBC10001933F /* MBMenuView.xib */,
+				34FBC4E617FCB9C50001933F /* MBMenuCell.xib */,
+				34FBC4E817FCBA240001933F /* MBMenuCell.h */,
+				34FBC4E917FCBA240001933F /* MBMenuCell.m */,
+				3473046117E209590026CE10 /* MBMenuNavigator.h */,
+				3473046217E209590026CE10 /* MBMenuNavigator.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		34FBC52217FF39F20001933F /* Web Services */ = {
+			isa = PBXGroup;
+			children = (
+				340F3C5D17E9FB2000491CCB /* MBWebServiceManager.h */,
+				340F3C5E17E9FB2000491CCB /* MBWebServiceManager.m */,
+				340F3C6317EA010100491CCB /* MBWebServiceConstants.h */,
+				340F3C6417EA010100491CCB /* MBWebServiceConstants.m */,
+			);
+			name = "Web Services";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -806,7 +829,6 @@
 				340F3C4A17E8B1FF00491CCB /* dominic.jpg in Resources */,
 				340F3C4917E8B1FF00491CCB /* Dan-Farris-003.jpg in Resources */,
 				34FBC50917FCDBC10001933F /* MBMenuView.xib in Resources */,
-				34FBC50E17FCDCBD0001933F /* MBMenuViewController.xib in Resources */,
 				340F3C4417E8B18D00491CCB /* female_face.png in Resources */,
 				34FBC4E717FCB9C50001933F /* MBMenuCell.xib in Resources */,
 				340F3C5917E8CE1A00491CCB /* ProfileStoryboard.storyboard in Resources */,
@@ -934,6 +956,7 @@
 				347BBD4217CCE92B00BE0E85 /* main.m in Sources */,
 				34974E5717F1EA6000D0BA84 /* MBProfileViewController.m in Sources */,
 				348C499F17F4E69D00E9AD98 /* commentBubbleCollectionViewCell.m in Sources */,
+				34FBC52517FF553C0001933F /* MBDetailViewController.m in Sources */,
 				347BBD4617CCE92B00BE0E85 /* MBAppDelegate.m in Sources */,
 				340F3C5117E8BB8700491CCB /* MBTeamRoserViewController.m in Sources */,
 				34974E5A17F1EA6500D0BA84 /* MBSettingsViewController.m in Sources */,
@@ -951,6 +974,7 @@
 				34FBC50817FCDBC10001933F /* MBMenuView.m in Sources */,
 				3495816017CE4AE10050A47D /* MBDataImporter.m in Sources */,
 				3414FAB717F9F8C4001E89AC /* MBMeetBallInfoViewController.m in Sources */,
+				34FBC52017FE0FE60001933F /* MBSettingsOptionsViewController.m in Sources */,
 				34974E5E17F1EA7200D0BA84 /* MBHelpViewController.m in Sources */,
 				3473045117E10EC30026CE10 /* MBMyMeetBallsViewController.m in Sources */,
 				34DA7FF017EB9CDE005E76B2 /* NSManagedObject+MRImportAdditions.m in Sources */,
@@ -960,6 +984,7 @@
 				3434920517D0E88700C857F8 /* MBCredentialManager.m in Sources */,
 				340F3C6517EA010100491CCB /* MBWebServiceConstants.m in Sources */,
 				34AF8CF017D68B990090D826 /* MBForgotPasswordViewController.m in Sources */,
+				34FBC51D17FDBE8F0001933F /* MBMenuDisplayViewController.m in Sources */,
 				34AF8CF417D696690090D826 /* MeetBalls.m in Sources */,
 				3473045817E1167B0026CE10 /* meetBallListTableViewCell.m in Sources */,
 				34FBC4E517FC7B5E0001933F /* MBEditProfileViewController.m in Sources */,
@@ -978,7 +1003,6 @@
 				34974E6A17F35E5200D0BA84 /* MBMeetBall.m in Sources */,
 				344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */,
 				34FBC51117FCDD6D0001933F /* MBMenuNaviagtionViewController.m in Sources */,
-				34FBC50D17FCDCBD0001933F /* MBMenuViewController.m in Sources */,
 				3473046717E248210026CE10 /* MBMeetBallDetailViewController.m in Sources */,
 				346599DA17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */,
 				34FBC51417FCDE500001933F /* REFrostedViewController.m in Sources */,

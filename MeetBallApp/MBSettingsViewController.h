@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MBSettingsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *menuContainer;
-@property (weak, nonatomic) IBOutlet UIImageView *blurView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-- (IBAction)showMenu:(id)sender;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 - (IBAction)save:(id)sender;
 
 @end

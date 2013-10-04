@@ -2,7 +2,6 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBHomeViewController.m \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBHomeViewController.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBUser.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMenuView.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBCredentialManager.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBLoginViewController.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FacebookSDK.h \

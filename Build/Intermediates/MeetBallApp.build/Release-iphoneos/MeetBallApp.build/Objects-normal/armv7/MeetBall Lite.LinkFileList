@@ -1,6 +1,7 @@
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/main.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBProfileViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/commentBubbleCollectionViewCell.o
+/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBDetailViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBAppDelegate.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBTeamRoserViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBSettingsViewController.o
@@ -17,6 +18,7 @@
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBMenuView.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBDataImporter.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBMeetBallInfoViewController.o
+/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBSettingsOptionsViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBHelpViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBMyMeetBallsViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/NSManagedObject+MRImportAdditions.o
@@ -26,6 +28,7 @@
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBCredentialManager.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBWebServiceConstants.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBForgotPasswordViewController.o
+/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBMenuDisplayViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MeetBalls.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/meetBallListTableViewCell.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBEditProfileViewController.o
@@ -44,7 +47,6 @@
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBMeetBall.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBDetailsViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBMenuNaviagtionViewController.o
-/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBMenuViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBMeetBallDetailViewController.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/MBHomeMeetBallCollectionViewCell.o
 /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/MeetBallApp.build/Release-iphoneos/MeetBallApp.build/Objects-normal/armv7/REFrostedViewController.o

@@ -196,6 +196,7 @@ static NSString * const kFirstName = @"FirstName";
                 
                 NSURLCredential *streetCred = [[NSURLCredential alloc] initWithUser:weakSelf.emailField.text password:weakSelf.passwordField.text persistence:NSURLCredentialPersistencePermanent];
                 [MBCredentialManager saveCredential:streetCred];
+                weakSelf.passwordField.text = @"";
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAuthentication];
                 [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
                 [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"FirstName"] forKey:kFirstName];

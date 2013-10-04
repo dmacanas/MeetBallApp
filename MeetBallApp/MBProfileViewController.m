@@ -7,13 +7,12 @@
 //
 
 #import "MBProfileViewController.h"
-#import "MBMenuNavigator.h"
-#import "MBMenuView.h"
 #import "MBCredentialManager.h"
 #import "MBWebServiceManager.h"
 #import "MBWebServiceConstants.h"
 #import "MBUser.h"
 #import "MBEditProfileViewController.h"
+#import "MBMenuNaviagtionViewController.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -23,11 +22,10 @@ static NSString * const kAuthentication = @"authenticated";
 static NSString * const kAppUserId = @"AppUserId";
 static NSString * const kFirstName = @"FirstName";
 static NSString * const kSessionId = @"sessionId";
+static NSString * const kPhoneAppId = @"phoneAppId";
 
-@interface MBProfileViewController () <MBMenuViewDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
+@interface MBProfileViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
-@property (strong, nonatomic) MBMenuView *menu;
-@property (assign, nonatomic) BOOL isShowingMenu;
 @property (strong, nonatomic) NSArray *infoArray;
 @property (strong, nonatomic) NSArray *loginArray;
 @property (strong, nonatomic) NSArray *mediaArray;
@@ -55,13 +53,18 @@ static NSString * const kSessionId = @"sessionId";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.infoArray = [NSArray arrayWithObjects:@"Name", @"Handle", @"Phone Number", nil];
+    self.infoArray = [NSArray arrayWithObjects:@"Name", @"Username", @"Phone Number", nil];
     self.loginArray = [NSArray arrayWithObjects:@"Email", @"Password", nil];
     self.mediaArray = [NSArray arrayWithObjects:@"Facebook", nil];
     self.sectionValueArray = [NSArray arrayWithObjects:self.infoArray, self.loginArray, self.mediaArray, nil];
     self.sectionArray = [NSArray arrayWithObjects:@"Personal Information", @"Login Information", @"Social Media", nil];
+    [self.navigationItem.leftBarButtonItem setTarget:(MBMenuNaviagtionViewController *)self.navigationController];
+    [self.navigationItem.leftBarButtonItem setAction:@selector(showMenu)];
 	// Do any additional setup after loading the view.
-    [self setUpMenu];
+//    [self loadProfile];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [self loadProfile];
 }
 
@@ -69,7 +72,6 @@ static NSString * const kSessionId = @"sessionId";
     __weak MBProfileViewController *weakSelf = self;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [MBWebServiceManager AFHTTPRequestForWebService:kWebServiceGetAppUserByAppUserId URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         if (responseObject) {
             NSError *error;
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
@@ -78,56 +80,43 @@ static NSString * const kSessionId = @"sessionId";
                 weakSelf.userInfo = user;
                 weakSelf.userLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"FirstName"],user[@"LastName"]];
                 [weakSelf.tableView reloadData];
+                
             } else {
                 NSLog(@"responseObject %@", responseObject);
             }
+            [MBWebServiceManager AFHTTPRequestForWebService:kWebSerivceGetPhoneNumbers URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
+                if (responseObject) {
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                    NSError *error;
+                    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                    if ([[dict[@"MbResult"] objectForKey:@"Success"] boolValue]) {
+                        if ([(NSArray *)dict[@"Items"] count] > 0) {
+                            NSDictionary *pn = [dict[@"Items"] objectAtIndex:0];
+                            [[NSUserDefaults standardUserDefaults] setObject:pn[@"PhoneAppUserId"] forKey:kPhoneAppId];
+                            [[NSUserDefaults standardUserDefaults] synchronize];
+                            NSMutableDictionary *d = [weakSelf.userInfo mutableCopy];
+                            [d setObject:pn[@"Phone"] forKey:@"phone"];
+                            weakSelf.userInfo = d;
+                            [weakSelf.tableView reloadData];
+                        }
+                    } else {
+                        NSLog(@"responseObject %@", responseObject);
+                    }
+                }
+            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                [weakSelf showError];
+            }];
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble" message:@"Error finding your stats" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
-        [alert show];
-        NSLog(@"error %@", error);
-    }];
-    
-    [MBWebServiceManager AFHTTPRequestForWebService:kWebSerivceGetPhoneNumbers URLReplacements:@{@"version": [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"], @"sessionId":[[NSUserDefaults standardUserDefaults] objectForKey:kSessionId], @"appUserId":[[NSUserDefaults standardUserDefaults] objectForKey:kAppUserId]} success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
-        if (responseObject) {
-            NSError *error;
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-            if ([[dict[@"MbResult"] objectForKey:@"Success"] boolValue]) {
-//                NSDictionary *user = [dict[@"Items"] objectAtIndex:0];
-//                weakSelf.userInfo = user;
-//                weakSelf.userLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"FirstName"],user[@"LastName"]];
-//                [weakSelf.tableView reloadData];
-            } else {
-                NSLog(@"responseObject %@", responseObject);
-            }
-        }
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble" message:@"Error finding your stats" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
-        [alert show];
-        NSLog(@"error %@", error);
+        [weakSelf showError];
     }];
 }
 
-- (void)setUpMenu
-{
-    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MBMenuView" owner:self options:nil];
-    self.menu = [array objectAtIndex:0];
-    self.menu.delegate = self;
-    [self.menuContainer addSubview:self.menu];
-}
-
-- (void)didSelectionMenuItem:(NSString *)item {
-    self.isShowingMenu = NO;
-    self.menuContainer.hidden = YES;
-    self.blurView.hidden = YES;
-    if ([item isEqualToString:@"Profile"]) {
-        return;
-    }
-    
-    [self dismissViewControllerAnimated:NO completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"navigate" object:item];
-    }];
+- (void)showError {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fumble" message:@"Error finding your stats" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+    [alert show];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -159,10 +148,14 @@ static NSString * const kSessionId = @"sessionId";
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
         cell.detailTextLabel.text = self.userInfo[@"Handle"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryNone;
     } else if (indexPath.section == 1 && indexPath.row == 0) {
         cell.detailTextLabel.text = self.userInfo[@"Email"];
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    } else if (indexPath.section == 0 && indexPath.row == 2) {
+        cell.detailTextLabel.text = self.userInfo[@"phone"];
     }
     
     return cell;
@@ -276,18 +269,6 @@ static NSString * const kSessionId = @"sessionId";
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)showMenu:(id)sender {
-    if (self.isShowingMenu) {
-        self.menuContainer.hidden = YES;
-        self.blurView.hidden = YES;
-        self.isShowingMenu = !self.isShowingMenu;
-    } else {
-        [self.menu createBlurViewInView:self.view forImageView:self.blurView];
-        self.menuContainer.hidden = NO;
-        self.blurView.hidden = NO;
-        self.isShowingMenu = !self.isShowingMenu;
-    }
-}
 
 - (IBAction)signout:(id)sender {
     UIAlertView *signOut = [[UIAlertView alloc] initWithTitle:@"Sign Out" message:@"Do you want to sign out?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign Out", nil];

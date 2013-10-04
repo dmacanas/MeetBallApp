@@ -56,6 +56,8 @@ static NSString * const kAppUserId = @"AppUserId";
     }];
 }
 
+
+
 - (void)createComments:(NSArray *)rawArray {
     for (NSDictionary *dict  in rawArray) {
         MBComment *comm = [[MBComment alloc] init];
