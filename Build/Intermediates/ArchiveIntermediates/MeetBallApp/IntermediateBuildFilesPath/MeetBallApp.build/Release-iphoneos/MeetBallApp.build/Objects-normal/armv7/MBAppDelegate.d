@@ -1,8 +1,10 @@
 dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBAppDelegate.m \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBAppDelegate.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/TestFlightSDK2.0.0/TestFlight.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/TestFlightSDK2.1.0-beta/TestFlight.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBCredentialManager.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMenuNaviagtionViewController.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/../MBNotification.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FacebookSDK.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBSession.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBRequest.h \
@@ -37,4 +39,34 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBDialogs.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBWebDialogs.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBFrictionlessRecipientCache.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBInsights.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBInsights.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/Parse.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFACL.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFAnalytics.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFAnonymousUtils.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFUser.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFConstants.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFObject.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFSubclassing.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFCloud.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFFile.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFGeoPoint.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFQuery.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFRelation.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFRole.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFImageView.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFInstallation.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFLogInViewController.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFLogInView.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFSignUpViewController.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFSignUpView.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFProduct.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFProductTableViewController.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFQueryTableViewController.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFTableViewCell.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PF_EGORefreshTableHeaderView.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFPurchase.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFPush.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFTwitterUtils.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PF_Twitter.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Parse.framework/Headers/PFFacebookUtils.h

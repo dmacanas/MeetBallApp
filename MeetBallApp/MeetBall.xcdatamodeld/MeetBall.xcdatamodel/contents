@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="MBMeetBall" representedClassName="MBMeetBall" syncable="YES">
         <attribute name="endDate" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
@@ -120,6 +120,9 @@
             <entry key="relatedByAttribute" value="meetBallId"/>
         </userInfo>
     </entity>
+    <entity name="MBNotification" syncable="YES">
+        <attribute name="notification" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="MBUser" representedClassName="MBUser" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
@@ -146,7 +149,8 @@
         </userInfo>
     </entity>
     <elements>
-        <element name="MBUser" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MBMeetBall" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MBUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MBNotification" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

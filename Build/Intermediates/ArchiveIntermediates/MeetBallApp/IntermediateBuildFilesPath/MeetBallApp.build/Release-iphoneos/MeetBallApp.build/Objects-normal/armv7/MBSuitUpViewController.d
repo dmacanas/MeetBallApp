@@ -5,7 +5,6 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBDataCommunicator.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBMeetBallInfoViewController.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBCredentialManager.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/SVProgressHUD/SVProgressHUD.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FacebookSDK.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBSession.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK/FBRequest.h \

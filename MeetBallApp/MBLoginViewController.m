@@ -10,7 +10,6 @@
 
 #import "MBHomeViewController.h"
 #import "MBAppDelegate.h"
-#import "SVProgressHUD.h"
 #import "MBUser.h"
 #import "MBDataCommunicator.h"
 #import "MBDataImporter.h"
@@ -56,7 +55,7 @@ static NSString * const kFirstName = @"FirstName";
     self.email = @"";
     self.importer = [[MBDataImporter alloc] init];
 
-    self.FacebookLogin.delegate = self;
+//    self.FacebookLogin.delegate = self;
 
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ballz.png"]]];
 	// Do any additional setup after loading the view.
@@ -85,55 +84,13 @@ static NSString * const kFirstName = @"FirstName";
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
-//    NSURLCredential *cred = [MBCredentialManager defaultCredential];
-//    NSLog(@"%@ password %@",[MBCredentialManager defaultCredential], cred.password);
     [FBSession.activeSession closeAndClearTokenInformation];
-//    [MBCredentialManager clearCredentials];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)forgotPasswordAction:(id)sender {
 }
 
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
-    NSLog(@"Facebook Error");
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
-        self.progressView.hidden = NO;
-        [self.progressView setProgress:0.6 animated:YES];
-        __weak MBLoginViewController *weakSelf = self;
-        NSDictionary *dict = @{@"facebookId": (NSDictionary *)user[@"id"],@"accessToken":[[[FBSession activeSession] accessTokenData] accessToken]};
-        [self.importer getUserWithFacebookID:dict success:^(NSDictionary *JSON) {
-            if(JSON){
-                if([[(NSDictionary *)JSON[@"LoginAppUserFacebookJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]){
-                    [self.progressView setProgress:1 animated:YES];
-                    weakSelf.email = [[JSON[@"LoginAppUserFacebookJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"Email"];
-                    NSString *pwd = [[JSON[@"LoginAppUserFacebookJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"Password"];
-                    [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserFacebookJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
-                    [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserFacebookJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"FirstName"] forKey:kFirstName];
-                    [[NSUserDefaults standardUserDefaults] synchronize];
-                    self.progressView.hidden = YES;
-                    if(pwd == nil){
-                        weakSelf.needsPasswordUpdate = YES;
-                        [weakSelf showAlertViewToGetPassword];
-                    } else {
-                        [MBCredentialManager clearCredentials];
-                        NSURLCredential *cred = [[NSURLCredential alloc] initWithUser:weakSelf.email password:pwd persistence:NSURLCredentialPersistencePermanent];
-                        [MBCredentialManager saveCredential:cred];
-                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAuthentication];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
-                        [weakSelf launchHomeScreen];
-                    }
-                }
-            }
-        } failure:^(NSError *error) {
-            weakSelf.progressView.hidden = YES;
-            NSLog(@"ero %@",error);
-        }];
-    }
-}
 
 - (void)showAlertViewToGetPassword {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Password Found" message:@"Enter a password for your MeetBall Account" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
@@ -232,6 +189,49 @@ static NSString * const kFirstName = @"FirstName";
     } else {
         return NO;
     }
+}
+
+- (IBAction)facebookLogin:(id)sender {
+    FBSession *session = [[FBSession alloc] init];
+    [FBSession setActiveSession:session];
+    [session openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+        if (status == FBSessionStateOpen) {
+            [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                self.progressView.hidden = NO;
+                [self.progressView setProgress:0.6 animated:YES];
+                __weak MBLoginViewController *weakSelf = self;
+                NSDictionary *dict = @{@"facebookId": (NSDictionary *)result[@"id"],@"accessToken":[[[FBSession activeSession] accessTokenData] accessToken]};
+                [self.importer getUserWithFacebookID:dict success:^(NSDictionary *JSON) {
+                    if(JSON){
+                        if([[(NSDictionary *)JSON[@"LoginAppUserFacebookJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]){
+                            [self.progressView setProgress:1 animated:YES];
+                            weakSelf.email = [[JSON[@"LoginAppUserFacebookJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"Email"];
+                            NSString *pwd = [[JSON[@"LoginAppUserFacebookJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"Password"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserFacebookJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"AppUserId"] forKey:kAppUserId];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[JSON[@"LoginAppUserFacebookJsonResult"][@"Items"] objectAtIndex:0] objectForKey:@"FirstName"] forKey:kFirstName];
+                            [[NSUserDefaults standardUserDefaults] synchronize];
+                            self.progressView.hidden = YES;
+                            if(pwd == nil){
+                                weakSelf.needsPasswordUpdate = YES;
+                                [weakSelf showAlertViewToGetPassword];
+                            } else {
+                                [MBCredentialManager clearCredentials];
+                                NSURLCredential *cred = [[NSURLCredential alloc] initWithUser:weakSelf.email password:pwd persistence:NSURLCredentialPersistencePermanent];
+                                [MBCredentialManager saveCredential:cred];
+                                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAuthentication];
+                                [[NSUserDefaults standardUserDefaults] synchronize];
+                                [weakSelf launchHomeScreen];
+                            }
+                        }
+                    }
+                } failure:^(NSError *error) {
+                    weakSelf.progressView.hidden = YES;
+                    NSLog(@"ero %@",error);
+                }];
+            }];
+        }
+        
+    }];
 }
 
 @end

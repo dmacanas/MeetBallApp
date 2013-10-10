@@ -11,6 +11,7 @@
 #import "MBMathBlock.h"
 #import "MBTipView.h"
 #import "MBCommentsViewController.h"
+#import "MBDetailViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
@@ -60,8 +61,6 @@ static NSString * const kCarTip = @"carTip";
     [self annotationSetup];
     [self locationManagerSetup];
     [self setAnchorPoint:CGPointMake(0.5, 0.5) forView:self.compass];
-    
-    
 }
 
 -(void)setAnchorPoint:(CGPoint)anchorpoint forView:(UIView *)view
@@ -260,7 +259,13 @@ static NSString * const kCarTip = @"carTip";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    MBCommentsViewController *vc = (MBCommentsViewController *)[segue destinationViewController];
-    vc.meetBall = self.meetBall;
+    if ([segue.identifier isEqualToString:@"comments"]) {
+        MBCommentsViewController *vc = (MBCommentsViewController *)[segue destinationViewController];
+        vc.meetBall = self.meetBall;
+    } else {
+        MBDetailViewController *vc = (MBDetailViewController *)[segue destinationViewController];
+        vc.meetBall = self.meetBall;
+    }
+
 }
 @end

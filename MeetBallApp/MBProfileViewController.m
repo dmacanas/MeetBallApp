@@ -15,6 +15,8 @@
 #import "MBMenuNaviagtionViewController.h"
 
 #import <FacebookSDK/FacebookSDK.h>
+#import <QuartzCore/QuartzCore.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 static NSString * const kAnnotaionId = @"pinId";
 static NSString * const kCarKey = @"carLocation";
@@ -23,8 +25,9 @@ static NSString * const kAppUserId = @"AppUserId";
 static NSString * const kFirstName = @"FirstName";
 static NSString * const kSessionId = @"sessionId";
 static NSString * const kPhoneAppId = @"phoneAppId";
+static NSString * const kProfilePicture = @"profilePic";
 
-@interface MBProfileViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
+@interface MBProfileViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) NSArray *infoArray;
 @property (strong, nonatomic) NSArray *loginArray;
@@ -60,12 +63,47 @@ static NSString * const kPhoneAppId = @"phoneAppId";
     self.sectionArray = [NSArray arrayWithObjects:@"Personal Information", @"Login Information", @"Social Media", nil];
     [self.navigationItem.leftBarButtonItem setTarget:(MBMenuNaviagtionViewController *)self.navigationController];
     [self.navigationItem.leftBarButtonItem setAction:@selector(showMenu)];
+    CGRect frame = self.headerView.frame;
+    frame.size.height = 100;
+    self.headerView.frame = frame;
+    [self.headerView setBackgroundColor:[UIColor clearColor]];
+    [self.tableView setTableHeaderView:self.headerView];
 	// Do any additional setup after loading the view.
 //    [self loadProfile];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self loadProfile];
+    [self setProfilePicture];
+
+}
+
+- (void)checkForProfilePicture {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kProfilePicture]) {
+        NSURL *url = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:kProfilePicture]];
+        ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
+        __block UIImage *image = nil;
+        [lib assetForURL:url resultBlock:^(ALAsset *asset) {
+            image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
+            [self.profileImageView setImage:image];
+        } failureBlock:nil];
+        
+    }
+}
+
+- (void)setProfilePicture {
+    self.profileImageView.layer.masksToBounds = YES;
+    self.profileImageView.layer.cornerRadius = 30.0;
+    self.profileImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.profileImageView.layer.borderWidth = 0.5f;
+    self.profileImageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    self.profileImageView.layer.shouldRasterize = YES;
+    self.profileImageView.clipsToBounds = YES;
+    [self checkForProfilePicture];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)loadProfile {
@@ -79,6 +117,7 @@ static NSString * const kPhoneAppId = @"phoneAppId";
                 NSDictionary *user = [dict[@"Items"] objectAtIndex:0];
                 weakSelf.userInfo = user;
                 weakSelf.userLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"FirstName"],user[@"LastName"]];
+                weakSelf.handleLabel.text = user[@"Handle"];
                 [weakSelf.tableView reloadData];
                 
             } else {
@@ -172,6 +211,10 @@ static NSString * const kPhoneAppId = @"phoneAppId";
     [self performSegueWithIdentifier:@"profileDetail" sender:nil];
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    return 100;
+//}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MBEditProfileViewController *vc = (MBEditProfileViewController *)[segue destinationViewController];
     vc.field = self.field;
@@ -251,16 +294,30 @@ static NSString * const kPhoneAppId = @"phoneAppId";
     if (buttonIndex == 1) {
         [FBSession.activeSession closeAndClearTokenInformation];
         [MBCredentialManager clearCredentials];
-        [MBUser truncateAll];
+        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+            [MBUser truncateAllInContext:localContext];
+        }];
+        
+//        [MagicalRecord cleanUp];
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kAuthentication];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kSessionId];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppUserId];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        [self dismissViewControllerAnimated:YES completion:^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"signOut" object:nil];
+//        [MagicalRecord setupCoreDataStack];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"loginFlow" bundle:[NSBundle mainBundle]];
+        UIViewController *vc = [sb instantiateInitialViewController];
+        [self presentViewController:vc animated:NO completion:^{
+            [self didReceiveMemoryWarning];
         }];
     }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *pickedImage = (UIImage *)info[@"UIImagePickerControllerOriginalImage"];
+    [self.profileImageView setImage:pickedImage];
+    [[NSUserDefaults standardUserDefaults] setObject:[info[@"UIImagePickerControllerReferenceURL"] absoluteString] forKey:kProfilePicture];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -273,5 +330,11 @@ static NSString * const kPhoneAppId = @"phoneAppId";
 - (IBAction)signout:(id)sender {
     UIAlertView *signOut = [[UIAlertView alloc] initWithTitle:@"Sign Out" message:@"Do you want to sign out?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign Out", nil];
     [signOut show];
+}
+
+- (IBAction)profilePicture:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    [picker setDelegate:[self.navigationController.viewControllers objectAtIndex:0]];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 @end

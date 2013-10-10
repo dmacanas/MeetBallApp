@@ -50,8 +50,8 @@ static NSString * const kAppUserId = @"AppUserId";
     [self getUserDefaults];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    
+- (void)viewWillDisappear:(BOOL)animated {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)getUserDefaults {

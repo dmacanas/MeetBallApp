@@ -13,6 +13,7 @@
 #import "MBMenuNaviagtionViewController.h"
 
 #import <AddressBook/AddressBook.h>
+static NSString * const kFriendSorting = @"friendSorting";
 
 @interface MBTeamRoserViewController () <MBMenuViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -50,6 +51,10 @@
     [self.navigationItem.leftBarButtonItem setTarget:(MBMenuNaviagtionViewController *)self.navigationController];
     [self.navigationItem.leftBarButtonItem setAction:@selector(showMenu)];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)setUpMenu
@@ -157,11 +162,10 @@
                 else if (j==1)
                     person.workEmail = email;
             }
-            
             //7
             [self.addressBookData addObject:person];
         }
-        
+        [self friendSorting];
         //8
         CFRelease(addressBook);
     }
@@ -171,6 +175,24 @@
         NSLog(@"Error reading Address Book");
     }
     }
+}
+
+- (void)friendSorting {
+    
+    NSSortDescriptor *sort;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kFriendSorting]) {
+        NSInteger sorting = [[[NSUserDefaults standardUserDefaults] objectForKey:kFriendSorting] integerValue];
+        if (sorting == 1) {
+            sort = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
+        } else {
+            sort = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+        }
+    } else {
+        sort = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
+    }
+    NSArray *sortDesc = [NSArray arrayWithObject:sort];
+    NSArray *array = [self.addressBookData sortedArrayUsingDescriptors:sortDesc];
+    self.addressBookData = [array mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning

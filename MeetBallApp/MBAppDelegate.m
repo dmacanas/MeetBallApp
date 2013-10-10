@@ -12,8 +12,12 @@
 #import "MagicalRecordShorthand.h"
 #import "MagicalRecord+Setup.h"
 #import "MBCredentialManager.h"
+#import "MBMenuNaviagtionViewController.h"
+#import "MBNotification.h"
 
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
+static NSString * const kAuthentication = @"authenticated";
 
 @implementation MBAppDelegate
 
@@ -27,8 +31,18 @@
 
     [TestFlight takeOff:@"6504280e-1deb-4c64-8f27-0269303db94d"];
     [MagicalRecord setupCoreDataStack];
+    [Parse setApplicationId:@"EpTo0dhlJUp5x941ruazr0mcdVHFJmFWx8ZzvU3P" clientKey:@"dslrOfPe5jMY0gZBc67gC0azeDhJGm7vpauj0iSy"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
+    [TestFlight passCheckpoint:@"Launch config"];
+    
+    if ([MBCredentialManager defaultCredential] && [[[NSUserDefaults standardUserDefaults] objectForKey:kAuthentication] boolValue]) {
+        [TestFlight passCheckpoint:@"Authentication Pass"];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:[NSBundle mainBundle]];
+        MBMenuNaviagtionViewController *vc = (MBMenuNaviagtionViewController *)[sb instantiateInitialViewController];
+        [self.window setRootViewController:vc];
+    }
     // Override point for customization after application launch.
     return YES;
 }
@@ -36,7 +50,8 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     if(url) {
         if ([[url scheme] isEqualToString:@"fb227261170716834"]) {
-            return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+            [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+            return YES;
         }
         NSLog(@"%@", url);
         NSString *path = [url host];
@@ -53,24 +68,51 @@
             [[NSFileManager defaultManager] removeItemAtURL:store.URL error:&error];
             
             [MBCredentialManager clearCredentials];
-//            NSString *defaultDomain = [[NSBundle mainBundle] bundleIdentifier];
-//            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:defaultDomain];
         }
     }
     
     return YES;
 }
 
-- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
-{
-	NSLog(@"My token is: %@", deviceToken);
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    [currentInstallation saveInBackground];
+    [TestFlight passCheckpoint:@"Register for Push"];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
-	NSLog(@"Failed to get token, error: %@", error);
+    if (error.code == 3010) {
+        NSLog(@"Push notifications are not supported in the iOS Simulator.");
+    } else {
+        // show some alert or otherwise handle the failure to register.
+        NSLog(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
+	}
 }
-							
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        MBNotification *not = [MBNotification createInContext:localContext];
+        not.notification = userInfo[@"aps"][@"alert"];
+    }];
+    
+    NSLog(@"userInfor:%@", userInfo);
+    if (application.applicationState != UIApplicationStateActive) {
+        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+    }
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge != 0) {
+        currentInstallation.badge = 0;
+        [currentInstallation saveEventually];
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -86,11 +128,6 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

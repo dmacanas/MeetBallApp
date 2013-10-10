@@ -7,9 +7,6 @@
 //
 
 #import "MBDataCommunicator.h"
-#import "AFJsonRequestOperation.h"
-#import "AFHTTPRequestOperation.h"
-#import "AFHTTPClient.h"
 #import "MBWebServiceManager.h"
 #import "MBWebServiceConstants.h"
 
@@ -160,7 +157,7 @@ static NSString * const kSessionId = @"sessionId";
 
 -(void)resetPassword:(NSString *)email succss:(void (^)(id JSON))success failure:(void (^)(NSError *error, id JSON))failure {
     [self getSessionID:^(NSString *sid) {
-        NSDictionary *dict = @{@"email": email,@"sessionId":sid};
+        NSDictionary *dict = @{@"emailAddress": email,@"sessionId":sid};
         
         [MBWebServiceManager AFJSONRequestForWebService:kWebServiceResetPassword URLReplacements:@{@"version":[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]} UserInfo:dict success:^(NSURLRequest *request, NSHTTPURLResponse *response, id responseObject) {
             if (success) {

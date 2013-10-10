@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1rE-ex-XxX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1rE-ex-XxX">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="656" y="-35"/>
         </scene>
-        <!--View Controller - Notifications-->
+        <!--Notification View Controller - Notifications-->
         <scene sceneID="4Iw-Xo-GgQ">
             <objects>
-                <viewController id="dsP-tF-jXu" sceneMemberID="viewController">
+                <viewController id="dsP-tF-jXu" customClass="MBNotificationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Za6-Do-xjc"/>
                         <viewControllerLayoutGuide type="bottom" id="lD3-FP-zks"/>
@@ -267,11 +267,31 @@
                     <view key="view" contentMode="scaleToFill" id="1kP-KC-LMI">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SNH-5d-XeN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dsP-tF-jXu" id="Gr8-er-SPa"/>
+                                    <outlet property="delegate" destination="dsP-tF-jXu" id="bss-Qq-QFa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SNH-5d-XeN" firstAttribute="leading" secondItem="1kP-KC-LMI" secondAttribute="leading" id="BMt-ze-DaP"/>
+                            <constraint firstAttribute="bottom" secondItem="SNH-5d-XeN" secondAttribute="bottom" id="KNj-eg-iKa"/>
+                            <constraint firstItem="SNH-5d-XeN" firstAttribute="top" secondItem="1kP-KC-LMI" secondAttribute="top" id="fhv-4X-fet"/>
+                            <constraint firstAttribute="trailing" secondItem="SNH-5d-XeN" secondAttribute="trailing" id="wji-ih-M6h"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="0SP-6A-Ko4">
                         <barButtonItem key="backBarButtonItem" title="Home" id="KTx-su-Bt6"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="SNH-5d-XeN" id="Ca4-9y-gHU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UV-2N-lo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,7 +304,7 @@
         <image name="location_ic" width="20" height="20"/>
         <image name="meetBallCompass" width="50" height="50"/>
         <image name="menu_ic" width="20" height="19"/>
-        <image name="parking" width="20" height="20"/>
+        <image name="parking" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

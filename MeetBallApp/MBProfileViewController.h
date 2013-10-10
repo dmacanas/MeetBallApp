@@ -12,6 +12,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
+@property (weak, nonatomic) IBOutlet UIButton *profilePictureButton;
+@property (weak, nonatomic) IBOutlet UILabel *handleLabel;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+
 - (IBAction)signout:(id)sender;
+- (IBAction)profilePicture:(id)sender;
+
 
 @end

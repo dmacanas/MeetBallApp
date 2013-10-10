@@ -38,6 +38,7 @@ static NSString * const kAuthentication = @"authenticated";
 static NSString * const kAppUserId = @"AppUserId";
 static NSString * const kFirstName = @"FirstName";
 static NSString * const kSessionId = @"sessionId";
+static NSString * const kFriendSorting = @"friendSorting";
 
 
 @interface MBHomeViewController () <CLLocationManagerDelegate, UIActionSheetDelegate>
@@ -188,6 +189,7 @@ static NSString * const kSessionId = @"sessionId";
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.locationManager stopUpdatingHeading];
     [self.locationManager stopUpdatingLocation];
 }
@@ -202,11 +204,6 @@ static NSString * const kSessionId = @"sessionId";
         [annotationArray addObject:a];
     }
     [self.mapView addAnnotations:annotationArray];
-//    if (annotationArray.count > 0) {
-//        self.compassImageVIew.hidden = NO;
-//        self.coord = [(MBAnnotation *)[annotationArray objectAtIndex:0] coordinate];
-//        [self.mapView selectAnnotation:[annotationArray objectAtIndex:0] animated:YES];
-//    }
     [self checkForCarLocation];
 }
 
@@ -318,11 +315,10 @@ static NSString * const kSessionId = @"sessionId";
         NSError* error;
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:contacts options:kNilOptions error:&error];
         [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-            [MBUser truncateAllInContext:localContext];
+//            [MBUser truncateAllInContext:localContext];
             [MBUser MR_importFromArrayAndWait:json[@"Items"] inContext:localContext];
         } completion:^(BOOL success, NSError *error) {
-            NSPredicate *pred = [NSPredicate predicateWithFormat:@"firstName != %@ && firstName != %@ && meetBallID > 0 && email.length > 0", @"Ad Hoc", @"First"];
-            weakSelf.contactsArray = [MBUser findAllSortedBy:@"firstName" ascending:YES withPredicate:pred];
+            [weakSelf friendSorting];
             [weakSelf.homeTableView reloadData];
             weakSelf.tableHeighConstraint.constant = weakSelf.homeTableView.contentSize.height;
             [weakSelf.view needsUpdateConstraints];
@@ -334,6 +330,20 @@ static NSString * const kSessionId = @"sessionId";
     } failure:^(NSError *err) {
         NSLog(@"error %@",err);
     }];
+}
+
+- (void)friendSorting {
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"firstName != %@ && firstName != %@ && meetBallID > 0 && email.length > 0", @"Ad Hoc", @"First"];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kFriendSorting]) {
+        NSInteger sorting = [[[NSUserDefaults standardUserDefaults] objectForKey:kFriendSorting] integerValue];
+        if (sorting == 1) {
+            self.contactsArray = [MBUser findAllSortedBy:@"firstName" ascending:YES withPredicate:pred];
+        } else {
+            self.contactsArray = [MBUser findAllSortedBy:@"lastName" ascending:YES withPredicate:pred];
+        }
+    } else {
+        self.contactsArray = [MBUser findAllSortedBy:@"firstName" ascending:YES withPredicate:pred];
+    }
 }
 
 #pragma mark - tableView methods
@@ -509,6 +519,9 @@ static NSString * const kSessionId = @"sessionId";
     [self.progressView setHidden:YES];
     [self.invtiedFriendsArray removeAllObjects];
     [self.mainToolbar setUserInteractionEnabled:YES];
+    self.throwMBButton.enabled = NO;
+    [self.throwMBButton.layer removeAllAnimations];
+    self.isFlashing = NO;
     for (NSIndexPath *index in self.homeTableView.indexPathsForSelectedRows) {
         [self.homeTableView deselectRowAtIndexPath:index animated:NO];
     }

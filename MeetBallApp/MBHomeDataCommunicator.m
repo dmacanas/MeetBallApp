@@ -10,9 +10,6 @@
 #import "MBDataCommunicator.h"
 #import "MBWebServiceManager.h"
 #import "MBWebServiceConstants.h"
-#import "AFJsonRequestOperation.h"
-#import "AFHTTPRequestOperation.h"
-#import "AFHTTPClient.h"
 #import "MBUser.h"
 #import "MBInvitee.h"
 

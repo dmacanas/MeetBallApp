@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BOL-NU-K4p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BOL-NU-K4p">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -34,11 +34,11 @@
                         <viewControllerLayoutGuide type="bottom" id="sO9-Mk-4K1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gpL-6u-3h2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E9J-r1-oxY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -98,33 +98,32 @@
                         <viewControllerLayoutGuide type="bottom" id="Fdl-dB-Fo0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8vG-c5-QKD">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9X-Bv-qDw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="038-GP-HXH">
-                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Mv6-5e-l3T"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="location_ic" width="77" id="6Ai-op-p7Y">
+                                    <barButtonItem image="location_ic" width="61" id="6Ai-op-p7Y">
                                         <connections>
                                             <action selector="adjustUserLocation:" destination="g2i-wy-qz8" id="een-5v-cO8"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="action" id="vqg-ra-Rkt">
+                                    <barButtonItem image="info" width="63" id="vqg-ra-Rkt">
                                         <connections>
-                                            <segue destination="jxq-yi-zQ5" kind="push" id="yrJ-Qn-Rdx"/>
+                                            <segue destination="jxq-yi-zQ5" kind="push" identifier="details" id="yrJ-Qn-Rdx"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="parking" width="101" id="OSB-zd-ob6">
-                                        <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="parking" width="82" id="OSB-zd-ob6">
                                         <connections>
                                             <action selector="carLocation:" destination="g2i-wy-qz8" id="AYh-o7-9Es"/>
                                         </connections>
@@ -138,7 +137,7 @@
                                 <color key="tintColor" red="0.20784313730000001" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTV-mh-dpd">
-                                <rect key="frame" x="20" y="423" width="253" height="25"/>
+                                <rect key="frame" x="20" y="335" width="253" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -207,13 +206,38 @@
                         <viewControllerLayoutGuide type="bottom" id="vtq-Ak-8vi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7vH-go-qdq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q3M-Fr-wDP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jxq-yi-zQ5" id="Arh-N4-Wtk"/>
+                                    <outlet property="delegate" destination="jxq-yi-zQ5" id="4gR-E7-h3B"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q3M-Fr-wDP" firstAttribute="leading" secondItem="7vH-go-qdq" secondAttribute="leading" id="Bbl-4c-kH8"/>
+                            <constraint firstAttribute="trailing" secondItem="Q3M-Fr-wDP" secondAttribute="trailing" id="SsA-Fb-Gjt"/>
+                            <constraint firstItem="Q3M-Fr-wDP" firstAttribute="top" secondItem="7vH-go-qdq" secondAttribute="top" id="ihu-7V-Zi4"/>
+                            <constraint firstAttribute="bottom" secondItem="Q3M-Fr-wDP" secondAttribute="bottom" id="mVe-1P-NjX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="4Vl-NZ-A4V">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="QPj-sT-GeN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="QPj-sT-GeN">
+                            <connections>
+                                <action selector="editing:" destination="jxq-yi-zQ5" id="G1O-0D-afu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="QPj-sT-GeN" id="1pO-tA-oSI"/>
+                        <outlet property="tableView" destination="Q3M-Fr-wDP" id="jDQ-aj-zse"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bha-eX-1wK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,11 +252,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ATO-dn-hej"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZHY-V6-Vuc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXQ-Xh-Ofa">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="w7C-QU-802">
@@ -240,7 +264,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KL8-d8-vbx">
-                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="Hnr-2S-rmL">
@@ -289,14 +313,15 @@
     </scenes>
     <resources>
         <image name="compass-small" width="35" height="35"/>
+        <image name="info" width="30" height="30"/>
         <image name="location_ic" width="20" height="20"/>
         <image name="menu_ic" width="20" height="19"/>
-        <image name="notes" width="20" height="18"/>
-        <image name="parking" width="20" height="20"/>
+        <image name="notes" width="30" height="30"/>
+        <image name="parking" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

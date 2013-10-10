@@ -207,5 +207,12 @@
 		<key>method</key>
 		<string>GET</string>
 	</dict>
+	<key>GetMeetBallInvitees</key>
+	<dict>
+		<key>URL</key>
+		<string>http://wsdev.meetball.com/{version}/service.svc/json/Meetball/Response/{sessionId}?meetballId={meetballId}</string>
+		<key>method</key>
+		<string>GET</string>
+	</dict>
 </dict>
 </plist>

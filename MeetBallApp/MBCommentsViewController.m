@@ -38,6 +38,9 @@ static NSString * const kAppUserId = @"AppUserId";
     [super viewDidLoad];
     self.commentArray = [[NSMutableArray alloc] init];
     [self getCommentsForMeetBall];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     self.originalToolbar = self.toolbar.frame;
 }
 
@@ -109,7 +112,7 @@ static NSString * const kAppUserId = @"AppUserId";
             }
             
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
-            [imageView setImage:[[UIImage imageNamed:@"greenBubble"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 10, 10)]];
+            [imageView setImage:[[UIImage imageNamed:@"greenBubble"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 10, 15)]];
             [view addSubview:imageView];
             [view addSubview:label];
         } else {
@@ -122,7 +125,7 @@ static NSString * const kAppUserId = @"AppUserId";
             }
             
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
-            [imageView setImage:[[UIImage imageNamed:@"grayBubble"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 10, 10,5)]];
+            [imageView setImage:[[UIImage imageNamed:@"grayBubble"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 10,5)]];
             [view addSubview:imageView];
             [view addSubview:label];
         }

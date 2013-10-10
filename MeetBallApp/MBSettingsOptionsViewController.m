@@ -47,9 +47,21 @@ static NSString * const kMeetBallSorting = @"meetBallSorting";
 
 - (void)viewWillAppear:(BOOL)animated {
     if ([self.optionTitle isEqualToString:@"Friend Sorting"]) {
-        self.selectedOption = [[[NSUserDefaults standardUserDefaults] objectForKey:kFriendSorting] integerValue];
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:kFriendSorting]) {
+            self.selectedOption = [[[NSUserDefaults standardUserDefaults] objectForKey:kFriendSorting] integerValue];
+        }else {
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kFriendSorting];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            self.selectedOption = [[[NSUserDefaults standardUserDefaults] objectForKey:kFriendSorting] integerValue];
+        }
     } else if ([self.optionTitle isEqualToString:@"MeetBall Sorting"]) {
-        self.selectedOption = [[[NSUserDefaults standardUserDefaults] objectForKey:kMeetBallSorting] integerValue];
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:kMeetBallSorting]) {
+            self.selectedOption = [[[NSUserDefaults standardUserDefaults] objectForKey:kMeetBallSorting] integerValue];
+        }else {
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kMeetBallSorting];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            self.selectedOption = [[[NSUserDefaults standardUserDefaults] objectForKey:kMeetBallSorting] integerValue];
+        }
     }
 }
 

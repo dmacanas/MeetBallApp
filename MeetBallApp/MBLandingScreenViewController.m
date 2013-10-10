@@ -8,7 +8,6 @@
 
 #import "MBLandingScreenViewController.h"
 #import "MBMenuNavigationController.h"
-#import "SVProgressHUD.h"
 #import "MBUser.h"
 
 #import <FacebookSDK/FacebookSDK.h>
@@ -41,12 +40,12 @@ static NSString * const kAuthentication = @"authenticated";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
-        __weak MBLandingScreenViewController *weakSelf = self;
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:[NSBundle mainBundle]];
-        MBMenuNavigationController *vc = (MBMenuNavigationController *)[sb instantiateInitialViewController];
-        [weakSelf presentViewController:vc animated:NO completion:nil];
-    }
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:kAuthentication]){
+//        __weak MBLandingScreenViewController *weakSelf = self;
+//        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"homeStoryBoard" bundle:[NSBundle mainBundle]];
+//        MBMenuNavigationController *vc = (MBMenuNavigationController *)[sb instantiateInitialViewController];
+//        [weakSelf presentViewController:vc animated:NO completion:nil];
+//    }
 }
 
 @end

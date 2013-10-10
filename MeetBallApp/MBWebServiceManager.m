@@ -7,8 +7,7 @@
 //
 
 #import "MBWebServiceManager.h"
-#import "AFJSONRequestOperation.h"
-#import "AFHTTPRequestOperation.h"
+#import <AFNetworking/AFNetworking.h>
 
 
 @implementation MBWebServiceManager
@@ -76,6 +75,7 @@
 
 + (void)AFJSONRequestForWebService:(NSString *)webService URLReplacements:(NSDictionary *)URLReplacements UserInfo:(NSDictionary *)userInfo success:(MBWebServiceSuccessBlock)success failure:(MBWebServiceFailureBlock)failure {
     NSURLRequest *request = [MBWebServiceManager buildURLRequestForWebService:webService withURLReplacements:URLReplacements withUserInfo:userInfo];
+    
     AFJSONRequestOperation *AFRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         failure(request,response,error);
     }];
@@ -99,6 +99,10 @@
         }
     }];
     [AFRequest start];
+}
+
++ (void)cancelOperations {
+    
 }
 
 

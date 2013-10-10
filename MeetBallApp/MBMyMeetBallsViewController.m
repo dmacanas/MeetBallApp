@@ -22,6 +22,8 @@
 #import "MBComment.h"
 static NSString * const kSessionId = @"sessionId";
 static NSString * const kAppUserId = @"AppUserId";
+static NSString * const kFriendSorting = @"friendSorting";
+static NSString * const kMeetBallSorting = @"meetBallSorting";
 
 @interface MBMyMeetBallsViewController ()
 
@@ -51,7 +53,7 @@ static NSString * const kAppUserId = @"AppUserId";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"meetBallId" ascending:YES]];
+    [self getMeetBallArrayWithFilterOption];
     self.dataManager = [[MBHomeDataManager alloc] init];
     self.meetBallIdArray = [[NSMutableArray alloc] init];
     self.bigCommentArray = [[NSMutableArray alloc] init];
@@ -61,6 +63,28 @@ static NSString * const kAppUserId = @"AppUserId";
 	// Do any additional setup after loading the view.
 }
 
+- (void)getMeetBallArrayWithFilterOption {
+    //@[@"Name", @"Owner", @"Start Time", @"End Time"];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kMeetBallSorting]) {
+        NSInteger option = [[[NSUserDefaults standardUserDefaults] objectForKey:kMeetBallSorting] integerValue];
+        switch (option) {
+            case 2:
+                self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"ownersName" ascending:YES]];
+                break;
+            case 3:
+                self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"startDate" ascending:YES]];
+                break;
+            case 4:
+                self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"endDate" ascending:YES]];
+                break;
+            default:
+                self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"meetBallName" ascending:YES]];
+                break;
+        }
+    } else {
+        self.meetBallArray = [self getActiveMeetBalls:[MBMeetBall findAllSortedBy:@"meetBallName" ascending:YES]];
+    }
+}
 
 - (NSArray *)getActiveMeetBalls:(NSArray *)meetBalls {
     NSMutableArray *temp = [[NSMutableArray alloc] init];
@@ -116,6 +140,11 @@ static NSString * const kAppUserId = @"AppUserId";
         UIAlertView *noMeetBalls = [[UIAlertView alloc] initWithTitle:@"No Active MeetBalls" message:@"Throw a MeetBall and get the party started!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
         [noMeetBalls show];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
 }
 
 #pragma mark - tableView Delegates

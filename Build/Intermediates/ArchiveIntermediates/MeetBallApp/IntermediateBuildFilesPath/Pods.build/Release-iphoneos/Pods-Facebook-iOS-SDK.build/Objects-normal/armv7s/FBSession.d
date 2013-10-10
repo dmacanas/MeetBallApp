@@ -3,45 +3,28 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSession.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSession+Internal.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSystemAccountStoreAdapter.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBTask.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBTaskCompletionSource.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionAppEventsState.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSession+Protected.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionTokenCachingStrategy.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAccessTokenData.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSettings.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSettings+Internal.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBError.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBLogger.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBUtility.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBFetchedAppSettings.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDataDiskCache.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAccessTokenData+Internal.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppEvents.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppEvents+Internal.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBLoginDialogParams.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialogsParams.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppCall+Internal.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppCall.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialogsData.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppLinkData.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialogs+Internal.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialogs.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBShareDialogParams.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBOpenGraphActionShareDialogParams.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBOpenGraphAction.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBGraphObject.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppBridge.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionAuthLogger.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/Facebook.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBLoginDialog.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialog.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionAppSwitchingLoginStategy.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionLoginStrategy.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FacebookSDK.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBRequest.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBRequestConnection.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBGraphObject.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBOpenGraphObject.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionManualTokenCachingStrategy.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBFrictionlessRequestSettings.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FacebookSDK.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBOpenGraphAction.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBError.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/NSError+FBError.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSettings.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppEvents.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppCall.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialogsData.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAccessTokenData.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppLinkData.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBErrorUtility.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionTokenCachingStrategy.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBGraphUser.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBGraphPlace.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBGraphLocation.h \
@@ -53,6 +36,32 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBCacheDescriptor.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBFriendPickerViewController.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBNativeDialogs.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBShareDialogParams.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialogsParams.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBOpenGraphActionShareDialogParams.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialogs.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBWebDialogs.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBFrictionlessRecipientCache.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBInsights.h
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBInsights.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionAuthLogger.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionLoginStrategyParams.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSession+FBSessionLoginStrategy.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionInlineWebViewLoginStategy.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionSystemLoginStategy.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionUtility.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSettings+Internal.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBLogger.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBUtility.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBFetchedAppSettings.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDataDiskCache.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAccessTokenData+Internal.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppEvents+Internal.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBLoginDialogParams.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppCall+Internal.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialogs+Internal.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBAppBridge.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/Facebook.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBLoginDialog.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBDialog.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionManualTokenCachingStrategy.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBFrictionlessRequestSettings.h

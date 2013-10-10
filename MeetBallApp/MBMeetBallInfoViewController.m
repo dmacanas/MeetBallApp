@@ -146,7 +146,7 @@ static NSString * const kFacebookId = @"facebookId";
                         if ([[[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"MbResult"] objectForKey:@"Success"] boolValue]) {
                             [weakSelf.commLink updatePasswordForNewFacebookUser:@{@"appUserId":[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"],@"newPassword":cpwd} succss:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                 [weakSelf.progressView setProgress:0.9 animated:YES];
-                                [[NSUserDefaults standardUserDefaults] setObject:[[(NSDictionary *)JSON objectForKey:@"InsertAppUserJsonResult"] objectForKey:@"Id"] forKey:kAppUserId];
+                                [[NSUserDefaults standardUserDefaults] setObject:(NSDictionary *)[(NSArray *)[(NSDictionary *)JSON[@"UpdateAppUserPasswordJsonResult"] objectForKey:@"Items"] objectAtIndex:0][@"AppUserId"] forKey:kAppUserId];
                                 [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:kFirstName];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
                                 

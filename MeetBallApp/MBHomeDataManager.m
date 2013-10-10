@@ -15,7 +15,7 @@
 - (void)getUpcomingMeetBalls:(void (^)(BOOL))completion {
     MBHomeDataCommunicator *communicator = [[MBHomeDataCommunicator alloc] init];
     [communicator getUpcomingMeetBalls:^(NSDictionary *responseObject) {
-        [MBMeetBall truncateAll];
+//        [MBMeetBall truncateAll];
         [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
             for (NSDictionary *dict in responseObject[@"Items"]) {
                 [MBMeetBall importFromObject:dict];

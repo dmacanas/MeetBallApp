@@ -11,7 +11,6 @@
 #import "MBDataCommunicator.h"
 #import "MBMeetBallInfoViewController.h"
 #import "MBCredentialManager.h"
-#import "SVProgressHUD.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 

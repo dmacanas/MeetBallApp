@@ -39,7 +39,6 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBHomeViewController.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBUser.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBAppDelegate.h \
-  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/SVProgressHUD/SVProgressHUD.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBDataCommunicator.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBDataImporter.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/MeetBallApp/MBCredentialManager.h \

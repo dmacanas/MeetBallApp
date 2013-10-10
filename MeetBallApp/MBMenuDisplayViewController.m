@@ -9,11 +9,15 @@
 #import "MBMenuDisplayViewController.h"
 #import "MBMenuCell.h"
 #import "MBMenuNaviagtionViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+
+static NSString * const kProfilePicture = @"profilePic";
 
 @interface MBMenuDisplayViewController ()
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray *menuItems;
+@property (strong, nonatomic) UIImageView *imageView;
 
 @end
 
@@ -30,14 +34,30 @@
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.imageView =[[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
     self.tableView.tableHeaderView = ({
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
+        imageView.tag = 100;
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        imageView.image = [UIImage imageNamed:@"dominic.jpg"];
+        
+        __block UIImage *image = nil;
+        
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:kProfilePicture]) {
+            NSURL *url = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:kProfilePicture]];
+            ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
+            [lib assetForURL:url resultBlock:^(ALAsset *asset) {
+                image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
+                imageView.image = image;
+            } failureBlock:nil];
+            
+        }else {
+            imageView.image = [UIImage imageNamed:@"pl_icon"];
+        }
+        
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
-        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         imageView.layer.borderWidth = 3.0f;
         imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
         imageView.layer.shouldRasterize = YES;
@@ -56,6 +76,50 @@
         view;
     });
     [self.view addSubview:self.tableView];
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:kProfilePicture options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (object == [NSUserDefaults standardUserDefaults] && [keyPath isEqualToString:kProfilePicture]) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
+        imageView.tag = 100;
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        
+        __block UIImage *image = nil;
+        
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:kProfilePicture]) {
+            NSURL *url = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:kProfilePicture]];
+            ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
+            [lib assetForURL:url resultBlock:^(ALAsset *asset) {
+                image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
+                imageView.image = image;
+            } failureBlock:nil];
+            
+        }else {
+            imageView.image = [UIImage imageNamed:@"pl_icon"];
+        }
+        
+        imageView.layer.masksToBounds = YES;
+        imageView.layer.cornerRadius = 50.0;
+        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        imageView.layer.borderWidth = 3.0f;
+        imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        imageView.layer.shouldRasterize = YES;
+        imageView.clipsToBounds = YES;
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
+        label.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"FirstName"];
+        label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
+        [label sizeToFit];
+        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        
+        [view addSubview:imageView];
+        [view addSubview:label];
+        [self.tableView setTableHeaderView:view];
+    }
 }
 
 #pragma mark -

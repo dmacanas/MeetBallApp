@@ -1,198 +1,0 @@
-TPods-TestFlightSDK
-v6
-r1
-cCheck dependencies
-cProcessPCH /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cProcessPCH /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLibtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a normal armv7
-cLibtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a normal armv7s
-cCreateUniversalBinary /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a normal armv7\ armv7s
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk
-c00000000521BCCE10000000000000110
-t1377553633
-s272
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/SDKSettings.plist
-c00000000522ACBFD000000000000036B
-t1378536445
-s875
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/CoreServices/SystemVersion.plist
-c00000000522ACC01000000000000019E
-t1378536449
-s414
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c00000000522ACC0D0000000000A8EAD0
-t1378536461
-s11070160
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c00000000522ACC190000000002597C70
-t1378536473
-s39418992
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.o
-t1380920204
-s3520
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK.LinkFileList
-c00000000524F2B8B00000000000000AE
-t1380920203
-s174
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a
-t1380920204
-s3824
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.o
-t1380920204
-s3520
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK.LinkFileList
-c00000000524F2B8B00000000000000AF
-t1380920203
-s175
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a
-t1380920204
-s3824
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.pch
-t1380920203
-s5280872
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.pch
-t1380920203
-s5280992
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a
-t2
-s0
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m
-c000000005241A5EF000000000000008C
-t1380034031
-s140
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-prefix.pch
-c000000005241A5EF000000000000004D
-t1380034031
-s77
-
-N/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-environment.h
-c000000005241A5EF00000000000004FD
-t1380034031
-s1277
-
-CBuild AST from /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m
-r0
-
-CCheck dependencies
-r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesa73d590b63ffb741^7809660b63ffb741^---0#1#1#--18"Check dependencies36"BE25BC04-A504-4618-A2FF-AC7FBC5BB27B-
-
-CCompileC /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s402613004.223166
-e402613004.263814
-r1
-xCompileC
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.o
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m278"CompileC /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.o Pods-TestFlightSDK-dummy.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler293f390c63ffb741^b18a430c63ffb741^---0#0#1#-19%DVTDocumentLocation2@100"file://localhost/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m0000000000000000^4681"CompileC /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.o Pods-TestFlightSDK-dummy.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/dominicmacanas/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.0 -iquote /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-generated-files.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-own-target-headers.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-all-target-headers.hmap -iquote /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-project-headers.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/include -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/BuildHeaders -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/BuildHeaders/TestFlightSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/AFNetworking -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/MagicalRecord -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/SVProgressHUD -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/TestFlightSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/DerivedSources/armv7 -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/DerivedSources -F/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos -DNS_BLOCK_ASSERTIONS=1 -include /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch -MMD -MT dependencies -MF /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.d --serialize-diagnostics /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.dia -c /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m -o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK-dummy.o36"7EDB15FE-23AD-4279-9A27-0BE28FE6851E-
-b29231C04-2CE9-4FAF-B9C0-1FA7F4BDE253
-
-CCompileC /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s402613004.311929
-e402613004.333278
-r1
-xCompileC
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.o
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m
-xnormal
-xarmv7s
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m280"CompileC /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.o Pods-TestFlightSDK-dummy.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerecf84f0c63ffb741^245f550c63ffb741^---0#0#1#-19%DVTDocumentLocation2@100"file://localhost/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m0000000000000000^4688"CompileC /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.o Pods-TestFlightSDK-dummy.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/dominicmacanas/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.0 -iquote /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-generated-files.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-own-target-headers.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-all-target-headers.hmap -iquote /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-project-headers.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/include -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/BuildHeaders -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/BuildHeaders/TestFlightSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/AFNetworking -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/MagicalRecord -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/SVProgressHUD -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/TestFlightSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/DerivedSources/armv7s -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/DerivedSources -F/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos -DNS_BLOCK_ASSERTIONS=1 -include /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch -MMD -MT dependencies -MF /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.d --serialize-diagnostics /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.dia -c /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-dummy.m -o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK-dummy.o36"9088080C-79B6-444C-9B25-4FBE2BE5A0EB-
-b29231C04-2CE9-4FAF-B9C0-1FA7F4BDE253
-
-CCreateUniversalBinary /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a normal armv7\ armv7s
-s402613004.663245
-e402613004.671933
-r1
-xCreateUniversalBinary
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a
-xnormal
-xarmv7 armv7s
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection132"Create universal binary /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a151"CreateUniversalBinary /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a normal armv7\ armv7scadfa90c63ffb741^c904ac0c63ffb741^---0#0#1#-19%DVTDocumentLocation2@124"file://localhost/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a0038c414ddffdf42^1091"CreateUniversalBinary /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a normal armv7\ armv7s    cd /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/dominicmacanas/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    libtool -static /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a -o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/libPods-TestFlightSDK.a36"3E9B99CB-E809-4EB2-889B-3CBA4EFD4E08-
-b29231C04-2CE9-4FAF-B9C0-1FA7F4BDE253
-
-CLibtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a normal armv7
-s402613004.431742
-e402613004.438063
-r1
-xLibtool
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a
-xnormal
-xarmv7
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection191"Libtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a normal armv7191"Libtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a normal armv7999c6e0c63ffb741^3925700c63ffb741^---0#0#1#--1499"Libtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a normal armv7    cd /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods    setenv IPHONEOS_DEPLOYMENT_TARGET 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/dominicmacanas/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos -L/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/TestFlightSDK -filelist /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/Pods-TestFlightSDK.LinkFileList -framework Foundation -framework UIKit -o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7/libPods-TestFlightSDK.a36"6B764518-2E30-4638-8E22-2336D89AB19F-
-b29231C04-2CE9-4FAF-B9C0-1FA7F4BDE253
-
-CLibtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a normal armv7s
-s402613004.510176
-e402613004.516753
-r1
-xLibtool
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a
-xnormal
-xarmv7s
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection193"Libtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a normal armv7s193"Libtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a normal armv7sf7b1820c63ffb741^0e4a840c63ffb741^---0#0#1#--1504"Libtool /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a normal armv7s    cd /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods    setenv IPHONEOS_DEPLOYMENT_TARGET 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/dominicmacanas/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7s -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos -L/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/TestFlightSDK -filelist /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/Pods-TestFlightSDK.LinkFileList -framework Foundation -framework UIKit -o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Objects-normal/armv7s/libPods-TestFlightSDK.a36"4E5CA425-50F0-4121-BCB4-869B42E15BF8-
-b29231C04-2CE9-4FAF-B9C0-1FA7F4BDE253
-
-CProcessPCH /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s402613003.487826
-e402613003.990266
-r1
-xProcessPCH
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.pch
-xPods-TestFlightSDK-prefix.pch
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-prefix.pch
-d/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-environment.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Precompile Pods-TestFlightSDK-prefix.pch290"ProcessPCH /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler32ff7c0b63ffb741^2192fd0b63ffb741^---0#0#1#-19%DVTDocumentLocation2@103"file://localhost/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-prefix.pch0000000000000000^4534"ProcessPCH /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/dominicmacanas/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.0 -iquote /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-generated-files.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-own-target-headers.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-all-target-headers.hmap -iquote /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-project-headers.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/include -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/BuildHeaders -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/BuildHeaders/TestFlightSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/AFNetworking -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/MagicalRecord -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/SVProgressHUD -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/TestFlightSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/DerivedSources/armv7 -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/DerivedSources -F/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos -DNS_BLOCK_ASSERTIONS=1 --serialize-diagnostics /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.dia -MMD -MT dependencies -MF /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.d -c /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-prefix.pch -o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-alfimicswmtxswbqjroktnmoomeq/Pods-TestFlightSDK-prefix.pch.pch36"161B0BB3-C80B-4880-AFC3-F5BB98F880C1-
-b29231C04-2CE9-4FAF-B9C0-1FA7F4BDE253
-
-CProcessPCH /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s402613003.587164
-e402613003.986381
-r1
-xProcessPCH
-x/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.pch
-xPods-TestFlightSDK-prefix.pch
-xnormal
-xarmv7s
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-prefix.pch
-d/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-environment.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Precompile Pods-TestFlightSDK-prefix.pch291"ProcessPCH /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerf773960b63ffb741^8484fc0b63ffb741^---0#0#1#-19%DVTDocumentLocation2@103"file://localhost/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-prefix.pch0000000000000000^4537"ProcessPCH /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/dominicmacanas/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/dominicmacanas/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DCOCOAPODS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.0 -iquote /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-generated-files.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-own-target-headers.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-all-target-headers.hmap -iquote /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/Pods-TestFlightSDK-project-headers.hmap -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos/include -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/BuildHeaders -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/BuildHeaders/TestFlightSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/AFNetworking -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/Facebook-iOS-SDK/FacebookSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/MagicalRecord -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/SVProgressHUD -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Headers/TestFlightSDK -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/DerivedSources/armv7s -I/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/Pods.build/Release-iphoneos/Pods-TestFlightSDK.build/DerivedSources -F/Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Products/Release-iphoneos -DNS_BLOCK_ASSERTIONS=1 --serialize-diagnostics /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.dia -MMD -MT dependencies -MF /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.d -c /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Pods-TestFlightSDK-prefix.pch -o /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Build/Intermediates/PrecompiledHeaders/Pods-TestFlightSDK-prefix-etdhwznqkejfobdmcwvdbniwipfq/Pods-TestFlightSDK-prefix.pch.pch36"7C16BE3F-FEB1-4569-A07F-8B433D5086A0-
-b29231C04-2CE9-4FAF-B9C0-1FA7F4BDE253
-
-CProcessPCH /Users/dominicmacanas/Library/Developer/Xcode/DerivedData/MeetBallApp-hahsipxkrkmtllhkeqscbbmyegal/Index/PrecompiledHeaders/Pods-TestFlightSDK-prefix-aaizkikvxorltfevulmdaesrqxfs_ast/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
-r0
-
-CProcessPCH /Users/dominicmacanas/Library/Developer/Xcode/DerivedData/MeetBallApp-hahsipxkrkmtllhkeqscbbmyegal/Index/PrecompiledHeaders/Pods-TestFlightSDK-prefix-fbtcflogsmxuvhbbslcrahikpbvv_ast/Pods-TestFlightSDK-prefix.pch.pch Pods-TestFlightSDK-prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
-r0
-

@@ -10,6 +10,8 @@ dependencies: \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBGraphObject.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSession+Internal.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSystemAccountStoreAdapter.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBTask.h \
+  /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBTaskCompletionSource.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBSessionAppEventsState.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBRequest.h \
   /Users/dominicmacanas/Desktop/iOS-Native/MeetBallApp/Pods/Facebook-iOS-SDK/src/FBRequestConnection.h \

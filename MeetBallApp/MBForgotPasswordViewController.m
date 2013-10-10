@@ -8,7 +8,6 @@
 
 #import "MBForgotPasswordViewController.h"
 #import "MBDataCommunicator.h"
-#import "SVProgressHUD.h"
 
 @interface MBForgotPasswordViewController ()
 
@@ -43,10 +42,8 @@
 
 - (IBAction)resetPassword:(id)sender {
     if(self.emailTextField.text.length > 0){
-//        [SVProgressHUD showWithStatus:@"Reseting password" maskType:SVProgressHUDMaskTypeClear];
         [self.commLink resetPassword:self.emailTextField.text succss:^(id JSON) {
             if(JSON){
-                [SVProgressHUD dismiss];
                 if ([[[(NSDictionary *)JSON objectForKey:@"ResetAppUserPasswordJsonResult"][@"MbResult"] objectForKey:@"Success"] boolValue]) {
                     [self.navigationController popToRootViewControllerAnimated:YES];
                     UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"Reset Password" message:@"New login information will be emailed shortly" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
