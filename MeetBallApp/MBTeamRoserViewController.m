@@ -11,6 +11,7 @@
 #import "MBMenuView.h"
 #import "MBPerson.h"
 #import "MBMenuNaviagtionViewController.h"
+#import "MBFriendDetailViewController.h"
 
 #import <AddressBook/AddressBook.h>
 static NSString * const kFriendSorting = @"friendSorting";
@@ -20,6 +21,7 @@ static NSString * const kFriendSorting = @"friendSorting";
 @property (strong, nonatomic) MBMenuView *menu;
 @property (assign, nonatomic) BOOL isShowingMenu;
 @property (strong, nonatomic) NSMutableArray *addressBookData;
+@property (strong, nonatomic) MBPerson *person;
 
 @end
 
@@ -101,6 +103,20 @@ static NSString * const kFriendSorting = @"friendSorting";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MBPerson *p = [self.addressBookData objectAtIndex:indexPath.row];
+    self.person = p;
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self performSegueWithIdentifier:@"friendDetail" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MBFriendDetailViewController *vc = (MBFriendDetailViewController *)[segue destinationViewController];
+    vc.person = self.person;
+}
+
+#pragma mark - Address book fetching
+
 - (void)getPersonOutOfAddressBook
 {
     //1
@@ -147,12 +163,19 @@ static NSString * const kFriendSorting = @"friendSorting";
             //email
             //5
             ABMultiValueRef emails = ABRecordCopyValue(contactPerson, kABPersonEmailProperty);
+            ABMultiValueRef phones = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty);
             
             //6
+            NSMutableArray *emailArray = [[NSMutableArray alloc] init];
+            NSMutableArray *emailLabArra = [[NSMutableArray alloc] init];
             NSUInteger j = 0;
             for (j = 0; j < ABMultiValueGetCount(emails); j++)
             {
                 NSString *email = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(emails, j);
+                CFStringRef l = ABMultiValueCopyLabelAtIndex(emails, j);
+                NSString *label = (__bridge NSString *)ABAddressBookCopyLocalizedLabel(l);
+                [emailArray addObject:email];
+                [emailLabArra addObject:label];
                 if (j == 0)
                 {
                     person.homeEmail = email;
@@ -162,6 +185,20 @@ static NSString * const kFriendSorting = @"friendSorting";
                 else if (j==1)
                     person.workEmail = email;
             }
+            person.emailAddresses = emailArray;
+            person.emailLabels = emailLabArra;
+            NSMutableArray *phoneArray = [[NSMutableArray alloc] init];
+            NSMutableArray *labelArray = [[NSMutableArray alloc] init];
+            for (NSInteger i = 0; i < ABMultiValueGetCount(phones); i++) {
+                NSString *phone =  (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(phones, i);
+                CFStringRef l = ABMultiValueCopyLabelAtIndex(phones, i);
+                NSString *label = (__bridge NSString *)ABAddressBookCopyLocalizedLabel(l);
+                [phoneArray addObject:phone];
+                [labelArray addObject:label];
+                NSLog(@"Phone:%@, i:%ld", phone, (long)i);
+            }
+            person.phoneNumbers = phoneArray;
+            person.phoneLabels = labelArray;
             //7
             [self.addressBookData addObject:person];
         }

@@ -76,6 +76,7 @@
 		3446717E17CD543400469B39 /* homeStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3446717D17CD543400469B39 /* homeStoryBoard.storyboard */; };
 		3446718117CD545B00469B39 /* MBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3446718017CD545B00469B39 /* MBHomeViewController.m */; };
 		344B514C17DA74E4000F31FB /* MBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344B514B17DA74E4000F31FB /* MBDetailsViewController.m */; };
+		344E8E7118074BED0093BA87 /* MBFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344E8E7018074BED0093BA87 /* MBFriendDetailViewController.m */; };
 		346599D717DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346599D617DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib */; };
 		346599DA17DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */; };
 		346599DE17DE687C007CAE61 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346599DC17DE6856007CAE61 /* MapKit.framework */; };
@@ -235,6 +236,8 @@
 		3446718017CD545B00469B39 /* MBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHomeViewController.m; sourceTree = "<group>"; };
 		344B514A17DA74E4000F31FB /* MBDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDetailsViewController.h; sourceTree = "<group>"; };
 		344B514B17DA74E4000F31FB /* MBDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDetailsViewController.m; sourceTree = "<group>"; };
+		344E8E6F18074BED0093BA87 /* MBFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFriendDetailViewController.h; sourceTree = "<group>"; };
+		344E8E7018074BED0093BA87 /* MBFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFriendDetailViewController.m; sourceTree = "<group>"; };
 		346599D617DE5DC0007CAE61 /* MBHomeMeetBallCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBHomeMeetBallCollectionViewCell.xib; sourceTree = "<group>"; };
 		346599D817DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHomeMeetBallCollectionViewCell.h; sourceTree = "<group>"; };
 		346599D917DE5F3E007CAE61 /* MBHomeMeetBallCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHomeMeetBallCollectionViewCell.m; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				340F3C4D17E8BA3D00491CCB /* TeamRosterStoryboard.storyboard */,
 				340F3C4F17E8BB8700491CCB /* MBTeamRoserViewController.h */,
 				340F3C5017E8BB8700491CCB /* MBTeamRoserViewController.m */,
+				344E8E6F18074BED0093BA87 /* MBFriendDetailViewController.h */,
+				344E8E7018074BED0093BA87 /* MBFriendDetailViewController.m */,
 			);
 			name = "Team Roster";
 			sourceTree = "<group>";
@@ -1040,6 +1045,7 @@
 				34AF8CF017D68B990090D826 /* MBForgotPasswordViewController.m in Sources */,
 				34FBC51D17FDBE8F0001933F /* MBMenuDisplayViewController.m in Sources */,
 				34AF8CF417D696690090D826 /* MeetBalls.m in Sources */,
+				344E8E7118074BED0093BA87 /* MBFriendDetailViewController.m in Sources */,
 				3473045817E1167B0026CE10 /* meetBallListTableViewCell.m in Sources */,
 				34FBC4E517FC7B5E0001933F /* MBEditProfileViewController.m in Sources */,
 				3473045B17E116D50026CE10 /* MBCommentsCollectionView.m in Sources */,

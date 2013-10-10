@@ -188,24 +188,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4U0-rR-OmX" customClass="FBLoginView">
-                                <rect key="frame" x="20" y="265" width="280" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="fL0-lF-ko5"/>
-                                    <constraint firstAttribute="height" constant="44" id="ika-yK-PH4"/>
-                                </constraints>
-                            </view>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9l7-WH-a3M">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.20784313730000001" green="0.32549019610000002" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lP-8p-uy1">
-                                <rect key="frame" x="137" y="332" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lP-8p-uy1">
+                                <rect key="frame" x="20" y="265" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.32549019610000002" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7jV-pY-3Vz"/>
+                                </constraints>
+                                <state key="normal" title="Login With Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -215,18 +211,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ske-PK-LUR" firstAttribute="leading" secondItem="4U0-rR-OmX" secondAttribute="leading" id="6ys-2n-flY"/>
+                            <constraint firstItem="3lP-8p-uy1" firstAttribute="centerX" secondItem="KI1-N0-AEr" secondAttribute="centerX" id="4Tv-ps-HJ5"/>
                             <constraint firstItem="ske-PK-LUR" firstAttribute="leading" secondItem="d5u-Xl-Kyf" secondAttribute="leading" id="8zS-b5-v8q"/>
-                            <constraint firstItem="4U0-rR-OmX" firstAttribute="leading" secondItem="KI1-N0-AEr" secondAttribute="leading" constant="-132" id="DKa-x6-1Ra"/>
                             <constraint firstItem="ske-PK-LUR" firstAttribute="top" secondItem="0UW-6m-dCs" secondAttribute="bottom" constant="31" id="I6E-0U-pvO"/>
                             <constraint firstItem="ske-PK-LUR" firstAttribute="leading" secondItem="fef-of-dNx" secondAttribute="leading" constant="20" symbolic="YES" id="JMm-4D-ZPj"/>
                             <constraint firstItem="d5u-Xl-Kyf" firstAttribute="top" secondItem="49c-3N-OZ8" secondAttribute="bottom" constant="51" id="Jam-Le-CiI"/>
                             <constraint firstItem="8h9-GC-hWf" firstAttribute="leading" secondItem="49c-3N-OZ8" secondAttribute="leading" id="No4-VV-FO6"/>
+                            <constraint firstItem="3lP-8p-uy1" firstAttribute="top" secondItem="KI1-N0-AEr" secondAttribute="bottom" constant="8" symbolic="YES" id="SZ7-GS-3M2"/>
+                            <constraint firstItem="3lP-8p-uy1" firstAttribute="trailing" secondItem="d5u-Xl-Kyf" secondAttribute="trailing" id="a0P-Kw-okz"/>
                             <constraint firstItem="KI1-N0-AEr" firstAttribute="top" secondItem="d5u-Xl-Kyf" secondAttribute="bottom" constant="14" id="bIa-mk-RPS"/>
                             <constraint firstItem="ske-PK-LUR" firstAttribute="leading" secondItem="49c-3N-OZ8" secondAttribute="leading" id="eRT-GU-QbK"/>
                             <constraint firstItem="49c-3N-OZ8" firstAttribute="top" secondItem="ske-PK-LUR" secondAttribute="bottom" constant="16" id="jdv-KD-aa4"/>
-                            <constraint firstItem="4U0-rR-OmX" firstAttribute="top" secondItem="KI1-N0-AEr" secondAttribute="bottom" constant="8" id="m3h-eS-mwn"/>
                             <constraint firstItem="8h9-GC-hWf" firstAttribute="top" secondItem="49c-3N-OZ8" secondAttribute="bottom" constant="13" id="pi5-7N-wQk"/>
+                            <constraint firstItem="3lP-8p-uy1" firstAttribute="leading" secondItem="d5u-Xl-Kyf" secondAttribute="leading" id="shO-qu-zIv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="imh-6d-INc">
@@ -238,7 +235,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="FacebookLogin" destination="4U0-rR-OmX" id="TDX-uT-Fih"/>
                         <outlet property="cancelButton" destination="2OD-ln-3lg" id="xKY-TL-2ja"/>
                         <outlet property="emailField" destination="ske-PK-LUR" id="AkZ-Lv-a1q"/>
                         <outlet property="loginButton" destination="d5u-Xl-Kyf" id="rwS-0q-xcs"/>
@@ -248,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yia-mg-aEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="-211"/>
+            <point key="canvasLocation" x="987" y="-189"/>
         </scene>
         <!--Forgot Password View Controller - Forgot Password-->
         <scene sceneID="0zP-w9-RzR">
@@ -321,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oU-mL-H2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1425" y="-211"/>
+            <point key="canvasLocation" x="1443" y="-189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lKU-f2-2i5">

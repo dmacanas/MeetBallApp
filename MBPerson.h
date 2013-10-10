@@ -15,5 +15,9 @@
 @property (nonatomic, strong) NSString *fullName;
 @property (nonatomic, strong) NSString *homeEmail;
 @property (nonatomic, strong) NSString *workEmail;
+@property (nonatomic, strong) NSArray *phoneNumbers;
+@property (nonatomic, strong) NSArray *phoneLabels;
+@property (nonatomic, strong) NSArray *emailAddresses;
+@property (nonatomic, strong) NSArray *emailLabels;
 
 @end
