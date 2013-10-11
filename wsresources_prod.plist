@@ -216,5 +216,27 @@
 		<key>method</key>
 		<string>GET</string>
 	</dict>
+	<key>AddFriendByEmail</key>
+	<dict>
+		<key>URL</key>
+		<string>https://ws.meetball.com/{version}/service.svc/json/Appuser/Friend/Email?appUserId={appUserId}</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
+	<key>AddFriendByPhone</key>
+	<dict>
+		<key>URL</key>
+		<string>https://ws.meetball.com/{version}/service.svc/json/Appuser/Friend/Phone?appUserId={appUserId}</string>
+		<key>method</key>
+		<string>POST</string>
+		<key>Content-Type</key>
+		<string>application/json</string>
+		<key>Accept</key>
+		<string>application/json</string>
+	</dict>
 </dict>
 </plist>

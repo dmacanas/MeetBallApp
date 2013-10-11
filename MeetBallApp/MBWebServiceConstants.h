@@ -29,3 +29,5 @@ extern NSString * const kWebServiceUpdatePhoneNumber;
 extern NSString * const kWebServiceGetUserDefaults;
 extern NSString * const kWebServiceUpdateUserDefaults;
 extern NSString * const kWebServiceGetMeetBallInvitees;
+extern NSString * const kWebServiceAddFriendByEmail;
+extern NSString * const kWebServiceAddFriendByPhone;

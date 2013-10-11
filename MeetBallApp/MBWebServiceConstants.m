@@ -31,3 +31,5 @@ NSString * const kWebServiceUpdatePhoneNumber = @"UpdatePhoneNumber";
 NSString * const kWebServiceGetUserDefaults = @"GetUserDefaults";
 NSString * const kWebServiceUpdateUserDefaults = @"UpdateUserDefaults";
 NSString * const kWebServiceGetMeetBallInvitees = @"GetMeetBallInvitees";
+NSString * const kWebServiceAddFriendByEmail = @"AddFriendByEmail";
+NSString * const kWebServiceAddFriendByPhone = @"AddFriendByPhone";

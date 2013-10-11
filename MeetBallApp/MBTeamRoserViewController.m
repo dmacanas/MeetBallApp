@@ -16,12 +16,13 @@
 #import <AddressBook/AddressBook.h>
 static NSString * const kFriendSorting = @"friendSorting";
 
-@interface MBTeamRoserViewController () <MBMenuViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MBTeamRoserViewController () <MBMenuViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) MBMenuView *menu;
 @property (assign, nonatomic) BOOL isShowingMenu;
 @property (strong, nonatomic) NSMutableArray *addressBookData;
 @property (strong, nonatomic) MBPerson *person;
+@property (strong, nonatomic) NSArray *searchResults;
 
 @end
 
@@ -88,7 +89,11 @@ static NSString * const kFriendSorting = @"friendSorting";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.addressBookData.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return self.searchResults.count;
+    } else {
+        return self.addressBookData.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,22 +102,34 @@ static NSString * const kFriendSorting = @"friendSorting";
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    MBPerson *p = [self.addressBookData objectAtIndex:indexPath.row];
+    
+    MBPerson *p;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        p = [self.searchResults objectAtIndex:indexPath.row];
+    } else {
+        p = [self.addressBookData objectAtIndex:indexPath.row];
+    }
     cell.textLabel.text = p.fullName;
-    cell.detailTextLabel.text = p.homeEmail;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MBPerson *p = [self.addressBookData objectAtIndex:indexPath.row];
+    MBPerson *p;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        p = [self.searchResults objectAtIndex:indexPath.row];
+    } else {
+        p = [self.addressBookData objectAtIndex:indexPath.row];
+    }
     self.person = p;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self performSegueWithIdentifier:@"friendDetail" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    MBFriendDetailViewController *vc = (MBFriendDetailViewController *)[segue destinationViewController];
-    vc.person = self.person;
+    if ([segue.identifier isEqualToString:@"friendDetail"]) {
+        MBFriendDetailViewController *vc = (MBFriendDetailViewController *)[segue destinationViewController];
+        vc.person = self.person;
+    }
 }
 
 #pragma mark - Address book fetching
@@ -153,9 +170,14 @@ static NSString * const kFriendSorting = @"friendSorting";
             
             //4
             NSString *firstName = (__bridge_transfer NSString *)ABRecordCopyValue(contactPerson, kABPersonFirstNameProperty);
+            if (firstName.length == 0) {
+                firstName = @"";
+            }
             NSString *lastName =  (__bridge_transfer NSString *)ABRecordCopyValue(contactPerson, kABPersonLastNameProperty);
+            if (lastName.length == 0) {
+                lastName = @"";
+            }
             NSString *fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-            
             person.firstName = firstName;
             person.lastName = lastName;
             person.fullName = fullName;
@@ -179,7 +201,6 @@ static NSString * const kFriendSorting = @"friendSorting";
                 if (j == 0)
                 {
                     person.homeEmail = email;
-                    NSLog(@"person.homeEmail = %@ ", person.homeEmail);
                 }
                 
                 else if (j==1)
@@ -195,12 +216,14 @@ static NSString * const kFriendSorting = @"friendSorting";
                 NSString *label = (__bridge NSString *)ABAddressBookCopyLocalizedLabel(l);
                 [phoneArray addObject:phone];
                 [labelArray addObject:label];
-                NSLog(@"Phone:%@, i:%ld", phone, (long)i);
             }
             person.phoneNumbers = phoneArray;
             person.phoneLabels = labelArray;
             //7
-            [self.addressBookData addObject:person];
+            if (person.firstName.length > 0 || person.lastName.length > 0) {
+                [self.addressBookData addObject:person];
+            }
+
         }
         [self friendSorting];
         //8
@@ -230,6 +253,24 @@ static NSString * const kFriendSorting = @"friendSorting";
     NSArray *sortDesc = [NSArray arrayWithObject:sort];
     NSArray *array = [self.addressBookData sortedArrayUsingDescriptors:sortDesc];
     self.addressBookData = [array mutableCopy];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"firstName contains[cd] %@ || lastName contains[cd] %@",
+                                    searchText, searchText];
+    
+    self.searchResults = [self.addressBookData filteredArrayUsingPredicate:resultPredicate];
 }
 
 - (void)didReceiveMemoryWarning
